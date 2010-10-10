@@ -103,7 +103,7 @@ DEPENDENCIES
   haml
   mysql2
   rails (= 3.0.0)
-  rmagick
+  rmagick (>= 2.13.1)
   rspec
   rspec-rails (>= 2.0.0.rc)
   will_paginate (>= 3.0.pre2)
