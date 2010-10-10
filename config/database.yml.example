@@ -5,7 +5,7 @@ development:
   database: gracehrabi_development
   pool: 5
   username: root
-  password:
+  password: 
   host: localhost
 
 test:
@@ -15,7 +15,7 @@ test:
   database: gracehrabi_test
   pool: 5
   username: root
-  password:
+  password: 
   host: localhost
 
 production:
