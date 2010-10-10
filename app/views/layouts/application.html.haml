@@ -1,22 +1,22 @@
 !!!
-  %html
-    %head
-      %title
-        Grace Hrabi
-        = " :: #{@title}" unless @title.blank?
+%html
+  %head
+    %title
+      Grace Hrabi
+      = " :: #{@title}" unless @title.blank?
 
-        = stylesheet_link_tag :all
+    = stylesheet_link_tag :all
 
-        = javascript_include_tag 'jquery/jquery-1.4.2.min'
-        = javascript_include_tag :all, :cache => true
+    = javascript_include_tag 'jquery/jquery-1.4.2.min'
+    = javascript_include_tag :all, :cache => true
 
-        = csrf_meta_tag
+    = csrf_meta_tag
 
-    %body
-      #wrapper
-        #header
-        
-        #content
-          = yield
-        #footer
+  %body
+    #wrapper
+      #header
+      
+      #content
+        = yield
+      #footer
           

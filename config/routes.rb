@@ -1,6 +1,16 @@
 GracehrabiCom::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+
+  # blog
+  root :to => "posts#index"
+  match 'blog/:id' => 'posts#show'
+  
+  
+  # admin
+  match 'admin/login' => 'admin/sessions#new'
+  
+  resources :admin do
+    resources :sessions
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

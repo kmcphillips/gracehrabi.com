@@ -1,0 +1,16 @@
+- form_tag :url => admin_sessions_path, :method => :post do
+  - if @user.errors.any?
+    #error_explanation
+      %h2 Username or password incorrect.
+
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = text_field_tag :username
+    
+    = text_field_tag :password
+    
+    = submit_tag
+    
