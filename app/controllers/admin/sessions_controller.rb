@@ -5,11 +5,13 @@ class Admin::SessionsController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def logout
-
+    flash[:notice] = "You have been logged out" if current_user
+    session[:current_user] = nil
+    redirect_to "/"
   end
   
 end
