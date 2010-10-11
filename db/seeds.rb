@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+Block.create! :body => "", :label => "about", :path => "/about"
+Block.create! :body => "", :label => "contact", :path => "/contact"

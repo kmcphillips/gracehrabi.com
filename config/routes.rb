@@ -5,6 +5,10 @@ GracehrabiCom::Application.routes.draw do
   match 'blog/:id' => 'posts#show'
   match 'rss.:format' => 'posts#rss'
   
+  ['about', 'contact'].each do |block|
+    match block => "blocks##{block}"
+  end
+  
   # admin
   namespace :admin do
     match 'login' => 'sessions#new'
