@@ -5,8 +5,14 @@ class User < ActiveRecord::Base
   attr_protected :id
   attr_readonly :username
   
-  def self.authenticate(username, password)
-    User.first(:conditions => ["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)]) unless username.blank? || password.blank?
+  def self.authenticate(opts)
+    opts.symbolize_keys!
+    username = opts[:username]
+    password = opts[:password]
+    password_confirm = opts[:password_confirm] || opts[:password]
+    
+    return nil if password.blank? || username.blank? || (password_confirm != password)
+    User.first(:conditions => ["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)])
   end
   
   def self.encrypt(password)
