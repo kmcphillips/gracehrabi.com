@@ -22,4 +22,9 @@ describe PostsController do
     end
   end
 
+  describe "GET rss.xml" do
+    it "should get all posts" do
+      pending "I don't know how to test Arel yet"
+    end
+  end
 end

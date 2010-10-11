@@ -3,7 +3,7 @@ GracehrabiCom::Application.routes.draw do
   # blog
   root :to => "posts#index"
   match 'blog/:id' => 'posts#show'
-  
+  match 'rss.:format' => 'posts#rss'
   
   # admin
   namespace :admin do
