@@ -47,6 +47,10 @@ describe Admin::SessionsController do
   end
   
   describe "GET password" do
+    before(:each) do
+      controller.current_user(mock_user)
+    end
+    
     it "should just load" do
       get :password
       response.should be_successful

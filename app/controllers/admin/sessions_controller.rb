@@ -1,4 +1,5 @@
 class Admin::SessionsController < ApplicationController
+  before_filter :require_login
 
   def new
     if current_user
@@ -33,5 +34,10 @@ class Admin::SessionsController < ApplicationController
     
     redirect_to password_admin_sessions_path
   end
+
+  protected
   
+  def require_login_except
+    ["new", "create", "logout"]
+  end
 end

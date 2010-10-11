@@ -25,3 +25,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+def login_as_mock_user
+  u = mock_model(User)
+  controller.stub!(:current_user => u)
+  u
+end

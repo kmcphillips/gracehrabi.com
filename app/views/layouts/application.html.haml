@@ -1,9 +1,7 @@
 !!!
 %html
   %head
-    %title
-      = PAGE_TITLE
-      = " :: #{@title}" unless @title.blank?
+    %title= page_title
 
     = stylesheet_link_tag :all
 

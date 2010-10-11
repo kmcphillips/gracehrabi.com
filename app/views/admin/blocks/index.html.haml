@@ -1,0 +1,15 @@
+%h1 Listing blocks
+
+%table
+  %th
+    %th Body
+    %th Label
+    %th Path
+    %th Actions
+
+  - @blocks.each do |block|
+    %tr
+      %td= block.body
+      %td= block.label
+      %td= block.path
+      %td= link_to 'Edit', edit_admin_block_path(block)
