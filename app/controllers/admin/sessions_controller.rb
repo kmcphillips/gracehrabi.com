@@ -21,4 +21,17 @@ class Admin::SessionsController < ApplicationController
     redirect_to "/"
   end
   
+  def password
+  end
+  
+  def change_password
+    if (@user = current_user).change_password!(params[:password], params[:password_confirm])
+      flash[:notice] = "Your password has been changed"
+    else
+      flash[:error] = @user.errors.full_messages.to_sentence
+    end
+    
+    redirect_to password_admin_sessions_path
+  end
+  
 end

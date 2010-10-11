@@ -10,7 +10,12 @@ GracehrabiCom::Application.routes.draw do
     match 'login' => 'sessions#new'
     match 'logout' => 'sessions#logout'
     
-    resources :sessions
+    resources :sessions do
+      collection do
+        get 'password'
+        post 'change_password'
+      end
+    end
   end
 
 

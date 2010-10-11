@@ -15,5 +15,13 @@ describe Admin::SessionsController do
       { :delete => "/admin/logout" }.should route_to(:controller => "admin/sessions", :action => "logout")
     end
 
+    it "recognizes and generates #password" do
+      { :get => "/admin/sessions/password" }.should route_to(:controller => "admin/sessions", :action => "password")
+    end
+
+    it "recognizes and generates #change_password" do
+      { :post => "/admin/sessions/change_password" }.should route_to(:controller => "admin/sessions", :action => "change_password")
+    end
+
   end
 end
