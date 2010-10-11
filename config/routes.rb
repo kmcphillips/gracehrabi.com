@@ -6,11 +6,14 @@ GracehrabiCom::Application.routes.draw do
   
   
   # admin
-  match 'admin/login' => 'admin/sessions#new'
-  
-  resources :admin do
+  namespace :admin do
+    match 'login' => 'sessions#new'
+    match 'logout' => 'sessions#logout'
+    
     resources :sessions
   end
+
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
