@@ -10,6 +10,11 @@
 Personal home page for Grace Hrabi. It is written with Rails 3, haml, and jQuery. It provides a full CMS back end including RMagick image upload, transformation, and thumbnailing.
 
 
+# Disclaimer
+
+This site is under heavy development and is not yet functional. The site currently deployed to gracehrabi.com is the legacy PHP site that is being replaced.
+
+
 ## Quick Setup
 
 With an OS X or Linux machine with ruby and bundler installed, you should be able to go from 0 to running in under three minutes. 
