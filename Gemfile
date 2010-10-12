@@ -12,6 +12,6 @@ gem 'rmagick', ">= 2.13.1"
 
 group :development, :test do
   gem "mongrel"
-  gem "rspec"
-  gem "rspec-rails", ">= 2.0.0.rc"
+  gem "rspec", ">= 2.0.0"
+  gem "rspec-rails", ">= 2.0.0"
 end
