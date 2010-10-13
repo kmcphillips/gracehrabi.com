@@ -45,8 +45,15 @@ GEM
     fastthread (1.0.1)
     gem_plugin (0.2.3)
     haml (3.0.21)
+    haml-rails (0.3.1)
+      actionpack (~> 3.0.0)
+      activesupport (~> 3.0.0)
+      haml (~> 3.0.18)
+      railties (~> 3.0.0)
     highline (1.6.1)
     i18n (0.4.1)
+    jquery-rails (0.2.3)
+      rails (~> 3.0)
     mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
@@ -65,6 +72,9 @@ GEM
     net-ssh (2.0.23)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
+    paperclip (2.3.4)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -110,8 +120,11 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   haml
+  haml-rails
+  jquery-rails
   mongrel
   mysql2
+  paperclip
   rails (= 3.0.0)
   rmagick (>= 2.13.1)
   rspec (>= 2.0.0)

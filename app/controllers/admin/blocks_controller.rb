@@ -16,13 +16,12 @@ class Admin::BlocksController < ApplicationController
   def update
     @block = Block.find(params[:id])
 
-    respond_to do |format|
-      if @block.update_attributes(params[:block])
-        redirect_to(admin_blocks_path, :notice => 'Block was successfully updated.')
-      else
-        render :action => "edit"
-      end
+    if @block.update_attributes(params[:block])
+      redirect_to(admin_blocks_path, :notice => 'Block was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
 end
+

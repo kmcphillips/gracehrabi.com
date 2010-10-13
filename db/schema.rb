@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101011132912) do
+ActiveRecord::Schema.define(:version => 20101013213645) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -29,6 +29,23 @@ ActiveRecord::Schema.define(:version => 20101011132912) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tracks", :force => true do |t|
+    t.string   "title"
+    t.date     "recorded_at"
+    t.text     "description"
+    t.integer  "sort_order"
+    t.boolean  "active",           :default => true
+    t.string   "mp3_file_name"
+    t.string   "mp3_content_type"
+    t.integer  "mp3_file_size"
+    t.datetime "mp3_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tracks", ["active"], :name => "index_tracks_on_active"
+  add_index "tracks", ["sort_order"], :name => "index_tracks_on_sort_order"
 
   create_table "users", :force => true do |t|
     t.string   "username"
