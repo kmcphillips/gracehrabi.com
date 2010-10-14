@@ -1,4 +1,4 @@
-= form_for(@block) do |f|
+= form_for([:admin, @block]) do |f|
   - if @block.errors.any?
     #error_explanation
       %h2
