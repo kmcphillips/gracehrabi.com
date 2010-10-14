@@ -2,32 +2,21 @@
 
 %p
   %b Title:
-  = @admin_track.title
+  = @track.title
 %p
   %b Recorded at:
-  = @admin_track.recorded_at
+  = @track.recorded_at
 %p
   %b Description:
-  = @admin_track.description
+  = @track.description
 %p
   %b Sort order:
-  = @admin_track.sort_order
+  = @track.sort_order
 %p
   %b Active:
-  = @admin_track.active
-%p
-  %b Mp3 file name:
-  = @admin_track.mp3_file_name
-%p
-  %b Mp3 content type:
-  = @admin_track.mp3_content_type
-%p
-  %b Mp3 file size:
-  = @admin_track.mp3_file_size
-%p
-  %b Mp3 updated at:
-  = @admin_track.mp3_updated_at
+  = @track.active
 
-= link_to 'Edit', edit_admin_track_path(@admin_track)
+
+= link_to 'Edit', edit_admin_track_path(@track)
 \|
 = link_to 'Back', admin_tracks_path

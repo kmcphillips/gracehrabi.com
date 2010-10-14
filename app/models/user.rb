@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   attr_readonly :username
   
   def self.authenticate(opts)
-    opts.symbolize_keys!
     username = opts[:username]
     password = opts[:password]
     password_confirm = opts[:password_confirm] || opts[:password]

@@ -1,9 +1,9 @@
-= form_for @admin_track do |f|
-  -if @admin_track.errors.any?
+= form_for @track, :url => admin_tracks_path do |f|
+  -if @track.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@admin_track.errors.count, "error")} prohibited this admin_track from being saved:"
+      %h2= "#{pluralize(@track.errors.count, "error")} prohibited this admin_track from being saved:"
       %ul
-        - @admin_track.errors.full_messages.each do |msg|
+        - @track.errors.full_messages.each do |msg|
           %li= msg
 
   .field
@@ -21,17 +21,6 @@
   .field
     = f.label :active
     = f.check_box :active
-  .field
-    = f.label :mp3_file_name
-    = f.text_field :mp3_file_name
-  .field
-    = f.label :mp3_content_type
-    = f.text_field :mp3_content_type
-  .field
-    = f.label :mp3_file_size
-    = f.text_field :mp3_file_size
-  .field
-    = f.label :mp3_updated_at
-    = f.datetime_select :mp3_updated_at
+    
   .actions
     = f.submit 'Save'

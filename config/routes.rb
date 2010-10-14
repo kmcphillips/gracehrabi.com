@@ -13,6 +13,8 @@ GracehrabiCom::Application.routes.draw do
   namespace :admin do
     match 'login' => 'sessions#new'
     match 'logout' => 'sessions#logout'
+
+    root :to => "blocks#index"
     
     resources :sessions do
       collection do

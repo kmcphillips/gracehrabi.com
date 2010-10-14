@@ -1,4 +1,4 @@
-%h1 Listing admin_tracks
+%h1 Media Player Tracks
 
 %table
   %tr
@@ -7,28 +7,19 @@
     %th Description
     %th Sort order
     %th Active
-    %th Mp3 file name
-    %th Mp3 content type
-    %th Mp3 file size
-    %th Mp3 updated at
-    %th
-    %th
-    %th
+    %th Actions
 
-  - @admin_tracks.each do |admin_track|
+  - @tracks.each do |track|
     %tr
-      %td= admin_track.title
-      %td= admin_track.recorded_at
-      %td= admin_track.description
-      %td= admin_track.sort_order
-      %td= admin_track.active
-      %td= admin_track.mp3_file_name
-      %td= admin_track.mp3_content_type
-      %td= admin_track.mp3_file_size
-      %td= admin_track.mp3_updated_at
-      %td= link_to 'Show', admin_track
-      %td= link_to 'Edit', edit_admin_track_path(admin_track)
-      %td= link_to 'Destroy', admin_track, :confirm => 'Are you sure?', :method => :delete
+      %td= track.title
+      %td= track.recorded_at
+      %td= track.description
+      %td= track.sort_order
+      %td= track.active
+      %td
+        = link_to 'Show', track
+        = link_to 'Edit', edit_admin_track_path(track)
+        = link_to 'Destroy', track, :confirm => 'Are you sure?', :method => :delete
 
 %br
 

@@ -13,7 +13,10 @@
   %body
     #wrapper
       #header
-      
+        #banner
+          Grace Hrabi
+        = render :partial => 'shared/nav'
+        = render :partial => 'shared/admin_nav' if controller.current_user
       #content
         = yield
       #footer

@@ -1,17 +1,20 @@
 %h1 Login
 
-- form_tag :url => admin_sessions_path, :method => :post do
-  - if @user.errors.any?
+= form_tag admin_sessions_path, :method => :post do
+  - unless flash[:error].blank?
     #error_explanation
       %h2 Username or password incorrect.
 
       %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+        %li= flash[:error]
 
   .actions
-    = text_field_tag :username
+    %label
+      Username
+      = text_field_tag :username
+
+    %label
+      Password
+      = text_field_tag :password
     
-    = text_field_tag :password
-    
-    = submit_tag
+    = submit_tag "Login"
