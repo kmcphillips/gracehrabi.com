@@ -25,7 +25,10 @@ GracehrabiCom::Application.routes.draw do
     
     # TODO: how to get rid of destroy/create/new?
     resources :blocks
+
     resources :tracks
+
+    resources :events
   end
 
 

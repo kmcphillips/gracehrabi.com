@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013213645) do
+ActiveRecord::Schema.define(:version => 20101014134952) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20101013213645) do
   end
 
   add_index "blocks", ["label"], :name => "index_blocks_on_label"
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
