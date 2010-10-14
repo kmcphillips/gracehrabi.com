@@ -10,17 +10,22 @@
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :recorded_at
-    = f.date_select :recorded_at
-  .field
     = f.label :description
     = f.text_area :description
   .field
-    = f.label :sort_order
-    = f.text_field :sort_order
+    = f.label :recorded_at
+    = f.date_select :recorded_at
+  - if f.object.sort_order
+    .field
+      = f.label :sort_order
+      = f.object.sort_order
   .field
     = f.label :active
     = f.check_box :active
+  .field
+    = f.label :mp3, "Audio File"
+    = f.file_field :mp3
     
+
   .actions
     = f.submit 'Save'

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  validates_presence_of :username, :password_hash
-  validates_uniqueness_of :username
+  validates :password_hash, :presence => true
+  validates :username, :uniqueness => true, :presence => true
   
   attr_protected :id
   attr_readonly :username
