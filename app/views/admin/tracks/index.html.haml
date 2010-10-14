@@ -7,6 +7,7 @@
     %th Description
     %th Sort order
     %th Active
+    %th File
     %th Actions
 
   - @tracks.each do |track|
@@ -16,10 +17,11 @@
       %td= track.description
       %td= track.sort_order
       %td= track.active
+      %td= link_to "Download", track.mp3.url
       %td
-        = link_to 'Show', track
+        = link_to 'Show', [:admin, track]
         = link_to 'Edit', edit_admin_track_path(track)
-        = link_to 'Destroy', track, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Destroy', [:admin, track], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
