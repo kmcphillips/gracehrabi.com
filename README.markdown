@@ -24,7 +24,7 @@ With an OS X or Linux machine with ruby and bundler installed, you should be abl
 
     $ git clone git://github.com/kimos/gracehrabi.com.git
     $ cd gracehrabi.com
-    $ sudo bundle install
+    $ bundle install
     $ cp config/database.yml.example config/database.yml
     $ rake db:create
     $ rake db:migrate
