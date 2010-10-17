@@ -1,10 +1,7 @@
 require 'spec_helper'
 
-describe "Posts" do
-  describe "GET /posts" do
-    it "works! (now write some real specs)" do
-      pending
-      get events_path
-    end
+describe "Admin::Posts" do
+  describe "GET /admin/posts" do
+
   end
 end

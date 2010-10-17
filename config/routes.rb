@@ -4,14 +4,18 @@ GracehrabiCom::Application.routes.draw do
   root :to => "posts#index"
   match 'blog/:id' => 'posts#show'
   match 'rss.:format' => 'posts#rss'
-  
+
+  # blocks
   ['about', 'contact', 'links', 'bio'].each do |block|
     match block => "blocks##{block}"
   end
 
+  # media player
+  match 'player' => 'tracks#index'
+  match 'player/:id' => 'tracks#show'
+
   resources :events
 
-  match 'player' => 'tracks#index'
 
   # admin
   namespace :admin do

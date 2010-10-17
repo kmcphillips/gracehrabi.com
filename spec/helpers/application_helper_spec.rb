@@ -36,5 +36,10 @@ describe ApplicationHelper do
       page_title.should == "#{PAGE_TITLE} - Admin - Eat"
     end
   end
-  
+
+  describe "image link helpers" do
+    it "should be tested" do
+      pending "new/edit/delete/index icon helpers"
+    end
+  end
 end
