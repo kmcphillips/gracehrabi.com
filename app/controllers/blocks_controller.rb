@@ -6,6 +6,10 @@ class BlocksController < ApplicationController
 
   def contact
   end
+  
+  def bio
+    
+  end
 
   def links
     @links = Link.order("created_at DESC")
