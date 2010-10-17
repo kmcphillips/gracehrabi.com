@@ -6,7 +6,7 @@
     %th Description
     %th Stars at
     %th Ends at
-    %th
+    %th Actions
     %th
     %th
 
@@ -16,10 +16,11 @@
       %td= event.description
       %td= event.stars_at
       %td= event.ends_at
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', [:admin, event]
+        = link_to 'Edit', edit_admin_event_path(event)
+        = link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Event', new_event_path
+= link_to 'New Event', new_admin_event_path

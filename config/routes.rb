@@ -5,7 +5,7 @@ GracehrabiCom::Application.routes.draw do
   match 'blog/:id' => 'posts#show'
   match 'rss.:format' => 'posts#rss'
   
-  ['about', 'contact'].each do |block|
+  ['about', 'contact', 'links'].each do |block|
     match block => "blocks##{block}"
   end
 
@@ -31,6 +31,8 @@ GracehrabiCom::Application.routes.draw do
     resources :tracks
 
     resources :events
+
+    resources :links
   end
 
 

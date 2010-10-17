@@ -1,4 +1,6 @@
 class Admin::EventsController < ApplicationController
+  before_filter :require_login
+
   def index
     @events = Event.all
   end
@@ -11,7 +13,6 @@ class Admin::EventsController < ApplicationController
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
   end

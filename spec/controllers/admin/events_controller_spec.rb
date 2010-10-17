@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Admin::EventsController do
+  before(:each) do
+    login_as_mock_user
+  end  
 
   def mock_event(stubs={})
     @mock_event ||= mock_model(Event, stubs).as_null_object
