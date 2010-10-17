@@ -11,7 +11,9 @@ html, body {
 body {
     background: #E8E8CC;
     color: #000;
-    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size:   13px;
+    line-height: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,12 +47,18 @@ h6 {
 }
 
 a {
+    color: #777;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
 }
+
+a:visited {
+    color: #444;
+}
+
 
 /*** Structure ***/
 
@@ -143,7 +151,9 @@ a:hover {
 }
 
 #nav .bar a:hover {
-    text-decoration: underline;
+    color: #fff;
+    background: #000;
+    text-decoration: none;
 }
 
 /*** Styles ***/
@@ -162,4 +172,52 @@ a:hover {
 
 .right_float {
     float: right;
+}
+
+a.action-image img {
+    border: none;
+    text-decoration: none;
+}
+
+a.action-image:hover {
+    text-decoration: none;
+}
+
+
+
+/*** Error and notice blocks ***/
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
 }
