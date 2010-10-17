@@ -8,6 +8,8 @@ GracehrabiCom::Application.routes.draw do
   ['about', 'contact'].each do |block|
     match block => "blocks##{block}"
   end
+
+  resources :events
   
   # admin
   namespace :admin do
