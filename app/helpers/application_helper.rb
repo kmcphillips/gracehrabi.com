@@ -61,4 +61,7 @@ module ApplicationHelper
     mail_to(email, label, :encode => "javascript") + "<noscript>#{mail_to(obfuscated, label || email.sub(/\@.*/, ""))}</noscript>"
   end
 
+  def collection_index(column_titles, options={}, &block)
+
+  end
 end
