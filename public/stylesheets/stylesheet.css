@@ -56,13 +56,14 @@ a:hover {
 
 #wrapper {
     margin: 0 auto;
-    width: 674px; /* col width + 2 x padding => 650 + 2 * 12 */
+    width: 650px; /* col width + 2 x padding */
 }
 
 #header {
-    width: 650px;
-    padding: 0 12px 12px 12px;
+    width: 630px;
+    padding: 0 10px 10px 10px;
     margin: 0;
+    height: 130px;
 
     background: #aaa;
 }
@@ -79,15 +80,15 @@ a:hover {
 }
 
 #nav {
-    width: 674px;
+    width: 650px;
     padding: 0;
     margin: 0;
 }
 
 #content {
-    width: 650px;
+    width: 630px;
     margin: 0;
-    padding: 12px;
+    padding: 10px;
 
     background: #fff;
 }
@@ -105,9 +106,9 @@ a:hover {
 }
 
 #footer {
-    width: 650px;
+    width: 630px;
     margin: 0;
-    padding: 12px;
+    padding: 10px;
     text-align: right;
 
     background: #aaa;
