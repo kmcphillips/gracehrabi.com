@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def rss
-    @posts = Post.all(:order => "created_at DESC").limit(20)
+    @items = (Post.all(:order => "created_at DESC") + Event.all(:order => "starts_at DESC")).sort{|x,y| x.sort_by <=> y.sort_by}
     
     respond_to do |wants|
       wants.xml do

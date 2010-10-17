@@ -4,5 +4,6 @@ class Post < ActiveRecord::Base
 
   acts_as_permalink
 
+  def sort_by; created_at; end
 end
 
