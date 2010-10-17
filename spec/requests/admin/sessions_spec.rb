@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "Sessions" do
+describe "Admin::Sessions" do
   
 end
