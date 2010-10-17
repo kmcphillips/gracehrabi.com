@@ -1,7 +1,10 @@
 %h3 Admin
 
-%ul
+%u
+  %li= link_to "Blog", admin_posts_path
+  %li= link_to "Shows and Events", admin_evens_path
   %li= link_to "Other Sections", admin_blocks_path
+  %li= link_to "Links", admin_links_path
   %li= link_to "Media Player Tracks", admin_tracks_path
   %li= link_to "Change Password", password_admin_sessions_path
   %li= link_to "Logout", "/admin/logout"

@@ -8,7 +8,7 @@ class BlocksController < ApplicationController
   end
 
   def links
-    @links = Link.all.order("created_at DESC")
+    @links = Link.order("created_at DESC")
   end
 
   protected

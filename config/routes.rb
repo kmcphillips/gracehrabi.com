@@ -24,14 +24,11 @@ GracehrabiCom::Application.routes.draw do
         post 'change_password'
       end
     end
-    
-    # TODO: how to get rid of destroy/create/new?
-    resources :blocks
 
+    resources :posts
+    resources :blocks   # TODO: how to get rid of destroy/create/new?
     resources :tracks
-
     resources :events
-
     resources :links
   end
 

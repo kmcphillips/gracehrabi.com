@@ -1,0 +1,22 @@
+%h1 All Blog Posts
+
+%table
+  %tr
+    %th Title
+    %th Body
+    %th Created At
+    %th Actions
+
+  - @posts.each do |post|
+    %tr
+      %td= post.title
+      %td= post.body
+      %td= post.created_at
+      %td
+        = link_to 'Show', [:admin, post]
+        = link_to 'Edit', edit_admin_post_path(post)
+        = link_to 'Destroy', [:admin, post], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Blog Post', new_admin_post_path
