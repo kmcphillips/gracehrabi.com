@@ -10,7 +10,9 @@ GracehrabiCom::Application.routes.draw do
   end
 
   resources :events
-  
+
+  match 'player' => 'tracks#index'
+
   # admin
   namespace :admin do
     match 'login' => 'sessions#new'

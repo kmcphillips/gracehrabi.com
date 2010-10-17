@@ -15,5 +15,9 @@ class Track < ActiveRecord::Base
     self.sort_order = Track.order("sort_order DESC").limit(1).first.try(:sort_order).to_i + 1
   end
 
+  def self.window_name
+    "_#{PAGE_TITLE.downcase.strip.gsub(/[^a-z0-9\w]/, "_")}_player"
+  end
+
 end
 

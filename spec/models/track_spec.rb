@@ -21,4 +21,13 @@ describe Track do
   after(:each) do
     Track.destroy_all
   end
+
+  describe "class methods" do
+    describe "window name" do
+      it "should form the window name" do
+        Track.window_name.should == "_grace_hrabi_player"
+      end
+    end
+  end
+
 end
