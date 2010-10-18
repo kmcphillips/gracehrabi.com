@@ -1,7 +1,7 @@
 %h1 Other Sections
 
 = collection_index @blocks, ["Body", "Label", "Path", "Actions"] do |block|
-  %tr
+  %tr{:class => cycle("odd", "even")}
     %td= block.body
     %td= block.label
     %td= block.path

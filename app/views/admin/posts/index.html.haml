@@ -1,7 +1,7 @@
 %h1 Blog
 
 = collection_index @posts, ["Title", "Body", "Created At", "Actions"] do |post|
-  %tr
+  %tr{:class => cycle("odd", "even")}
     %td= post.title
     %td= post.body
     %td= post.created_at

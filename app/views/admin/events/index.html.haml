@@ -1,7 +1,7 @@
 %h1 Events
 
 = collection_index @events, ["Title", "Status", "Description", "Starts at", "Ends at", "Actions"] do |event|
-  %tr
+  %tr{:class => cycle("odd", "even")}
     %td= event.title
     %td= event.status
     %td= event.description
