@@ -21,7 +21,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if @post.save
-      redirect_to([:admin, @post], :notice => 'Post was successfully created.')
+      redirect_to(admin_links_url, :notice => 'Post was successfully created.')
     else
       render :action => "new"
     end
@@ -31,7 +31,7 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update_attributes(params[:post])
-       redirect_to([:admin, @post], :notice => 'Post was successfully updated.')
+       redirect_to(admin_links_url, :notice => 'Post was successfully updated.')
     else
       render :action => "edit"
     end

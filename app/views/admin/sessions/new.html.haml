@@ -6,13 +6,15 @@
       %h2 Username or password incorrect.
 
 
-  .actions
+  .field
     %label
       Username
       = text_field_tag :username
 
+  .field
     %label
       Password
-      = text_field_tag :password
-    
+      = password_field_tag :password
+
+  .actions
     = submit_tag "Login"

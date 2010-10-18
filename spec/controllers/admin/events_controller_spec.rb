@@ -53,7 +53,7 @@ describe Admin::EventsController do
       it "redirects to the created event" do
         Event.stub(:new) { mock_event(:save => true) }
         post :create, :event => {}
-        response.should redirect_to(admin_event_url(mock_event))
+        response.should redirect_to(admin_events_url)
       end
     end
 
@@ -91,7 +91,7 @@ describe Admin::EventsController do
       it "redirects to the event" do
         Event.stub(:find) { mock_event(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(admin_event_url(mock_event))
+        response.should redirect_to(admin_events_url)
       end
     end
 

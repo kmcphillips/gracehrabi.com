@@ -53,7 +53,7 @@ describe Admin::LinksController do
       it "redirects to the created link" do
         Link.stub(:new) { mock_link(:save => true) }
         post :create, :link => {}
-        response.should redirect_to(admin_link_url(mock_link))
+        response.should redirect_to(admin_links_url)
       end
     end
 
@@ -91,7 +91,7 @@ describe Admin::LinksController do
       it "redirects to the link" do
         Link.stub(:find) { mock_link(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(admin_link_url(mock_link))
+        response.should redirect_to(admin_links_url)
       end
     end
 

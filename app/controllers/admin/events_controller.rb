@@ -21,7 +21,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     if @event.save
-      redirect_to([:admin, @event], :notice => 'Event was successfully created.')
+      redirect_to(admin_events_url, :notice => 'Event was successfully created.')
     else
       render :action => "new"
     end
@@ -31,7 +31,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update_attributes(params[:event])
-       redirect_to([:admin, @event], :notice => 'Event was successfully updated.')
+       redirect_to(admin_events_url, :notice => 'Event was successfully updated.')
     else
       render :action => "edit"
     end

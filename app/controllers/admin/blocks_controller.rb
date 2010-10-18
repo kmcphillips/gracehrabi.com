@@ -17,7 +17,7 @@ class Admin::BlocksController < ApplicationController
     @block = Block.find(params[:id])
 
     if @block.update_attributes(params[:block])
-      redirect_to(admin_blocks_path, :notice => 'Block was successfully updated.')
+      redirect_to(admin_blocks_path, :notice => 'Section was successfully updated.')
     else
       render :action => "edit"
     end

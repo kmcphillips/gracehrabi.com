@@ -19,7 +19,7 @@ describe Admin::PostsController do
 
   describe "GET show" do
     it "assigns the requested post as @post" do
-      Post.stub(:find).with("37") { mock_post }
+      Post.stub(:find_by_permalink!).with("37") { mock_post }
       get :show, :id => "37"
       assigns(:post).should be(mock_post)
     end
@@ -35,7 +35,7 @@ describe Admin::PostsController do
 
   describe "GET edit" do
     it "assigns the requested post as @post" do
-      Post.stub(:find).with("37") { mock_post }
+      Post.stub(:find_by_permalink!).with("37") { mock_post }
       get :edit, :id => "37"
       assigns(:post).should be(mock_post)
     end
@@ -53,7 +53,7 @@ describe Admin::PostsController do
       it "redirects to the created post" do
         Post.stub(:new) { mock_post(:save => true) }
         post :create, :post => {}
-        response.should redirect_to(admin_post_url(mock_post))
+        response.should redirect_to(admin_links_url)
       end
     end
 
@@ -91,7 +91,7 @@ describe Admin::PostsController do
       it "redirects to the post" do
         Post.stub(:find) { mock_post(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(admin_post_url(mock_post))
+        response.should redirect_to(admin_links_url)
       end
     end
 
