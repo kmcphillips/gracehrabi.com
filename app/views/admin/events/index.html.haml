@@ -1,25 +1,16 @@
-%h1 Listing events
+%h1 Events
 
-%table
+= collection_index @events, ["Title", "Status", "Description", "Starts at", "Ends at", "Actions"] do |event|
   %tr
-    %th Title
-    %th Description
-    %th Stars at
-    %th Ends at
-    %th Actions
-    %th
-    %th
-
-  - @events.each do |event|
-    %tr
-      %td= event.title
-      %td= event.description
-      %td= event.starts_at
-      %td= event.ends_at
-      %td
-        = link_to 'Show', [:admin, event]
-        = link_to 'Edit', edit_admin_event_path(event)
-        = link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete
+    %td= event.title
+    %td= event.status
+    %td= event.description
+    %td= event.starts_at
+    %td= event.ends_at
+    %td
+      = show_entity_image [:admin, event]
+      = edit_entity_image [:edit, :admin, event]
+      = destroy_entity_image [:admin, event]
 
 %br
 

@@ -1,27 +1,16 @@
 %h1 Media Player Tracks
 
-%table
+= collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Actions"] do |track|
   %tr
-    %th Title
-    %th Recorded at
-    %th Description
-    %th Sort order
-    %th Active
-    %th File
-    %th Actions
-
-  - @tracks.each do |track|
-    %tr
-      %td= track.title
-      %td= track.recorded_at
-      %td= track.description
-      %td= track.sort_order
-      %td= track.active
-      %td= link_to "Download", track.mp3.url
-      %td
-        = link_to 'Show', [:admin, track]
-        = link_to 'Edit', edit_admin_track_path(track)
-        = link_to 'Destroy', [:admin, track], :confirm => 'Are you sure?', :method => :delete
+    %td= track.title
+    %td= track.description
+    %td= track.recorded_at
+    %td= link_to track.mp3.name, track.mp3.url
+    %td= boolean_image track.active?
+    %td
+      = show_entity_image [:admin, track]
+      = edit_entity_image [:edit, :admin, track]
+      = destroy_entity_image [:admin, track]
 
 %br
 

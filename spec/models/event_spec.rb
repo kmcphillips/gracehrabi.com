@@ -7,7 +7,7 @@ describe Event do
     @event = Event.new @valid_attributes
   end
 
-  describe "scopes" do
+  describe "with real events" do
     before(:each) do
       t = Time.now
       Time.stub!(:now => t)
@@ -18,16 +18,36 @@ describe Event do
       @past2 = Event.create! @valid_attributes.merge(:starts_at => t - 3.days, :ends_at => t - 2.days)
     end
 
-    it "should find the upcoming events" do
-      Event.upcoming.should == [@upcoming]
+    describe "scopes" do
+      it "should find the upcoming events" do
+        Event.upcoming.should == [@upcoming]
+      end
+
+      it "should find the current event" do
+        Event.current.should == [@current]
+      end
+
+      it "should find the past events" do
+        Event.past == [@past1, @past2]
+      end
     end
 
-    it "should find the current event" do
-      Event.current.should == [@current]
-    end
+    describe "status" do
+      it "should know it is upcoming" do
+        @upcoming.status.should == "Upcoming"
+      end
 
-    it "should find the past events" do
-      Event.past == [@past1, @past2]
+      it "should know it is current" do
+        @current.status.should == "Current"
+      end
+
+      it "should know it is past" do
+        @past1.status.should == "Past"
+      end
+
+      it "should also know it is past" do
+        @past2.status.should == "Past"
+      end
     end
 
     after(:each) do

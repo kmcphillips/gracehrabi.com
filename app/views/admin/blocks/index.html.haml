@@ -1,15 +1,8 @@
 %h1 Other Sections
 
-%table
-  %th
-    %th Body
-    %th Label
-    %th Path
-    %th Actions
-
-  - @blocks.each do |block|
-    %tr
-      %td= block.body
-      %td= block.label
-      %td= block.path
-      %td= edit_entity_image([:admin, block])
+= collection_index @blocks, ["Body", "Label", "Path", "Actions"] do |block|
+  %tr
+    %td= block.body
+    %td= block.label
+    %td= block.path
+    %td= edit_entity_image([:edit, :admin, block])

@@ -1,21 +1,14 @@
-%h1 All Blog Posts
+%h1 Blog
 
-%table
+= collection_index @posts, ["Title", "Body", "Created At", "Actions"] do |post|
   %tr
-    %th Title
-    %th Body
-    %th Created At
-    %th Actions
-
-  - @posts.each do |post|
-    %tr
-      %td= post.title
-      %td= post.body
-      %td= post.created_at
-      %td
-        = link_to 'Show', [:admin, post]
-        = link_to 'Edit', edit_admin_post_path(post)
-        = link_to 'Destroy', [:admin, post], :confirm => 'Are you sure?', :method => :delete
+    %td= post.title
+    %td= post.body
+    %td= post.created_at
+    %td
+      = show_entity_image [:admin, post]
+      = edit_entity_image [:edit, :admin, post]
+      = destroy_entity_image [:admin, post]
 
 %br
 

@@ -1,21 +1,14 @@
-%h1 Listing links
+%h1 Links
 
-%table
+= collection_index @links, ["Title", "URL", "Description", "Actions"] do |link|
   %tr
-    %th Title
-    %th Url
-    %th Description
-    %th Actions
-
-  - @links.each do |link|
-    %tr
-      %td= link.title
-      %td= link.url
-      %td= link.description
-      %td
-        = link_to 'Show', [:admin, link]
-        = link_to 'Edit', edit_admin_link_path(link)
-        = link_to 'Destroy', [:admin, link], :confirm => 'Are you sure?', :method => :delete
+    %td= link.title
+    %td= link_to link.url, link.url
+    %td= link.description
+    %td
+      = show_entity_image [:admin, link]
+      = edit_entity_image [:edit, :admin, link]
+      = destroy_entity_image [:admin, link]
 
 %br
 

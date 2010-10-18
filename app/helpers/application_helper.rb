@@ -15,21 +15,21 @@ module ApplicationHelper
   
   def index_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to(image_tag("/images/icons/index.png", :alt => "Index"), path, :title => "Index")
+    html = link_to image_tag("/images/icons/index.png", :alt => "Index"), path, :title => "Index", :class => "action-image"
     html += " " + link_to(label, path) if label
     html
   end
 
   def new_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/new.png", :alt => "New"), path, :title => "New"
+    html = link_to image_tag("/images/icons/new.png", :alt => "New"), path, :title => "New", :class => "action-image"
     html += " " + link_to(label, path) if label
     html
   end
 
-  def delete_entity_image(path, label=nil, args={})
+  def destroy_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/delete.png", :alt => "Delete", :class => "action-image"), path, :method => :delete, :confirm => "Are you sure you want to delete this?", :title => "Delete"
+    html = link_to image_tag("/images/icons/delete.png", :alt => "Delete"), path, :method => :delete, :confirm => "Are you sure you want to delete this?", :title => "Delete", :class => "action-image"
     html += " " + link_to(label, path, :method => :delete, :confirm => "Are you sure you want to delete this?") if label
     html
   end
@@ -43,7 +43,7 @@ module ApplicationHelper
 
   def show_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/show.png", :alt => "Show", :class => "action-image"), path, :title => "Show"
+    html = link_to image_tag("/images/icons/show.png", :alt => "Show"), path, :title => "Show", :class => "action-image"
     html += " " + link_to(label, path) if label
     html
   end
@@ -61,7 +61,26 @@ module ApplicationHelper
     mail_to(email, label, :encode => "javascript") + "<noscript>#{mail_to(obfuscated, label || email.sub(/\@.*/, ""))}</noscript>"
   end
 
-  def collection_index(column_titles, options={}, &block)
+  def collection_index(collection, column_titles, options={}, &block)
+    content_tag(:table, :class => "data") do
+      content_tag(:tbody) do
+        src = ""
 
+        src << content_tag(:tr) do
+          headers = ""
+          column_titles.each do |title|
+            headers << content_tag(:th, title)
+          end
+          headers
+        end
+
+        collection.each do |item|
+          src << content_tag(:tr) do
+            yield(item)
+          end
+        end
+        src
+      end
+    end
   end
 end
