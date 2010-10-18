@@ -8,7 +8,7 @@ describe PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      Post.stub(:all) { [mock_post] }
+      Post.stub(:order) { [mock_post] }
       get :index
       assigns(:posts).should eq([mock_post])
     end
@@ -16,8 +16,8 @@ describe PostsController do
 
   describe "GET show" do
     it "assigns the requested post as @post" do
-      Post.stub(:find).with("37") { mock_post }
-      get :show, :id => "37"
+      Post.stub(:find_by_permalink!).with("pie") { mock_post }
+      get :show, :id => "pie"
       assigns(:post).should be(mock_post)
     end
   end

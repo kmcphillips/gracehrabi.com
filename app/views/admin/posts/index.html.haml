@@ -3,7 +3,7 @@
 = collection_index @posts, ["Title", "Body", "Created At", "Actions"] do |post|
   %tr{:class => cycle("odd", "even")}
     %td= post.title
-    %td= post.body
+    %td= link_to truncate_for_index(post.body), [post]
     %td= post.created_at
     %td
       = edit_entity_image [:edit, :admin, post]

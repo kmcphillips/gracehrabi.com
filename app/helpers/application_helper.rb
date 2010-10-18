@@ -83,4 +83,18 @@ module ApplicationHelper
       end
     end
   end
+
+  def truncate_for_index(str)
+    truncate(str, :length => 120, :omission => " (more..)")
+  end
+
+
+  ## Overridden paths
+  def post_path(post)
+    "/blog/#{post.permalink}"
+  end
+
+  def posts_path
+    "/"
+  end
 end
