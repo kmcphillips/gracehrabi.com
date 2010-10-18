@@ -23,7 +23,7 @@ module ApplicationHelper
   def new_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/new.png", :alt => "New"), path, :title => "New", :class => "action-image"
-    html += " " + link_to(label, path) if label
+    html += "&nbsp;" + link_to(label, path) if label
     html
   end
 
