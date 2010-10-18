@@ -16,35 +16,35 @@ module ApplicationHelper
   def index_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/index.png", :alt => "Index"), path, :title => "Index", :class => "action-image"
-    html += " " + link_to(label, path) if label
+    html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def new_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/new.png", :alt => "New"), path, :title => "New", :class => "action-image"
-    html += "&nbsp;" + link_to(label, path) if label
+    html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def destroy_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/delete.png", :alt => "Delete"), path, :method => :delete, :confirm => "Are you sure you want to delete this?", :title => "Delete", :class => "action-image"
-    html += " " + link_to(label, path, :method => :delete, :confirm => "Are you sure you want to delete this?") if label
+    html += "&nbsp;".html_safe + link_to(label, path, :method => :delete, :confirm => "Are you sure you want to delete this?") if label
     html
   end
 
   def edit_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/edit.png", :alt => "Edit"), path, :title => "Edit", :class => "action-image"
-    html += " " + link_to(label, path) if label
+    html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def show_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/show.png", :alt => "Show"), path, :title => "Show", :class => "action-image"
-    html += " " + link_to(label, path) if label
+    html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
