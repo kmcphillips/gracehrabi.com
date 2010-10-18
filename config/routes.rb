@@ -31,11 +31,11 @@ GracehrabiCom::Application.routes.draw do
       end
     end
 
-    resources :posts
-    resources :blocks   # TODO: how to get rid of destroy/create/new?
-    resources :tracks
-    resources :events
-    resources :links
+    resources :blocks, :except => [:destroy, :create, :new, :show]
+    resources :events, :except => [:show]
+    resources :links, :except => [:show]
+    resources :posts, :except => [:show]
+    resources :tracks, :except => [:show]
   end
 
 

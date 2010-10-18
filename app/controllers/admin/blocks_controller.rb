@@ -5,10 +5,6 @@ class Admin::BlocksController < ApplicationController
     @blocks = Block.all
   end
 
-  def show
-    @block = Block.find(params[:id])
-  end
-
   def edit
     @block = Block.find(params[:id])
   end

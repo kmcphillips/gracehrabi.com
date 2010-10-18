@@ -17,14 +17,6 @@ describe Admin::PostsController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested post as @post" do
-      Post.stub(:find_by_permalink!).with("37") { mock_post }
-      get :show, :id => "37"
-      assigns(:post).should be(mock_post)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new post as @post" do
       Post.stub(:new) { mock_post }

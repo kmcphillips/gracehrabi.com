@@ -17,14 +17,6 @@ describe Admin::LinksController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested link as @link" do
-      Link.stub(:find).with("37") { mock_link }
-      get :show, :id => "37"
-      assigns(:link).should be(mock_link)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new link as @link" do
       Link.stub(:new) { mock_link }

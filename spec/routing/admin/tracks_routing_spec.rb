@@ -11,10 +11,6 @@ describe Admin::TracksController do
       { :get => "/admin/tracks/new" }.should route_to(:controller => "admin/tracks", :action => "new")
     end
 
-    it "recognizes and generates #show" do
-      { :get => "/admin/tracks/1" }.should route_to(:controller => "admin/tracks", :action => "show", :id => "1")
-    end
-
     it "recognizes and generates #edit" do
       { :get => "/admin/tracks/1/edit" }.should route_to(:controller => "admin/tracks", :action => "edit", :id => "1")
     end

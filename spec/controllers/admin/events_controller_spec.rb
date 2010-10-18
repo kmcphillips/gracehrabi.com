@@ -17,14 +17,6 @@ describe Admin::EventsController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested event as @event" do
-      Event.stub(:find).with("37") { mock_event }
-      get :show, :id => "37"
-      assigns(:event).should be(mock_event)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new event as @event" do
       Event.stub(:new) { mock_event }

@@ -4,10 +4,6 @@ class Admin::TracksController < ApplicationController
     @tracks = Track.all
   end
 
-  def show
-    @track = Track.find(params[:id])
-  end
-
   def new
     @track = Track.new
   end

@@ -11,10 +11,6 @@ describe Admin::PostsController do
       { :get => "/admin/posts/new" }.should route_to(:controller => "admin/posts", :action => "new")
     end
 
-    it "recognizes and generates #show" do
-      { :get => "/admin/posts/1" }.should route_to(:controller => "admin/posts", :action => "show", :id => "1")
-    end
-
     it "recognizes and generates #edit" do
       { :get => "/admin/posts/1/edit" }.should route_to(:controller => "admin/posts", :action => "edit", :id => "1")
     end
