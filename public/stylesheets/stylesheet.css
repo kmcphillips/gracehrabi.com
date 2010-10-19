@@ -9,10 +9,9 @@ html, body {
 }
 
 body {
-    background: #FAFBE9;
+    background: #F4F3E5;
     color: #093830;
     font-family: LatinModernMonoProp10Regular, monospace;
-#    font-family: Verdana, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -23,12 +22,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: #008956;
+    color: #7D7B56;
     text-decoration: none;
 }
 
 a:hover {
-    color: #093830;
+    color: #C52115;
     text-decoration: underline;
 }
 
@@ -65,7 +64,7 @@ a:visited {
     width: 650px;
     margin: 0;
     padding: 0;
-    background: #136B50;
+    background: #3D1020;
 }
 
 #content .minheight {
@@ -110,6 +109,7 @@ a:visited {
 }
 
 #nav .bar a {
+    color: #4B3733;
     display: block;
     text-decoration: none;
     border: none;
@@ -124,9 +124,17 @@ a:visited {
 /*** box spacers ***/
 
 .box_full {
-    background: #136b50;
+    background: #9E8855;
     padding: 3px;
     height: 17px;
+}
+
+.box_full a {
+    color: #4B3733;
+}
+
+.box_full a:hover {
+  /*TODO*/
 }
 
 .box_full p {
@@ -163,10 +171,11 @@ a:visited {
 
 .post h1 {
     padding: 0 0 1px 0;
-    border-bottom: 1px solid #136b50;
+    border-bottom: 1px solid #7E7708;
 }
 
 .post h3 {
+    color: #474A3A;
     font-size: 1.2em;
     text-align: right;
 }
