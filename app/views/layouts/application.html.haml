@@ -23,7 +23,9 @@
         = render :partial => 'shared/admin_nav' if controller.current_user
       #content
         .minheight
-        = yield
+        .main
+          = render :partial => "shared/flashes"
+          = yield
         .minheight_clear
       #footer
         = image_tag "http://placehold.it/650x50"

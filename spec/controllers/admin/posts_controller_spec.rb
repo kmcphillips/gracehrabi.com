@@ -45,7 +45,7 @@ describe Admin::PostsController do
       it "redirects to the created post" do
         Post.stub(:new) { mock_post(:save => true) }
         post :create, :post => {}
-        response.should redirect_to(admin_links_url)
+        response.should redirect_to(admin_posts_url)
       end
     end
 
@@ -83,7 +83,7 @@ describe Admin::PostsController do
       it "redirects to the post" do
         Post.stub(:find) { mock_post(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(admin_links_url)
+        response.should redirect_to(admin_posts_url)
       end
     end
 

@@ -22,7 +22,7 @@ GracehrabiCom::Application.routes.draw do
     match 'login' => 'sessions#new'
     match 'logout' => 'sessions#logout'
 
-    root :to => "blocks#index"
+    root :to => "posts#index"
     
     resources :sessions do
       collection do
