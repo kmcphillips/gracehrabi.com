@@ -17,7 +17,7 @@
         .clear
 
       #header
-        = image_tag "http://placehold.it/650x130"
+        = image_tag "/images/header.jpg", :alt => "Grace Hrabi"
       #nav
         = render :partial => 'shared/nav'
         = render :partial => 'shared/admin_nav' if controller.current_user
@@ -28,11 +28,12 @@
           = yield
         .minheight_clear
       #footer
-        = image_tag "http://placehold.it/650x50"
+        = image_tag "/images/footer.jpg", :alt => "Grace Hrabi"
         
       .box_full
         %p.credits
           &copy; #{Time.now.year}
-          Grace Hrabi
+          = link_to "Grace Hrabi", "#"
           and
-          Kevin McPhillips
+          = link_to "Kevin McPhillips", "#"
+        .clear

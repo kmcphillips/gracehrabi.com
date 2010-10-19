@@ -38,14 +38,15 @@ a:visited {
 
 #wrapper {
     margin: 0 auto;
-    width: 650px; /* col width + 2 x padding */
+    width: 650px;
+    padding-bottom: 18px;
 }
 
 #header {
     width: 650px;
     padding: 0;
     margin: 0;
-    height: 130px;
+    height: 174px;
 }
 
 #header h1 {
@@ -117,7 +118,7 @@ a:visited {
 }
 
 #nav .bar a:hover {
-    color: #fff;
+    color: #C52115;
     text-decoration: none;
 }
 
@@ -126,7 +127,8 @@ a:visited {
 .box_full {
     background: #9E8855;
     padding: 3px;
-    height: 17px;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-size: 1.1em;
 }
 
 .box_full a {
@@ -134,7 +136,7 @@ a:visited {
 }
 
 .box_full a:hover {
-  /*TODO*/
+    color: #C52115;
 }
 
 .box_full p {
@@ -156,32 +158,45 @@ a:visited {
 }
 
 #content a {
-    color: #e4ebc1;
+   // color: #e4ebc1;
 }
 
 #content a:hover {
-    
+ //  color: #C52115; 
 }
 
 /*** Blog ***/
 
 .post {
-    
+    padding: 8px 0 32px 0;    
 }
 
 .post h1 {
     padding: 0 0 1px 0;
     border-bottom: 1px solid #7E7708;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-size: 1.5em;
+}
+
+.post h1 a {
+  color: #e4ebc1;
+  text-decoration: none;
+}
+
+.post h1 a:hover {
+    color: #D0CC91;
+    text-decoration: none;
 }
 
 .post h3 {
     color: #474A3A;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-align: right;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
 }
 
 .post .body {
-    border-left: 7px solid #bbb;
+    border-left: 5px solid #4b3733;
     padding: 6px;
 }
 
@@ -296,4 +311,13 @@ table.data tbody tr:hover {
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'MonospaceTypewriterRegular';
+	src: url('MonospaceTypewriter-webfont.eot');
+	src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
