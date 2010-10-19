@@ -69,19 +69,19 @@ describe Admin::PostsController do
 
     describe "with valid params" do
       it "updates the requested post" do
-        Post.should_receive(:find).with("37") { mock_post }
+        Post.should_receive(:find_by_permalink!).with("37") { mock_post }
         mock_post.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, :id => "37", :post => {'these' => 'params'}
       end
 
       it "assigns the requested post as @post" do
-        Post.stub(:find) { mock_post(:update_attributes => true) }
+        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => true) }
         put :update, :id => "1"
         assigns(:post).should be(mock_post)
       end
 
       it "redirects to the post" do
-        Post.stub(:find) { mock_post(:update_attributes => true) }
+        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => true) }
         put :update, :id => "1"
         response.should redirect_to(admin_posts_url)
       end
@@ -89,13 +89,13 @@ describe Admin::PostsController do
 
     describe "with invalid params" do
       it "assigns the post as @post" do
-        Post.stub(:find) { mock_post(:update_attributes => false) }
+        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => false) }
         put :update, :id => "1"
         assigns(:post).should be(mock_post)
       end
 
       it "re-renders the 'edit' template" do
-        Post.stub(:find) { mock_post(:update_attributes => false) }
+        Post.stub(:find_by_permalink!) { mock_post(:update_attributes => false) }
         put :update, :id => "1"
         response.should render_template("edit")
       end
@@ -105,13 +105,13 @@ describe Admin::PostsController do
 
   describe "DELETE destroy" do
     it "destroys the requested post" do
-      Post.should_receive(:find).with("37") { mock_post }
+      Post.should_receive(:find_by_permalink!).with("37") { mock_post }
       mock_post.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
     it "redirects to the posts list" do
-      Post.stub(:find) { mock_post }
+      Post.stub(:find_by_permalink!) { mock_post }
       delete :destroy, :id => "1"
       response.should redirect_to(admin_posts_url)
     end
