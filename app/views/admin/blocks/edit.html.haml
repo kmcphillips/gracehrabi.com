@@ -1,7 +1,8 @@
 %h1 
-  Editing 
+  Edit 
   = @block.label.humanize
   
 = render 'form'
 
-= link_to 'Back', admin_blocks_path
+.actions
+  = index_entity_image admin_blocks_path, "Back to Other Sections Index"
