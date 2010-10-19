@@ -9,9 +9,10 @@ html, body {
 }
 
 body {
-    background: #E8E8CC;
-    color: #000;
-    font-family: Verdana, Helvetica, Arial, sans-serif;
+    background: #FAFBE9;
+    color: #093830;
+    font-family: LatinModernMonoProp10Regular, monospace;
+#    font-family: Verdana, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -21,41 +22,17 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
-h1 {
-    font-size: 2.2em;
-}
-
-h2 {
-    font-size: 1.6em;
-}
-
-h3 {
-    font-size: 1.4em;
-}
-
-h4 {
-    font-size: 1.3em;
-}
-
-h5 {
-    font-size: 1.2em;
-}
-
-h6 {
-    font-size: 1.1em;
-}
-
 a {
-    color: #777;
+    color: #008956;
     text-decoration: none;
 }
 
 a:hover {
+    color: #093830;
     text-decoration: underline;
 }
 
 a:visited {
-    color: #444;
 }
 
 /*** Structure ***/
@@ -66,23 +43,16 @@ a:visited {
 }
 
 #header {
-    width: 630px;
-    padding: 0 10px 10px 10px;
+    width: 650px;
+    padding: 0;
     margin: 0;
     height: 130px;
-
-    background: #aaa;
 }
 
 #header h1 {
     float: left;
     padding: 20px;
     margin: 0px;
-}
-
-#header p.listen {
-    float: right;
-    font-weight: bold;
 }
 
 #nav {
@@ -92,11 +62,10 @@ a:visited {
 }
 
 #content {
-    width: 630px;
+    width: 650px;
     margin: 0;
-    padding: 10px;
-
-    background: #fff;
+    padding: 0;
+    background: #136B50;
 }
 
 #content .minheight {
@@ -112,21 +81,21 @@ a:visited {
 }
 
 #footer {
-    width: 630px;
+    width: 650px;
     margin: 0;
-    padding: 10px;
-    text-align: right;
-
-    background: #aaa;
+    padding: 0;
+    height: 50px;
 }
+
 
 /*** Navigation ***/
 
 #nav .bar {
     width: 100%;
     margin: 0;
-
-    background: #ddd;
+    font-size: 1.25em;
+    font-family: LatinModernMonoProp10Regular, monospace;
+    background: none;
 }
 
 #nav .bar ul {
@@ -149,13 +118,58 @@ a:visited {
 
 #nav .bar a:hover {
     color: #fff;
-    background: #000;
     text-decoration: none;
 }
 
-/*** Content ***/
-#content h1 {
-    padding: 10px 0;
+/*** box spacers ***/
+
+.box_full {
+    background: #136b50;
+    padding: 3px;
+    height: 17px;
+}
+
+.box_full p {
+    float: right;
+    font-weight: bold;
+}
+
+.box_full p.listen {
+}
+
+.box_full p.credits {
+}
+
+
+/****** Content ******/
+
+#content a {
+    color: #e4ebc1;
+}
+
+#content a:hover {
+    
+}
+
+/*** Blog ***/
+
+.post {
+    padding: 22px;
+}
+
+.post h1 {
+    padding: 0 0 1px 0;
+    border-bottom: 1px solid #136b50;
+}
+
+.post h3 {
+    font-size: 1.2em;
+    text-align: right;
+}
+
+.post .body {
+    border-left: 7px solid #bbb;
+    padding: 6px;
 }
 
 
@@ -253,5 +267,15 @@ table.data tbody tr.over td {
 
 table.data tbody tr:hover {
     background-color: #FFFB83;
+}
+
+/*** Fonts ***/
+
+@font-face {
+	font-family: 'LatinModernMonoProp10Regular';
+	src: url('lmmonoprop10-regular-webfont.eot');
+	src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 

@@ -1,6 +1,5 @@
 .post
-  %h1= post.title
-  %h3= post.created_at
-  %h4= link_to "Permalink", post_path(post)
+  %h1= link_to post.title, post_path(post)
+  %h3= post.created_at.to_s(:blog_without_time)
 
-  %p=post.body
+  .body= simple_format post.body
