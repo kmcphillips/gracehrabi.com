@@ -36,6 +36,14 @@ describe ApplicationHelper do
       page_title.should == "#{PAGE_TITLE} - Admin - Eat"
     end
   end
+  
+  describe "error messages" do
+    it "should render the partial" do
+      obj = mock :object
+      should_receive(:render).with(:partial => "/shared/error_messages", :object => obj)
+      error_messages(obj)
+    end
+  end
 
   describe "image link helpers" do
     it "should be tested" do

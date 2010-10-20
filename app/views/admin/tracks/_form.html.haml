@@ -1,10 +1,5 @@
 = form_for [:admin, @track], :url => admin_tracks_path, :html => { :multipart => true } do |f|
-  -if @track.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@track.errors.count, "error")} prohibited this admin_track from being saved:"
-      %ul
-        - @track.errors.full_messages.each do |msg|
-          %li= msg
+  = error_messages(@track)
 
   .field
     = f.label :title

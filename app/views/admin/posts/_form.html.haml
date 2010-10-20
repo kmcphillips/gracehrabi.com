@@ -1,11 +1,6 @@
 = form_for [:admin, @post] do |f|
-  -if @post.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
-      %ul
-        - @post.errors.full_messages.each do |msg|
-          %li= msg
-
+  = error_messages(@post)
+  
   .field
     = f.label :title
     = f.text_field :title
