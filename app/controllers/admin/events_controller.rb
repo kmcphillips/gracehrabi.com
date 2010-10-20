@@ -16,7 +16,11 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
-    if @event.save
+    if params[:commit] == "Preview"
+      @event.valid?
+      @preview = true
+      render :action => "edit"
+    elsif @event.save
       redirect_to(admin_events_url, :notice => 'Event was successfully created.')
     else
       render :action => "new"
@@ -26,7 +30,12 @@ class Admin::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    if @event.update_attributes(params[:event])
+    if params[:commit] == "Preview"
+      @event.attributes = params[:event]
+      @event.valid?
+      @preview = true
+      render :action => "edit"
+    elsif @event.update_attributes(params[:event])
        redirect_to(admin_events_url, :notice => 'Event was successfully updated.')
     else
       render :action => "edit"

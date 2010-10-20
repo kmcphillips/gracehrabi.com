@@ -62,6 +62,22 @@ describe Admin::PostsController do
         response.should render_template("new")
       end
     end
+    
+    describe "preview" do
+      it "should check the commit and preview" do
+        Post.stub(:new).with({'these' => 'params'}) { mock_post }
+        mock_post.should_receive(:valid?)
+        post :create, :post => {'these' => 'params'}, :commit => "Preview"
+        assigns(:post).should be(mock_post)
+        assigns(:preview).should be_true
+      end
+
+      it "should render" do
+        Post.stub(:new).with({'these' => 'params'}) { mock_post(:valid? => true) }
+        post :create, :post => {'these' => 'params'}, :commit => "Preview"
+        response.should render_template("edit")
+      end
+    end
 
   end
 
@@ -97,6 +113,23 @@ describe Admin::PostsController do
       it "re-renders the 'edit' template" do
         Post.stub(:find_by_permalink!) { mock_post(:update_attributes => false) }
         put :update, :id => "1"
+        response.should render_template("edit")
+      end
+    end
+
+    describe "preview" do
+      it "should check the commit and preview" do
+        Post.stub(:find_by_permalink!) { mock_post }
+        mock_post.should_receive(:attributes=)
+        mock_post.should_receive(:valid?)
+        put :update, :id => "1", :commit => "Preview"
+        assigns(:post).should be(mock_post)
+        assigns(:preview).should be_true
+      end
+      
+      it "should render" do
+        Post.stub(:find_by_permalink!) { mock_post(:attributes= => true, :valid? => nil) }
+        put :update, :id => "1", :commit => "Preview"
         response.should render_template("edit")
       end
     end

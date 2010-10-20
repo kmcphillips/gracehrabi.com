@@ -1,0 +1,7 @@
+.post
+  %h1= link_to event.title, event_path(event)
+  %h3
+    = event.starts_at
+    = " to #{event.ends_at}" if event.ends_at
+
+  .body= simple_format event.description
