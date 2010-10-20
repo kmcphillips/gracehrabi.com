@@ -279,7 +279,7 @@ table.data {
 table.data th {
     padding: 8px;
     font-weight: bold;
-    background-color: #888;
+    background-color: #4B3733;
 }
 
 table.data td {
@@ -287,11 +287,11 @@ table.data td {
 }
 
 table.data tr {
-    background-color: #ddd;
+    background-color: #9E8855;
 }
 
 table.data tr.even {
-    background-color: #eee;
+    background-color: #8a7545;
 }
 
 table.data tbody tr.over td {
