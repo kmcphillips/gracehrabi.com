@@ -8,7 +8,7 @@ describe PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      Post.stub(:order) { [mock_post] }
+      Post.stub(:paginate) { [mock_post] }
       get :index
       assigns(:posts).should eq([mock_post])
     end

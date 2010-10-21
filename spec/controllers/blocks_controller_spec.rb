@@ -35,8 +35,8 @@ describe BlocksController do
       Block.stub(:find_by_label).with("links")
       Link.should_receive(:order).with("created_at ASC").and_return(["links"])
       get "links"
-      assigns(:block).should be(mock_block)
-      assigns(:links).should be(["links"])
+      assigns(:block).should be(nil)
+      assigns(:links).should == ["links"]
     end
   end
 

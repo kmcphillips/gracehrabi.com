@@ -207,6 +207,25 @@ a:visited {
     padding: 6px;
 }
 
+.post_pagination {
+    margin: 24px 0;
+    border-top: 1px solid #7E7708;
+    font-size: 1.2em;
+}
+
+.post_pagination .pagination {
+    text-align: center;
+}
+
+.post_pagination .previous_page {
+    float: left;
+}
+
+
+.post_pagination .next_page {
+    float: right;
+}
+
 /*** Styles ***/
 
 .clear {
@@ -284,6 +303,7 @@ table.data th {
     padding: 8px;
     font-weight: bold;
     background-color: #4B3733;
+    color: #F6F3CF;  /* Needed to override the hover */
 }
 
 table.data td {

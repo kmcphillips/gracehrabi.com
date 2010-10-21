@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   include Authentication
 
+  include PaginationHelper
+
   ## Handle custom dynamic errors
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, :with => :render_500

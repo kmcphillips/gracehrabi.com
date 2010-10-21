@@ -9,9 +9,6 @@
     %td
       = edit_entity_image [:edit, :admin, event]
       = destroy_entity_image [:admin, event]
-  %tr
-    %th{:colspan => 4}
-      = will_paginate @posts, pagination_params
       
 .image_links
   = new_entity_image new_admin_event_path, "Create New Event"

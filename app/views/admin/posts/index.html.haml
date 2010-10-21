@@ -8,9 +8,6 @@
     %td
       = edit_entity_image [:edit, :admin, post]
       = destroy_entity_image [:admin, post]
-  %tr
-    %th{:colspan => 4}
-      = will_paginate @posts, pagination_params
 
 .image_links
   = new_entity_image new_admin_post_path, "Create New Blog Post"

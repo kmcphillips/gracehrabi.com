@@ -62,6 +62,8 @@ module ApplicationHelper
   end
 
   def collection_index(collection, column_titles, options={}, &block)
+    paginate = collection.respond_to?(:total_pages) && collection.total_pages > 1
+
     content_tag(:table, :class => "data") do
       content_tag(:tbody) do
         src = ""
@@ -79,6 +81,15 @@ module ApplicationHelper
             yield(item)
           end
         end
+
+        if paginate
+          src << content_tag(:tr) do
+            content_tag(:th, :colspan => column_titles.size) do
+              will_paginate(collection, pagination_params)
+            end
+          end
+        end
+
         src
       end
     end
@@ -90,10 +101,6 @@ module ApplicationHelper
 
   def error_messages(object=nil)
     render :partial => "/shared/error_messages", :object => object
-  end
-
-  def pagination_params(opts={})
-    {:page => params[:page] || 1, :per_page => PAGINATION_PER_PAGE}.merge(opts)
   end
   
 
