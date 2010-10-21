@@ -10,8 +10,9 @@
   - if f.object.permalink
     .field
       = f.label :permalink
-      = f.object.permalink
+      %span.bold= f.object.permalink
 
   .actions
+    %label Actions
     = f.submit 'Save'
     = f.submit 'Preview'

@@ -9,6 +9,7 @@ class Admin::SessionsController < ApplicationController
 
   def create
     if current_user(User.authenticate(params))
+      flash[:notice] = "Logged in successfully"
       redirect_to "/admin"
     else
       flash[:error] = "Incorrect username or password"

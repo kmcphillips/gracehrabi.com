@@ -238,9 +238,9 @@ a.action-image:hover {
 
 .notice, .error {
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #ddd;
-    padding: 10px;
+    padding: 7px;
     margin: 16px 0;
 }
 
@@ -252,19 +252,17 @@ a.action-image:hover {
     background-color: #c00;
 }
 
-.error h2 {
+.error h2, .notice h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
     color: #fff;
 }
 
 .error ul li {
     list-style: circle;
     margin-left: 25px;
+    font-size: 1.2em;
 }
 
 .field_with_errors {
@@ -279,6 +277,7 @@ a.action-image:hover {
 table.data {
     border-collapse: collapse;
     margin: 24px 0;
+    width: 100%;
 }
 
 table.data th {
@@ -318,6 +317,20 @@ table.data tbody td a {
 .image_links {
     padding: 10px;
 }
+
+.field, .actions {
+    padding: 12px 0;
+}
+
+label {
+    width: 100px;
+    float: left;
+    border-bottom: 1px dashed #C8B032;
+    border-left: 4px solid #C8B032;
+    padding-left: 6px;
+    margin-right: 8px;
+}
+
 
 /*** Fonts ***/
 

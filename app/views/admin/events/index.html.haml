@@ -1,12 +1,11 @@
 %h1 Events
 
-= collection_index @events, ["Title", "Status", "Description", "Starts at", "Ends at", "Actions"] do |event|
+= collection_index @events, ["Title", "Status", "Description", "Starts at", "Actions"] do |event|
   %tr{:class => cycle("odd", "even")}
     %td= event.title
     %td= event.status
     %td= link_to truncate_for_index(event.description), [event]
     %td= event.starts_at.to_formatted_s(:index)
-    %td= event.ends_at.to_formatted_s(:index)
     %td
       = edit_entity_image [:edit, :admin, event]
       = destroy_entity_image [:admin, event]
