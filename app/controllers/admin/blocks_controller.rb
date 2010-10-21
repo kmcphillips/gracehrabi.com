@@ -2,7 +2,7 @@ class Admin::BlocksController < ApplicationController
   before_filter :require_login
 
   def index
-    @blocks = Block.all
+    @blocks = Block.order("label")
   end
 
   def edit

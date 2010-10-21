@@ -11,7 +11,7 @@ describe Admin::BlocksController do
 
   describe "GET index" do
     it "assigns all blocks as @blocks" do
-      Block.stub(:all) { [mock_block] }
+      Block.stub(:order) { [mock_block] }
       get :index
       assigns(:blocks).should eq([mock_block])
     end

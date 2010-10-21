@@ -1,7 +1,7 @@
 class Admin::LinksController < ApplicationController
 
   def index
-    @links = Link.all
+    @links = Link.order("created_at ASC")
   end
 
   def new

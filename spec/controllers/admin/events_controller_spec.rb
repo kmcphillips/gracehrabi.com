@@ -11,7 +11,7 @@ describe Admin::EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      Event.stub(:all) { [mock_event] }
+      Event.stub(:paginate) { [mock_event] }
       get :index
       assigns(:events).should eq([mock_event])
     end

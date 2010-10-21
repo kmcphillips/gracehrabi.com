@@ -2,7 +2,7 @@ class Admin::EventsController < ApplicationController
   before_filter :require_login
 
   def index
-    @events = Event.all
+    @events = Event.paginate(pagination_params(:order => "created_at DESC"))
   end
 
   def new

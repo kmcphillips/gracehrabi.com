@@ -11,7 +11,7 @@ describe Admin::TracksController do
 
   describe "GET index" do
     it "assigns all tracks as @tracks" do
-      Track.stub(:all) { [mock_track] }
+      Track.stub(:order) { [mock_track] }
       get :index
       assigns(:tracks).should eq([mock_track])
     end

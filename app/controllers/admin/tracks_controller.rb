@@ -1,7 +1,7 @@
 class Admin::TracksController < ApplicationController
   
   def index
-    @tracks = Track.all
+    @tracks = Track.order("sort_order ASC")
   end
 
   def new

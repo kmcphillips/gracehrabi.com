@@ -11,7 +11,7 @@ describe Admin::LinksController do
 
   describe "GET index" do
     it "assigns all links as @links" do
-      Link.stub(:all) { [mock_link] }
+      Link.stub(:order) { [mock_link] }
       get :index
       assigns(:links).should eq([mock_link])
     end
