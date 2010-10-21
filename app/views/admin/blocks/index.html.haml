@@ -1,8 +1,8 @@
 %h1 Other Sections
 
-= collection_index @blocks, ["Body", "Label", "Path", "Actions"] do |block|
+= collection_index @blocks, ["Section", "Body", "Updated at", "Actions"] do |block|
   %tr{:class => cycle("odd", "even")}
-    %td= block.body
-    %td= block.label
-    %td= block.path
+    %td= link_to block.label.humanize, block.path
+    %td= truncate_for_index block.body
+    %td= block.updated_at.to_formatted_s(:index)
     %td= edit_entity_image([:edit, :admin, block])

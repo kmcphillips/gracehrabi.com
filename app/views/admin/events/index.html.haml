@@ -4,13 +4,12 @@
   %tr{:class => cycle("odd", "even")}
     %td= event.title
     %td= event.status
-    %td= event.description
-    %td= event.starts_at
-    %td= event.ends_at
+    %td= link_to truncate_for_index(event.description), [event]
+    %td= event.starts_at.to_formatted_s(:index)
+    %td= event.ends_at.to_formatted_s(:index)
     %td
       = edit_entity_image [:edit, :admin, event]
       = destroy_entity_image [:admin, event]
 
-%br
-
-= new_entity_image new_admin_event_path, "Create New Event"
+.image_links
+  = new_entity_image new_admin_event_path, "Create New Event"

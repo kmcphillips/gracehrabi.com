@@ -1,6 +1,6 @@
 -if error_messages.errors.any?
-  #error_explanation
-    %h2= "Oops! There #{error_messages.errors.count == 1 ? "was a problem" : "were some problems"} saving:"
+  .error
+    %h2= "Oops! There #{error_messages.errors.count == 1 ? "was a problem" : "were some problems"} saving."
     %ul
       - error_messages.errors.full_messages.each do |msg|
         %li= msg

@@ -4,11 +4,10 @@
   %tr
     %td= link.title
     %td= link_to link.url, link.url
-    %td= link.description
+    %td= truncate_for_index link.description
     %td
       = edit_entity_image [:edit, :admin, link]
       = destroy_entity_image [:admin, link]
 
-%br
-
-= new_entity_image new_admin_link_path, "Create New Link"
+.image_links
+  = new_entity_image new_admin_link_path, "Create New Link"

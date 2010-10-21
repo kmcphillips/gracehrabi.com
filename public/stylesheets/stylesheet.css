@@ -87,7 +87,6 @@ a:visited {
     height: 50px;
 }
 
-
 /*** Navigation ***/
 
 #nav .bar {
@@ -150,11 +149,10 @@ a:visited {
 .box_full p.credits {
 }
 
-
 /****** Content ******/
 
 #content .main {
-	padding: 24px;
+    padding: 24px;
 }
 
 #content a {
@@ -162,22 +160,22 @@ a:visited {
 }
 
 #content a:hover {
- //  color: #C52115; 
+ //  color: #C52115;
 }
 
 #content .preview {
-	margin: 30px 0 18px 0;
+    margin: 30px 0 18px 0;
 }
 
 #content .preview h2 {
-	background-color: #7E7708;
-		padding: 8px;
+    background-color: #7E7708;
+    padding: 8px;
 }
 
 /*** Blog ***/
 
 .post {
-    padding: 8px 0 32px 0;    
+    padding: 8px 0 32px 0;
 }
 
 .post h1 {
@@ -188,8 +186,8 @@ a:visited {
 }
 
 .post h1 a {
-  color: #e4ebc1;
-  text-decoration: none;
+    color: #e4ebc1;
+    text-decoration: none;
 }
 
 .post h1 a:hover {
@@ -208,7 +206,6 @@ a:visited {
     border-left: 5px solid #4b3733;
     padding: 6px;
 }
-
 
 /*** Styles ***/
 
@@ -239,50 +236,49 @@ a.action-image:hover {
 
 /*** Error and notice blocks ***/
 
+.notice, .error {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ddd;
+    padding: 10px;
+    margin: 16px 0;
+}
+
 .notice {
-		font-family: verdana, helvetica, arial, sans-serif;
-		font-weight: bold;
-		font-size: 1.1em;
     background-color: green;
-		color: #ddd;
-		padding: 8px;
 }
 
-.field_with_errors {
-    padding: 2px;
-    background-color: red;
-    display: table;
+.error {
+    background-color: #c00;
 }
 
-#error_explanation {
-    width: 450px;
-    border: 2px solid red;
-    padding: 7px;
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
+.error h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
 }
 
-#error_explanation ul li {
-    font-size: 12px;
-    list-style: square;
+.error ul li {
+    list-style: circle;
+    margin-left: 25px;
 }
+
+.field_with_errors {
+    padding: 2px;
+    background-color: #c00;
+    display: table;
+}
+
 
 /*** Table ***/
 
 table.data {
     border-collapse: collapse;
+    margin: 24px 0;
 }
 
 table.data th {
@@ -310,6 +306,17 @@ table.data tbody tr.over td {
 table.data tbody tr:hover {
     color: #3D1020;
     background-color: #FFFB83;
+}
+
+table.data tbody td a {
+    color: #3D1020;
+}
+
+
+/*** Form and actions ***/
+
+.image_links {
+    padding: 10px;
 }
 
 /*** Fonts ***/

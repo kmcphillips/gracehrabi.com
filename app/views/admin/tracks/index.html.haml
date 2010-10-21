@@ -1,16 +1,16 @@
 %h1 Media Player Tracks
 
-= collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Actions"] do |track|
+= collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"] do |track|
   %tr{:class => cycle("odd", "even")}
     %td= track.title
-    %td= track.description
+    %td= truncate_for_index track.description
     %td= track.recorded_at
     %td= link_to track.mp3.name, track.mp3.url
     %td= boolean_image track.active?
+    %td= track.updated_at.to_formatted_s(:index)
     %td
       = edit_entity_image [:edit, :admin, track]
       = destroy_entity_image [:admin, track]
 
-%br
-
-= new_entity_image new_admin_track_path, "Create New Track"
+.image_links
+  = new_entity_image new_admin_track_path, "Create New Track"
