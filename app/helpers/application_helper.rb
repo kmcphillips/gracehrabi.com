@@ -62,8 +62,6 @@ module ApplicationHelper
   end
 
   def collection_index(collection, column_titles, options={}, &block)
-    paginate = collection.respond_to?(:total_pages) && collection.total_pages > 1
-
     content_tag(:table, :class => "data") do
       content_tag(:tbody) do
         src = ""
@@ -82,7 +80,7 @@ module ApplicationHelper
           end
         end
 
-        if paginate
+        if collection.paginate?
           src << content_tag(:tr) do
             content_tag(:th, :colspan => column_titles.size) do
               will_paginate(collection, pagination_params)
