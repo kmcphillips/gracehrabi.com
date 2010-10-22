@@ -6,6 +6,10 @@
     %br
     = f.text_area :body
 
+  - begin
+    = render @block.label
+  - rescue ActionView::MissingTemplate
+
   .actions
     %label Actions
     = f.submit "Save"

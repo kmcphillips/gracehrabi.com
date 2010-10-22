@@ -58,7 +58,7 @@ module ApplicationHelper
 
   def obfuscated_mail_to(email, label=nil)
     obfuscated = email.scan(/.{1,10}/).join("[REMOVE_THIS]")
-    mail_to(email, label, :encode => "javascript") + "<noscript>#{mail_to(obfuscated, label || email.sub(/\@.*/, ""))}</noscript>"
+    mail_to(email, label, :encode => "javascript") + "<noscript>#{mail_to(obfuscated, label || email.sub(/\@.*/, ""))}</noscript>".html_safe
   end
 
   def collection_index(collection, column_titles, options={}, &block)

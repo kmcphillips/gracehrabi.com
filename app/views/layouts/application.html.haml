@@ -35,7 +35,7 @@
       .box_full
         %p.credits
           &copy; #{Time.now.year}
-          = link_to "Grace Hrabi", "#"
+          = obfuscated_mail_to SITE_EMAIL, "Grace Hrabi"
           and
-          = link_to "Kevin McPhillips", "#"
+          = obfuscated_mail_to ADMIN_EMAIL, "Kevin McPhillips"
         .clear
