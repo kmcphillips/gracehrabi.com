@@ -36,7 +36,7 @@ class Importer
     b = Block.find_by_label!("bio")
     result = @db.query("SELECT * FROM bio").first
     
-    b.body = scrub(result[:body])
+    b.body = scrub(result["body"])
     b.save!
     puts "Done"
   end
@@ -46,7 +46,7 @@ class Importer
     b = Block.find_by_label!("contact")
     result = @db.query("SELECT * FROM contact").first
 
-    b.body = scrub(result[:body])
+    b.body = scrub(result["body"])
     b.save!
     puts "Done"
   end
@@ -54,7 +54,7 @@ class Importer
   def import_blog
     puts "Importing blog..."
     @db.query("SELECT * FROM blog").each do |result|
-      post = Post.new(:title => result["title"], :body => scrub(result["body"]), :created_at => result["create_date"], :updated_at => result["create_date"])
+      post = Post.new(:title => result["title"], :body => scrub(result["post"]), :created_at => result["create_date"], :updated_at => result["create_date"])
       post.save!
       puts "  Blog post ##{post.id} created"
     end
@@ -72,6 +72,6 @@ class Importer
   end
 
   def scrub(str)
-    str.gsub(/<br *\/?>/, "\n").strip_html
+    strip_tags(str.gsub(/<br *\/?>/, "\n"))
   end
 end

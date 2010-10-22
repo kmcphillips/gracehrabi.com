@@ -7,7 +7,7 @@ namespace :import do
     end
     raise "Key 'legacy' was not found in config/database.yml" unless config
 
-    Importer.import!(config)
+    Importer.new(config).import!
 
   end
 end
