@@ -12,8 +12,10 @@ class Track < ActiveRecord::Base
   validates :active, :inclusion => [true, false]
 
   before_validation(:on => :create) do
-    self.sort_order = Track.order("sort_order DESC").limit(1).first.try(:sort_order).to_i + 1
+    self.sort_order = Track.hightest_sort_order + 1
   end
+  
+  after_save :scrub_sort_order
 
   def self.window_name
     "_#{PAGE_TITLE.downcase.strip.gsub(/[^a-z0-9\w]/, "_")}_player"
@@ -25,5 +27,21 @@ class Track < ActiveRecord::Base
 
   def previous
     Track.find_by_sort_order(sort_order - 1) || Track.last
+  end
+  
+  def number_from_total
+    "(#{sort_order} of #{Track.highest_sort_order})"
+  end
+  
+  protected
+  
+  def self.highest_sort_order
+    Track.order("sort_order ASC").limit(1).first.try(:sort_order).to_i
+  end
+  
+  def scrub_sort_order
+    Track.order("sort_order ASC").each_with_index do |track, index|
+      track.update_attribute(:sort_order, index + 1) unless track.sort_order == (index + 1)
+    end
   end
 end

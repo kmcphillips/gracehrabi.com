@@ -1,1 +1,4 @@
-= render :partial => "player"
+.description
+  %ul
+    - @tracks.each do |track|
+      %li= link_to track.name, [track]

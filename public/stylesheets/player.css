@@ -6,13 +6,54 @@
     margin: 0;
     padding: 0;
     background: #3D1020;
-}
-
-#player h1 {
-    padding: 0;
-    margin: 0;
-    font-family: LatinModernMonoProp10Regular, monospace;
+    font-family: LatinModernMonoProp10Regular, serif;
     font-size: 2.2em;
 }
 
+#player .title {
+  padding: 0;
+  margin: 0;
+	font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+}
 
+#player .plugin {
+  padding: 0;
+  margin: 0;
+	
+}
+
+#player .controls {
+  padding: 0;
+  margin: 0;
+	
+}
+
+#player .prev {
+	padding: 0;
+  margin: 0;
+	float: left;
+
+}
+
+#player .track_count {
+	padding: 0;
+  margin: 0;
+	width: 100%;
+
+}
+
+#player .next {
+	padding: 0;
+  margin: 0;
+	float: right;
+
+}
+
+#player .description {
+  padding: 0;
+  margin: 0;
+	overflow: scroll;
+	height: 100%;
+	clear: both;
+
+}
