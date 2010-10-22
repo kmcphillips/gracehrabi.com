@@ -1,9 +1,9 @@
 !!!
 %html
   %head
-    %title= "#{PAGE_TITLE} Audio Player"
+    %title= "#{PAGE_TITLE} - Listen!"
 
-    = stylesheet_link_tag :all
+    = stylesheet_link_tag "stylesheet", "player"
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
     = javascript_include_tag :all, :cache => true
@@ -11,4 +11,4 @@
     = csrf_meta_tag
 
   %body
-    = yield
+    #player= yield

@@ -1,3 +1,5 @@
+/***** GraceHrabi.com - Main *****/
+
 * {
     margin: 0;
     padding: 0;
@@ -153,14 +155,6 @@ a:visited {
 
 #content .main {
     padding: 24px;
-}
-
-#content a {
-   // color: #e4ebc1;
-}
-
-#content a:hover {
- //  color: #C52115;
 }
 
 #content .preview {

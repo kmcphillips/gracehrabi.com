@@ -1,0 +1,16 @@
+/***** GraceHrabi.com - Audio Player *****/
+
+#player {
+    height: 300px;
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    background: #3D1020;
+}
+
+#player h1 {
+    padding: 0;
+    margin: 0;
+    font-family: LatinModernMonoProp10Regular, monospace;
+    font-size: 2.2em;
+}
