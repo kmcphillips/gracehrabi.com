@@ -12,7 +12,7 @@ class Track < ActiveRecord::Base
   validates :active, :inclusion => [true, false]
 
   before_validation(:on => :create) do
-    self.sort_order = Track.hightest_sort_order + 1
+    self.sort_order = Track.highest_sort_order + 1
   end
   
   after_save :scrub_sort_order
@@ -36,7 +36,7 @@ class Track < ActiveRecord::Base
   protected
   
   def self.highest_sort_order
-    Track.order("sort_order ASC").limit(1).first.try(:sort_order).to_i
+    Track.order("sort_order DESC").limit(1).first.try(:sort_order).to_i
   end
   
   def scrub_sort_order
