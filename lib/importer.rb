@@ -18,6 +18,7 @@ class Importer
   def import!
     begin
       ActiveRecord::Base.transaction do
+        clear_tables
         import_bio
         import_contact
         import_events
@@ -30,7 +31,13 @@ class Importer
   end
   
   protected
-  
+ 
+  def clear_tables
+    puts "Truncating event and blog post tables"
+    ActiveRecord::Base.connection.execute("TRUNCATE TABLE posts")
+    ActiveRecord::Base.connection.execute("TRUNCATE TABLE events")
+  end
+ 
   def import_bio
     puts "Importing bio..."
     b = Block.find_by_label!("bio")
