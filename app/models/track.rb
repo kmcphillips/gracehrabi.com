@@ -19,5 +19,11 @@ class Track < ActiveRecord::Base
     "_#{PAGE_TITLE.downcase.strip.gsub(/[^a-z0-9\w]/, "_")}_player"
   end
 
-end
+  def next
+    Track.find_by_sort_order(sort_order + 1) || Track.first
+  end
 
+  def previous
+    Track.find_by_sort_order(sort_order - 1) || Track.last
+  end
+end

@@ -30,4 +30,17 @@ describe Track do
     end
   end
 
+  describe "adjacent track" do
+    describe "prev" do
+      it "should be tested" do
+        pending
+      end
+    end
+
+    describe "next" do
+      it "should be tested" do
+        pending
+      end
+    end
+  end
 end

@@ -1,2 +1,9 @@
 %h1= PAGE_TITLE
-
+%h2= @track.title
+.player_body
+   .prev
+      = link_to "&lt;&nbsp;Prev", @track.previous
+   .description=@track.description.blank? ? "(none)" : @track.description
+   .next
+      = link_to "Next&nbsp;&gt;", @track.next
+.player_plugin.clear
