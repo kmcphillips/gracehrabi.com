@@ -17,7 +17,7 @@
   %body
     #wrapper
       .box_full
-        %p.listen= link_to "Listen", "/player", :target => Track.window_name
+        %p.listen= Track.count > 0 ? (link_to "Listen", track_path(Track.beginning), :target => Track.window_name) : "&nbsp;".html_safe
         .clear
 
       #header

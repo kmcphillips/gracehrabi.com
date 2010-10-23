@@ -3,6 +3,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
+    @tracks = Track.order("sort_order ASC")
   end
 
 end
