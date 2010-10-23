@@ -336,6 +336,10 @@ table.data tbody td a {
     padding: 12px 0;
 }
 
+.field .input, .actions .input {
+    padding-left: 120px;
+}
+
 label {
     width: 100px;
     float: left;
