@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   acts_as_permalink
 
-  has_one :image, :as => :imageable, :dependent => :destroy
+  
 
   def sort_by; created_at; end
 end

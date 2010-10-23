@@ -110,4 +110,10 @@ module ApplicationHelper
   def posts_path
     "/"
   end
+
+  def track_path(track)
+    "/player/#{track.id}"
+  end
+
 end
+

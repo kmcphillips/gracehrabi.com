@@ -11,7 +11,6 @@ GracehrabiCom::Application.routes.draw do
   end
 
   # media player
-  match 'player' => 'tracks#index'
   match 'player/:id' => 'tracks#show'
 
   resources :events, :only => [:index, :show]
