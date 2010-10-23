@@ -1,0 +1,17 @@
+.field
+  = f.label "Image"
+  .input
+    .right_float= link_to image_tag(object.thumb), object.full, :class => "thumb" if object.image.exists?
+    = f.file_field :image
+    %br
+    %span.bold &nbsp;&nbsp;&nbsp;OR
+    %br
+    = button_to_function "Select a previous image", ""
+    - if object.image.exists?
+      %br
+      %span.bold &nbsp;&nbsp;&nbsp;OR
+      %br
+      = button_to_function "Clear image", ""
+
+.clear
+  

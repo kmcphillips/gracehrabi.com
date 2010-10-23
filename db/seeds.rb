@@ -3,11 +3,12 @@ begin
     puts "Deleting all Blocks"
     Block.destroy_all
     puts "Creating blocks"
-    # Must set each attr since we protect them so the are not easily updated by acciden when editing
+
     {"contact" => "/contact", "bio" => "/bio"}.each_pair do |k, v|
       b = Block.new :body => ""
       b.label = k
       b.path = v
+      b.accepts_image = true
       b.save!
     end
 

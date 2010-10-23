@@ -9,6 +9,8 @@
     = render @block.label
   - rescue ActionView::MissingTemplate
 
+  = image_form(f) if @block.accepts_image?
+
   .actions
     %label Actions
     .input= f.submit "Save"

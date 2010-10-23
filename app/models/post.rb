@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   acts_as_permalink
 
-  
+  include AttachedImage
 
   def sort_by; created_at; end
 end

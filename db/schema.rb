@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017041034) do
+ActiveRecord::Schema.define(:version => 20101023192328) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(:version => 20101017041034) do
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "accepts_image",      :default => false
   end
 
   add_index "blocks", ["label"], :name => "index_blocks_on_label"
@@ -29,6 +34,10 @@ ActiveRecord::Schema.define(:version => 20101017041034) do
     t.datetime "ends_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
@@ -47,6 +56,10 @@ ActiveRecord::Schema.define(:version => 20101017041034) do
     t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "tracks", :force => true do |t|

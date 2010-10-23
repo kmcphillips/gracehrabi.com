@@ -3,4 +3,7 @@ class Block < ActiveRecord::Base
   validates :path, :presence => true
 
   attr_protected :label, :path
+  
+  include AttachedImage
+  
 end

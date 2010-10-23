@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   validates :description, :presence => true
   validates :starts_at, :presence => {:message => "must have a start date"}
 
+  include AttachedImage
+
   scope :upcoming, lambda { where("events.starts_at > ?", Time.now) }
   scope :current, lambda { t = Time.now; where("events.ends_at IS NOT NULL AND events.starts_at < ? AND events.ends_at > ?", t, t) }
   scope :past, lambda { t = Time.now; where("(events.ends_at IS NOT NULL && events.ends_at < ?) OR (events.ends_at IS NULL && events.starts_at < ?)", t, t) }

@@ -100,7 +100,11 @@ module ApplicationHelper
   def error_messages(object=nil)
     render :partial => "/shared/error_messages", :object => object
   end
-  
+
+  def image_form(f)
+    render :partial => "/shared/image_form", :locals => {:f => f, :object => f.object}
+  end
+
 
   ## Overridden paths
   def post_path(post)

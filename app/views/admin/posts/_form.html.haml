@@ -1,26 +1,19 @@
-= form_for [:admin, @post], :html => { :multipart => true }, :remote => true do |f|
+= form_for [:admin, @post], :html => { :multipart => true } do |f|
   = error_messages(@post)
   
   .field
     = f.label :title
-    .input= f.text_field :title
+    .input= f.text_field :title, :size => 48
   .field
     = f.label :body
-    .input= f.text_area :body
+    .input= f.text_area :body, :rows => 16, :cols => 64
 
   - if f.object.permalink
     .field
       = f.label :permalink
       .input.bold= f.object.permalink
 
-  .field
-    = f.label "Image"
-    .input
-      = f.file_field :image
-      %br
-      %span.bold OR
-      %br
-      = button_to_function "Select a previous image", ""
+  = image_form(f)
 
   .actions
     %label Actions
