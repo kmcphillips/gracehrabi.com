@@ -6,14 +6,6 @@ describe TracksController do
     @mock_track ||= mock_model(Track, stubs).as_null_object
   end
 
-  describe "GET index" do
-    it "assigns all tracks as @tracks" do
-      Track.stub(:order) { [mock_track] }
-      get :index
-      assigns(:tracks).should eq([mock_track])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested track as @track" do
       Track.stub(:find).with("37") { mock_track }

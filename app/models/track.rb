@@ -29,6 +29,10 @@ class Track < ActiveRecord::Base
     Track.find_by_sort_order(sort_order - 1) || Track.last
   end
   
+  def self.beginning
+    Track.order("sort_order ASC").first
+  end
+  
   def number_from_total
     "(#{sort_order} of #{Track.highest_sort_order})"
   end

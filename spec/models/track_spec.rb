@@ -83,6 +83,22 @@ describe Track do
         Track.destroy_all
       end
     end
+    
+    describe "beginning" do
+      before(:each) do
+        (1..3).each do |sort_order|
+          Track.create! @valid_attributes.merge(:sort_order => sort_order)
+        end
+      end
+      
+      it "should find the first track" do
+        Track.beginning.sort_order.should == 1
+      end
+      
+      after(:each) do
+        Track.destroy_all
+      end
+    end
   end
   
 end

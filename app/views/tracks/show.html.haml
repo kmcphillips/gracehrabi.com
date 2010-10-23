@@ -1,1 +1,10 @@
-= render :partial => "player"
+.title
+.plugin
+.controls
+  .prev
+    = link_to "&lt;&nbsp;Prev", @track.previous
+  .track_count
+  .next
+    = link_to "Next&nbsp;&gt;", @track.next
+      
+.description=@track.description.blank? ? "(none)" : @track.description
