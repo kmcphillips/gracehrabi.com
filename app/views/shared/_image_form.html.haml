@@ -8,27 +8,42 @@
         height: 500,
         width: 700,
         title: "Select a previous image"
-
       });
 
       $('.field input[type=file]').change(function(){
-        $('#current_image').hide();
-        $('#previous_image_id').val("");
+        if($('.field input[type=file]').val() && $('.field input[type=file]').val() != "") {
+          resetClear();
+          resetPrevious();
+        }
       });
     });
 
     function clearImage() {
-      $('.field input[type=file]').val("");
-      $('#current_image').hide();
-      $('#clear_image').val("true");
+      $('#clear_image_field').val("true");
+      resetUpload();
+      resetPrevious();
     }
 
     function selectImage(id, src) {
       $('#previous_image').dialog('close');
       $('#current_image').attr('src', src);
       $('#current_image').show();
-      $('.field input[type=file]').val("");
       $('#previous_image_id').val(id);
+      resetUpload();
+      resetClear();
+    }
+
+    function resetClear() {
+      $('#clear_image_field').val("");
+    }
+
+    function resetUpload() {
+      $('.field input[type=file]').val("");
+    }
+
+    function resetPrevious() {
+      $('#current_image').hide();
+      $('#previous_image_id').val("");
     }
 
 .field
@@ -48,15 +63,15 @@
     = button_to_function "Select a previous image", "$('#previous_image').dialog('open');"
     = f.hidden_field "previous_image_id", :id => :previous_image_id
     #previous_image
-      - f.object.class.order("created_at DESC").each do |prev|
-        = link_to_function image_tag(prev.thumb), "selectImage(#{prev.id}, '#{prev.thumb}')" if prev.image.exists?
+      - unique_previous_images(f.object).each do |prev|
+        = link_to_function image_tag(prev.thumb), "selectImage(#{prev.id}, '#{prev.thumb}')"
 
     #clear_image
       %span.bold &nbsp;&nbsp;&nbsp;OR
       %br
 
       = button_to_function "No image", "clearImage()"
-      = f.hidden_field "clear_image", :id => :clear_image
+      = f.hidden_field "clear_image", :id => :clear_image_field
 
 .clear
   

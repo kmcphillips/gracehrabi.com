@@ -18,6 +18,8 @@ module AttachedImage
 
       validate :setting_valid_image
 
+      before_save :manage_image
+
       attr_accessor :previous_image_id, :clear_image
 
       AttachedImage::SIZES.each_key do |key|
@@ -32,8 +34,16 @@ module AttachedImage
   module ClassMethods
   end
 
+  protected
+
   def setting_valid_image
-    errors.add(:image, "is not a valid previous image") if previous_image_id && !self.class.find_by_id(previous_image_id)
+    errors.add_to_base("cannot send multiple types of image actions") if (image.dirty?) ? (!clear_image.blank? || !previous_image_id.blank?) : (!clear_image.blank? && !previous_image_id.blank?)  # tests if at least two are true
+    errors.add(:image, "is not a valid previous image") if !previous_image_id.blank? && !self.class.find_by_id(previous_image_id)
+  end
+
+  def manage_image
+    self.image.clear if !clear_image.blank?
+    self.image = self.class.find_by_id(previous_image_id).image if !previous_image_id.blank?
   end
 
 end

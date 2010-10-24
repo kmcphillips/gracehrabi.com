@@ -83,7 +83,7 @@ module ApplicationHelper
         if collection.paginate?
           src << content_tag(:tr) do
             content_tag(:th, :colspan => column_titles.size) do
-              will_paginate(collection, pagination_params)
+              will_paginate(collection, :previous_label => "← Newer", :next_label => "Older →")
             end
           end
         end
@@ -107,6 +107,21 @@ module ApplicationHelper
 
   def admin?
     params[:controller] =~ /^admin\//
+  end
+
+  def unique_previous_images(obj)
+    fingerprints = []
+
+    obj.class.order("created_at DESC").where("id != ?", obj.id).map do |current|
+      if current.image.exists? && current.image.fingerprint
+        if fingerprints.include?(current.image.fingerprint)
+          nil
+        else
+          fingerprints << current.image.fingerprint
+          current
+        end
+      end
+    end.compact
   end
 
 
