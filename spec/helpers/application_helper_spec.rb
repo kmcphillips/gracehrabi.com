@@ -45,6 +45,18 @@ describe ApplicationHelper do
     end
   end
 
+  describe "admin?" do
+    it "should know if it is not admin" do
+      stub!(:params => {:controller => "posts"})
+      admin?.should be_false
+    end
+
+    it "should know if it is admin" do
+      stub!(:params => {:controller => "admin/posts"})
+      admin?.should be_true
+    end
+  end
+
   describe "image link helpers" do
     it "should be tested" do
       pending "new/edit/delete/index icon helpers"

@@ -14,7 +14,7 @@ GracehrabiCom::Application.routes.draw do
   match 'player/:id' => 'tracks#show'
 
   resources :events, :only => [:index, :show]
-
+  resources :galleries, :only => [:index, :show]
 
   # admin
   namespace :admin do

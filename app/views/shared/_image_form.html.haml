@@ -1,17 +1,62 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $('#previous_image').dialog({
+        autoOpen: false,
+        buttons: { "Cancel": function() { $(this).dialog("close"); } },
+        modal: true,
+        height: 500,
+        width: 700,
+        title: "Select a previous image"
+
+      });
+
+      $('.field input[type=file]').change(function(){
+        $('#current_image').hide();
+        $('#previous_image_id').val("");
+      });
+    });
+
+    function clearImage() {
+      $('.field input[type=file]').val("");
+      $('#current_image').hide();
+      $('#clear_image').val("true");
+    }
+
+    function selectImage(id, src) {
+      $('#previous_image').dialog('close');
+      $('#current_image').attr('src', src);
+      $('#current_image').show();
+      $('.field input[type=file]').val("");
+      $('#previous_image_id').val(id);
+    }
+
 .field
   = f.label "Image"
   .input
-    .right_float= link_to image_tag(object.thumb), object.full, :class => "thumb" if object.image.exists?
+    - if object.image.exists?
+      = image_tag(object.thumb, :id => :current_image)
+    - else
+      %img{:src => "#", :id => :current_image}
+
     = f.file_field :image
+
     %br
     %span.bold &nbsp;&nbsp;&nbsp;OR
     %br
-    = button_to_function "Select a previous image", ""
-    - if object.image.exists?
-      %br
+
+    = button_to_function "Select a previous image", "$('#previous_image').dialog('open');"
+    = f.hidden_field "previous_image_id", :id => :previous_image_id
+    #previous_image
+      - f.object.class.order("created_at DESC").each do |prev|
+        = link_to_function image_tag(prev.thumb), "selectImage(#{prev.id}, '#{prev.thumb}')" if prev.image.exists?
+
+    #clear_image
       %span.bold &nbsp;&nbsp;&nbsp;OR
       %br
-      = button_to_function "Clear image", ""
+
+      = button_to_function "No image", "clearImage()"
+      = f.hidden_field "clear_image", :id => :clear_image
 
 .clear
   

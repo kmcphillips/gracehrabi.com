@@ -105,6 +105,10 @@ module ApplicationHelper
     render :partial => "/shared/image_form", :locals => {:f => f, :object => f.object}
   end
 
+  def admin?
+    params[:controller] =~ /^admin\//
+  end
+
 
   ## Overridden paths
   def post_path(post)

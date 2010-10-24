@@ -6,8 +6,11 @@ class BlocksController < ApplicationController
 
   def contact
   end
-  
+
   def bio
+  end
+
+  def gallery
   end
 
   def links

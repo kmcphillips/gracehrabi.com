@@ -11,44 +11,55 @@
 }
 
 #player .header {
-  padding: 0;
-  margin: 0;
-	height: 55px;
-	width: 650px;
-	font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 75px;
+    width: 650px;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    border-bottom: 4px solid #F6F3CF;
 }
 
 #player .container {
-  padding: 0;
-  margin: 0;
-	height: 245px;
-	width: 650px;
+    padding: 0;
+    margin: 0;
+    height: 221px;
+    width: 650px;
 }
 
 #player .list {
-  padding: 0;
-  margin: 0;
-	height: 215px;
-	width: 220px;
-	float: right;
-	background-color: #9E8855;
-	padding: 15px;
-	overflow: scroll;
-	overflow-x: hidden;
+    margin: 0;
+    height: 191px;
+    width: 216px;
+    float: right;
+    background-color: #9E8855;
+    padding: 15px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-left: 4px solid #F6F3CF;
+}
+
+#player .list {
+    
+}
+
+#player .list a {
+    color: #4B3733;
+    font-weight: bold;
 }
 
 #player .main {
-	padding: 0;
-  margin: 0;
-	height: 100%;
-	width: 400px;
-	float: left;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 400px;
+    float: left;
 }
 
 #player .title {
-	text-align: center;
-	font-size: 1.5em;
-	font-weight: bold;
+    margin: 6px 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 #player .controls {
@@ -56,26 +67,26 @@
 }
 
 #player .prev {
-	padding: 6px;
-  margin: 0;
-	width: 140px;
-	float: left;
+    padding: 6px;
+    margin: 0;
+    width: 140px;
+    float: left;
 }
 
 #player .next {
-	padding: 6px;
-  margin: 0;
-	width: 140px;
-	float: right;
-	text-align: right;
+    padding: 6px;
+    margin: 0;
+    width: 140px;
+    float: right;
+    text-align: right;
 }
 
 #player .description {
-	clear: both;
-	height: auto;
-	padding: 15px;
+    clear: both;
+    height: auto;
+    padding: 15px;
 }
 
 #player ul {
-	list-style: none;
+    list-style: none;
 }

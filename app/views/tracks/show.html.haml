@@ -1,5 +1,5 @@
 #player
-  .header (Grace Hrabi)
+  .header= image_tag "player_header.png"
   .container
     .main
       .title= @track.title
@@ -18,7 +18,7 @@
         - else
           &nbsp;
           
-      .description=@track.description.blank? ? "(none)" : @track.description
+      .description=@track.description
 
     .list
       %ul
