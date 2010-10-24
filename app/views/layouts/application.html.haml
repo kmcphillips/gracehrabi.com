@@ -17,7 +17,11 @@
   %body
     #wrapper
       .box_full
-        %p.listen= Track.count > 0 ? (link_to "Listen", track_path(Track.beginning), :target => Track.window_name) : "&nbsp;".html_safe
+        %p.listen
+          - if Track.count > 0
+            %a{:href => "#", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=300, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen!
+          - else
+            &nbsp;
         .clear
 
       #header

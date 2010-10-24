@@ -22,11 +22,11 @@ class Track < ActiveRecord::Base
   end
 
   def next
-    Track.find_by_sort_order(sort_order + 1) || Track.first
+    Track.all.count < 2 ? nil : (Track.find_by_sort_order(sort_order + 1) || Track.first)
   end
 
   def previous
-    Track.find_by_sort_order(sort_order - 1) || Track.last
+    Track.all.count < 2 ? nil : (Track.find_by_sort_order(sort_order - 1) || Track.last)
   end
   
   def self.beginning
@@ -35,6 +35,10 @@ class Track < ActiveRecord::Base
   
   def number_from_total
     "(#{sort_order} of #{Track.highest_sort_order})"
+  end
+  
+  def mp3_url(url)
+    url.gsub(/\/player\/[0-9]+/, "") + mp3.url if mp3.exists?
   end
   
   protected

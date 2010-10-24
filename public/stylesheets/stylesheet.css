@@ -220,6 +220,14 @@ a:visited {
     float: right;
 }
 
+
+/*** Blocks ***/
+
+.bio_image {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+
 /*** Styles ***/
 
 .clear {
@@ -324,6 +332,7 @@ table.data tbody tr:hover {
 table.data tbody td a {
     color: #3D1020;
 }
+
 
 
 /*** Form and actions ***/

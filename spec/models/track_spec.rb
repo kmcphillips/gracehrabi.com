@@ -18,6 +18,12 @@ describe Track do
     t.sort_order.should == 2
   end
   
+  it "should know the mp3_url" do
+    t = Track.new
+    t.stub(:mp3 => mock(:mp3, :url => "/assets/pie.mp3", :exists? => true))
+    t.mp3_url("http://pie:123/player/1").should == "http://pie:123/assets/pie.mp3"
+  end
+  
   describe "with real data" do
     before(:each) do
       (0..3).each do
@@ -29,21 +35,28 @@ describe Track do
     describe "adjacent track" do 
       it "should know for the first track what is adjacent" do
         t = @all.first
-      t.next.sort_order.should == 2
-      t.previous.sort_order.should == @all.last.sort_order
-    end
+        t.next.sort_order.should == 2
+        t.previous.sort_order.should == @all.last.sort_order
+      end
 
-    it "should know for the second track what is adjacent" do
-      t = @all[1]
-      t.next.sort_order.should == 3
-      t.previous.sort_order.should == 1
-    end
+      it "should know for the second track what is adjacent" do
+        t = @all[1]
+        t.next.sort_order.should == 3
+        t.previous.sort_order.should == 1
+      end
 
-    it "should know for the last track what is adjacent" do
-      t = @all.last
-      t.next.sort_order.should == 1
-      t.previous.sort_order.should == t.sort_order - 1
-    end
+      it "should know for the last track what is adjacent" do
+        t = @all.last
+        t.next.sort_order.should == 1
+        t.previous.sort_order.should == t.sort_order - 1
+      end
+      
+      it "should return nil if there is only one track" do
+        t = @all.pop
+        @all.map(&:destroy)
+        t.next.should be_nil
+        t.previous.should be_nil
+      end
     end
 
     describe "number_from_total" do
