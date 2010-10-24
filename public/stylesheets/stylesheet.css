@@ -220,6 +220,10 @@ a:visited {
     float: right;
 }
 
+.post_pagination .pagination .disabled {
+    visibility: hidden;
+}
+
 
 /*** Blocks ***/
 
