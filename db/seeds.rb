@@ -8,7 +8,7 @@ begin
       b = Block.new :body => ""
       b.label = k
       b.path = v
-      b.accepts_image = true
+      b.accepts_image = true if k = "contact"
       b.save!
     end
 
