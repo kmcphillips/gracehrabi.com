@@ -138,5 +138,9 @@ module ApplicationHelper
     "/player/#{track.id}"
   end
 
+  def admin_gallery_path(gallery)
+    "/admin/galleries/#{gallery}"
+  end
+
 end
 

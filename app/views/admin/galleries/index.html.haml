@@ -1,0 +1,11 @@
+= error_messages
+
+%h1 Galleries
+
+= collection_index Image::GALLERIES.keys, ["Gallery", "Details"] do |gallery|
+  %tr{:class => cycle("odd", "even")}
+    %td
+      %span.bold= link_to Image::GALLERIES[gallery], admin_gallery_path(gallery)
+    %td
+      TODO
+

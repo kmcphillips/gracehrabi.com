@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101025022924) do
+ActiveRecord::Schema.define(:version => 20101025200248) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -54,8 +54,10 @@ ActiveRecord::Schema.define(:version => 20101025022924) do
     t.string   "file_fingerprint"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",            :default => true
   end
 
+  add_index "images", ["active"], :name => "index_images_on_active"
   add_index "images", ["gallery"], :name => "index_images_on_gallery"
 
   create_table "links", :force => true do |t|

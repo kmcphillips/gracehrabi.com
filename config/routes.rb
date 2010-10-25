@@ -35,6 +35,8 @@ GracehrabiCom::Application.routes.draw do
     resources :links, :except => [:show]
     resources :posts, :except => [:show]
     resources :tracks, :except => [:show]
+    resources :galleries, :only => [:index, :show]
+    resources :images, :only => [:create, :destroy, :update]
   end
 
 
