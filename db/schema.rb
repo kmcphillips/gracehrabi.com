@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024221325) do
+ActiveRecord::Schema.define(:version => 20101025022924) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(:version => 20101024221325) do
   end
 
   add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
+
+  create_table "images", :force => true do |t|
+    t.string   "label"
+    t.string   "gallery"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "file_fingerprint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["gallery"], :name => "index_images_on_gallery"
 
   create_table "links", :force => true do |t|
     t.string   "title"

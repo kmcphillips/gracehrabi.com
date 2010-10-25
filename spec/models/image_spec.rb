@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-describe Post do
-
+describe Image do
 
   it "should be tested" do
     pending
