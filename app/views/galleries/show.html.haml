@@ -2,5 +2,7 @@
   %h1= @gallery_name
   %h3 &nbsp;
 
+  - @images.each do |image|
+    = link_to image_tag(image.thumb, :alt => (image.label.blank? ? SITE_TITLE : "#{SITE_TITLE} - #{image.label}")), image.full
 
   .gallery_back= link_to "Back to all galleries", "/galleries"

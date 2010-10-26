@@ -1,0 +1,15 @@
+%h1= @gallery_name
+
+- @images.each do |image|
+  .image_admin
+    = link_to image_tag(image.thumb, :alt => (image.label.blank? ? SITE_NAME : "#{SITE_NAME} - #{image.label}")), image.full
+    %br
+    = destroy_entity_image admin_images_path, "Delete Image"
+
+.post
+  %h1 Upload New Image
+  = render :partial => 'admin/galleries/form'
+
+.image_links
+  = index_entity_image admin_galleries_path, "Back to Galleries Index"
+
