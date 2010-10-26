@@ -1,10 +1,8 @@
 %h1= @gallery_name
 
 - @images.each do |image|
-  .image_admin
-    = link_to image_tag(image.thumb, :alt => (image.label.blank? ? SITE_NAME : "#{SITE_NAME} - #{image.label}")), image.full
-    %br
-    = destroy_entity_image admin_images_path, "Delete Image"
+  .fake_thumb{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;"}
+    .delete= destroy_entity_image admin_images_path
 
 .post
   %h1 Upload New Image
