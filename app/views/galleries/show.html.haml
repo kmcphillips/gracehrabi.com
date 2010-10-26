@@ -1,8 +1,27 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $("a[rel^='prettyPhoto']").prettyPhoto({
+        animation_speed: 'fast',
+        slideshow: true,
+        opacity: 0.80,
+        show_title: false,
+        allow_resize: true,
+        default_width: 500,
+        default_height: 344,
+        counter_separator_label: ' of ',
+        theme: 'dark_square',
+        hideflash: false,
+        keyboard_shortcuts: true,
+        overlay_gallery: false
+      });
+    });
+
 .post
   %h1= @gallery_name
   %h3 &nbsp;
 
   - @images.each do |image|
-    = link_to image_tag(image.thumb, :class => "thumb", :alt => (image.label.blank? ? SITE_NAME : "#{SITE_NAME} - #{image.label}")), image.full
+    = link_to image_tag(image.thumb, :class => "thumb", :alt => (image.label.blank? ? SITE_NAME : "#{SITE_NAME} - #{image.label}")), image.full, :rel => "prettyPhoto[gallery]"
 
   .gallery_back= link_to "Back to all galleries", "/galleries"

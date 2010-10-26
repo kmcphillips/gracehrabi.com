@@ -3,10 +3,10 @@
   %head
     %title= page_title
 
-    = stylesheet_link_tag ["stylesheet"] + (admin? ? ['jquery-ui-1.8.5.custom'] : [])
+    = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.5.custom'] : [])
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
-    = javascript_include_tag ['application', 'rails'] + (admin? ? ['jquery-ui-1.8.5.custom.min'] : []), :cache => true
+    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.5.custom.min'] : []), :cache => true
 
     = yield :js
 
