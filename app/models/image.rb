@@ -10,7 +10,7 @@ class Image < ActiveRecord::Base
     :url => "/assets/images/:class/:id/:style_:basename.:extension"
 
   validates_attachment_presence :file
-  validates_attachment_size :file, :in => 1..3.megabytes
+  validates_attachment_size :file, :in => 1..5.megabytes
   validates_attachment_content_type :file, :content_type => ["image/jpg", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/x-png", "image/gif"]
 
   validates :gallery, :inclusion => GALLERIES.keys.map(&:to_s)
