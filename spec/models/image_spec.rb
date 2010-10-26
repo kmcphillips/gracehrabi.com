@@ -6,8 +6,7 @@ describe Image do
     @valid_attributes = {}
   end
 
-  it "should be tested" do
-    pending
-  end
+  ## No methods on this object and I'm not going to test scopes, validations, and libs
+
 end
 

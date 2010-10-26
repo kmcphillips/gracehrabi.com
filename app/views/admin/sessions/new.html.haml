@@ -1,8 +1,6 @@
 %h1 Login
 
 = form_tag admin_sessions_path, :method => :post do
-  = error_messages
-
   .field
     %label Username
     = text_field_tag :username

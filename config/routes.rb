@@ -36,7 +36,13 @@ GracehrabiCom::Application.routes.draw do
     resources :posts, :except => [:show]
     resources :tracks, :except => [:show]
     resources :galleries, :only => [:index, :show]
-    resources :images, :only => [:create, :destroy, :update]
+
+    resources :images, :only => [:create, :destroy, :update] do
+      collection do
+        post 'sort'
+      end
+    end
+
   end
 
 

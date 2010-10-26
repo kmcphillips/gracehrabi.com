@@ -15,6 +15,10 @@ describe Admin::ImagesController do
       { :delete => "/admin/images/1" }.should route_to(:controller => "admin/images", :action => "destroy", :id => "1")
     end
 
+    it "recognizes and generates #sort" do
+      { :post => "/admin/images/sort" }.should route_to(:controller => "admin/images", :action => "sort")
+    end
+
   end
 end
 

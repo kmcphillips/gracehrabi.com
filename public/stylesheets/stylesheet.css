@@ -268,16 +268,24 @@ a:hover img.thumb {
 	border: 8px solid #C52115;
 }
 
-.fake_thumb {
+#image_sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+
+#image_sortable li {
+	float: left;
+	text-align: right;
 	height: 120px;
 	width: 120px;
 	border: 8px solid #7D7B56;
+	padding: 0px;
 	margin: 12px 5px;
 }
 
-.fake_thumb .delete {
-	margin: 100px 3px 0 0;
-	text-align: right;
+#image_sortable li .delete {
+	
 }
 
 

@@ -1,8 +1,30 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function() {
+      $("#image_sortable").sortable({
+        update: function () {
+          data = $("#image_sortable").sortable('serialize');
+          $.ajax({
+            url: "/admin/images/sort",
+            type: "post",
+            data: data,
+            error: function(){
+              alert("There was an error sorting images. Contact administrator.");
+            }
+          });
+        }
+      });
+      
+      $("#image_sortable").disableSelection();
+    });
+
+
 %h1= @gallery_name
 
-- @images.each do |image|
-  .fake_thumb{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;"}
-    .delete= destroy_entity_image admin_images_path
+%ul#image_sortable
+  - @images.each do |image|
+    %li{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;"}
+      .delete= destroy_entity_image admin_images_path
 
 .post
   %h1 Upload New Image

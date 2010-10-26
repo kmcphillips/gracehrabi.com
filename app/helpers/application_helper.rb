@@ -97,7 +97,7 @@ module ApplicationHelper
     truncate(str, :length => 120, :omission => " (more..)")
   end
 
-  def error_messages(object=nil)
+  def error_messages(object)
     render :partial => "/shared/error_messages", :object => object
   end
 
