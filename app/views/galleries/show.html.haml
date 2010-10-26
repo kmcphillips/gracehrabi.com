@@ -5,8 +5,8 @@
         animation_speed: 'fast',
         slideshow: false,
         opacity: 0.60,
-        show_title: false,
-        allow_resize: true,
+        show_title: true,
+        allow_resize: false,
         default_width: 500,
         default_height: 344,
         counter_separator_label: ' of ',
@@ -22,6 +22,6 @@
   %h3 &nbsp;
 
   - @images.each do |image|
-    = link_to image_tag(image.thumb, :class => "thumb", :alt => (image.label.blank? ? SITE_NAME : "#{SITE_NAME} - #{image.label}")), image.full, :rel => "prettyPhoto[gallery]"
+    = link_to image_tag(image.thumb, :class => "thumb", :alt => image.label), image.full, :rel => "prettyPhoto[gallery]"
 
   .gallery_back= link_to "Back to all galleries", "/galleries"
