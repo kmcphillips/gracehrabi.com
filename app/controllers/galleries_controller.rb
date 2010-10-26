@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-    @images = Image.all_active.for_gallery(params[:id])
+    @images = Image.all_active.for_gallery(params[:id]).in_order
     @gallery = params[:id]
     @gallery_name = Image::GALLERIES[params[:id]] || "Unknown"
   end

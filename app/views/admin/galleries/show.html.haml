@@ -23,8 +23,9 @@
 
 %ul#image_sortable
   - @images.each do |image|
-    %li{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;"}
+    %li{:style => "background: #7D7B56 url('#{image.thumb}') no-repeat left top;", :id => "image_#{image.id}"}
       .delete= destroy_entity_image admin_images_path
+.clear
 
 .post
   %h1 Upload New Image

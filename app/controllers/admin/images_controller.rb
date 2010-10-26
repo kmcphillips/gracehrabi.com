@@ -46,12 +46,9 @@ class Admin::ImagesController < ApplicationController
   end
   
   def sort
-
-    raise params.inspect
-
     if params[:image].try(:is_a?, Array)
       params[:image].each_with_index do |id, index|
-        ActiveRecord::Base.connection.execute("UPDATE images SET sort_order = #{index} WHERE id = #{id.to_i}")
+        ActiveRecord::Base.connection.execute("UPDATE images SET sort_order = #{index + 1} WHERE id = #{id.to_i}")
       end
     end
 
