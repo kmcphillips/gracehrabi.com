@@ -2,10 +2,12 @@
 
 %h1 Galleries
 
-= collection_index Image::GALLERIES.keys, ["Gallery", "Details"] do |gallery|
+= collection_index @galleries.keys, ["Gallery", "Details"] do |gallery|
   %tr{:class => cycle("odd", "even")}
     %td
       %span.bold= link_to Image::GALLERIES[gallery], admin_gallery_path(gallery)
     %td
-      TODO
+      = "With #{@galleries[gallery].size} image#{@galleries[gallery].size == 1 ? "" : "s"}"
+      %br
+      = "Last updated: #{@galleries[gallery].sort {|x,y| y.updated_at <=> x.updated_at }.last.updated_at.to_formatted_s(:index)}" if @galleries[gallery].any? 
 
