@@ -15,12 +15,14 @@ describe GalleriesController do
   describe "GET show" do
     before(:each) do
       @all_active_proxy = mock :all_active
+      @all = mock :all
       Image.stub(:all_active => @all_active_proxy)
     end
 
     it "should set all the vars" do
       gallery = Image::GALLERIES.keys.first.to_s
-      @all_active_proxy.should_receive(:for_gallery).with(gallery).and_return([@image])
+      @all_active_proxy.should_receive(:for_gallery).with(gallery).and_return(@all)
+      @all.should_receive(:in_order).and_return([@image])
       get :show, :id => gallery
       assigns(:images).should == [@image]
       assigns(:gallery).should == gallery

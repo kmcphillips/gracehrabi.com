@@ -15,7 +15,7 @@ class Image < ActiveRecord::Base
   validates :sort_order, :uniqueness => {:scope => :gallery}, :presence => true
   validates :gallery, :inclusion => GALLERIES.keys.map(&:to_s)
 
-  before_save :set_sort_order, :on => :create
+  before_validation :set_sort_order, :on => :create
 
   scope :all_active, where(:active => true).order("created_at DESC")
   scope :all_inactive, where(:active => false).order("created_at DESC")

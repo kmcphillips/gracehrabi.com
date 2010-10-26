@@ -3,6 +3,14 @@ require 'spec_helper'
 describe Admin::ImagesController do
   before(:each) do
     login_as_mock_user
+    @valid_attributes = {
+      :gallery => Image::GALLERIES.keys.first, 
+      :file_file_name => "test.jpg", 
+      :file_content_type => "image/jpg", 
+      :file_file_size => "12345", 
+      :file_updated_at => Time.now, 
+      :file_fingerprint => "123094123092093"
+      }
   end  
 
   def mock_image(stubs={})
@@ -42,5 +50,21 @@ describe Admin::ImagesController do
     end
   end
 
+  describe "POST sort" do
+    before(:each) do
+      @i1 = Image.create! @valid_attributes
+      @i2 = Image.create! @valid_attributes
+      @i3 = Image.create! @valid_attributes
+    end
+    
+    it "should sort the IDs passed back" do
+      post :sort, :image => [3,1,2]
+      Image.in_order.map(&:id).should == [@i3.id, @i1.id, @i2.id]
+    end
+    
+    after(:each) do
+      Image.destroy_all
+    end
+  end
 end
 
