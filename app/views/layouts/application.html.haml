@@ -3,6 +3,8 @@
   %head
     %title= page_title
 
+    = auto_discovery_link_tag(:rss, '/rss.xml')
+
     = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.5.custom'] : [])
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
@@ -13,6 +15,8 @@
     %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "/favicon.ico"}
 
     = csrf_meta_tag
+    %meta{:name => "keywords", :content => META[:keywords] || ""}
+    %meta{:name => "description", :content => META[:description] || ""}
 
   %body
     #wrapper
