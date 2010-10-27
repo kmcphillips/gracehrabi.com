@@ -315,6 +315,9 @@ a:hover img.thumb {
     text-align: center;
 }
 
+.no_border {
+	border: none;
+}
 
 a.action-image img {
     border: none;
