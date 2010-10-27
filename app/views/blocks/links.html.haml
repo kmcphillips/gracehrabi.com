@@ -2,6 +2,8 @@
   %h1 Links
   %h3 &nbsp;
 
-  - @links.each do |link|
-    = link_to link.display, link.url
-    = link.description if link.description
+  %ul.links
+    - @links.each do |link|
+      %li
+        %p.link= link_to link.display, link.url
+        = simple_format(link.description) unless link.description.blank?

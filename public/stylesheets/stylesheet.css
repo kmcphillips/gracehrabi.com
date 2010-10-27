@@ -257,6 +257,26 @@ a:visited {
     font-size: 1.2em;
 }
 
+ul.links {
+	
+}
+
+ul.links li {
+	padding: 10px 0 10px 12px;
+	margin: 0 0 0 20px;
+	list-style: circle;
+}
+
+ul.links li p.link {
+	font-size: 1.4em;
+	padding-bottom: 6px;
+}
+
+ul.links li p {
+	padding: 5px;
+}
+
+
 /*** Gallery ***/
 
 a img.thumb {
