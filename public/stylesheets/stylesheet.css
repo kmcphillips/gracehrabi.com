@@ -270,10 +270,12 @@ ul.links li {
 ul.links li p.link {
 	font-size: 1.4em;
 	padding-bottom: 6px;
+	margin-left: 0;
 }
 
 ul.links li p {
 	padding: 5px;
+	margin-left: 10px;
 }
 
 
