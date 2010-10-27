@@ -2,10 +2,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.paginate(pagination_params(:order => "created_at DESC"))
+    @title = "Blog"
   end
 
   def show
     @post = Post.find_by_permalink!(params[:id])
+    @title = @post.title
   end
 
   def rss

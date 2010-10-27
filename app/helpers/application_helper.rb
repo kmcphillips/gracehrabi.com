@@ -8,6 +8,8 @@ module ApplicationHelper
       "#{prefix} - #{@title}"
     elsif params[:controller] =~ /blocks$/
       "#{prefix} - #{params[:action].humanize}"
+    elsif params[:controller] !~ /^admin\//
+      "#{prefix} - #{params[:controller].humanize}"
     else
       prefix
     end
