@@ -5,7 +5,7 @@ module ApplicationHelper
     prefix = "#{prefix} - Admin" if params[:controller] =~ /^admin\//
 
     if @title
-      "#{prefix} - #{@title}"
+      @title.blank? ? prefix : "#{prefix} - #{@title}"
     elsif params[:controller] =~ /blocks$/
       "#{prefix} - #{params[:action].humanize}"
     elsif params[:controller] !~ /^admin\//

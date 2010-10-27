@@ -6,7 +6,13 @@ describe ApplicationHelper do
   describe "page title" do
     it "should build a default page title" do
       self.stub!(:params).and_return(:controller => "pie")
-      page_title.should == PAGE_TITLE
+      instance_variable_set('@title', "Cake")
+      page_title.should == "#{PAGE_TITLE} - Cake"
+    end
+    
+    it "should build a title from the controller" do
+      self.stub!(:params).and_return(:controller => "pie")
+      page_title.should == "#{PAGE_TITLE} - Pie"
     end
 
     it "should build a page title for your controller" do
