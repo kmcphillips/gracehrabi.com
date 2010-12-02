@@ -60,7 +60,7 @@ class Importer
   
   def import_blog
     puts "Importing blog..."
-    @db.query("SELECT * FROM blog").each do |result|
+    @db.query("SELECT * FROM blog ORDER BY id ASC").each do |result|
       post = Post.new(:title => result["title"], :body => scrub(result["post"]), :created_at => result["create_date"], :updated_at => result["create_date"])
       post.save!
       puts "  Blog post ##{post.id} created"
@@ -70,7 +70,7 @@ class Importer
 
   def import_events
     puts "Importing events..."
-    @db.query("SELECT * FROM event").each do |result|
+    @db.query("SELECT * FROM event ORDER BY id ASC").each do |result|
       event = Event.new(:title => result["title"], :description => scrub(result["description"]), :starts_at => result["date"], :created_at => result["create_date"], :updated_at => result["create_date"])
       event.save!
       puts "  Event ##{event.id} created"
