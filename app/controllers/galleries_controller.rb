@@ -1,13 +1,12 @@
 class GalleriesController < ApplicationController
 
   def index
+    @galleries = Gallery.sorted
   end
 
   def show
-    @images = Image.all_active.for_gallery(params[:id]).in_order
-    @gallery = params[:id]
-    @gallery_name = Image::GALLERIES[params[:id]] || "Unknown"
-    @title = "Gallery - #{@gallery_name}"
+    @gallery = Gallery.find_by_path(params[:id])
+    @title = "Gallery - #{@gallery.name}"
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101026231325) do
+ActiveRecord::Schema.define(:version => 20101208201101) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -44,9 +44,19 @@ ActiveRecord::Schema.define(:version => 20101026231325) do
 
   add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
 
+  create_table "galleries", :force => true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.string   "image"
+    t.integer  "sort_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "galleries", ["sort_order"], :name => "index_galleries_on_sort_order"
+
   create_table "images", :force => true do |t|
     t.string   "label"
-    t.string   "gallery"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
@@ -56,10 +66,11 @@ ActiveRecord::Schema.define(:version => 20101026231325) do
     t.datetime "updated_at"
     t.boolean  "active",            :default => true
     t.integer  "sort_order"
+    t.integer  "gallery_id"
   end
 
   add_index "images", ["active"], :name => "index_images_on_active"
-  add_index "images", ["gallery"], :name => "index_images_on_gallery"
+  add_index "images", ["gallery_id"], :name => "index_images_on_gallery_id"
   add_index "images", ["sort_order"], :name => "index_images_on_sort_order"
 
   create_table "links", :force => true do |t|

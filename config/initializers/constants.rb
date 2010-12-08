@@ -5,6 +5,8 @@ PAGE_URL = "http://gracehrabi.com"
 
 PAGINATION_PER_PAGE = 5
 
+PAST_PERFORMANCES = 4
+
 SITE_EMAIL = 'grace@gracehrabi.com'
 ADMIN_EMAIL = 'admin@kevinmcphillips.ca'
 

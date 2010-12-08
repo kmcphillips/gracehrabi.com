@@ -211,6 +211,10 @@ a:visited {
     text-align: center;
 }
 
+.post_pagination .pagination em, .post_pagination .pagination a, .post_pagination .pagination span {
+    margin: 0 3px;
+}
+
 .post_pagination .previous_page {
     float: left;
 }

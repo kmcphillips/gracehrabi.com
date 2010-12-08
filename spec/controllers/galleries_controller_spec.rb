@@ -3,12 +3,14 @@ require 'spec_helper'
 describe GalleriesController do
   before(:each) do
     @image = mock_model(Image)
+    @gallery = mock_model(Gallery, :name => "delicious pie")
   end
 
   describe "GET index" do
-    it "should load and that's about it" do
+    it "should load and assign all galleries" do
+      Gallery.should_receive(:sorted).and_return([@gallery])
       get :index
-      response.should be_successful
+      assigns(:galleries).should == [@gallery]
     end
   end
 
@@ -20,13 +22,10 @@ describe GalleriesController do
     end
 
     it "should set all the vars" do
-      gallery = Image::GALLERIES.keys.first.to_s
-      @all_active_proxy.should_receive(:for_gallery).with(gallery).and_return(@all)
-      @all.should_receive(:in_order).and_return([@image])
-      get :show, :id => gallery
-      assigns(:images).should == [@image]
-      assigns(:gallery).should == gallery
-      assigns(:gallery_name).should == Image::GALLERIES[gallery] 
+      Gallery.should_receive(:find_by_path).with("pie").and_return(@gallery)
+      get :show, :id => "pie"
+      assigns(:title).should be_an_instance_of(String)
+      assigns(:gallery).should == @gallery
     end
   end
 end

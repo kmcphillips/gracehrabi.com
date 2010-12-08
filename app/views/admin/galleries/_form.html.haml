@@ -12,6 +12,5 @@
 
   .actions
     %label Actions
-    = f.hidden_field :gallery,  :value => @gallery
+    = f.hidden_field :gallery_id, :value => @gallery.id
     = f.submit 'Upload'
-  
