@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   def index
     @upcoming = Event.upcoming
     @current = Event.current
-    @past = Event.past
+    @past = Event.past.limit(PAST_PERFORMANCES)
   end
 
   def show

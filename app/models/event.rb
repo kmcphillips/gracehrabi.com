@@ -5,9 +5,9 @@ class Event < ActiveRecord::Base
 
   include AttachedImage
 
-  scope :upcoming, lambda { where("events.starts_at > ?", Time.now) }
-  scope :current, lambda { t = Time.now; where("events.ends_at IS NOT NULL AND events.starts_at < ? AND events.ends_at > ?", t, t) }
-  scope :past, lambda { t = Time.now; where("(events.ends_at IS NOT NULL && events.ends_at < ?) OR (events.ends_at IS NULL && events.starts_at < ?)", t, t) }
+  scope :upcoming, lambda { where("events.starts_at > ?", Time.now).order("starts_at DESC") }
+  scope :current, lambda { t = Time.now; where("events.ends_at IS NOT NULL AND events.starts_at < ? AND events.ends_at > ?", t, t).order("starts_at DESC") }
+  scope :past, lambda { t = Time.now; where("(events.ends_at IS NOT NULL && events.ends_at < ?) OR (events.ends_at IS NULL && events.starts_at < ?)", t, t).order("starts_at DESC") }
 
   def sort_by; starts_at; end
 
@@ -16,14 +16,25 @@ class Event < ActiveRecord::Base
   end
 
   def status
-    t = Time.now
-    if starts_at > t
+    if upcoming?
       "Upcoming"
-    elsif ends_at && starts_at < t && ends_at > t
+    elsif current?
       "Current"
-    elsif (ends_at && ends_at < t) || (!ends_at && starts_at < t)
+    elsif past?
       "Past"
     end
+  end
+
+  def upcoming?
+    starts_at > Time.now
+  end
+
+  def current?
+    ends_at && starts_at < Time.now && ends_at > Time.now
+  end
+
+  def past?
+    (ends_at && ends_at < Time.now) || (!ends_at && starts_at < Time.now)
   end
 end
 

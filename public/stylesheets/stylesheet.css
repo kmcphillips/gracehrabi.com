@@ -228,6 +228,14 @@ a:visited {
     visibility: hidden;
 }
 
+h2.event {
+    margin: 10px 0 40px 0;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-size: 1.9em;
+    /* border-bottom: 3px solid #7E7708; */
+    color: #474A3A;
+}
+
 
 /*** Blocks ***/
 

@@ -50,6 +50,42 @@ describe Event do
       end
     end
 
+    describe "current?" do
+      it "should know the current event" do
+        @current.current?.should be_true
+      end
+
+      it "should know the others are not current" do
+        @past1.current?.should be_false
+        @past2.current?.should be_false
+        @upcoming.current?.should be_false
+      end
+    end
+
+    describe "upcoming?" do
+      it "should know the upcoming event" do
+        @upcoming.upcoming?.should be_true
+      end
+
+      it "should know the others are not upcoming" do
+        @past1.upcoming?.should be_false
+        @past2.upcoming?.should be_false
+        @current.upcoming?.should be_false
+      end
+    end
+
+    describe "past?" do
+      it "should know the past events" do
+        @past1.past?.should be_true
+        @past2.past?.should be_true
+      end
+
+      it "should know the others are not past" do
+        @upcoming.past?.should be_false
+        @current.past?.should be_false
+      end
+    end
+
     after(:each) do
       Event.destroy_all
     end
