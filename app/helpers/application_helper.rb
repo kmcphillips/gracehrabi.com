@@ -103,10 +103,6 @@ module ApplicationHelper
     render :partial => "/shared/error_messages", :object => object
   end
 
-  def image_form(f)
-    render :partial => "/shared/image_form", :locals => {:f => f, :object => f.object}
-  end
-
   def admin?
     params[:controller] =~ /^admin\//
   end

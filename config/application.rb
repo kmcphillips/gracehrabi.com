@@ -14,6 +14,7 @@ module GracehrabiCom
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
+    #config.action_view.default_form_builder = DefaultFormBuilder  ## This does not work here so I put it in config/initializers/form_builder.rb
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
