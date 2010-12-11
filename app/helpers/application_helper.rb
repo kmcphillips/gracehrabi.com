@@ -122,6 +122,10 @@ module ApplicationHelper
     end.compact
   end
 
+  def row_class
+    cycle("odd", "even")
+  end
+
 
   ## Overridden paths
   def post_path(post)

@@ -3,6 +3,7 @@ class Admin::BlocksController < ApplicationController
 
   def index
     @blocks = Block.order("label")
+    @medias = Media.all
   end
 
   def edit

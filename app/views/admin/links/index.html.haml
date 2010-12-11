@@ -1,7 +1,7 @@
 %h1 Links
 
 = collection_index @links, ["Title", "URL", "Description", "Actions"] do |link|
-  %tr{:class => cycle("odd", "even")}
+  %tr{:class => row_class}
     %td= link.title
     %td= link_to link.url, link.url
     %td= truncate_for_index link.description

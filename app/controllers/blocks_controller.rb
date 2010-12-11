@@ -8,6 +8,7 @@ class BlocksController < ApplicationController
   end
 
   def bio
+    @kit = Media.find_by_label!("press_kit")
   end
 
   def gallery

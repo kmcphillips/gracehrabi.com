@@ -15,6 +15,16 @@ begin
     end
 
 
+    ## Media
+    puts "Deleting all Media"
+    Media.destroy_all
+    puts "Creating Media"
+    
+    Media::LABELS.each do |label|
+      Media.create! :label => label
+    end
+
+
     ## Galleries
     puts "Destroyin all Galleries and Images"
     Gallery.destroy_all

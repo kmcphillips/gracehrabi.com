@@ -31,6 +31,7 @@ GracehrabiCom::Application.routes.draw do
     end
 
     resources :blocks, :except => [:destroy, :create, :new, :show]
+    resources :medias, :only => [:edit, :update]
     resources :events, :except => [:show]
     resources :links, :except => [:show]
     resources :posts, :except => [:show]
