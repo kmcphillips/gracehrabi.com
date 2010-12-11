@@ -1,7 +1,7 @@
 %h1 Media Player Tracks
 
 = collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"] do |track|
-  %tr{:class => cycle("odd", "even")}
+  %tr{:class => row_class}
     %td= track.title
     %td= truncate_for_index track.description
     %td= track.recorded_at

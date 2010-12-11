@@ -38,5 +38,15 @@ class Admin::TracksController < ApplicationController
 
     redirect_to(admin_tracks_url)
   end
+  
+  def sort
+    if params[:track].try(:is_a?, Array)
+      params[:track].each_with_index do |id, index|
+        ActiveRecord::Base.connection.execute("UPDATE tracks SET sort_order = #{index + 1} WHERE id = #{id.to_i}")
+      end
+    end
+
+    render :nothing => true
+  end
 end
 

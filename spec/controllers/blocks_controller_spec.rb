@@ -16,9 +16,12 @@ describe BlocksController do
 
   describe "GET bio" do
     it "assigns the requested block as @block" do
+      @media = mock_model(Media)
       Block.stub(:find_by_label).with("bio") { mock_block }
+      Media.stub(:find_by_label! => @media)
       get "bio"
       assigns(:block).should be(mock_block)
+      assigns(:kit).should be(@media)
     end
   end
 

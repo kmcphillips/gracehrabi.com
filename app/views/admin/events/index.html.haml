@@ -1,7 +1,7 @@
 %h1 Events
 
 = collection_index @events, ["Title", "Status", "Description", "Starts at", "Actions"] do |event|
-  %tr{:class => cycle("odd", "even")}
+  %tr{:class => row_class}
     %td= event.title
     %td= event.status
     %td= link_to truncate_for_index(event.description), [event]

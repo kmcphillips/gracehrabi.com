@@ -27,5 +27,9 @@ describe Admin::TracksController do
       { :delete => "/admin/tracks/1" }.should route_to(:controller => "admin/tracks", :action => "destroy", :id => "1")
     end
 
+    it "recognizes and generates #sort" do
+      { :post => "/admin/tracks/sort" }.should route_to(:controller => "admin/tracks", :action => "sort")
+    end
+
   end
 end

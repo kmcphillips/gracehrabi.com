@@ -1,7 +1,7 @@
 %h1 Galleries
 
 = collection_index @galleries, ["Gallery", "Details"] do |gallery|
-  %tr{:class => cycle("odd", "even")}
+  %tr{:class => row_class}
     %td
       %span.bold= link_to gallery.name, admin_gallery_path(gallery)
     %td

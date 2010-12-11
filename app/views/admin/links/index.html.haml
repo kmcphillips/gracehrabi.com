@@ -1,7 +1,30 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $("#sortable_table tbody").sortable(
+        {
+          update: function () {
+            stripe_table(this);
+          
+            data = $("#sortable_table tbody").sortable('serialize');
+          
+            $.ajax({
+              url: "/admin/links/sort",
+              type: "post",
+              data: data,
+              error: function(){
+                alert("There was an error sorting links. Contact administrator.");
+              }
+            });
+          }
+        }).disableSelection();
+    });
+  
+
 %h1 Links
 
-= collection_index @links, ["Title", "URL", "Description", "Actions"] do |link|
-  %tr{:class => cycle("odd", "even")}
+= collection_index @links, ["Title", "URL", "Description", "Actions"], :id => "sortable_table" do |link|
+  %tr{:class => row_class, :id => "link_#{link.id}"}
     %td= link.title
     %td= link_to link.url, link.url
     %td= truncate_for_index link.description

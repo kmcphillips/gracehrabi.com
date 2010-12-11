@@ -38,4 +38,14 @@ class Admin::LinksController < ApplicationController
 
     redirect_to(admin_links_url)
   end
+  
+  def sort
+    if params[:link].try(:is_a?, Array)
+      params[:link].each_with_index do |id, index|
+        ActiveRecord::Base.connection.execute("UPDATE links SET sort_order = #{index + 1} WHERE id = #{id.to_i}")
+      end
+    end
+
+    render :nothing => true
+  end
 end
