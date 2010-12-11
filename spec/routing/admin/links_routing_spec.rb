@@ -27,5 +27,9 @@ describe Admin::LinksController do
       { :delete => "/admin/links/1" }.should route_to(:controller => "admin/links", :action => "destroy", :id => "1")
     end
 
+    it "recognizes and generates #sort" do
+      { :post => "/admin/links/sort" }.should route_to(:controller => "admin/links", :action => "sort")
+    end
+
   end
 end

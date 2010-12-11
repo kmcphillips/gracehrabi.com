@@ -64,34 +64,34 @@ module ApplicationHelper
   end
 
   def collection_index(collection, column_titles, options={}, &block)
-    content_tag(:table, :class => "data") do
-      content_tag(:tbody) do
-        src = ""
+    content_tag(:table, :class => (options[:class] || "data"), :id => options[:id]) do
+      src = ""
 
-        src << content_tag(:tr) do
-          headers = ""
-          column_titles.each do |title|
-            headers << content_tag(:th, title)
-          end
-          headers
+      src << content_tag(:tr) do
+        headers = ""
+        column_titles.each do |title|
+          headers << content_tag(:th, title)
         end
-
-        collection.each do |item|
-          src << content_tag(:tr) do
+        headers
+      end
+      
+      src << content_tag(:tbody) do
+        collection.map do |item|
+          content_tag(:tr) do
             yield(item)
           end
-        end
+        end.join(" ")
+      end
 
-        if collection.paginate?
-          src << content_tag(:tr) do
-            content_tag(:th, :colspan => column_titles.size) do
-              will_paginate(collection, :previous_label => "← Newer", :next_label => "Older →")
-            end
+      if collection.paginate?
+        src << content_tag(:tr) do
+          content_tag(:th, :colspan => column_titles.size) do
+            will_paginate(collection, :previous_label => "← Newer", :next_label => "Older →")
           end
         end
-
-        src
       end
+
+      src
     end
   end
 
