@@ -42,6 +42,10 @@
     
 }
 
+#player .list li {
+    margin: 2px 0 20px 0;
+}
+
 #player .list a {
     color: #4B3733;
     font-weight: bold;

@@ -67,7 +67,7 @@ module ApplicationHelper
     content_tag(:table, :class => (options[:class] || "data"), :id => options[:id]) do
       src = ""
 
-      src << content_tag(:tr) do
+      src << content_tag(:tr, :class => options[:tr_class], :id => options[:tr_id]) do
         headers = ""
         column_titles.each do |title|
           headers << content_tag(:th, title)
@@ -77,9 +77,7 @@ module ApplicationHelper
       
       src << content_tag(:tbody) do
         collection.map do |item|
-          content_tag(:tr) do
-            yield(item)
-          end
+          yield(item)
         end.join(" ")
       end
 

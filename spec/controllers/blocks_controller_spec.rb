@@ -28,7 +28,7 @@ describe BlocksController do
   describe "GET links" do
     it "assigns the requested block as @block" do
       Block.stub(:find_by_label).with("links")
-      Link.should_receive(:order).with("created_at ASC").and_return(["links"])
+      Link.should_receive(:in_order).and_return(["links"])
       get "links"
       assigns(:block).should be(nil)
       assigns(:links).should == ["links"]

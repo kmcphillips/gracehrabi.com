@@ -1,7 +1,37 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $("#sortable_table tbody").sortable(
+        {
+          update: function () {
+            stripe_table(this);
+            
+            // $("#sortable_table tbody").sortable('serialize');  // This does not work. I don't know why. It works for <li> tags on another page.
+            data = "";
+            $("#sortable_table tbody tr").each(function(){
+              val = $(this).attr('data-track-id');
+
+              if(val != undefined)
+                data += "track[]=" + val + "&";
+            });
+            
+            $.ajax({
+              url: "/admin/tracks/sort",
+              type: "post",
+              data: data,
+              error: function(){
+                alert("There was an error sorting tracks. Contact administrator.");
+              }
+            });
+          }
+        }).disableSelection();
+    });
+
+
 %h1 Media Player Tracks
 
-= collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"] do |track|
-  %tr{:class => row_class}
+= collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"], :id => "sortable_table" do |track|
+  %tr{:class => row_class, :'data-track-id' => track.id}
     %td= track.title
     %td= truncate_for_index track.description
     %td= track.recorded_at

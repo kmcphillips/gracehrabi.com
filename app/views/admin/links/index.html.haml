@@ -5,9 +5,16 @@
         {
           update: function () {
             stripe_table(this);
-          
-            data = $("#sortable_table tbody").sortable('serialize');
-          
+            
+            // $("#sortable_table tbody").sortable('serialize');  // This does not work. I don't know why. It works for <li> tags on another page.
+            data = "";
+            $("#sortable_table tbody tr").each(function(){
+              val = $(this).attr('data-link-id');
+
+              if(val != undefined)
+                data += "link[]=" + val + "&";
+            });
+            
             $.ajax({
               url: "/admin/links/sort",
               type: "post",
@@ -24,7 +31,7 @@
 %h1 Links
 
 = collection_index @links, ["Title", "URL", "Description", "Actions"], :id => "sortable_table" do |link|
-  %tr{:class => row_class, :id => "link_#{link.id}"}
+  %tr{:class => row_class, :'data-link-id' => link.id}
     %td= link.title
     %td= link_to link.url, link.url
     %td= truncate_for_index link.description

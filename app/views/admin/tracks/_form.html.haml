@@ -3,10 +3,10 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, :size => 50
   .field
     = f.label :description
-    = f.text_area :description
+    = f.text_area :description, :rows => 8, :cols => 50
   .field
     = f.label :recorded_at
     = f.date_select :recorded_at

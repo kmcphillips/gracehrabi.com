@@ -15,7 +15,7 @@ class BlocksController < ApplicationController
   end
 
   def links
-    @links = Link.order("created_at ASC")
+    @links = Link.in_order
   end
 
   protected
