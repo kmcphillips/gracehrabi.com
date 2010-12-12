@@ -30,6 +30,9 @@
 
 %h1 Links
 
+%br
+%p Drag table rows to reorganize them.
+
 = collection_index @links, ["Title", "URL", "Description", "Actions"], :id => "sortable_table" do |link|
   %tr{:class => row_class, :'data-link-id' => link.id}
     %td= link.title

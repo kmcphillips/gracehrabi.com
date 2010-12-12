@@ -30,6 +30,9 @@
 
 %h1 Media Player Tracks
 
+%br
+%p Drag table rows to reorganize them.
+
 = collection_index @tracks, ["Title", "Description", "Recorded at", "Filename", "Active?", "Updated at", "Actions"], :id => "sortable_table" do |track|
   %tr{:class => row_class, :'data-track-id' => track.id}
     %td= track.title
