@@ -5,10 +5,10 @@
 
     = auto_discovery_link_tag(:rss, '/rss.xml')
 
-    = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.5.custom'] : [])
+    = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.7.custom'] : [])
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
-    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.5.custom.min', 'admin'] : []), :cache => true
+    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.7.custom.min', 'admin', 'jquery.timepicker'] : []), :cache => true
 
     = yield :js
 

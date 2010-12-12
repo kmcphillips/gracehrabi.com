@@ -3,16 +3,16 @@
   
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, :size => 50
   .field
     = f.label :description
-    = f.text_area :description
+    = f.text_area :description, :rows => 12, :cols => 50
   .field
     = f.label :starts_at
-    = f.datetime :starts_at, :class => "datepicker"
+    = f.datetime :starts_at
   .field
     = f.label :ends_at
-    = f.datetime :ends_at, :class => "datepicker"
+    = f.datetime :ends_at
 
   = f.image
 

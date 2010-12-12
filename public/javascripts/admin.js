@@ -1,5 +1,9 @@
 $(document).ready(function(){
   $('.datepicker').datepicker();
+  $('.datetimepicker').datetimepicker({
+      ampm: true,
+      stepMinute: 15
+  });
 });
 
 function stripe_table(table)
