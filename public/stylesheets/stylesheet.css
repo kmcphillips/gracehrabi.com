@@ -57,6 +57,15 @@ a:visited {
     margin: 0px;
 }
 
+#header a img {
+  border: 0;
+}
+
+
+#header a:hover img {
+  border: 0;
+}
+
 #nav {
     width: 650px;
     padding: 0;
@@ -148,7 +157,14 @@ a:visited {
 .box_full p.listen {
 }
 
-.box_full p.credits {
+.credits {
+  font-size: 1em;
+  font-weight: bold;
+  border: 0;
+}
+
+.credits a img {
+  border: 0;
 }
 
 /****** Content ******/
