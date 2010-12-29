@@ -18,6 +18,8 @@
     %meta{:name => "keywords", :content => META[:keywords] || ""}
     %meta{:name => "description", :content => META[:description] || ""}
 
+    = render :partial => "shared/analytics"
+
   %body
     #wrapper
       .box_full
