@@ -30,3 +30,4 @@ task :symlink_shared_files do
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
   end
 end
+
