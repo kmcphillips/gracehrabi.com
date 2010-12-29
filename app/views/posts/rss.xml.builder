@@ -11,7 +11,7 @@ xml.rss :version => "2.0" do
           xml.title item.title
           xml.description simple_format(item.body)
           xml.pubDate item.created_at.to_s(:rfc822)
-          xml.link "#{PAGE_URL}/blog/#{item.permalink}"
+          xml.link "#{PAGE_URL}/news/#{item.permalink}"
         end
       elsif item.is_a?(Event)
         xml.item do

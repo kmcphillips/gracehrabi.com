@@ -8,7 +8,7 @@ describe PostsController do
     end
 
     it "recognizes and generates #show" do
-      { :get => "/blog/1" }.should route_to(:controller => "posts", :action => "show", :id => "1")
+      { :get => "/news/1" }.should route_to(:controller => "posts", :action => "show", :id => "1")
     end
 
     it "recognizes and generates #rss" do

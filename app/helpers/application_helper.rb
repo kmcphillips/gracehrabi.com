@@ -127,7 +127,7 @@ module ApplicationHelper
 
   ## Overridden paths
   def post_path(post)
-    "/blog/#{post.permalink}"
+    "/news/#{post.permalink}"
   end
 
   def posts_path

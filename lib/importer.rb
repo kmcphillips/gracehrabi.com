@@ -22,7 +22,7 @@ class Importer
         import_bio
         import_contact
         import_events
-        import_blog
+        import_news
       end
     rescue => e
       puts "*** ERROR: Transaction rolled back becasue of exception raised! ***"
@@ -33,7 +33,7 @@ class Importer
   protected
  
   def clear_tables
-    puts "Truncating event and blog post tables"
+    puts "Truncating event and news post tables"
     ActiveRecord::Base.connection.execute("TRUNCATE TABLE posts")
     ActiveRecord::Base.connection.execute("TRUNCATE TABLE events")
   end
@@ -58,12 +58,12 @@ class Importer
     puts "Done"
   end
   
-  def import_blog
-    puts "Importing blog..."
+  def import_news
+    puts "Importing news..."
     @db.query("SELECT * FROM blog ORDER BY id ASC").each do |result|
       post = Post.new(:title => result["title"], :body => scrub(result["post"]), :created_at => result["create_date"], :updated_at => result["create_date"])
       post.save!
-      puts "  Blog post ##{post.id} created"
+      puts "  News post ##{post.id} created"
     end
     puts "Done"
   end

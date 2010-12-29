@@ -1,4 +1,4 @@
-%h1 Blog
+%h1 News
 
 = collection_index @posts, ["Title", "Body", "Created at", "Actions"] do |post|
   %tr{:class => row_class}
@@ -10,4 +10,4 @@
       = destroy_entity_image [:admin, post]
 
 .image_links
-  = new_entity_image new_admin_post_path, "Create New Blog Post"
+  = new_entity_image new_admin_post_path, "Create New News Post"

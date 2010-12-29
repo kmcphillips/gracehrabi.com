@@ -1,8 +1,8 @@
 GracehrabiCom::Application.routes.draw do
 
-  # blog
+  # news
   root :to => "posts#index"
-  match 'blog/:id' => 'posts#show'
+  match 'news/:id' => 'posts#show'
   match 'rss.:format' => 'posts#rss'
 
   # blocks
