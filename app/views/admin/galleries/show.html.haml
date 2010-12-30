@@ -3,11 +3,10 @@
     $(document).ready(function() {
       $("#image_sortable").sortable({
         update: function () {
-          data = $("#image_sortable").sortable('serialize');
           $.ajax({
             url: "/admin/images/sort",
             type: "post",
-            data: data,
+            data: $("#image_sortable").sortable('serialize');,
             error: function(){
               alert("There was an error sorting images. Contact administrator.");
             }
