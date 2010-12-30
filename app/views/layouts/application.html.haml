@@ -8,7 +8,7 @@
     = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.7.custom'] : [])
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
-    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.7.custom.min', 'admin', 'jquery.timepicker'] : []), :cache => true
+    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.7.custom.min', 'admin', 'jquery.timepicker'] : [])
 
     = yield :js
 
@@ -25,7 +25,7 @@
       .box_full
         %p.listen
           - if Track.count > 0
-            %a{:href => "#", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=300, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
+            %a{:href => "#", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
           - else
             &nbsp;
         .clear
