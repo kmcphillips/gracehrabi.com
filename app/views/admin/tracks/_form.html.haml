@@ -9,7 +9,7 @@
     = f.text_area :description, :rows => 8, :cols => 50
   .field
     = f.label :recorded_at
-    = f.date_select :recorded_at
+    = f.text_field :recorded_at, :class => "datepicker", :size => 14
   - if f.object.sort_order
     .field
       = f.label :sort_order

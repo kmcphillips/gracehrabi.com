@@ -1,8 +1,11 @@
 $(document).ready(function(){
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+    dateFormat: "yy-mm-dd"
+  });
+  
   $('.datetimepicker').datetimepicker({
-      ampm: true,
-      stepMinute: 15
+    ampm: true,
+    stepMinute: 15
   });
 });
 
