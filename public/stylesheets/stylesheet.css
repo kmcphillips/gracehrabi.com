@@ -502,7 +502,7 @@ label {
 
 @font-face {
 	font-family: 'LatinModernMonoProp10Regular';
-	src: url('lmmonoprop10-regular-webfont.eot');
+	src: url('../fonts/lmmonoprop10-regular-webfont.eot');
 	src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
 	font-weight: normal;
 	font-style: normal;
@@ -510,7 +510,7 @@ label {
 
 @font-face {
 	font-family: 'MonospaceTypewriterRegular';
-	src: url('MonospaceTypewriter-webfont.eot');
+	src: url('../fonts/MonospaceTypewriter-webfont.eot');
 	src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
 	font-weight: normal;
 	font-style: normal;
