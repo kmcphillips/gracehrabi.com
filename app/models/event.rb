@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   scope :upcoming, lambda { t = Time.now; where("events.starts_at > ?", t.end_of_day).order("starts_at ASC") }
   scope :current,  lambda { t = Time.now; where("((events.ends_at = '' OR events.ends_at IS NULL) AND events.starts_at BETWEEN ? AND ?) OR ((events.ends_at != '' OR events.ends_at IS NOT NULL) AND events.starts_at < ? AND events.ends_at > ?)", t.beginning_of_day, t.end_of_day, t.end_of_day, t.beginning_of_day).order("starts_at DESC") }
-  scope :past,     lambda { t = Time.now; where("((events.ends_at = '' OR events.ends_at IS NULL) AND events.starts_at < ?) OR ((events.ends_at != '' OR events.ends_at IS NOT NULL) AND events.ends_at < ?)", t.beginning_of_day, t.beginning_of_day) }
+  scope :past,     lambda { t = Time.now; where("((events.ends_at = '' OR events.ends_at IS NULL) AND events.starts_at < ?) OR ((events.ends_at != '' OR events.ends_at IS NOT NULL) AND events.ends_at < ?)", t.beginning_of_day, t.beginning_of_day).order("starts_at DESC") }
 
   def sort_by; starts_at; end
 
