@@ -8,9 +8,8 @@
       = "Happened on"
       = event.starts_at.to_formatted_s(:event_with_time)
     - else
-      = "Started "
+      = "Starts Today at "
       = event.starts_at.to_formatted_s(:event_with_time)
       
-  %h3= "Ends #{event.ends_at.to_formatted_s(:event_with_time)}" if event.ends_at && !event.past?
-
   .body= simple_format event.description
+

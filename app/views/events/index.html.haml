@@ -1,5 +1,5 @@
 - if @current.any?
-  %h2.event Happening Right Now
+  %h2.event Happening Today
   - @current.each do |event|
     = render :partial => "event", :object => event
 
