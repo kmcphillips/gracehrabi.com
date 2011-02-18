@@ -22,13 +22,7 @@
 
   %body
     #wrapper
-      .box_full
-        %p.listen
-          - if Track.count > 0
-            %a{:href => "#", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"} Listen
-          - else
-            &nbsp;
-        .clear
+      .box_full &nbsp;
 
       #header
         = link_to image_tag("/images/header.jpg", :alt => SITE_NAME), "/"

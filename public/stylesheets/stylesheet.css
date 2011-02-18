@@ -124,7 +124,7 @@ a:visited {
     display: block;
     text-decoration: none;
     border: none;
-    padding: 10px;
+    padding: 11px 9px;
 }
 
 #nav .bar a:hover {
@@ -154,8 +154,17 @@ a:visited {
     font-weight: bold;
 }
 
-.box_full p.listen {
+a.listen_nav {
+  padding: 2px 5px 0 5px !important;
+  margin: 0 !important;
 }
+
+a.listen_nav img {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
 
 .credits {
   font-size: 1em;
@@ -206,7 +215,7 @@ a:visited {
 }
 
 .post h3 {
-    color: #474A3A;
+    color: #737874;
     font-size: 1.1em;
     text-align: right;
     font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
@@ -249,7 +258,7 @@ h2.event {
     font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
     font-size: 1.9em;
     /* border-bottom: 3px solid #7E7708; */
-    color: #474A3A;
+    color: #5B5F5C;
 }
 
 
@@ -502,7 +511,7 @@ label {
 
 @font-face {
 	font-family: 'LatinModernMonoProp10Regular';
-	src: url('lmmonoprop10-regular-webfont.eot');
+	src: url('../fonts/lmmonoprop10-regular-webfont.eot');
 	src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
 	font-weight: normal;
 	font-style: normal;
@@ -510,7 +519,7 @@ label {
 
 @font-face {
 	font-family: 'MonospaceTypewriterRegular';
-	src: url('MonospaceTypewriter-webfont.eot');
+	src: url('../fonts/MonospaceTypewriter-webfont.eot');
 	src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
 	font-weight: normal;
 	font-style: normal;
