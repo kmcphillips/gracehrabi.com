@@ -6,4 +6,5 @@
   = simple_format @block.body
   
 .post
-  = link_to "Download press kit", @kit.file.url
+  = link_to "Download press kit", @kit.file.url if @kit.file.exists?
+
