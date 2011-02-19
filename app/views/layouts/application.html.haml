@@ -42,7 +42,8 @@
         .left_float
           = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
           = link_to "RSS", "/rss.xml"
-      
+          &nbsp;&nbsp;
+          = link_to "Site source", "http://github.com/kimos/gracehrabi.com" 
         .right_float
           &copy; #{Time.now.year}
           = obfuscated_mail_to SITE_EMAIL, "Grace Hrabi"
