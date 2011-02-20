@@ -30,6 +30,9 @@
 
 %h1 Links
 
+.image_links
+  = new_entity_image new_admin_link_path, "Create New Link"
+
 %br
 %p Drag table rows to reorganize them.
 
@@ -37,10 +40,7 @@
   %tr{:class => row_class, :'data-link-id' => link.id}
     %td= link.title
     %td= link_to link.url, link.url
-    %td= truncate_for_index link.description
+    %td= truncate_for_index link.description, 40
     %td
       = edit_entity_image [:edit, :admin, link]
       = destroy_entity_image [:admin, link]
-
-.image_links
-  = new_entity_image new_admin_link_path, "Create New Link"

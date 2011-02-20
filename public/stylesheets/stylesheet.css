@@ -261,6 +261,16 @@ h2.event {
     color: #5B5F5C;
 }
 
+.post .body .image {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+.post .body .image a.inline_image img.inline_image {
+    border-width: 8px;
+    margin: 12px 5px;
+}
+
 
 /*** Blocks ***/
 
@@ -353,6 +363,14 @@ a:hover img.thumb {
 
 .clear {
     clear: both
+}
+
+.clear_left {
+    clear: left
+}
+
+.clear_right {
+    clear: right
 }
 
 .bold {
