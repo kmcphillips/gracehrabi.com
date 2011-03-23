@@ -261,6 +261,10 @@ h2.event {
     color: #5B5F5C;
 }
 
+ul.past {
+    list-style: none;
+}
+
 .post .body .image {
     float: left;
     margin: 0 20px 0 0;

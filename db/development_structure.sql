@@ -29,7 +29,7 @@ CREATE TABLE `events` (
   `image_fingerprint` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_events_on_starts_at` (`starts_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `galleries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -109,7 +109,6 @@ CREATE TABLE `schema_migrations` (
 CREATE TABLE `tracks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `recorded_at` date DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `sort_order` int(11) DEFAULT NULL,
   `active` tinyint(1) DEFAULT '1',
@@ -122,7 +121,7 @@ CREATE TABLE `tracks` (
   PRIMARY KEY (`id`),
   KEY `index_tracks_on_active` (`active`),
   KEY `index_tracks_on_sort_order` (`sort_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -165,3 +164,5 @@ INSERT INTO schema_migrations (version) VALUES ('20101211032200');
 INSERT INTO schema_migrations (version) VALUES ('20101212041459');
 
 INSERT INTO schema_migrations (version) VALUES ('20110218045254');
+
+INSERT INTO schema_migrations (version) VALUES ('20110312222526');
