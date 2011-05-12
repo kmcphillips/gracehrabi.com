@@ -50,6 +50,13 @@ module ApplicationHelper
     html
   end
 
+  def copy_entity_image(path, label=nil, args={})
+    path = polymorphic_path(path) if path.is_a?(Array)
+    html = link_to image_tag("/images/icons/copy.png", :alt => "Copy"), path, :title => "Copy", :class => "action-image"
+    html += "&nbsp;".html_safe + link_to(label, path) if label
+    html
+  end
+
   def enlarge_button
     "Enlarge&nbsp;" + image_tag("/images/icons/magnify.png", :alt => "Enlarge", :class => :magnify)
   end

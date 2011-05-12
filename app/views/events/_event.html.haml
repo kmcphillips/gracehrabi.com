@@ -13,5 +13,5 @@
       
   .body
     = image_for event
-    = simple_format event.description
+    = auto_link(simple_format(event.description))
     .clear_left

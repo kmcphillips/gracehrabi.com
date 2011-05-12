@@ -132,6 +132,13 @@ a:visited {
     text-decoration: none;
 }
 
+#nav .bar_spacer {
+    width: 100%;
+    height: 5px;
+    margin: 0;
+    background: #3D1020;
+}
+
 /*** box spacers ***/
 
 .box_full {

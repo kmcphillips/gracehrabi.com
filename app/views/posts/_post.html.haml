@@ -4,6 +4,6 @@
 
   .body
     = image_for post
-    = simple_format post.body
+    = auto_link(simple_format(post.body))
     .clear_left
 
