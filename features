@@ -4,3 +4,5 @@ Lock after login attempts. Possibly switch to authlogic?
 
 paginate past gigs
 
+remove recorded_at
+
