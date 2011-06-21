@@ -6,3 +6,5 @@ paginate past gigs
 
 remove recorded_at
 
+add image tag to posts/events since they will never be shown if set
+
