@@ -50,6 +50,13 @@ module ApplicationHelper
     html
   end
 
+  def copy_entity_image(path, label=nil, args={})
+    path = polymorphic_path(path) if path.is_a?(Array)
+    html = link_to image_tag("/images/icons/copy.png", :alt => "Copy"), path, :title => "Copy", :class => "action-image"
+    html += "&nbsp;".html_safe + link_to(label, path) if label
+    html
+  end
+
   def enlarge_button
     "Enlarge&nbsp;" + image_tag("/images/icons/magnify.png", :alt => "Enlarge", :class => :magnify)
   end
@@ -93,12 +100,18 @@ module ApplicationHelper
     end
   end
 
-  def truncate_for_index(str)
-    truncate(str, :length => 120, :omission => " (more..)")
+  def truncate_for_index(str, length = 120)
+    truncate(str, :length => length, :omission => " (more..)")
   end
 
   def error_messages(object)
     render :partial => "/shared/error_messages", :object => object
+  end
+
+  def image_for(obj)
+    if obj.respond_to?(:image) && obj.image.exists?
+      content_tag(:div, link_to(image_tag(obj.inline, :class => "inline_image", :alt => ""), obj.full, :rel => "inlinePrettyPhoto[gallery]", :class => "inline_image", :title => ""), :class => "image")
+    end
   end
 
   def admin?
@@ -108,7 +121,7 @@ module ApplicationHelper
   def unique_previous_images(obj)
     fingerprints = []
 
-    obj.class.order("created_at DESC").where("id != ?", obj.id).map do |current|
+    obj.class.order("created_at DESC").reject{|x| x == obj}.map do |current|
       if current.image.exists? && current.image.fingerprint
         if fingerprints.include?(current.image.fingerprint)
           nil
@@ -118,6 +131,10 @@ module ApplicationHelper
         end
       end
     end.compact
+  end
+
+  def pagination_params(opts={})
+    {:page => params[:page] || 1, :per_page => (admin? ? PAGINATION_PER_PAGE_ADMIN : PAGINATION_PER_PAGE)}.merge(opts)
   end
 
   def row_class

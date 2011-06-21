@@ -2,14 +2,16 @@
   %h1= link_to event.title, event_path(event)
   %h3
     - if event.upcoming?
-      = "Starts " if event.ends_at
+      On
       = event.starts_at.to_formatted_s(:event_with_time)
     - elsif event.past?
-      = "Happened on"
+      Happened on
       = event.starts_at.to_formatted_s(:event_with_time)
     - else
-      = "Starts Today at "
+      Today at
       = event.starts_at.to_formatted_s(:event_with_time)
       
-  .body= simple_format event.description
-
+  .body
+    = image_for event
+    = auto_link(simple_format(event.description))
+    .clear_left

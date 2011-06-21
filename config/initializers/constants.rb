@@ -4,8 +4,7 @@ PAGE_SUB_TITLE = "Jazz Vocalist"
 PAGE_URL = "http://gracehrabi.com"
 
 PAGINATION_PER_PAGE = 5
-
-PAST_PERFORMANCES = 4
+PAGINATION_PER_PAGE_ADMIN = 20
 
 SITE_EMAIL = 'grace@gracehrabi.com'
 ADMIN_EMAIL = 'admin@kevinmcphillips.ca'

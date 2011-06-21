@@ -6,7 +6,11 @@ class Admin::EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    if source = Event.find_by_id(params[:source])
+      @event = source.clone
+    else
+      @event = Event.new
+    end
   end
 
   def edit

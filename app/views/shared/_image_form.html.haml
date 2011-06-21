@@ -48,11 +48,13 @@
 
 .field
   = f.label "Image"
-  .input
+  .input.image
     - if object.image.exists?
       = image_tag(object.thumb, :id => :current_image)
+    - elsif object.previous_image_id
+      = image_tag(object.class.find_by_id(object.previous_image_id).thumb, :id => :current_image)
     - else
-      %img{:src => "#", :id => :current_image}
+      %img{:id => :current_image}
 
     = f.file_field :image
 

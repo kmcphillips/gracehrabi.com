@@ -32,5 +32,15 @@ class Event < ActiveRecord::Base
   def past?
     starts_at < Time.now.beginning_of_day
   end
+
+  def clone
+    c = super
+    if image.exists?
+      ["image_file_name", "image_content_type", "image_file_size", "image_updated_at", "image_fingerprint"].each{|a| c.send("#{a}=", nil)}
+      c.previous_image_id = id
+    end 
+    c
+  end
+
 end
 

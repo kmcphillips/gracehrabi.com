@@ -2,7 +2,8 @@ Add content to error pages
 
 Lock after login attempts. Possibly switch to authlogic?
 
-paginate past gigs
+Summary calendar for events  https://github.com/p8/table_builder
+
 
 remove recorded_at
 

@@ -1,15 +1,30 @@
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      $('.plugin').flash({
+        swf: 'http://flash-mp3-player.net/medias/player_mp3_maxi.swf',
+        width: 400,
+        height: 20,
+        flashvars: {
+          movie: "http://flash-mp3-player.net/medias/player_mp3_maxi.swf",
+          bgcolor: "#3D1020",
+          bgcolor1: "#3D1020",
+          bgcolor2: "#3D1020",
+          mp3: "#{@mp3}",
+          FlashVars: "mp3=#{@mp3}&amp;width=400&amp;autoplay=1&amp;bgcolor=3D1020&amp;bgcolor1=3D1020&amp;bgcolor2=3D1020"
+        }
+       });
+    });
+
 #player
   .header= image_tag "player_header.png"
   .container
     .main
       .title= @track.title
       .plugin
-        %object{:type => "application/x-shockwave-flash", :data => "http://flash-mp3-player.net/medias/player_mp3_maxi.swf", :width => "400", :height => "20"}
-          %param{:name => "movie", :value => "http://flash-mp3-player.net/medias/player_mp3_maxi.swf"}
-          %param{:name => "bgcolor", :value => "#3D1020"}
-          %param{:name => "bgcolor1", :value => "#3D1020"}
-          %param{:name => "bgcolor2", :value => "#3D1020"}
-          %param{:name => "FlashVars", :value => "mp3=#{@mp3}&amp;width=400&amp;autoplay=1&amp;bgcolor=3D1020&amp;bgcolor1=3D1020&amp;bgcolor2=3D1020"}
+        .no_js
+          Flash and Javascript are required but you can
+          = link_to "download the MP3 here", @mp3
 
       .controls
         - if @track.previous && @track.next

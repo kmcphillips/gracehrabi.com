@@ -29,7 +29,7 @@ CREATE TABLE `events` (
   `image_fingerprint` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_events_on_starts_at` (`starts_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `galleries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -58,9 +58,9 @@ CREATE TABLE `images` (
   `gallery_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_images_on_active` (`active`),
-  KEY `index_images_on_gallery_id` (`gallery_id`),
-  KEY `index_images_on_sort_order` (`sort_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_images_on_sort_order` (`sort_order`),
+  KEY `index_images_on_gallery_id` (`gallery_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -72,7 +72,7 @@ CREATE TABLE `links` (
   `sort_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_links_on_sort_order` (`sort_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `medias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -99,7 +99,7 @@ CREATE TABLE `posts` (
   `image_updated_at` datetime DEFAULT NULL,
   `image_fingerprint` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -109,7 +109,6 @@ CREATE TABLE `schema_migrations` (
 CREATE TABLE `tracks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `recorded_at` date DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `sort_order` int(11) DEFAULT NULL,
   `active` tinyint(1) DEFAULT '1',
@@ -122,7 +121,7 @@ CREATE TABLE `tracks` (
   PRIMARY KEY (`id`),
   KEY `index_tracks_on_active` (`active`),
   KEY `index_tracks_on_sort_order` (`sort_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -134,7 +133,7 @@ CREATE TABLE `users` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_users_on_username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO schema_migrations (version) VALUES ('20101010141731');
 
@@ -165,3 +164,5 @@ INSERT INTO schema_migrations (version) VALUES ('20101211032200');
 INSERT INTO schema_migrations (version) VALUES ('20101212041459');
 
 INSERT INTO schema_migrations (version) VALUES ('20110218045254');
+
+INSERT INTO schema_migrations (version) VALUES ('20110312222526');
