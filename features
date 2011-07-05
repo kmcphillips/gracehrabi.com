@@ -11,3 +11,6 @@ remove recorded_at
 
 add image tag to posts/events since they will never be shown if set
 
+Figure out why the RSS feed seems to render in reverse
+
+
