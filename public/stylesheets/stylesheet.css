@@ -233,6 +233,10 @@ a.listen_nav img {
     padding: 6px;
 }
 
+.post .body p {
+  padding: 6px 0;
+}
+
 .post_pagination {
     margin: 24px 0;
     border-top: 1px solid #7E7708;
@@ -278,7 +282,7 @@ ul.past {
 }
 
 .post .body .image a.inline_image img.inline_image {
-    border-width: 8px;
+    border: 8px solid #7D7B56;
     margin: 12px 5px;
 }
 
