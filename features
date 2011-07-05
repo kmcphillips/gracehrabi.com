@@ -7,3 +7,7 @@ Summary calendar for events  https://github.com/p8/table_builder
 Make much better 500/404 error pages. still defaults!
 
 
+remove recorded_at
+
+add image tag to posts/events since they will never be shown if set
+
