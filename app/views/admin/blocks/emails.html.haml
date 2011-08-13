@@ -1,0 +1,14 @@
+.post
+  %h1 Mailing List Email Addresses
+  %h3 &nbsp;
+
+  = text_area_tag :emails, @emails.join(", "), :readonly => true, :rows => 8, :style => "width: 100%"
+
+  %br
+  %br
+    
+  %p
+    List has
+    = @emails.size
+    email addresses and was last updated on
+    = @date ? @date.to_s(:event_with_time) : "never"

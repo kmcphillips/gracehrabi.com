@@ -1,0 +1,16 @@
+= error_messages @contact if @contact
+
+.post
+  %h1 Mailing List
+  %h3 &nbsp;
+
+  %p
+    Sign up for my mailing list. Enter your email here to occasionally receive updates on upcoming performances.
+
+  %br
+  = form_tag mailing_list_index_path, :method => :post do
+    .field
+      %label Email Address
+      = text_field_tag :email
+      &nbsp;
+      = submit_tag "Sign Up"

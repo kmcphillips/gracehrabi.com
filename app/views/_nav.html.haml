@@ -1,14 +1,13 @@
 .bar
   %ul
-    %li= link_to "News", "/"
-    %li= link_to "Shows", "/events"
-    %li= link_to "Gallery", "/galleries"
-    %li= link_to "Links", "/links"
-    %li= link_to "Bio", "/bio"
-    %li= link_to "Contact", "/contact"
+    %li= link_to "News", root_path
+    %li= link_to "Shows", events_path
+    %li= link_to "Gallery", galleries_path
+    %li= link_to "Links", links_path
+    %li= link_to "Bio", bio_path
+    %li= link_to "Contact", contact_path
+    %li= link_to "Mailing List", mailing_list_index_path
 
-    %li= link_to "Login", "/admin/login" if Rails.env.development? && !controller.current_user
-    
   .right_float
     %a{:href => track_path(Track.beginning), :class => "listen_nav", :onclick => "window.open('#{track_path(Track.beginning)}','#{Track.window_name}', config='height=400, width=650, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return false;"}= image_tag("listen.png")
     

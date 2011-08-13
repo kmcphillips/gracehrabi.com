@@ -20,5 +20,10 @@ class Admin::BlocksController < ApplicationController
     end
   end
 
+  def emails
+    @emails = Contact.emails
+    @date = Contact.last_updated_at
+  end
+
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312222526) do
+ActiveRecord::Schema.define(:version => 20110813004017) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20110312222526) do
   end
 
   add_index "blocks", ["label"], :name => "index_blocks_on_label"
+
+  create_table "contacts", :force => true do |t|
+    t.string   "email"
+    t.boolean  "disabled",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["disabled"], :name => "index_contacts_on_disabled"
+  add_index "contacts", ["email"], :name => "index_contacts_on_email"
 
   create_table "events", :force => true do |t|
     t.string   "title"

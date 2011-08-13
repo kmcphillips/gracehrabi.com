@@ -63,4 +63,12 @@ describe Admin::BlocksController do
 
   end
 
+  describe "GET emails" do
+    it "should set the variables" do
+      Contact.should_receive(:last_updated_at)
+      Contact.should_receive(:emails)
+      get :emails
+    end
+  end
+
 end
