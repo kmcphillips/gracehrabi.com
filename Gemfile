@@ -4,8 +4,8 @@ gem 'rails', '3.0.9'
 
 gem 'capistrano'
 gem 'mysql2', '< 0.3'
-gem 'haml'
-gem 'sass'
+gem 'haml', '>= 3.1.2'
+gem 'sass', '>= 3.1.7'
 gem 'will_paginate', ">= 3.0.pre2"
 gem 'paperclip'
 gem 'rmagick', ">= 2.13.1"
