@@ -1,26 +1,301 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Grace Hrabi - Page Not Found</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+
+    @font-face {
+      font-family: 'LatinModernMonoProp10Regular';
+      src: url('../fonts/lmmonoprop10-regular-webfont.eot');
+      src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
+      font-weight: normal;
+      font-style: normal;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+
+    @font-face {
+      font-family: 'MonospaceTypewriterRegular';
+      src: url('../fonts/MonospaceTypewriter-webfont.eot');
+      src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+      * {
+          margin: 0;
+          padding: 0;
+      }
+
+      html, body {
+          margin: 0;
+          padding: 0;
+      }
+
+      body {
+          background: #F4F3E5;
+          color: #F6F3CF;
+          font-family: LatinModernMonoProp10Regular, serif;
+          font-size: 14px;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          margin: 0;
+          padding: 0;
+          font-weight: normal;
+      }
+
+      a {
+          color: #7D7B56;
+          text-decoration: none;
+      }
+
+      a:hover {
+          color: #C52115;
+          text-decoration: underline;
+      }
+
+      a:visited {
+      }
+
+      /*** Structure ***/
+
+      #wrapper {
+          margin: 0 auto;
+          width: 650px;
+          padding-bottom: 18px;
+      }
+
+      #header {
+          width: 650px;
+          padding: 0;
+          margin: 0;
+          height: 174px;
+      }
+
+      #header h1 {
+          float: left;
+          padding: 20px;
+          margin: 0px;
+      }
+
+      #header a img {
+        border: 0;
+      }
+
+
+      #header a:hover img {
+        border: 0;
+      }
+
+      #nav {
+          width: 650px;
+          padding: 0;
+          margin: 0;
+      }
+
+      #content {
+          width: 650px;
+          margin: 0;
+          padding: 0;
+          background: #3D1020;
+      }
+
+      #content .minheight {
+          height: 400px;
+          float: right;
+          width: 1px;
+      }
+
+      #content .minheight_clear {
+          clear: both;
+          height: 1px;
+          overflow: hidden;
+      }
+
+      #footer {
+          width: 650px;
+          margin: 0;
+          padding: 0;
+          height: 50px;
+      }
+
+      /*** Navigation ***/
+
+      #nav .bar {
+          width: 100%;
+          margin: 0;
+          font-size: 1.25em;
+          font-family: LatinModernMonoProp10Regular, serif;
+          background: none;
+      }
+
+      #nav .bar ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          line-height: normal;
+      }
+
+      #nav .bar li {
+          float: left;
+      }
+
+      #nav .bar a {
+          color: #4B3733;
+          display: block;
+          text-decoration: none;
+          border: none;
+          padding: 11px 9px;
+      }
+
+      #nav .bar a:hover {
+          color: #C52115;
+          text-decoration: none;
+      }
+
+      #nav .bar_spacer {
+          width: 100%;
+          height: 5px;
+          margin: 0;
+          background: #3D1020;
+      }
+
+      /*** box spacers ***/
+
+      .box_full {
+          background: #9E8855;
+          padding: 3px;
+          font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+          font-size: 1.1em;
+      }
+
+      .box_full a {
+          color: #4B3733;
+      }
+
+      .box_full a:hover {
+          color: #C52115;
+      }
+
+      .box_full p {
+          float: right;
+          font-weight: bold;
+      }
+
+      a.listen_nav {
+        padding: 2px 5px 0 5px !important;
+        margin: 0 !important;
+      }
+
+      a.listen_nav img {
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+
+
+      .credits {
+        font-size: 1em;
+        font-weight: bold;
+        border: 0;
+      }
+
+      .credits a img {
+        border: 0;
+      }
+
+      /****** Content ******/
+
+      #content .main {
+          padding: 24px;
+      }
+
+      #content .preview {
+          margin: 30px 0 18px 0;
+      }
+
+      #content .preview h2 {
+          background-color: #7E7708;
+          padding: 8px;
+      }
+
+      /*** News ***/
+
+      .post {
+          padding: 8px 0 32px 0;
+      }
+
+      .post h1 {
+          padding: 0 0 1px 0;
+          border-bottom: 1px solid #7E7708;
+          font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+          font-size: 1.3em;
+      }
+
+      .post h1 a {
+          color: #e4ebc1;
+          text-decoration: none;
+      }
+
+      .post h1 a:hover {
+          color: #D0CC91;
+          text-decoration: none;
+      }
+
+      .post h3 {
+          color: #737874;
+          font-size: 1.1em;
+          text-align: right;
+          font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+      }
+
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
+    <div id='wrapper'>
+        <div class='box_full'>&nbsp;</div>
+        <div id='header'>
+            <a href="/"><img alt="Grace Hrabi" src="/images/header.jpg" /></a>
+        </div>
+
+        <div id='nav'>
+            <div class='bar'>
+                <ul>
+                    <li><a href="/">Go Back</a></li>
+                </ul>
+                <div class='clear'></div>
+            </div>
+        </div>
+
+        <div id='content'>
+            <div class='minheight'></div>
+            <div class='main'>
+
+                <div class='post'>
+                <h1>Page Not Found</h1>
+                <h3>&nbsp;</h3>
+                <p>
+                    The page you are looking for does note exist.
+                </p>
+                </div>
+                <div class='post'>
+
+                </div>
+
+            </div>
+
+            <div class='minheight_clear'></div>
+        </div>
+
+        <div id='footer'>
+          <img alt="Grace Hrabi" src="/images/footer.jpg" />
+        </div>
+
+        <div class='box_full credits'>
+        &nbsp;
+        </div>
+    </div>
 </body>
+
 </html>
