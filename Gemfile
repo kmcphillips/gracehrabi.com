@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 
 gem 'capistrano'
-gem 'mysql2'
+gem 'mysql2', '< 0.3'
 gem 'haml'
 gem 'sass'
 gem 'will_paginate', ">= 3.0.pre2"

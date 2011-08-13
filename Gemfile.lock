@@ -127,7 +127,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mongrel
-  mysql2
+  mysql2 (< 0.3)
   paperclip
   rails (= 3.0.9)
   rmagick (>= 2.13.1)
