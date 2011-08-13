@@ -1,6 +1,8 @@
 class Media < ActiveRecord::Base
   LABELS = ["press_kit"]
-    
+
+  #set_table_name "medias"  ## In the update from 3.0 to 3.0.9 it decided it no longer wanted the plural.
+
   validates :label, :inclusion => LABELS, :uniqueness => true
 
   has_attached_file :file,

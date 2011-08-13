@@ -3,7 +3,7 @@
 = collection_index @galleries, ["Gallery", "Details"] do |gallery|
   %tr{:class => row_class}
     %td
-      %span.bold= link_to gallery.name, admin_gallery_path(gallery)
+      %span.bold= link_to gallery.name, admin_gallery_path(gallery.path)
     %td
       = "With #{gallery.images.size} image#{gallery.images.size == 1 ? "" : "s"}"
       %br

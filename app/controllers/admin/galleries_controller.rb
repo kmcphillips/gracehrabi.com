@@ -6,7 +6,7 @@ class Admin::GalleriesController < ApplicationController
   end
 
   def show
-    @gallery = Gallery.find(params[:id])
+    @gallery = Gallery.find_by_name(params[:id])
     @title = "Gallery - #{@gallery.name}"
   end
 
