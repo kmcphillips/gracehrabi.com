@@ -1,16 +1,7 @@
-Add content to error pages
-
 Lock after login attempts. Possibly switch to authlogic?
 
 Summary calendar for events  https://github.com/p8/table_builder
 
-Make much better 500/404 error pages. still defaults!
-
-
-remove recorded_at
-
 add image tag to posts/events since they will never be shown if set
 
 Figure out why the RSS feed seems to render in reverse
-
-
