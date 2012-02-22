@@ -9,6 +9,7 @@ gem 'sass', '>= 3.1.7'
 gem 'will_paginate', ">= 3.0.pre2"
 gem 'paperclip'
 gem 'rmagick', ">= 2.13.1"
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :development, :test do
   gem "mongrel"

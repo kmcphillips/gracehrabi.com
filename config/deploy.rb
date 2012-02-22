@@ -26,7 +26,7 @@ after "deploy", "symlink_shared_files"
 task :symlink_shared_files do
   run "ln -s #{shared_path}/assets #{release_path}/public/assets"
 
-  %w{database.yml}.each do |config|
+  %w{database.yml mail.yml}.each do |config|
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
   end
 end
