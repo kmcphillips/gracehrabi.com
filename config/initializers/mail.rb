@@ -4,8 +4,14 @@ if File.exists?("#{Rails.root}/config/mail.yml") && !Rails.env.test?
 
   if config
     if Rails.env.development?
-      require 'tlsmail'
-      Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+      # begin
+      #   require 'net/smtp'
+      #   require 'tlsmail'
+      # rescue LoadError => e
+      #   puts "Warning: #{e}"
+      # end
+
+      # Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
 
       ActionMailer::Base.delivery_method = :smtp
       ActionMailer::Base.perform_deliveries = true
