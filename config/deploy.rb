@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 set :application, "Grace Hrabi"
-set :repository,  "git://github.com/kimos/gracehrabi.com.git"
+set :repository,  "git://github.com/kmcphillips/gracehrabi.com.git"
 set :deploy_to, "/var/www/kevin/data/www/gracehrabi.com"
 set :user, "kevin"
 set :use_sudo, false

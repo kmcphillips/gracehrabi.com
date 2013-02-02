@@ -12,12 +12,12 @@ Personal home page for Grace Hrabi. It is written with Rails 3, haml, and jQuery
 
 ## Quick Setup
 
-With an OS X or Linux machine with ruby and bundler installed, you should be able to go from 0 to running in under three minutes. 
+With an OS X or Linux machine with ruby and bundler installed, you should be able to go from 0 to running in under three minutes.
 
 
 ### For the impatient
 
-    $ git clone git://github.com/kimos/gracehrabi.com.git
+    $ git clone git://github.com/kmcphillips/gracehrabi.com.git
     $ cd gracehrabi.com
     $ bundle install
     $ cp config/database.yml.example config/database.yml

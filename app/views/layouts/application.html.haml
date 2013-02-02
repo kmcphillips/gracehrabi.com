@@ -37,13 +37,13 @@
         .minheight_clear
       #footer
         = image_tag "/images/footer.jpg", :alt => SITE_NAME
-        
+
       .box_full.credits
         .left_float
           = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
           = link_to "RSS", "/rss.xml"
           &nbsp;&nbsp;
-          = link_to "Site source", "http://github.com/kimos/gracehrabi.com" 
+          = link_to "Site source", "http://github.com/kmcphillips/gracehrabi.com"
         .right_float
           &copy; #{Time.now.year}
           = obfuscated_mail_to SITE_EMAIL, "Grace Hrabi"
