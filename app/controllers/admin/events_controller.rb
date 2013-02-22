@@ -7,7 +7,7 @@ class Admin::EventsController < ApplicationController
 
   def new
     if source = Event.find_by_id(params[:source])
-      @event = source.clone
+      @event = source.dup
     else
       @event = Event.new
     end
@@ -50,6 +50,6 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-     redirect_to(admin_events_url) 
+     redirect_to(admin_events_url)
   end
 end
