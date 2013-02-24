@@ -7,7 +7,7 @@ class Contact < ActiveRecord::Base
   ## class methods
 
   def self.emails
-    active.map(&:email).uniq.compact
+    active.map(&:email).uniq.reject(&:blank?)
   end
 
   def self.last_updated_at
