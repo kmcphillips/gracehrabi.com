@@ -1,20 +1,12 @@
 class AdminMailer < ActionMailer::Base
-  default :from => ROBOT_EMAIL
+  default from: ROBOT_EMAIL
+
+  include MailerCommon
 
   def contact_request(opts)
-    subject = "TODO"
+    subject = "Contact request: #{subject}"
 
-    mail(:to => site_email, :subject => "Contact request: #{subject}")
-  end
-
-  protected
-
-  def admin_email
-    ADMIN_EMAIL
-  end
-
-  def site_email
-    SITE_EMAIL
+    mail(to: site_email, subject: subject)
   end
 
 end

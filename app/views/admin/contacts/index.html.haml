@@ -1,0 +1,26 @@
+.post
+  %h1 All Emails
+  %h3 &nbsp;
+
+  = text_area_tag :emails, @emails.join(", "), readonly: true, rows: 4, style: "width: 100%"
+
+  %br
+  %br
+    
+  %p
+    List has
+    = @emails.size
+    email addresses and was last updated on
+    = @date ? @date.to_s(:event_with_time) : "never"
+
+
+%h1 Contact List Emails
+= collection_index @contacts, ["Email", "Enabled?", "Actions"] do |contact|
+  %tr{class: row_class}
+    %td= contact.email
+    %td= boolean_value(contact.enabled)
+    %td
+      - if contact.enabled
+        = form_for [:admin, contact] do |f|
+          = f.hidden_field :disabled, value: true
+          = f.submit "Unsubscribe"
