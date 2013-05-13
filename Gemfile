@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 gem 'capistrano'
 gem 'mysql2'
@@ -13,11 +13,12 @@ gem 'rmagick', ">= 2.13.1"
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'rinku', require: 'rails_rinku'
 gem 'acts_as_permalink'
+gem 'rvm-capistrano'
 
 group :development, :test do
   gem "thin"
-  gem "rspec", ">= 2.0.0"
-  gem "rspec-rails", ">= 2.0.0"
+  gem "rspec"
+  gem "rspec-rails"
   gem "jquery-rails"
   gem "factory_girl"
   gem "factory_girl_rails"
