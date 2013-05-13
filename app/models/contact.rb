@@ -5,10 +5,6 @@ class Contact < ActiveRecord::Base
   before_save :set_token, on: :create
 
   scope :active, conditions: {disabled: false}
-
-  def disable
-    update_attribute(:disabled, true)
-  end
   
   def enabled
     !disabled
@@ -17,7 +13,7 @@ class Contact < ActiveRecord::Base
   class << self
     
     def emails
-      active.map(&:email).uniq.compact
+      active.map(&:email).uniq.reject(&:blank?)
     end
 
     def last_updated_at

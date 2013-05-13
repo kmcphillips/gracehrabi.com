@@ -23,7 +23,7 @@ describe Admin::GalleriesController do
     end
 
     it "should set all the vars" do
-      Gallery.should_receive(:find).with("pie").and_return(@gallery)
+      Gallery.should_receive(:find_by_name).with("pie").and_return(@gallery)
       get :show, :id => "pie"
       assigns(:title).should be_an_instance_of(String)
       assigns(:gallery).should == @gallery

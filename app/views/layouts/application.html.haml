@@ -26,6 +26,8 @@
 
       #header
         = link_to image_tag("/images/header.jpg", :alt => SITE_NAME), "/"
+        - if Rails.env.development?
+          #development_notice Development Server
       #nav
         = render :partial => '/nav'
         = render :partial => '/admin/nav' if controller.current_user
