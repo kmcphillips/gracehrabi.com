@@ -66,6 +66,18 @@ a:visited {
   border: 0;
 }
 
+#development_notice {
+    padding: 20px;
+    margin: 20px;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 #nav {
     width: 650px;
     padding: 0;
@@ -320,7 +332,7 @@ ul.past {
 }
 
 ul.links {
-	
+
 }
 
 ul.links li {
@@ -507,12 +519,12 @@ table.data tbody td a {
     overflow: scroll;
     overflow-x: hidden;
 
-    
+
 }
 
 #current_image {
     float: right;
-    
+
 }
 
 
