@@ -1,10 +1,11 @@
 class Contact < ActiveRecord::Base
 
-  validates :email, email_format: true
+  validates :email, email_format: true, uniqueness: true
 
   before_save :set_token, on: :create
 
   scope :active, conditions: {disabled: false}
+  scope :sorted, order("disabled ASC, created_at DESC")
   
   def enabled
     !disabled
@@ -28,6 +29,18 @@ class Contact < ActiveRecord::Base
       order("updated_at DESC").first.try(:updated_at)
     end
     
+    def add_bulk(emails)
+      count = 0
+      
+      emails.split(/[ \t\r\n,]/).uniq.each do |email|
+        contact = Contact.find_by_email(email) || Contact.new(email: email)
+        contact.disabled = false
+        
+        count = count + 1 if contact.save
+      end
+      
+      count
+    end
   end
 
   private

@@ -13,14 +13,28 @@
     email addresses and was last updated on
     = @date ? @date.to_s(:event_with_time) : "never"
 
+.post
+  %h1 Add Email
+  %h3 &nbsp;
+  
+  %p Manually add one or more emails, separated by commas or white space:
+  %br
+  
+  = form_tag url: admin_contacts_path do |f|
+    = text_area_tag :emails, nil, rows: 4, style: "width: 100%"
+    %p= submit_tag "Save"
 
-%h1 Contact List Emails
-= collection_index @contacts, ["Email", "Enabled?", "Actions"] do |contact|
-  %tr{class: row_class}
-    %td= contact.email
-    %td= boolean_value(contact.enabled)
-    %td
-      - if contact.enabled
-        = form_for [:admin, contact] do |f|
-          = f.hidden_field :disabled, value: true
-          = f.submit "Unsubscribe"
+
+.post
+  %h1 Contact List Emails
+  
+  = collection_index @contacts, ["Email", "Modified Date", "Enabled?", "Actions"] do |contact|
+    %tr{class: row_class}
+      %td= contact.email
+      %td= contact.updated_at.to_s(:news_without_time)
+      %td{style: "width: 70px"}= boolean_image(contact.enabled)
+      %td{style: "width: 70px"}
+        - if contact.enabled
+          = form_for [:admin, contact] do |f|
+            = f.hidden_field :disabled, value: true
+            = f.submit "Remove", confirm: "Are you sure you want to remove this email from the mailing list?"

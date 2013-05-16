@@ -48,6 +48,6 @@ GracehrabiCom::Application.routes.draw do
         post 'sort'
       end
     end
-    resources :contacts, only: [:index, :update]
+    resources :contacts, only: [:index, :update, :create]
   end
 end

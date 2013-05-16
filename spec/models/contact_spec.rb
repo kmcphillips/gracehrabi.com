@@ -77,5 +77,28 @@ describe Contact do
         Contact.last_updated_at.should be_nil
       end
     end
+    
+    describe "#add_bulk" do
+      it "should split on whitespace, strings, and newlines" do
+        Contact.add_bulk("1@example.com,2@example.com 3@example.com\n4@example.com")
+        Contact.all.sort.map(&:email).should eq(["1@example.com", "2@example.com", "3@example.com", "4@example.com"])
+      end
+      
+      it "should deal with duplicates" do
+        Contact.add_bulk("1@example.com 1@example.com")
+        Contact.count.should eq(1)
+      end
+      
+      it "should deal with emails that already exist" do
+        Contact.create!(email: "1@example.com", disabled: true)
+        Contact.add_bulk("1@example.com")
+        Contact.count.should eq(1)
+        Contact.last.disabled.should be_false
+      end
+      
+      it "should return a count of added emails" do
+        Contact.add_bulk("1@example.com bad 1@example.com 2@example.com").should eq(2)
+      end
+    end
   end
 end

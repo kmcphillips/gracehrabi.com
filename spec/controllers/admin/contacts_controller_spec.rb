@@ -15,7 +15,8 @@ describe Admin::ContactsController do
       contacts = [mock]
       emails = mock
       date = mock
-      Contact.should_receive(:paginate).and_return(contacts)
+      Contact.should_receive(:sorted).and_return(contacts)
+      contacts.should_receive(:paginate).and_return(contacts)
       Contact.should_receive(:emails).and_return(emails)
       Contact.should_receive(:last_updated_at).and_return(date)
       get :index
@@ -26,7 +27,12 @@ describe Admin::ContactsController do
     end
   end
   
-  describe "PUT update" do
-    
+  describe "POST create" do
+    it "should add bulk emails, flash, and redirect" do
+      Contact.should_receive(:add_bulk).with("emails").and_return(314)
+      post :create, emails: "emails"
+      flash[:notice].should eq("Added 314 email addresses.")
+      response.should redirect_to(admin_contacts_path)
+    end
   end
 end
