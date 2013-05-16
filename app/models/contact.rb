@@ -6,6 +6,7 @@ class Contact < ActiveRecord::Base
 
   scope :active, conditions: {disabled: false}
   scope :sorted, order("disabled ASC, created_at DESC")
+  scope :search, lambda{|search| where("email LIKE ?", "%#{ search }%") }
   
   def enabled
     !disabled

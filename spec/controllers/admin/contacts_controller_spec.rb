@@ -25,6 +25,13 @@ describe Admin::ContactsController do
       assigns[:emails].should eq(emails)
       assigns[:date].should eq(date)
     end
+    
+    it "should search if the search term is present" do
+      test = Contact.create!(email: "test@example.com")
+      Contact.create!(email: "example@example.com")
+      get :index, search: "test"
+      assigns[:contacts].should eq([test])
+    end
   end
   
   describe "POST create" do

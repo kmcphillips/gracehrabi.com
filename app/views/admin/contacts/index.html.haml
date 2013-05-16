@@ -26,7 +26,15 @@
 
 
 .post
-  %h1 Contact List Emails
+  %h1
+    Contact List Emails
+    - if params[:search].present?
+      (Filtered by '#{params[:search]}')
+  
+  %p
+    = form_tag url: admin_contacts_path, method: :get do
+      = text_field_tag :search, params[:search]
+      = submit_tag "Search"
   
   = collection_index @contacts, ["Email", "Modified Date", "Enabled?", "Actions"] do |contact|
     %tr{class: row_class}
@@ -34,7 +42,9 @@
       %td= contact.updated_at.to_s(:news_without_time)
       %td{style: "width: 70px"}= boolean_image(contact.enabled)
       %td{style: "width: 70px"}
-        - if contact.enabled
-          = form_for [:admin, contact] do |f|
-            = f.hidden_field :disabled, value: true
+        = form_for [:admin, contact] do |f|
+          = f.hidden_field :disabled, value: !contact.disabled
+          - if contact.enabled
             = f.submit "Remove", confirm: "Are you sure you want to remove this email from the mailing list?"
+          - else
+            = f.submit "Reenable"

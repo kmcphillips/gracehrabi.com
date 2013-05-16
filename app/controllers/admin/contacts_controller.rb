@@ -3,9 +3,12 @@ class Admin::ContactsController < ApplicationController
   
   def index
     @title = "Mailing list contacts"
-    @contacts = Contact.sorted.paginate(pagination_params)
     @emails = Contact.emails
     @date = Contact.last_updated_at
+    
+    @contacts = Contact.sorted
+    @contacts = @contacts.search(params[:search]) if params[:search].present?
+    @contacts = @contacts.paginate(pagination_params)
   end
   
   def create
