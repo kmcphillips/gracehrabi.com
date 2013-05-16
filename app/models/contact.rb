@@ -10,6 +10,14 @@ class Contact < ActiveRecord::Base
     !disabled
   end
   
+  def disable
+    update_attribute(:disabled, true)
+  end
+  
+  def enable
+    update_attribute(:disabled, false)
+  end
+  
   class << self
     
     def emails
@@ -25,7 +33,7 @@ class Contact < ActiveRecord::Base
   private
   
   def set_token
-    self.token = SecureRandom.hex(32) unless self.token # TODO
+    self.token = SecureRandom.hex(16) unless self.token
     true  
   end
   

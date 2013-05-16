@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe ContactsController do
+describe Admin::ContactsController do
   before(:each) do
     login_as_mock_user
   end

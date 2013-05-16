@@ -21,7 +21,7 @@ class MailingListController < ApplicationController
   end
   
   def destroy
-    @contact = Contact.find_by_token!(params[:id])
+    @contact = Contact.find_by_token_and_disabled!(params[:id], false)
     @contact.disable
     @title = "Unsubscribe success"
   end

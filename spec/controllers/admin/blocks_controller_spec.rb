@@ -26,7 +26,6 @@ describe Admin::BlocksController do
   end
 
   describe "PUT update" do
-
     describe "with valid params" do
       it "updates the requested block" do
         Block.should_receive(:find).with("37") { mock_block }
@@ -60,15 +59,5 @@ describe Admin::BlocksController do
         response.should render_template("edit")
       end
     end
-
   end
-
-  describe "GET emails" do
-    it "should set the variables" do
-      Contact.should_receive(:last_updated_at)
-      Contact.should_receive(:emails)
-      get :emails
-    end
-  end
-
 end

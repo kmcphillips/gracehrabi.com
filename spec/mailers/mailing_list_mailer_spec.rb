@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe MailingListMailer do
-  let(:mailer){ MailingListMailer.new }
+  let(:mailer){ MailingListMailer.send(:new) }
   
   describe "#upcoming_events" do
     it "should be tested" do

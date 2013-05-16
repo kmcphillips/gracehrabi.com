@@ -21,12 +21,30 @@ describe Contact do
     end
   end
   
+  describe "#disable" do
+    it "should change the value" do
+      contact.disabled.should be_false
+      contact.disable
+      contact.disabled.should be_true
+    end
+  end
+  
+  describe "#enable" do
+    it "should change the value" do
+      contact.update_attribute(:disabled, true)
+      contact.disabled.should be_true
+      contact.enable
+      contact.disabled.should be_false
+    end
+    
+  end
+  
   describe "#set_token" do
     it "should set the token to something random" do
       contact = Contact.new email: email
       contact.token.should be_nil
       contact.save!
-      contact.token.should ~= /^[0-9abcdef]{32}$/
+      contact.token.should match(/^[0-9a-f]{32}$/)
     end
     
     it "should not reset the token if it has already been set" do
@@ -43,7 +61,7 @@ describe Contact do
         contact2
         Contact.create!(email: "example3@example.com", disabled: true)
         
-        Contact.emails.sort.should eq([contact.email, contact2].sort)
+        Contact.emails.sort.should eq([contact.email, contact2.email].sort)
       end
     end
 
@@ -52,7 +70,7 @@ describe Contact do
         contact
         contact2.update_attribute(:updated_at, Time.now - 1.year)
         
-        Contact.last_updated_at.should eq(contact.updated_at)
+        Contact.last_updated_at.to_i.should eq(contact.updated_at.to_i)
       end
       
       it "should handle an empty list" do

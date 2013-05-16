@@ -20,7 +20,7 @@ describe MailingListController do
   describe "POST create" do
     context "success" do
       it "should create a new contact" do
-        Contact.conut.should eq(0)
+        Contact.count.should eq(0)
         post :create, email: email
         flash[:notice].should_not be_blank
         assigns[:contact].email.should eq(email)
@@ -32,7 +32,7 @@ describe MailingListController do
         contact = Contact.create!(email: email, disabled: true)
         post :create, email: email
         flash[:notice].should_not be_blank
-        assigns[:contact].email.should eq(contact)
+        assigns[:contact].email.should eq(contact.email)
         assigns[:contact].disabled.should be_false
       end
       
@@ -73,11 +73,12 @@ describe MailingListController do
     it "should destroy the contact if found" do
       delete :destroy, id: contact.token
       assigns[:title].should eq("Unsubscribe success")
-      Contact.find_by_token(contact.token).should be_nil
+      Contact.find_by_token_and_disabled(contact.token, false).should be_nil
     end
     
     it "should raise if the contact is not found" do
-      lambda{ delete :destroy }.should raise_error(ActiveRecord::NotFound) # TODO
+      contact.disable
+      lambda{ delete :destroy, id: contact.token }.should raise_error(ActiveRecord::RecordNotFound)
     end
   end
   
