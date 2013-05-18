@@ -24,15 +24,16 @@
     = text_area_tag :emails, nil, rows: 4, style: "width: 100%"
     %p= submit_tag "Save"
 
-
+%a{name: "search"}
 .post
   %h1
     Contact List Emails
     - if params[:search].present?
       (Filtered by '#{params[:search]}')
+  %h3 &nbsp;
   
   %p
-    = form_tag url: admin_contacts_path, method: :get do
+    = form_tag admin_contacts_path(anchor: "search"), method: :get do
       = text_field_tag :search, params[:search]
       = submit_tag "Search"
   

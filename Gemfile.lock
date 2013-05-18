@@ -40,6 +40,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    chronic (0.9.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -122,7 +123,6 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    recaptcha (0.3.5)
     rinku (1.7.2)
     rmagick (2.13.2)
     rspec (2.13.0)
@@ -159,6 +159,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
+    whenever (0.8.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
     will_paginate (3.0.4)
 
 PLATFORMS
@@ -177,7 +180,6 @@ DEPENDENCIES
   pry
   pry-rails
   rails (= 3.2.13)
-  recaptcha
   rinku
   rmagick (>= 2.13.1)
   rspec
@@ -185,4 +187,5 @@ DEPENDENCIES
   rvm-capistrano
   sass
   thin
+  whenever
   will_paginate

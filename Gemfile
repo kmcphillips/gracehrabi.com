@@ -10,10 +10,10 @@ gem 'sass'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'rmagick', ">= 2.13.1"
-gem "recaptcha", :require => "recaptcha/rails"
 gem 'rinku', require: 'rails_rinku'
 gem 'acts_as_permalink'
 gem 'rvm-capistrano'
+gem 'whenever', require: false
 
 group :development, :test do
   gem "thin"
