@@ -1,6 +1,9 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 set :application, "Grace Hrabi"
 set :repository,  "git://github.com/kmcphillips/gracehrabi.com.git"
 set :deploy_to, "/home/kevin/gracehrabi.com"
@@ -35,4 +38,3 @@ task :symlink_shared_files do
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
   end
 end
-

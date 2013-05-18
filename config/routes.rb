@@ -1,6 +1,7 @@
 GracehrabiCom::Application.routes.draw do
 
   root :to => "posts#index"
+  match 'news' => 'posts#index'
   match 'news/:id' => 'posts#show'
   match 'rss.:format' => 'posts#rss'
 
@@ -14,6 +15,8 @@ GracehrabiCom::Application.routes.draw do
   resources :events, only: [:index, :show]
   resources :galleries, only: [:index, :show]
   resources :mailing_list, only: [:index, :create, :show, :destroy]
+
+  match 'unsubscribe/:id' => 'mailing_list#show'
 
   namespace :admin do
     match 'login' => 'sessions#new'
