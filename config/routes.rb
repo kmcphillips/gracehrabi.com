@@ -16,7 +16,7 @@ GracehrabiCom::Application.routes.draw do
   resources :galleries, only: [:index, :show]
   resources :mailing_list, only: [:index, :create, :show, :destroy]
 
-  match 'unsubscribe/:id' => 'mailing_list#show'
+  match 'unsubscribe/:id' => 'mailing_list#show', as: "unsubscribe"
 
   namespace :admin do
     match 'login' => 'sessions#new'

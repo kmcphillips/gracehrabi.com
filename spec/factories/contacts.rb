@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :contact do
-    email "test@example.com"
+    sequence(:email){|n| "test#{n}@example.com" }
     disabled false
   end
 end

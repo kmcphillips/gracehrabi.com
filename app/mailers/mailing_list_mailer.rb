@@ -3,11 +3,11 @@ class MailingListMailer < ActionMailer::Base
 
   include MailerCommon
 
-  def upcoming_events
-    subject = "TODO"
-    @events = Event.for_mailing_list
+  def upcoming_events(contact, events)
+    @events = events
+    @contact = contact
 
-    mail(:to => "grace@gracehrabi.com", bcc: mailing_list, subject: subject)
+    mail(to: contact.email, subject: "Grace Hrabi: performances for the week of #{Time.now.to_s(:words)}")
   end
   
   private

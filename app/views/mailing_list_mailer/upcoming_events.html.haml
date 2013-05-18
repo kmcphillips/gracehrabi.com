@@ -1,1 +1,22 @@
-TODO
+- link_style = "text-decoration: none; color: #737874; "
+
+#wrapper{style: "margin: 0 auto; width: 650px; background: #F4F3E5; color: #3D1020; font-family: helvetica, sans-serif"}
+  #header{style: ""}
+    = link_to image_tag("#{ root_url }images/header.jpg", alt: "Grace Hrabi: Vocalist"), root_url
+  
+  #body{style: "padding: 26px 30px 0 30px; "}
+    %h1{style: "font-size: 2em"} Upcoming Performances
+    
+    - @events.each do |event|
+      .event{style: "padding: 12px 0 20px 0; "}
+        %h2{style: "border-bottom: 1px solid #7E7708; "}= link_to event.title, event_url(event), style: link_style
+        %h3{style: ""}= event.starts_at.to_formatted_s(:event_with_time)
+        .body{style: ""}
+          = auto_link(simple_format(event.description)).html_safe
+          %p= link_to "More Details", event_url(event), style: link_style
+
+  #footer{style: "background: #9E8855; padding: 5px 30px; font-size: 1em "}
+    %p
+      = link_to "gracehrabi.com", root_url
+      |
+      = link_to "unsubscribe", unsubscribe_url(@contact.token)

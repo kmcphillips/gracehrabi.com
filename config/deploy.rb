@@ -29,7 +29,7 @@ end
 
 after "deploy:update", "deploy:cleanup"
 
-after "deploy", "symlink_shared_files"
+after "deploy:finalize_update", "symlink_shared_files"
 
 task :symlink_shared_files do
   run "ln -s #{shared_path}/assets #{release_path}/public/assets"
