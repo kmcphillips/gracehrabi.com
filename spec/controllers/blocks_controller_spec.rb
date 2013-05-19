@@ -34,5 +34,28 @@ describe BlocksController do
       assigns(:links).should == ["links"]
     end
   end
+  
+  describe "GET home" do
+    it "should render the template" do
+      get :home
+      response.should render_template(:home)
+    end
+    
+    it "should get the objects for the different portlets" do
+      events = [mock]
+      posts = [mock]
+      images = [mock]
+      Image.should_receive(:random_sample).and_return(images)
+      Event.should_receive(:upcoming).and_return(events)
+      events.should_receive(:limit).with(5).and_return(events)
+      Post.should_receive(:recent).and_return(posts)
+      
+      get :home
+      
+      assigns(:events).should eq(events)
+      assigns(:posts).should eq(posts)
+      assigns(:images).should eq(images)
+    end
+  end
 
 end

@@ -10,9 +10,10 @@ class MailingListController < ApplicationController
     
     if @contact.save
       flash[:notice] = "You have been signed up! Thank you!"
+      redirect_to root_path
+    else
+      render :index
     end
-
-    render :index
   end
   
   def show

@@ -25,7 +25,7 @@ class EventCalendar
   end
 
   def weekdays
-    ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    Date::DAYNAMES
   end
   
   def table

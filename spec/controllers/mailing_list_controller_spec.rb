@@ -38,7 +38,7 @@ describe MailingListController do
       
       it "should render index" do
         post :create, email: email
-        response.should render_template(:index)
+        response.should redirect_to(root_path)
       end
     end
     

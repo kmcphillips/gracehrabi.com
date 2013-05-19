@@ -1,0 +1,8 @@
+.post
+  %h1 Galleries 
+  %h3 &nbsp;
+  
+  .center
+    - @images.each do |image|
+      = link_to image_tag(image.thumb, class: "thumb", alt: image.label), galleries_path
+      %br

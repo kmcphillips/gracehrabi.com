@@ -1,0 +1,14 @@
+.post
+  %h1 Mailing List
+  %h3 &nbsp;
+
+  %p
+    Sign up for my mailing list to receive weekly updates about upcoming performances.
+
+  %br
+  = form_tag mailing_list_index_path, :method => :post do
+    .field
+      %label Email Address
+      = text_field_tag :email, params[:email]
+    .field
+      = submit_tag "Sign Up"

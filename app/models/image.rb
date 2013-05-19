@@ -22,6 +22,7 @@ class Image < ActiveRecord::Base
   scope :for_gallery, lambda{ |g| where(:gallery_id => g.id) }
   scope :in_order, order("sort_order ASC")
   scope :most_recently_updated, order("updated_at DESC").limit(1)
+  scope :random_sample, where(active: true).order("RAND()").limit(2)
 
   AttachedImage::SIZES.each_key do |key|
     define_method key do

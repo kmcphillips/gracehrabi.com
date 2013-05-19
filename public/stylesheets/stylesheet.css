@@ -110,6 +110,11 @@ a:visited {
     height: 50px;
 }
 
+.half_col {
+    width: 49%;
+}
+
+
 /*** Navigation ***/
 
 #nav .bar {
@@ -286,6 +291,10 @@ h2.event {
 
 ul.past {
     list-style: none;
+}
+
+ul.past li.multi_line {
+    padding-bottom: 8px;
 }
 
 .post .body .image {

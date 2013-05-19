@@ -1,0 +1,8 @@
+.half_col.left_float
+  = render partial: "blocks/home/events" if @events.any?
+  = render partial: "blocks/home/mailing_list"
+
+.half_col.right_float
+  = render partial: "blocks/home/news" if @posts.any?
+  = render partial: "blocks/home/gallery"
+  = render partial: "blocks/home/private_performances"

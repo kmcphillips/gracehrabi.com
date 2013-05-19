@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
 
   include AttachedImage
 
+  scope :recent, order("created_at DESC").limit(3)
+
   def sort_by; created_at; end
 end
 

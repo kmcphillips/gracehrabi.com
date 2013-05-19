@@ -15,7 +15,6 @@ class Event < ActiveRecord::Base
   }
   scope :on_date, lambda{|date| where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
   
-  
   def sort_by; starts_at; end
 
   def status
