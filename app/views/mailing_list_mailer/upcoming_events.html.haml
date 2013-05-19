@@ -3,14 +3,14 @@
 #wrapper{style: "margin: 0 auto; width: 650px; background: #F4F3E5; color: #3D1020; font-family: helvetica, sans-serif"}
   #header{style: "background: #9E8855"}
     = link_to image_tag("#{ root_url }images/header.jpg", alt: "Grace Hrabi: Vocalist"), root_url
-    %h1{style: "font-size: 2.3em; padding: 24px 30px; margin: 0; "} Upcoming Performances
+    %h1{style: "font-size: 1.4em; padding: 24px 30px; margin: 0; "} Upcoming Shows
   
   #body{style: "padding: 6px 30px 0 30px; "}
     - @events.each do |event|
       .event{style: "padding: 12px 0 20px 0; "}
-        %h2{style: "border-bottom: 1px solid #7E7708; "}= link_to event.title, event_url(event), style: link_style
-        %h3{style: ""}= event.starts_at.to_formatted_s(:event_with_time)
-        .body{style: ""}
+        %h2{style: "border-bottom: 1px solid #7E7708; font-size: 1.2em"}= link_to event.title, event_url(event), style: link_style
+        %h3{style: "font-size: 1.1em"}= event.starts_at.to_formatted_s(:event_with_time)
+        .body{style: "font-size: 0.9em"}
           = auto_link(simple_format(event.description)).html_safe
           %p= link_to "More Details", event_url(event), style: link_style
 
