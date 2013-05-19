@@ -512,6 +512,69 @@ table.data tbody td a {
 }
 
 
+/*** Table Calendar ***/
+
+table.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.calendar td.previous {
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    text-align: left;
+}
+
+table.calendar td.next {
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    text-align: right;
+}
+
+table.calendar td.month {
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    text-align: center;
+    font-size: 1.7em;
+}
+
+table.calendar td, table.calendar th {
+    
+}
+
+table.calendar th {
+    width: 14%;
+    padding: 8px 0;
+    font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
+    font-weight: normal;
+}
+
+table.calendar td.day {
+    border: 2px solid #3D1020;
+    background-color: #8a7545;
+    text-align: center;
+    height: 70px;
+}
+
+table.calendar td.current_day {
+    background-color: #C52115 !important;
+}
+
+table.calendar td.past_day {
+    background-color: #737874 !important;
+}
+
+table.calendar td.day span.date {
+    color: #bEa869;
+}
+
+table.calendar td a {
+    color: #F6F3CF;
+    vertical-align: middle;
+}
+
+table.calendar td a:hover {
+    
+}
+
+
 /*** JQuery UI ***/
 
 #previous_image {

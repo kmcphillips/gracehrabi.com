@@ -13,6 +13,9 @@ class Event < ActiveRecord::Base
     t = Time.now.beginning_of_day
     publicized.where("events.starts_at BETWEEN ? AND ?", t, t + distance).order("starts_at ASC")
   }
+  scope :on_date, lambda{|date| where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
+  
+  
   def sort_by; starts_at; end
 
   def status
