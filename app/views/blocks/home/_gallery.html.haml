@@ -1,8 +1,7 @@
 .post
-  %h1 Galleries 
+  %h1 Image Galleries 
   %h3 &nbsp;
   
   .center
     - @images.each do |image|
-      = link_to image_tag(image.thumb, class: "thumb", alt: image.label), galleries_path
-      %br
+      = link_to image_tag(image.thumb, class: "thumb_tight", alt: image.label), galleries_path

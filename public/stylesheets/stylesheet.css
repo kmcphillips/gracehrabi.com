@@ -366,12 +366,16 @@ ul.links li p {
 /*** Gallery ***/
 
 a img.thumb {
-	border: 8px solid #7D7B56;
-	margin: 12px 5px;
+    border: 8px solid #7D7B56;
+    margin: 12px 5px;
 }
 
-a:hover img.thumb {
-	border: 8px solid #C52115;
+a:hover img.thumb_tight, a:hover img.thumb {
+    border: 8px solid #C52115;
+}
+a img.thumb_tight {
+    border: 8px solid #7D7B56;
+    margin: 4px;
 }
 
 #image_sortable {
