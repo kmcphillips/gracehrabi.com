@@ -8,10 +8,10 @@ class Event < ActiveRecord::Base
   scope :upcoming, lambda { t = Time.now; where("events.starts_at > ?", t.end_of_day).order("starts_at ASC") }
   scope :current,  lambda { t = Time.now; where("events.starts_at BETWEEN ? AND ?", t.beginning_of_day, t.end_of_day).order("starts_at DESC") }
   scope :past,     lambda { t = Time.now; where("events.starts_at < ?", t.beginning_of_day).order("starts_at DESC") }
-  scope :publicized, publicized: true
+  scope :publicized, where(publicized: true)
   scope :for_mailing_list, lambda{ |distance=2.weeks|
     t = Time.now.beginning_of_day
-    publicized.where("events.starts_at BETWEEN ? AND ?", t, t + distance).order("starts_at DESC")
+    publicized.where("events.starts_at BETWEEN ? AND ?", t, t + distance).order("starts_at ASC")
   }
   def sort_by; starts_at; end
 

@@ -29,6 +29,13 @@ describe Event do
       it "should find the past events" do
         Event.past == [@past]
       end
+      
+      it "should find the events for the mailing list" do
+        Event.create! @valid_attributes.merge(publicized: false, starts_at: Time.now + 2.days)
+        Event.create! @valid_attributes.merge(starts_at: Time.now + 15.days)
+        Event.for_mailing_list.should eq([@current, @upcoming])
+        Event.for_mailing_list(1.day).should eq([@current])
+      end
     end
 
     describe "status" do
