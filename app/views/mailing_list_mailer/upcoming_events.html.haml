@@ -1,12 +1,11 @@
 - link_style = "text-decoration: none; color: #737874; "
 
 #wrapper{style: "margin: 0 auto; width: 650px; background: #F4F3E5; color: #3D1020; font-family: helvetica, sans-serif"}
-  #header{style: ""}
+  #header{style: "background: #9E8855"}
     = link_to image_tag("#{ root_url }images/header.jpg", alt: "Grace Hrabi: Vocalist"), root_url
+    %h1{style: "font-size: 2.3em; padding: 24px 30px; margin: 0; "} Upcoming Performances
   
-  #body{style: "padding: 26px 30px 0 30px; "}
-    %h1{style: "font-size: 2em"} Upcoming Performances
-    
+  #body{style: "padding: 6px 30px 0 30px; "}
     - @events.each do |event|
       .event{style: "padding: 12px 0 20px 0; "}
         %h2{style: "border-bottom: 1px solid #7E7708; "}= link_to event.title, event_url(event), style: link_style
