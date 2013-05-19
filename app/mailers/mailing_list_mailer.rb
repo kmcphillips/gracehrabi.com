@@ -7,7 +7,7 @@ class MailingListMailer < ActionMailer::Base
     @events = events
     @contact = contact
 
-    mail(to: contact.email, subject: "Grace Hrabi: performances for the week of #{Time.now.to_s(:words)}")
+    mail(to: contact.email, subject: "Grace Hrabi: shows for the week of #{Time.now.to_s(:words)}")
   end
   
   private
