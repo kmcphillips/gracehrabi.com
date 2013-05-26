@@ -55,6 +55,23 @@ describe Contact do
   end
   
   describe "class method" do
+    describe "#build_from_email" do
+      it "should build a new contact" do
+        contact = Contact.build_from_email(email)
+        contact.should be_a_new_record
+        contact.email.should eq(email)
+        contact.should_not be_disabled
+      end
+      
+      it "should find the existing contact" do
+        Contact.create! email: email, disabled: true
+        contact = Contact.build_from_email(email)
+        contact.should_not be_a_new_record
+        contact.email.should eq(email)
+        contact.should_not be_disabled
+      end
+    end
+    
     describe "#emails" do
       it "should find all active unique emails" do
         contact

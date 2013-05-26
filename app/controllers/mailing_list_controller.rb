@@ -5,8 +5,7 @@ class MailingListController < ApplicationController
   end
 
   def create
-    @contact = Contact.find_by_email(params[:email]) || Contact.new(email: params[:email])
-    @contact.disabled = false
+    @contact = Contact.build_from_email(params[:email])
     
     if @contact.save
       flash[:notice] = "You have been signed up! Thank you!"

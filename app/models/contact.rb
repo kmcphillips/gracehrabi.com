@@ -22,6 +22,12 @@ class Contact < ActiveRecord::Base
   
   class << self
     
+    def build_from_email(email)
+      contact = find_by_email(email) || Contact.new(email: email)
+      contact.disabled = false
+      contact
+    end
+    
     def emails
       active.map(&:email).uniq.reject(&:blank?)
     end

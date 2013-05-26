@@ -100,3 +100,10 @@
 #player ul {
     list-style: none;
 }
+
+
+/* use some of this same stuff for the mobile widget view */
+
+#player .mobile {
+    color: #3D1020;
+}

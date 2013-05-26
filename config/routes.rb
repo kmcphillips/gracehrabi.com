@@ -15,6 +15,7 @@ GracehrabiCom::Application.routes.draw do
   resources :events, only: [:index, :show]
   resources :galleries, only: [:index, :show]
   resources :mailing_list, only: [:index, :create, :show, :destroy]
+  resources :mailing_list_mobile, only: [:index, :create]
 
   match 'unsubscribe/:id' => 'mailing_list#show', as: "unsubscribe"
 

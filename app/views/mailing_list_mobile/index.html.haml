@@ -1,0 +1,6 @@
+= form_tag mailing_list_mobile_index_path, method: :post do
+  %h2 Mailing List Email
+  
+  = email_field_tag :email, params[:email]
+  
+  = submit_tag "Sign Up"

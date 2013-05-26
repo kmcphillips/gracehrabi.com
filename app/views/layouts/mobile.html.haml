@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title= page_title
+
+    = stylesheet_link_tag ["stylesheet", "mobile"]
+
+    = javascript_include_tag 'jquery/jquery-1.4.2.min'
+    = javascript_include_tag ['application', 'rails']
+
+    = yield :js
+
+    %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "/favicon.ico"}
+
+    = csrf_meta_tag
+    
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"}
+    %link{rel: "apple-touch-icon", href: "apple-touch-icon.png"}
+    
+    = render :partial => "shared/analytics"
+
+  %body
+    #mobile
+      .header= image_tag "player_header.png"
+      .body
+        = render :partial => "shared/flashes"
+        = yield
