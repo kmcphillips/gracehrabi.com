@@ -6,7 +6,7 @@
     = stylesheet_link_tag ["stylesheet", "mobile"]
 
     = javascript_include_tag 'jquery/jquery-1.4.2.min'
-    = javascript_include_tag ['application', 'rails']
+    = javascript_include_tag ['rails']
 
     = yield :js
 
@@ -16,6 +16,7 @@
     
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"}
     %link{rel: "apple-touch-icon", href: "apple-touch-icon.png"}
+    %meta{name: "apple-mobile-web-app-capable", content: "yes"}
     
     = render :partial => "shared/analytics"
 
