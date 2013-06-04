@@ -15,6 +15,7 @@ gem 'acts_as_permalink'
 gem 'rvm-capistrano'
 gem 'whenever', require: false
 gem "jquery-rails"
+gem "jquery-ui-rails"
 
 group :development do
   gem "letter_opener"

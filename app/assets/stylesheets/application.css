@@ -2,5 +2,5 @@
  *= require_self
  *= require stylesheet
  *= require prettyPhoto
- *= jquery-ui-1.8.7.custom
+ *= require jquery.ui.all
 */
