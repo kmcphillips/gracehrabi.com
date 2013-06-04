@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513010101) do
+ActiveRecord::Schema.define(:version => 20130604010319) do
 
   create_table "blocks", :force => true do |t|
     t.text     "body"
@@ -52,7 +52,9 @@ ActiveRecord::Schema.define(:version => 20130513010101) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_fingerprint"
-    t.boolean  "publicized",         :default => true
+    t.boolean  "publicized",                 :default => true
+    t.float    "price",                      :default => 0.0
+    t.datetime "manitoba_music_exported_at"
   end
 
   add_index "events", ["publicized"], :name => "index_events_on_publicized"

@@ -5,7 +5,7 @@
 
 = collection_index @events, ["Title", "Status", "Publicized?", "Starts at", "Actions"] do |event|
   %tr{:class => row_class}
-    %td= event.title
+    %td= link_to event.title, event
     %td= event.status
     %td= boolean_image(event.publicized?)
     %td= event.starts_at.to_formatted_s(:index)
@@ -13,3 +13,5 @@
       = edit_entity_image [:edit, :admin, event]
       = destroy_entity_image [:admin, event]
       = copy_entity_image new_admin_event_path(:source => event.id)
+      %br
+      = render partial: "/admin/events/manitoba_music", object: event

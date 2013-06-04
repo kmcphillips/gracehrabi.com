@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
     publicized.where("events.starts_at BETWEEN ? AND ?", t, t + distance).order("starts_at ASC")
   }
   scope :on_date, lambda{|date| where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
-  
+
   def sort_by; starts_at; end
 
   def status
@@ -44,8 +44,20 @@ class Event < ActiveRecord::Base
     if image.exists?
       ["image_file_name", "image_content_type", "image_file_size", "image_updated_at", "image_fingerprint"].each{|a| c.send("#{a}=", nil)}
       c.previous_image_id = id
-    end 
+    end
     c
+  end
+
+  def export_body
+    "<p><strong>#{ title }</strong></p><p>#{ description }</p>"
+  end
+
+  def manitoba_music_id
+    2880
+  end
+
+  def manitoba_music_exported
+    update_attribute :manitoba_music_exported_at, Time.now
   end
 
 end

@@ -1,5 +1,5 @@
 class Admin::EventsController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, :set_objects
 
   def index
     @events = Event.paginate(pagination_params(:order => "created_at DESC"))
@@ -14,7 +14,6 @@ class Admin::EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
   end
 
   def create
@@ -32,8 +31,6 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find(params[:id])
-
     if params[:commit] == "Preview"
       @event.attributes = params[:event]
       @event.valid?
@@ -47,9 +44,19 @@ class Admin::EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
 
      redirect_to(admin_events_url)
+  end
+
+  def submit_manitoba_music
+    binding.pry
+    @event.submit_manitoba_music
+  end
+
+  private
+
+  def set_objects
+    @event = Event.find(params[:id]) if params[:id]
   end
 end

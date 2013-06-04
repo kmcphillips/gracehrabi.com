@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('.datepicker').datepicker({
     dateFormat: "yy-mm-dd"
   });
-  
+
   $('.datetimepicker').datetimepicker({
     ampm: true,
     stepMinute: 15
@@ -13,7 +13,7 @@ function stripe_table(table)
 {
   $(table).find("tr").each(function(index, element) {
     $(element).removeClass("odd even");
-    
+
     if(index % 2 == 0)
       $(element).addClass("even");
     else
@@ -83,3 +83,9 @@ function convert_datetime_select(id)
 
 }
 
+function submit_manitoba_music(event_id, form_id){
+    $.post("/admin/events/" + event_id + "/submit_manitoba_music", {}, function(data){
+        alert("success!");
+        $("#" + form_id).submit();
+    });
+}

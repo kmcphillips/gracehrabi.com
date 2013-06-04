@@ -1,0 +1,18 @@
+- event = manitoba_music
+- form_id = "manitoba_music_form_#{ event.id }"
+
+= button_to_function "Export to MM #{ event.manitoba_music_exported_at }", "submit_manitoba_music(#{ event.id}, '#{ form_id }')"
+
+= form_tag "https://www.manitobamusic.com/members/edit-events/add,event", id: form_id do
+  = hidden_field_tag "data[Event][body]", event.export_body
+  = hidden_field_tag "data[Event][cost_outlet]", event.price
+  = hidden_field_tag "data[Event][cost_door]", event.price
+  = hidden_field_tag "data[EventDate][0][date][year]", event.starts_at.year
+  = hidden_field_tag "data[EventDate][0][date][month]", event.starts_at.month
+  = hidden_field_tag "data[EventDate][0][date][day]", event.starts_at.day
+  = hidden_field_tag "data[EventDate][0][flag_start_time]", 1
+  = hidden_field_tag "data[EventDate][0][start_time][hour]", event.starts_at.to_s(:hour)
+  = hidden_field_tag "data[EventDate][0][start_time][min]", event.starts_at.min
+  = hidden_field_tag "data[EventDate][0][start_time][meridian]", event.starts_at.to_s(:meridian)
+  = hidden_field_tag "data[ManitobaMusicArtist][ManitobaMusicArtist][0]", event.manitoba_music_id
+  = hidden_field_tag "data[ManitobaMusicPromoter][ManitobaMusicPromoter][ManitobaMusicPromote]", event.manitoba_music_id

@@ -24,7 +24,7 @@ GracehrabiCom::Application.routes.draw do
     match 'logout' => 'sessions#logout'
 
     root to: "posts#index"
-    
+
     resources :sessions do
       collection do
         get 'password'
@@ -34,7 +34,11 @@ GracehrabiCom::Application.routes.draw do
 
     resources :blocks, except: [:destroy, :create, :new, :show]
     resources :medias, only: [:edit, :update]
-    resources :events, except: [:show]
+    resources :events, except: [:show] do
+      member do
+        post 'submit_manitoba_music'
+      end
+    end
     resources :links, except: [:show] do
       collection do
         post 'sort'
