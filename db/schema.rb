@@ -52,9 +52,8 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_fingerprint"
-    t.boolean  "publicized",                 :default => true
-    t.float    "price",                      :default => 0.0
-    t.datetime "manitoba_music_exported_at"
+    t.boolean  "publicized",         :default => true
+    t.float    "price",              :default => 0.0
   end
 
   add_index "events", ["publicized"], :name => "index_events_on_publicized"

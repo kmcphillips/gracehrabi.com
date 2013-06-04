@@ -13,5 +13,4 @@
       = edit_entity_image [:edit, :admin, event]
       = destroy_entity_image [:admin, event]
       = copy_entity_image new_admin_event_path(:source => event.id)
-      %br
       = render partial: "/admin/events/manitoba_music", object: event

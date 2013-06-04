@@ -49,11 +49,6 @@ class Admin::EventsController < ApplicationController
      redirect_to(admin_events_url)
   end
 
-  def submit_manitoba_music
-    binding.pry
-    @event.submit_manitoba_music
-  end
-
   private
 
   def set_objects

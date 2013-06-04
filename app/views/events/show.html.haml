@@ -2,6 +2,3 @@
 
 %p
   = link_to "Back to all shows", events_path
-  - if current_user
-    %br
-    = render partial: "/admin/events/manitoba_music", object: @event

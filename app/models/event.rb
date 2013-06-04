@@ -56,9 +56,5 @@ class Event < ActiveRecord::Base
     2880
   end
 
-  def manitoba_music_exported
-    update_attribute :manitoba_music_exported_at, Time.now
-  end
-
 end
 
