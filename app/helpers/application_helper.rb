@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def page_title
     prefix = PAGE_TITLE
     prefix = "#{prefix} - Admin" if params[:controller] =~ /^admin\//
@@ -14,7 +14,7 @@ module ApplicationHelper
       prefix
     end
   end
-  
+
   def index_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
     html = link_to image_tag("/images/icons/index.png", :alt => "Index"), path, :title => "Index", :class => "action-image"
@@ -81,7 +81,7 @@ module ApplicationHelper
         end
         headers.html_safe
       end
-      
+
       src << content_tag(:tbody) do
         collection.map do |item|
           yield(item)

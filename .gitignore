@@ -6,5 +6,6 @@ tmp/*
 config/database.yml
 config/mail.yml
 .idea
-public/assets
 /db/structure.sql
+/public/attachments
+/.sass-cache

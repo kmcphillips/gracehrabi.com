@@ -1,4 +1,7 @@
-/***** GraceHrabi.com - Audio Player *****/
+/*
+ *= require_self
+ *= require stylesheet
+*/
 
 body {
     background: #3D1020 !important;
