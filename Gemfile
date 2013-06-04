@@ -14,6 +14,7 @@ gem 'rinku', require: 'rails_rinku'
 gem 'acts_as_permalink'
 gem 'rvm-capistrano'
 gem 'whenever', require: false
+gem "jquery-rails"
 
 group :development do
   gem "letter_opener"
@@ -23,7 +24,6 @@ group :development, :test do
   gem "thin"
   gem "rspec"
   gem "rspec-rails"
-  gem "jquery-rails"
   gem "factory_girl"
   gem "factory_girl_rails"
   gem "pry"
