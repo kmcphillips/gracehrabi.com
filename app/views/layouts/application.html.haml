@@ -5,10 +5,9 @@
 
     = auto_discovery_link_tag(:rss, '/rss.xml')
 
-    = stylesheet_link_tag ["stylesheet", "prettyPhoto"] + (admin? ? ['jquery-ui-1.8.7.custom'] : [])
+    = stylesheet_link_tag 'application'
 
-    = javascript_include_tag 'jquery/jquery-1.4.2.min'
-    = javascript_include_tag ['application', 'rails', 'jquery.prettyPhoto'] + (admin? ? ['jquery-ui-1.8.7.custom.min', 'admin', 'jquery.timepicker'] : [])
+    = javascript_include_tag 'application'
 
     = yield :js
 
@@ -25,7 +24,7 @@
       .box_full &nbsp;
 
       #header
-        = link_to image_tag("/images/header.jpg", :alt => SITE_NAME), "/"
+        = link_to image_tag("header.jpg", :alt => SITE_NAME), "/"
         - if Rails.env.development?
           #development_notice Development Server
       #nav
@@ -38,11 +37,11 @@
           = yield
         .minheight_clear
       #footer
-        = image_tag "/images/footer.jpg", :alt => SITE_NAME
+        = image_tag "footer.jpg", :alt => SITE_NAME
 
       .box_full.credits
         .left_float
-          = link_to image_tag("/images/icons/rss.png", :alt => "RSS"), "/rss.xml"
+          = link_to image_tag("icons/rss.png", :alt => "RSS"), "/rss.xml"
           = link_to "RSS", "/rss.xml"
           &nbsp;&nbsp;
           = link_to "Site source", "http://github.com/kmcphillips/gracehrabi.com"

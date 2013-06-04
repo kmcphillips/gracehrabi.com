@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def page_title
     prefix = PAGE_TITLE
     prefix = "#{prefix} - Admin" if params[:controller] =~ /^admin\//
@@ -14,55 +14,55 @@ module ApplicationHelper
       prefix
     end
   end
-  
+
   def index_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/index.png", :alt => "Index"), path, :title => "Index", :class => "action-image"
+    html = link_to image_tag("icons/index.png", :alt => "Index"), path, :title => "Index", :class => "action-image"
     html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def new_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/new.png", :alt => "New"), path, :title => "New", :class => "action-image"
+    html = link_to image_tag("icons/new.png", :alt => "New"), path, :title => "New", :class => "action-image"
     html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def destroy_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/delete.png", :alt => "Delete"), path, :method => :delete, :confirm => "Are you sure you want to delete this?", :title => "Delete", :class => "action-image"
+    html = link_to image_tag("icons/delete.png", :alt => "Delete"), path, :method => :delete, :confirm => "Are you sure you want to delete this?", :title => "Delete", :class => "action-image"
     html += "&nbsp;".html_safe + link_to(label, path, :method => :delete, :confirm => "Are you sure you want to delete this?") if label
     html
   end
 
   def edit_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/edit.png", :alt => "Edit"), path, :title => "Edit", :class => "action-image"
+    html = link_to image_tag("icons/edit.png", :alt => "Edit"), path, :title => "Edit", :class => "action-image"
     html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def show_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/show.png", :alt => "Show"), path, :title => "Show", :class => "action-image"
+    html = link_to image_tag("icons/show.png", :alt => "Show"), path, :title => "Show", :class => "action-image"
     html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def copy_entity_image(path, label=nil, args={})
     path = polymorphic_path(path) if path.is_a?(Array)
-    html = link_to image_tag("/images/icons/copy.png", :alt => "Copy"), path, :title => "Copy", :class => "action-image"
+    html = link_to image_tag("icons/copy.png", :alt => "Copy"), path, :title => "Copy", :class => "action-image"
     html += "&nbsp;".html_safe + link_to(label, path) if label
     html
   end
 
   def enlarge_button
-    "Enlarge&nbsp;" + image_tag("/images/icons/magnify.png", :alt => "Enlarge", :class => :magnify)
+    "Enlarge&nbsp;" + image_tag("icons/magnify.png", :alt => "Enlarge", :class => :magnify)
   end
 
   def boolean_image(value)
-    image_tag("/images/icons/#{!!value}.png", :alt => (!!value).to_s.humanize)
+    image_tag("icons/#{!!value}.png", :alt => (!!value).to_s.humanize)
   end
 
   def obfuscated_mail_to(email, label=nil)
@@ -81,7 +81,7 @@ module ApplicationHelper
         end
         headers.html_safe
       end
-      
+
       src << content_tag(:tbody) do
         collection.map do |item|
           yield(item)

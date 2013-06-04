@@ -1,4 +1,7 @@
-/***** GraceHrabi.com - Audio Player *****/
+/*
+ *= require_self
+ *= require stylesheet
+*/
 
 #player {
     height: 400px;
@@ -39,7 +42,7 @@
 }
 
 #player .list {
-    
+
 }
 
 #player .list li {

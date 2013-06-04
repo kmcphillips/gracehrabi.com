@@ -7,8 +7,8 @@ class Media < ActiveRecord::Base
 
   has_attached_file :file,
     :whiny => true,
-    :path => ":rails_root/public/assets/media/:class/:id/:style_:basename.:extension",
-    :url => "/assets/media/:class/:id/:style_:basename.:extension"
+    :path => ":rails_root/public/attachments/media/:class/:id/:style_:basename.:extension",
+    :url => "/attachments/media/:class/:id/:style_:basename.:extension"
 
   validates_attachment_size :file, :in => 1..10.megabytes
   # validates_attachment_content_type :file, :content_type => []
@@ -16,5 +16,5 @@ class Media < ActiveRecord::Base
   def to_param
     label
   end
-  
+
 end

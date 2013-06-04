@@ -17,13 +17,13 @@ describe Track do
     t.valid?
     t.sort_order.should == 2
   end
-  
+
   it "should know the mp3_url" do
     t = Track.new
-    t.stub(:mp3 => mock(:mp3, :url => "/assets/pie.mp3", :exists? => true))
-    t.mp3_url("http://pie:123/player/1").should == "http://pie:123/assets/pie.mp3"
+    t.stub(:mp3 => mock(:mp3, :url => "/pie.mp3", :exists? => true))
+    t.mp3_url("http://pie:123/player/1").should == "http://pie:123/pie.mp3"
   end
-  
+
   describe "with real data" do
     before(:each) do
       (0..3).each do
@@ -31,8 +31,8 @@ describe Track do
         @all = Track.order("sort_order ASC")
       end
     end
-   
-    describe "adjacent track" do 
+
+    describe "adjacent track" do
       it "should know for the first track what is adjacent" do
         t = @all.first
         t.next.sort_order.should == 2
@@ -50,7 +50,7 @@ describe Track do
         t.next.sort_order.should == 1
         t.previous.sort_order.should == t.sort_order - 1
       end
-      
+
       it "should return nil if there is only one track" do
         t = @all.pop
         @all.map(&:destroy)
@@ -64,54 +64,54 @@ describe Track do
         tracks = Track.order("sort_order ASC")
 
         tracks.each_with_index do |t, i|
-          t.number_from_total.should == "(#{i + 1} of #{tracks.length})" 
+          t.number_from_total.should == "(#{i + 1} of #{tracks.length})"
         end
       end
     end
-    
+
     after(:each) do
       Track.destroy_all
     end
   end
-  
+
   describe "class methods" do
     describe "window name" do
       it "should form the window name" do
         Track.window_name.should == "_grace_hrabi_player"
       end
     end
-    
+
     describe "highest sort order" do
       before(:each) do
         (0..3).each do
           Track.create! @valid_attributes.merge(:sort_order => nil)
         end
       end
-      
+
       it "should know the highest number" do
         Track.highest_sort_order.should == 4
       end
-      
+
       after(:each) do
         Track.destroy_all
       end
     end
-    
+
     describe "beginning" do
       before(:each) do
         (1..3).each do |sort_order|
           Track.create! @valid_attributes.merge(:sort_order => sort_order)
         end
       end
-      
+
       it "should find the first track" do
         Track.beginning.sort_order.should == 1
       end
-      
+
       after(:each) do
         Track.destroy_all
       end
     end
   end
-  
+
 end
