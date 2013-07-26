@@ -1,19 +1,8 @@
 namespace :jobs do
 
-  desc "Migrate all data to get rid of /assets from the file paths"
-  task assets_migration: :environment do
-    puts "Starting migration..."
-
-    ActiveRecord::Base.transaction do
-      # blocks
-      # events
-      # images
-      # medias
-      # posts
-      # tracks
-    end
-
-    puts "Success!"
+  desc "Send the weekly mailing list"
+  task deliver_weekly_mailer: :environment do
+    MailingListWeeklyEventsJob.new.process
   end
 
 end
