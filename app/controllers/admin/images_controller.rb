@@ -11,7 +11,7 @@ class Admin::ImagesController < ApplicationController
     end
 
     if image.gallery
-      redirect_to admin_gallery_path(image.gallery)
+      redirect_to admin_gallery_path(image.gallery, anchor: "form")
     else
       redirect_to admin_galleries_path
     end
@@ -44,7 +44,7 @@ class Admin::ImagesController < ApplicationController
       redirect_to admin_galleries_path
     end
   end
-  
+
   def sort
     if params[:image].try(:is_a?, Array)
       params[:image].each_with_index do |id, index|
