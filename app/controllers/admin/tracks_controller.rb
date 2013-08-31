@@ -13,7 +13,7 @@ class Admin::TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(params[:track])
+    @track = Track.new(track_params)
 
     if @track.save
       redirect_to(admin_tracks_path, :notice => 'Track was successfully created.')
@@ -25,7 +25,7 @@ class Admin::TracksController < ApplicationController
   def update
     @track = Track.find(params[:id])
     
-    if @track.update_attributes(params[:track])
+    if @track.update_attributes(track_params)
       redirect_to(admin_tracks_path, :notice => 'Track was successfully updated.')
     else
       render :action => "edit"
@@ -48,5 +48,12 @@ class Admin::TracksController < ApplicationController
 
     render :nothing => true
   end
+
+  private
+
+  def track_params
+    params.require(:track).permit(:title, :description, :active, :mp3)
+  end
+
 end
 

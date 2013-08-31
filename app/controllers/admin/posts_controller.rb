@@ -14,7 +14,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
 
     if params[:commit] == "Preview"
       @post.valid?
@@ -31,11 +31,11 @@ class Admin::PostsController < ApplicationController
     @post = Post.find_by_permalink!(params[:id])
 
     if params[:commit] == "Preview"
-      @post.attributes = params[:post]
+      @post.attributes = post_params
       @post.valid?
       @preview = true
       render :action => "edit"
-    elsif @post.update_attributes(params[:post])
+    elsif @post.update_attributes(post_params)
       redirect_to(admin_posts_url, :notice => 'Post was successfully updated.')
     else
       render :action => "edit"
@@ -48,4 +48,11 @@ class Admin::PostsController < ApplicationController
 
      redirect_to(admin_posts_url) 
   end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :image, :clear_image, :previous_image_id)
+  end
+
 end
