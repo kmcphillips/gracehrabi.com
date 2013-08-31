@@ -2,7 +2,7 @@ class Admin::EventsController < ApplicationController
   before_action :require_login, :set_objects
 
   def index
-    @events = Event.paginate(pagination_params(:order => "created_at DESC"))
+    @events = Event.paginate(pagination_params(order: "created_at DESC"))
   end
 
   def new
@@ -17,29 +17,29 @@ class Admin::EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = Event.new(event_params)
 
     if params[:commit] == "Preview"
       @event.valid?
       @preview = true
-      render :action => "edit"
+      render action: "edit"
     elsif @event.save
-      redirect_to(admin_events_url, :notice => 'Event was successfully created.')
+      redirect_to(admin_events_url, notice: 'Event was successfully created.')
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
   def update
     if params[:commit] == "Preview"
-      @event.attributes = params[:event]
+      @event.attributes = event_params
       @event.valid?
       @preview = true
-      render :action => "edit"
-    elsif @event.update_attributes(params[:event])
-       redirect_to(admin_events_url, :notice => 'Event was successfully updated.')
+      render action: "edit"
+    elsif @event.update_attributes(event_params)
+       redirect_to(admin_events_url, notice: 'Event was successfully updated.')
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 
@@ -54,4 +54,9 @@ class Admin::EventsController < ApplicationController
   def set_objects
     @event = Event.find(params[:id]) if params[:id]
   end
+
+  def event_params
+    params.require(:event).permit(:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id)
+  end
+
 end

@@ -21,11 +21,17 @@ class Admin::ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     
-    if @contact.update_attributes(params[:contact])
+    if @contact.update_attributes(contact_params)
       redirect_to admin_contacts_path, notice: "Email address updated successfully."
     else
       flash[:error] = "Could not update email address."
     end
   end
-  
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:disabled)
+  end
+
 end

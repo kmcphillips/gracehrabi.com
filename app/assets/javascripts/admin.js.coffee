@@ -7,6 +7,7 @@ $(document).ready ->
   $(".preview-link").click ->
     preview_link()
 
+  convert_datetime_select("#starts_at_container") if $("#starts_at_container").size() > 0
 
 window.stripe_table = (table) ->
   $(table).find("tr").each (index, element) ->
