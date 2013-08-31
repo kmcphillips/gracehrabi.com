@@ -19,6 +19,10 @@ $(document).ready ->
     $('#previous_image').dialog('open')
     false
 
+  $(".previous-image-link").click ->
+    selectImage $(this).data('image-id'), $(this).data('image-src')
+    false
+
   $(".clear-image").click ->
     clearImage()
     false

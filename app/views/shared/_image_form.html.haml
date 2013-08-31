@@ -18,7 +18,7 @@
     = f.hidden_field "previous_image_id", :id => :previous_image_id
     #previous_image
       - unique_previous_images(f.object).each do |prev|
-        = link_to_function image_tag(prev.thumb), "selectImage(#{prev.id}, '#{prev.thumb}')"
+        = link_to image_tag(prev.thumb), "", data: {:'image-id' => prev.id, :'image-src' => prev.thumb}, class: 'previous-image-link'
 
     #clear_image
       %span.bold &nbsp;&nbsp;&nbsp;OR

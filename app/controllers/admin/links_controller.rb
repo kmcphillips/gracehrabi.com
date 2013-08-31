@@ -13,7 +13,7 @@ class Admin::LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(params[:link])
+    @link = Link.new(link_params)
 
     if @link.save
       redirect_to(admin_links_url, :notice => 'Link was successfully created.')
@@ -25,7 +25,7 @@ class Admin::LinksController < ApplicationController
   def update
     @link = Link.find(params[:id])
 
-    if @link.update_attributes(params[:link])
+    if @link.update_attributes(link_params)
       redirect_to(admin_links_url, :notice => 'Link was successfully updated.')
     else
       render :action => "edit"
@@ -48,4 +48,11 @@ class Admin::LinksController < ApplicationController
 
     render :nothing => true
   end
+
+  private
+
+  def link_params
+    params.require(:link).permit(:title, :description, :url)
+  end
+
 end
