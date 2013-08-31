@@ -9,6 +9,16 @@ $(document).ready ->
 
   convert_datetime_select("#starts_at_container") if $("#starts_at_container").size() > 0
 
+  $("#image_sortable").sortable update: ->
+    $.ajax
+      url: "/admin/images/sort"
+      type: "post"
+      data: $("#image_sortable").sortable("serialize")
+      error: ->
+        alert "There was an error sorting images. Contact administrator."
+  $("#image_sortable").disableSelection()
+
+
 window.stripe_table = (table) ->
   $(table).find("tr").each (index, element) ->
     $(element).removeClass "odd even"

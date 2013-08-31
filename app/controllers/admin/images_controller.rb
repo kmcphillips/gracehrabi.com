@@ -2,7 +2,7 @@ class Admin::ImagesController < ApplicationController
   before_action :require_login
 
   def create
-    image = Image.new(params[:image])
+    image = Image.new(image_params)
 
     if image.save
       flash[:notice] = 'Image was successfully added.'
@@ -20,7 +20,7 @@ class Admin::ImagesController < ApplicationController
   def update
     image = Image.find(params[:id])
 
-    if image.update_attributes(params[:image])
+    if image.update_attributes(image_params)
       flash[:notice] = "Image updated."
     else
       flash[:error] = image.errors.full_messages.to_sentence
@@ -52,7 +52,13 @@ class Admin::ImagesController < ApplicationController
       end
     end
 
-    render :nothing => true
+    render nothing: true
+  end
+
+  private
+
+  def image_params
+    params.require(:image).permit(:file, :label, :gallery_id)
   end
 
 end
