@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   validates :password_hash, :presence => true
   validates :username, :uniqueness => true, :presence => true
 
-  attr_protected :id
-  attr_readonly :username
+  # attr_protected :id
+  # attr_readonly :username
 
   def self.authenticate(opts)
     username = opts[:username]
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     password_confirm = opts[:password_confirm] || opts[:password]
 
     return nil if password.blank? || username.blank? || (password_confirm != password)
-    User.first(:conditions => ["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)])
+    User.where(["username = ? AND password_hash = ?", username.strip, encrypt(password.strip)]).first
   end
 
   def self.encrypt(password)

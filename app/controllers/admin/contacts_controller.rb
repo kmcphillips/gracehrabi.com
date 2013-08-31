@@ -1,5 +1,5 @@
 class Admin::ContactsController < ApplicationController
-  before_filter :require_login
+  before_action :require_login
   
   def index
     @title = "Mailing list contacts"

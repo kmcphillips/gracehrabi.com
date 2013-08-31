@@ -4,9 +4,9 @@ class Contact < ActiveRecord::Base
 
   before_save :set_token, on: :create
 
-  scope :active, conditions: {disabled: false}
-  scope :sorted, order("disabled ASC, created_at DESC")
-  scope :search, lambda{|search| where("email LIKE ?", "%#{ search }%") }
+  scope :active, -> { where(disabled: false) }
+  scope :sorted, -> { order("disabled ASC, created_at DESC") }
+  scope :search, ->(search) { where("email LIKE ?", "%#{ search }%") }
   
   def enabled
     !disabled

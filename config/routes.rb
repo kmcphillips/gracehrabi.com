@@ -1,27 +1,27 @@
 GracehrabiCom::Application.routes.draw do
 
-  root :to => "blocks#home"
-  match 'news' => 'posts#index'
-  match 'news/:id' => 'posts#show'
-  match 'rss.:format' => 'posts#rss'
+  root to: "blocks#home"
+  get 'news', to: 'posts#index'
+  get 'news/:id', to: 'posts#show'
+  get 'rss.:format', to: 'posts#rss'
 
   ['contact', 'links', 'bio'].each do |block|
-    match block => "blocks##{block}"
+    get block, to: "blocks##{block}"
   end
 
   # media player
-  match 'player/:id' => 'tracks#show'
+  get 'player/:id', to: 'tracks#show'
 
   resources :events, only: [:index, :show]
   resources :galleries, only: [:index, :show]
   resources :mailing_list, only: [:index, :create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 
-  match 'unsubscribe/:id' => 'mailing_list#show', as: "unsubscribe"
+  get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"
 
   namespace :admin do
-    match 'login' => 'sessions#new'
-    match 'logout' => 'sessions#logout'
+    get 'login', to: 'sessions#new'
+    get 'logout', to: 'sessions#logout'
 
     root to: "posts#index"
 

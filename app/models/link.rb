@@ -1,13 +1,13 @@
 class Link < ActiveRecord::Base
 
-  validates :url, :presence => true, :uniqueness => true
+  validates :url, presence: true, uniqueness: true
   validate :url_begins_with_protocol
 
-  validates :sort_order, :numericality => {:greater_than => 0, :message => "is not a valid number"}
+  validates :sort_order, numericality: {greater_than: 0, message: "is not a valid number"}
 
-  scope :in_order, order("sort_order ASC")
+  scope :in_order, -> { order("sort_order ASC") }
 
-  before_validation(:on => :create) do
+  before_validation(on: :create) do
     self.sort_order = Track.highest_sort_order + 1
   end
   

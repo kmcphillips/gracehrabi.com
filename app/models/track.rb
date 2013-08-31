@@ -1,19 +1,19 @@
 class Track < ActiveRecord::Base
   has_attached_file :mp3,
-    :url => "/attachments/:attachment/:id/:basename.:extension",
-    :path => ":rails_root/public/attachments/:attachment/:id/:basename.:extension"
+    url: "/attachments/:attachment/:id/:basename.:extension",
+    path: ":rails_root/public/attachments/:attachment/:id/:basename.:extension"
 
   validates_attachment_presence :mp3
-  validates_attachment_content_type :mp3, :content_type => [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3' ]
-  validates_attachment_size :mp3, :less_than => 12.megabytes
+  validates_attachment_content_type :mp3, content_type: [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3' ]
+  validates_attachment_size :mp3, less_than: 12.megabytes
 
-  validates :title, :presence => true
-  validates :sort_order, :numericality => {:greater_than => 0, :message => "is not a valid number"}
-  validates :active, :inclusion => [true, false]
+  validates :title, presence: true
+  validates :sort_order, numericality: {greater_than: 0, message: "is not a valid number"}
+  validates :active, inclusion: [true, false]
 
-  scope :in_order, order("sort_order ASC")
+  scope :in_order, -> { order("sort_order ASC") }
 
-  before_validation(:on => :create) do
+  before_validation(on: :create) do
     self.sort_order = Track.highest_sort_order + 1
   end
 

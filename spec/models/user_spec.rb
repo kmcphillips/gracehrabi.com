@@ -25,22 +25,24 @@ end
     end
 
     it "should find a user by name and password_hash" do
-      User.should_receive(:first).with(:conditions => ["username = ? AND password_hash = ?", "km", "pie_encrypted"]).and_return(@u)
+      User.should_receive(:where).with(["username = ? AND password_hash = ?", "km", "pie_encrypted"]).and_return(@u)
+      @u.should_receive(:first).and_return(@u)
       User.authenticate(:username => "km", :password => "pie").should == @u
     end
 
     it "should find a user by name and password_hash with a confirm password" do
-      User.should_receive(:first).with(:conditions => ["username = ? AND password_hash = ?", "km", "pie_encrypted"]).and_return(@u)
+      User.should_receive(:where).with(["username = ? AND password_hash = ?", "km", "pie_encrypted"]).and_return(@u)
+      @u.should_receive(:first).and_return(@u)
       User.authenticate(:username => "km", :password => "pie", :password_confirm => "pie").should == @u
     end
 
     it "should not find a user if the password_confirm does not match" do
-      User.should_receive(:first).with(:conditions => ["username = ? AND password_hash = ?", "km", "pie_encrypted"]).and_return(nil)
+      User.should_receive(:where).with(["username = ? AND password_hash = ?", "km", "pie_encrypted"]).and_return([])
       User.authenticate(:username => "km", :password => "pie", :password_confirm => "pie").should == nil
     end
 
     it "should not find a user because of invalid username or password" do
-      User.should_not_receive(:first)
+      User.should_not_receive(:where)
       User.authenticate(:username => "km", :password => "pie", :password_confirm => "cake").should == nil
     end
   end

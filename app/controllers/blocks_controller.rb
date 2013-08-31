@@ -1,5 +1,5 @@
 class BlocksController < ApplicationController
-  before_filter :load_block  
+  before_action :load_block  
 
   def home
     @events = Event.upcoming.limit(5)

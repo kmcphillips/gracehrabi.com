@@ -5,15 +5,15 @@ class Event < ActiveRecord::Base
 
   include AttachedImage
 
-  scope :upcoming, lambda { t = Time.now; where("events.starts_at > ?", t.end_of_day).order("starts_at ASC") }
-  scope :current,  lambda { t = Time.now; where("events.starts_at BETWEEN ? AND ?", t.beginning_of_day, t.end_of_day).order("starts_at DESC") }
-  scope :past,     lambda { t = Time.now; where("events.starts_at < ?", t.beginning_of_day).order("starts_at DESC") }
-  scope :publicized, where(publicized: true)
-  scope :for_mailing_list, lambda{ |distance=2.weeks|
+  scope :upcoming, -> { t = Time.now; where("events.starts_at > ?", t.end_of_day).order("starts_at ASC") }
+  scope :current,  -> { t = Time.now; where("events.starts_at BETWEEN ? AND ?", t.beginning_of_day, t.end_of_day).order("starts_at DESC") }
+  scope :past,     -> { t = Time.now; where("events.starts_at < ?", t.beginning_of_day).order("starts_at DESC") }
+  scope :publicized, -> { where(publicized: true) }
+  scope :for_mailing_list, ->(distance=2.weeks) {
     t = Time.now.beginning_of_day
     publicized.where("events.starts_at BETWEEN ? AND ?", t, t + distance).order("starts_at ASC")
   }
-  scope :on_date, lambda{|date| where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
+  scope :on_date, ->(date) { where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
 
   def sort_by; starts_at; end
 
