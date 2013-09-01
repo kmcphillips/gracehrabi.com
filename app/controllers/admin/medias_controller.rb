@@ -1,5 +1,5 @@
 class Admin::MediasController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def edit
     @kit = Media.find_by_label!(params[:id])

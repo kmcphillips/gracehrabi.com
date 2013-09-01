@@ -9,11 +9,11 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604010319) do
+ActiveRecord::Schema.define(version: 20130901182451) do
 
-  create_table "blocks", :force => true do |t|
+  create_table "blocks", force: true do |t|
     t.text     "body"
     t.string   "label"
     t.string   "path"
@@ -23,25 +23,25 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "accepts_image",      :default => false
+    t.boolean  "accepts_image",      default: false
     t.string   "image_fingerprint"
   end
 
-  add_index "blocks", ["label"], :name => "index_blocks_on_label"
+  add_index "blocks", ["label"], name: "index_blocks_on_label", using: :btree
 
-  create_table "contacts", :force => true do |t|
+  create_table "contacts", force: true do |t|
     t.string   "email"
-    t.boolean  "disabled",   :default => false
+    t.boolean  "disabled",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
   end
 
-  add_index "contacts", ["disabled"], :name => "index_contacts_on_disabled"
-  add_index "contacts", ["email"], :name => "index_contacts_on_email"
-  add_index "contacts", ["token"], :name => "index_contacts_on_token"
+  add_index "contacts", ["disabled"], name: "index_contacts_on_disabled", using: :btree
+  add_index "contacts", ["email"], name: "index_contacts_on_email", using: :btree
+  add_index "contacts", ["token"], name: "index_contacts_on_token", using: :btree
 
-  create_table "events", :force => true do |t|
+  create_table "events", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "starts_at"
@@ -52,14 +52,14 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_fingerprint"
-    t.boolean  "publicized",         :default => true
-    t.float    "price",              :default => 0.0
+    t.boolean  "publicized",         default: true
+    t.float    "price",              default: 0.0
   end
 
-  add_index "events", ["publicized"], :name => "index_events_on_publicized"
-  add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
+  add_index "events", ["publicized"], name: "index_events_on_publicized", using: :btree
+  add_index "events", ["starts_at"], name: "index_events_on_starts_at", using: :btree
 
-  create_table "galleries", :force => true do |t|
+  create_table "galleries", force: true do |t|
     t.string   "name"
     t.string   "path"
     t.string   "image"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.datetime "updated_at"
   end
 
-  add_index "galleries", ["sort_order"], :name => "index_galleries_on_sort_order"
+  add_index "galleries", ["sort_order"], name: "index_galleries_on_sort_order", using: :btree
 
-  create_table "images", :force => true do |t|
+  create_table "images", force: true do |t|
     t.string   "label"
     t.string   "file_file_name"
     t.string   "file_content_type"
@@ -79,16 +79,16 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.string   "file_fingerprint"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",            :default => true
+    t.boolean  "active",            default: true
     t.integer  "sort_order"
     t.integer  "gallery_id"
   end
 
-  add_index "images", ["active"], :name => "index_images_on_active"
-  add_index "images", ["gallery_id"], :name => "index_images_on_gallery_id"
-  add_index "images", ["sort_order"], :name => "index_images_on_sort_order"
+  add_index "images", ["active"], name: "index_images_on_active", using: :btree
+  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
+  add_index "images", ["sort_order"], name: "index_images_on_sort_order", using: :btree
 
-  create_table "links", :force => true do |t|
+  create_table "links", force: true do |t|
     t.string   "title"
     t.string   "url"
     t.text     "description"
@@ -97,9 +97,9 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.integer  "sort_order"
   end
 
-  add_index "links", ["sort_order"], :name => "index_links_on_sort_order"
+  add_index "links", ["sort_order"], name: "index_links_on_sort_order", using: :btree
 
-  create_table "medias", :force => true do |t|
+  create_table "medias", force: true do |t|
     t.string   "label"
     t.string   "file_file_name"
     t.string   "file_content_type"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
     t.string   "permalink"
@@ -122,11 +122,11 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.string   "image_fingerprint"
   end
 
-  create_table "tracks", :force => true do |t|
+  create_table "tracks", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "sort_order"
-    t.boolean  "active",           :default => true
+    t.boolean  "active",           default: true
     t.string   "mp3_file_name"
     t.string   "mp3_content_type"
     t.integer  "mp3_file_size"
@@ -135,18 +135,24 @@ ActiveRecord::Schema.define(:version => 20130604010319) do
     t.datetime "updated_at"
   end
 
-  add_index "tracks", ["active"], :name => "index_tracks_on_active"
-  add_index "tracks", ["sort_order"], :name => "index_tracks_on_sort_order"
+  add_index "tracks", ["active"], name: "index_tracks_on_active", using: :btree
+  add_index "tracks", ["sort_order"], name: "index_tracks_on_sort_order", using: :btree
 
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password_hash"
-    t.string   "name"
-    t.string   "email"
+  create_table "users", force: true do |t|
+    t.string   "email",                default: "", null: false
+    t.string   "encrypted_password",   default: "", null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",        default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], :name => "index_users_on_username"
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

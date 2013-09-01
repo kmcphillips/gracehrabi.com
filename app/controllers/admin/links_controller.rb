@@ -1,4 +1,5 @@
 class Admin::LinksController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @links = Link.in_order

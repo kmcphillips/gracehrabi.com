@@ -36,14 +36,6 @@ begin
     Gallery.create! :name => "Performances", :path => "performances", :image => "gallery2.png", :sort_order => 2
 
 
-    ## Users
-    if Rails.env.development?
-      puts "Deleting all Users"
-      User.destroy_all
-      puts "Creating test/test development User"
-      User.create! :username => "test", :password_hash => User.encrypt("test")
-    end
-
   end 
 rescue => e
   puts "Error! Transaction rolled back"

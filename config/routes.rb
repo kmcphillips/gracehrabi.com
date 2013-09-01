@@ -1,5 +1,6 @@
 GracehrabiCom::Application.routes.draw do
 
+  devise_for :users
   root to: "blocks#home"
   get 'news', to: 'posts#index'
   get 'news/:id', to: 'posts#show'
@@ -20,17 +21,7 @@ GracehrabiCom::Application.routes.draw do
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"
 
   namespace :admin do
-    get 'login', to: 'sessions#new'
-    get 'logout', to: 'sessions#logout'
-
     root to: "posts#index"
-
-    resources :sessions do
-      collection do
-        get 'password'
-        post 'change_password'
-      end
-    end
 
     resources :blocks, except: [:destroy, :create, :new, :show]
     resources :medias, only: [:edit, :update]

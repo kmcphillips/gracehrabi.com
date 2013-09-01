@@ -29,7 +29,7 @@
           #development_notice Development Server
       #nav
         = render :partial => '/nav'
-        = render :partial => '/admin/nav' if controller.current_user
+        = render :partial => '/admin/nav' if user_signed_in?
       #content
         .minheight
         .main

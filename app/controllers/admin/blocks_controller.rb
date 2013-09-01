@@ -1,5 +1,5 @@
 class Admin::BlocksController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def index
     @blocks = Block.order("label")

@@ -1,5 +1,6 @@
 class Admin::TracksController < ApplicationController
-  
+  before_action :authenticate_user!
+
   def index
     @tracks = Track.order("sort_order ASC")
   end
