@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe BlocksController do
-  let(:block){ double(Block) }
-  let(:media){ double(Media) }
+  let(:block){ FactoryGirl.create(:block) }
+  let(:media){ FactoryGirl.create(:media) }
 
   describe "GET contact" do
     it "assigns the requested block as @block" do

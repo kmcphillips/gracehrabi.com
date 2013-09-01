@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe PostsController do
-
-  let(:post){ double(Post) }
+  let(:post){ FactoryGirl.create(Post) }
 
   describe "GET index" do
     it "assigns all posts as @posts" do

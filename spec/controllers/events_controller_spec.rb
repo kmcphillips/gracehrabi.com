@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 describe EventsController do
-
-  let(:event){ double(Event) }
+  let(:event){ FactoryGirl.create(:event) }
 
   describe "GET index" do
     it "assigns all events as @events" do

@@ -1,31 +1,24 @@
 require 'spec_helper'
 
 describe GalleriesController do
-  before(:each) do
-    @image = double(Image)
-    @gallery = double(Gallery, :name => "delicious pie")
-  end
+  let(:image){ FactoryGirl.create(:image) }
+  let(:gallery){ FactoryGirl.create(:gallery) }
 
   describe "GET index" do
     it "should load and assign all galleries" do
-      Gallery.should_receive(:sorted).and_return([@gallery])
+      Gallery.should_receive(:sorted).and_return([gallery])
       get :index
-      assigns(:galleries).should == [@gallery]
+      assigns(:galleries).should eq([gallery])
     end
   end
 
   describe "GET show" do
-    before(:each) do
-      @all_active_proxy = double
-      @all = double
-      Image.stub(:all_active => @all_active_proxy)
-    end
-
     it "should set all the vars" do
-      Gallery.should_receive(:find_by_path).with("pie").and_return(@gallery)
+      Image.stub(all_active: double)
+      Gallery.should_receive(:find_by_path).with("pie").and_return(gallery)
       get :show, :id => "pie"
       assigns(:title).should be_an_instance_of(String)
-      assigns(:gallery).should == @gallery
+      assigns(:gallery).should eq(gallery)
     end
   end
 end
