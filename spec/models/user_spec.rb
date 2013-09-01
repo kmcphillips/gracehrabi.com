@@ -14,4 +14,13 @@ describe User do
     end
   end
 
+  describe "class method" do
+
+    describe "#find_for_open_id" do
+      it "should be tested" do
+        pending
+      end
+    end
+
+  end
 end
