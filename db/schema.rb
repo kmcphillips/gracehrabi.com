@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901182451) do
+ActiveRecord::Schema.define(version: 20130901204413) do
+
+  create_table "authorized_emails", force: true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authorized_emails", ["email"], name: "index_authorized_emails_on_email", using: :btree
 
   create_table "blocks", force: true do |t|
     t.text     "body"

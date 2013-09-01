@@ -1,7 +1,9 @@
 GracehrabiCom::Application.routes.draw do
 
-  devise_for :users
   root to: "blocks#home"
+
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
   get 'news', to: 'posts#index'
   get 'news/:id', to: 'posts#show'
   get 'rss.:format', to: 'posts#rss'
