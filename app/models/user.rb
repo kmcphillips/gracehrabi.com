@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :token_authenticatable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:google]
+  devise :token_authenticatable, :rememberable, :trackable, :omniauthable, :database_authenticatable, :validatable, omniauth_providers: [:google]
   # :recoverable, :confirmable, :lockable, :timeoutable, :database_authenticatable
 
   validates :email, presence: true
