@@ -23,7 +23,7 @@
 
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% if provider == :google %>
-      <%= link_to image_tag("sign-in-with-google.png", alt: "Sign In with Google", class: 'omniauth-provider-signin', width: 250), omniauth_authorize_path(:user, :google) %>
+      <%= link_to image_tag("https://developers.google.com/accounts/images/sign-in-with-google.png", alt: "Sign In with Google", class: 'omniauth-provider-signin', width: 250), omniauth_authorize_path(:user, :google) %>
     <% else %>
       <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
     <% end %>
