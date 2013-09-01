@@ -1,35 +1,33 @@
 require 'spec_helper'
 
 describe Admin::TracksController do
+  let(:track){ FactoryGirl.create(:track) }
+  let(:track_attributes){ {} }
+
   before(:each) do
     login_as_user
   end
 
-  def mock_track(stubs={})
-    @mock_track ||= mock_model(Track, stubs).as_null_object
-  end
-
   describe "GET index" do
     it "assigns all tracks as @tracks" do
-      Track.stub(:order) { [mock_track] }
+      Track.stub(:order) { [track] }
       get :index
-      assigns(:tracks).should eq([mock_track])
+      assigns(:tracks).should eq([track])
     end
   end
 
   describe "GET new" do
     it "assigns a new track as @track" do
-      Track.stub(:new) { mock_track }
       get :new
-      assigns(:track).should be(mock_track)
+      assigns(:track).should be_an_instance_of(Track)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested track as @track" do
-      Track.stub(:find).with("37") { mock_track }
-      get :edit, :id => "37"
-      assigns(:track).should be(mock_track)
+      Track.stub(:find).with("37") { track }
+      get :edit, id: "37"
+      assigns(:track).should be(track)
     end
   end
 
@@ -37,28 +35,32 @@ describe Admin::TracksController do
 
     describe "with valid params" do
       it "assigns a newly created track as @track" do
-        Track.stub(:new).with({'these' => 'params'}) { mock_track(:save => true) }
-        post :create, :track => {'these' => 'params'}
-        assigns(:track).should be(mock_track)
+        track.stub(save: true)
+        Track.stub(:new).with(track_attributes) { track }
+        post :create, track: track_attributes
+        assigns(:track).should be(track)
       end
 
       it "redirects to the created track" do
-        Track.stub(:new) { mock_track(:save => true) }
-        post :create, :track => {}
+        track.stub(save: true)
+        Track.stub(:new) { track }
+        post :create, track: track_attributes
         response.should redirect_to(admin_tracks_url)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved track as @track" do
-        Track.stub(:new).with({'these' => 'params'}) { mock_track(:save => false) }
-        post :create, :track => {'these' => 'params'}
-        assigns(:track).should be(mock_track)
+        track.stub(save: false)
+        Track.stub(:new).with(track_attributes) { track }
+        post :create, track: track_attributes
+        assigns(:track).should be(track)
       end
 
       it "re-renders the 'new' template" do
-        Track.stub(:new) { mock_track(:save => false) }
-        post :create, :track => {}
+        track.stub(save: false)
+        Track.stub(:new) { track }
+        post :create, track: track_attributes
         response.should render_template("new")
       end
     end
@@ -69,34 +71,38 @@ describe Admin::TracksController do
 
     describe "with valid params" do
       it "updates the requested track" do
-        Track.should_receive(:find).with("37") { mock_track }
-        mock_track.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :track => {'these' => 'params'}
+        Track.should_receive(:find).with("37") { track }
+        track.should_receive(:update_attributes).with(track_attributes)
+        put :update, id: "37", track: track_attributes
       end
 
       it "assigns the requested track as @track" do
-        Track.stub(:find) { mock_track(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:track).should be(mock_track)
+        track.stub(update_attributes: true)
+        Track.stub(:find) { track }
+        put :update, id: "1", track: track_attributes
+        assigns(:track).should be(track)
       end
 
       it "redirects to the track" do
-        Track.stub(:find) { mock_track(:update_attributes => true) }
-        put :update, :id => "1"
+        track.stub(update_attributes: true)
+        Track.stub(:find) { track }
+        put :update, id: "1", track: track_attributes
         response.should redirect_to(admin_tracks_url)
       end
     end
 
     describe "with invalid params" do
       it "assigns the track as @track" do
-        Track.stub(:find) { mock_track(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:track).should be(mock_track)
+        track.stub(update_attributes: false)
+        Track.stub(:find) { track }
+        put :update, id: "1", track: track_attributes
+        assigns(:track).should be(track)
       end
 
       it "re-renders the 'edit' template" do
-        Track.stub(:find) { mock_track(:update_attributes => false) }
-        put :update, :id => "1"
+        track.stub(update_attributes: false)
+        Track.stub(:find) { track }
+        put :update, id: "1", track: track_attributes
         response.should render_template("edit")
       end
     end
@@ -105,14 +111,14 @@ describe Admin::TracksController do
 
   describe "DELETE destroy" do
     it "destroys the requested track" do
-      Track.should_receive(:find).with("37") { mock_track }
-      mock_track.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      Track.should_receive(:find).with("37") { track }
+      track.should_receive(:destroy)
+      delete :destroy, id: "37"
     end
 
     it "redirects to the tracks list" do
-      Track.stub(:find) { mock_track }
-      delete :destroy, :id => "1"
+      Track.stub(:find) { track }
+      delete :destroy, id: "1"
       response.should redirect_to(admin_tracks_url)
     end
   end

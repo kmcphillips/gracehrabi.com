@@ -3,7 +3,7 @@ require "spec_helper"
 describe MailingListController do
   let(:email){ "example@example.com" }
   let(:token){ contact.token }
-  let(:contact){ Contact.create!(email: email) }
+  let(:contact){ FactoryGirl.create(:contact, email: email) }
   
   describe "GET index" do
     it "should render the default template" do
