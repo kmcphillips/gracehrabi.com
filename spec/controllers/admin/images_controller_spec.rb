@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::ImagesController do
   before(:each) do
-    login_as_mock_user
+    login_as_user
     @gallery = Gallery.create! :name => "Publicity", :path => "publicity", :image => "gallery1.png", :sort_order => 0
 
     @valid_attributes = {

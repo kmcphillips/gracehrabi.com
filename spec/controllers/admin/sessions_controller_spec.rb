@@ -1,14 +1,11 @@
 require 'spec_helper'
 
 describe Admin::SessionsController do
-
-  def mock_user(stubs={})
-    @mock_user ||= mock_model(User, stubs)
-  end
+  let(:user){ double(User) }
 
   describe "GET new" do
     it "should redirect if you are already logged in" do
-      controller.current_user(mock_user)
+      controller.current_user(user)
       get :new
       response.should redirect_to("/admin")
     end
@@ -21,7 +18,7 @@ describe Admin::SessionsController do
 
   describe "POST create" do
     it "should authenticate" do
-      User.should_receive(:authenticate).and_return(mock_user)
+      User.should_receive(:authenticate).and_return(user)
       post :create
       response.should redirect_to("/admin")
     end
@@ -35,7 +32,7 @@ describe Admin::SessionsController do
 
   describe "POST logout" do
     it "should clear the current user" do
-      controller.current_user(mock_user)
+      controller.current_user(user)
       post :logout
       flash[:notice].should_not be_blank
     end
@@ -48,7 +45,7 @@ describe Admin::SessionsController do
   
   describe "GET password" do
     before(:each) do
-      controller.current_user(mock_user)
+      controller.current_user(user)
     end
     
     it "should just load" do
@@ -59,19 +56,19 @@ describe Admin::SessionsController do
   
   describe "POST change_password" do
     before(:each) do
-      controller.current_user(mock_user)
+      controller.current_user(user)
     end
     
     it "should set the password" do
-      mock_user.should_receive(:change_password!).with("pie", "pie").and_return(true)
+      user.should_receive(:change_password!).with("pie", "pie").and_return(true)
       post :change_password, :password => "pie", :password_confirm => "pie"
       response.should redirect_to(password_admin_sessions_path)
       flash[:notice].should_not be_blank
     end
     
     it "should fail to set the password" do
-      mock_user.stub(:errors => mock(:errors, :full_messages => ["errors"]))
-      mock_user.should_receive(:change_password!).with("pie", "cake").and_return(false)
+      user.stub(:errors => mock(:errors, :full_messages => ["errors"]))
+      user.should_receive(:change_password!).with("pie", "cake").and_return(false)
       post :change_password, :password => "pie", :password_confirm => "cake"
       response.should redirect_to(password_admin_sessions_path)
       flash[:error].should_not be_blank

@@ -1,5 +1,4 @@
-def login_as_mock_user
-  u = mock_model(User)
-  controller.stub!(:current_user => u)
-  u
+def login_as_user
+  controller.stub current_user: (user = double(User))
+  user
 end

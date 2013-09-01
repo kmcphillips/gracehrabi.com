@@ -30,6 +30,7 @@ group :development, :test do
   gem 'thin'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rspec-mocks'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'pry'

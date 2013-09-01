@@ -2,23 +2,21 @@ require 'spec_helper'
 
 describe PostsController do
 
-  def mock_post(stubs={})
-    @mock_post ||= mock_model(Post, stubs).as_null_object
-  end
+  let(:post){ double(Post) }
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      Post.stub(:paginate) { [mock_post] }
+      Post.stub(:paginate) { [post] }
       get :index
-      assigns(:posts).should eq([mock_post])
+      assigns(:posts).should eq([post])
     end
   end
 
   describe "GET show" do
     it "assigns the requested post as @post" do
-      Post.stub(:find_by_permalink!).with("pie") { mock_post }
+      Post.stub(:find_by_permalink!).with("pie") { post }
       get :show, :id => "pie"
-      assigns(:post).should be(mock_post)
+      assigns(:post).should be(post)
     end
   end
 

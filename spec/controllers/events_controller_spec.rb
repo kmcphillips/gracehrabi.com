@@ -2,13 +2,11 @@ require 'spec_helper'
 
 describe EventsController do
 
-  def mock_event(stubs={})
-    @mock_event ||= mock_model(Event, stubs).as_null_object
-  end
+  let(:event){ double(Event) }
 
   describe "GET index" do
     it "assigns all events as @events" do
-      Event.stub(:upcoming => "upcoming", :current => "current", :past => mock(:past, :order => "past"))
+      Event.stub(:upcoming => "upcoming", :current => "current", :past => double(:past, :order => "past"))
       get :index
       assigns(:upcoming).should eq("upcoming")
       assigns(:current).should eq("current")
@@ -18,9 +16,9 @@ describe EventsController do
 
   describe "GET show" do
     it "assigns the requested event as @event" do
-      Event.stub(:find).with("37") { mock_event }
+      Event.stub(:find).with("37") { event }
       get :show, :id => "37"
-      assigns(:event).should be(mock_event)
+      assigns(:event).should be(event)
     end
   end
 end

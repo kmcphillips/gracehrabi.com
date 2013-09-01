@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe GalleriesController do
   before(:each) do
-    @image = mock_model(Image)
-    @gallery = mock_model(Gallery, :name => "delicious pie")
+    @image = double(Image)
+    @gallery = double(Gallery, :name => "delicious pie")
   end
 
   describe "GET index" do
@@ -16,8 +16,8 @@ describe GalleriesController do
 
   describe "GET show" do
     before(:each) do
-      @all_active_proxy = mock :all_active
-      @all = mock :all
+      @all_active_proxy = double
+      @all = double
       Image.stub(:all_active => @all_active_proxy)
     end
 

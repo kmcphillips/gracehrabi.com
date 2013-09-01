@@ -203,6 +203,7 @@ DEPENDENCIES
   rinku
   rmagick
   rspec
+  rspec-mocks
   rspec-rails
   rvm-capistrano
   sass

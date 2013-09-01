@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Admin::ContactsController do
   before(:each) do
-    login_as_mock_user
+    login_as_user
   end
   
   describe "GET index" do
@@ -12,9 +12,9 @@ describe Admin::ContactsController do
     end
     
     it "should get a list of contacts and set the title" do
-      contacts = [mock]
-      emails = mock
-      date = mock
+      contacts = [double]
+      emails = double
+      date = double
       Contact.should_receive(:sorted).and_return(contacts)
       contacts.should_receive(:paginate).and_return(contacts)
       Contact.should_receive(:emails).and_return(emails)

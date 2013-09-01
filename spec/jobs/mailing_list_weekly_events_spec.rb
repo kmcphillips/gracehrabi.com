@@ -19,8 +19,8 @@ describe MailingListWeeklyEventsJob do
 
   describe "#process" do
     let(:contact2){ FactoryGirl.create(:contact) }
-    let(:mailer){ mock }
-    let(:mailer2){ mock }
+    let(:mailer){ double }
+    let(:mailer2){ double }
 
     it "should do nothing if there are not any events found" do
       Event.stub(:for_mailing_list).and_return([])

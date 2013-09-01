@@ -17,7 +17,7 @@ describe MailingListMailer do
       end
       
       it "should get the contacts for prod" do
-        emails = mock
+        emails = double
         Contact.should_receive(:emails).and_return(emails)
         Rails.env.stub(:production?).and_return(true)
         mailer.send(:mailing_list).should eq(emails)

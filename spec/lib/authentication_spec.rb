@@ -4,7 +4,7 @@ describe Authentication do
   before(:each) do
     # This doesn't pass the smell test but it works
     @controller = Object.new.extend Authentication
-    @controller.stub!(:session => {})
+    @controller.stub(:session => {})
   end
 
   describe "current_user" do
@@ -30,7 +30,7 @@ describe Authentication do
       end
 
       it "should raise if you call it with something else" do
-        lambda{ @controller.current_user(mock) }.should raise_error
+        lambda{ @controller.current_user(double) }.should raise_error
       end
     end
 

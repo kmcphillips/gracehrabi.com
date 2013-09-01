@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::EventsController do
   before(:each) do
-    login_as_mock_user
+    login_as_user
   end  
 
   def mock_event(stubs={})
