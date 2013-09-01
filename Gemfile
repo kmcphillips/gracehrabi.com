@@ -36,3 +36,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
 end
+
+group :production do
+  gem 'therubyracer', platform: :ruby, require: 'v8'
+end
