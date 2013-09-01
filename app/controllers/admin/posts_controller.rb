@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :require_login
 
   def index
-    @posts = Post.paginate(pagination_params(:order => "created_at DESC"))
+    @posts = Post.order("created_at DESC").paginate(pagination_params)
   end
 
   def new

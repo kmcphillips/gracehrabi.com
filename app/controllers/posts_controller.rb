@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.paginate(pagination_params(:order => "created_at DESC"))
+    @posts = Post.order("created_at DESC").paginate(pagination_params)
     @title = "News"
   end
 

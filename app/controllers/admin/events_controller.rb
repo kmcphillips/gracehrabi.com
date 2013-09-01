@@ -2,7 +2,7 @@ class Admin::EventsController < ApplicationController
   before_action :require_login, :set_objects
 
   def index
-    @events = Event.paginate(pagination_params(order: "created_at DESC"))
+    @events = Event.order("created_at DESC").paginate(pagination_params)
   end
 
   def new

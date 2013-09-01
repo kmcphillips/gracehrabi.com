@@ -105,7 +105,7 @@ module ApplicationHelper
   end
 
   def error_messages(object)
-    render partial: "/shared/error_messages", object: object
+    render partial: "/shared/flash_error_messages", object: object if object
   end
 
   def image_for(obj)

@@ -45,7 +45,7 @@ describe ApplicationHelper do
     let(:obj){ double }
 
     it "should render the partial" do
-      helper.should_receive(:render).with(partial: "/shared/error_messages", object: obj).and_return("pie")
+      helper.should_receive(:render).with(partial: "/shared/flash_error_messages", object: obj).and_return("pie")
       helper.error_messages(obj).should eq("pie")
     end
   end
