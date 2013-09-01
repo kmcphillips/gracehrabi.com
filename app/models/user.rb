@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   class << self
 
     def find_for_open_id(access_token, signed_in_resource=nil)
-      User.where(email: access_token.info["email"]).first || User.create!(email: access_token.info["email"], password: Devise.friendly_token[0,20])
+      User.where(email: access_token.info["email"]).first_or_create
     end
 
   end
