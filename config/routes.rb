@@ -46,5 +46,6 @@ GracehrabiCom::Application.routes.draw do
       end
     end
     resources :contacts, only: [:index, :update, :create]
+    resources :authorized_emails, only: [:index, :create, :destroy]
   end
 end
