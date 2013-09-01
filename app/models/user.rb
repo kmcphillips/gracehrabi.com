@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  devise :token_authenticatable, :rememberable, :trackable, :validatable, :omniauthable, :database_authenticatable, omniauth_providers: [:google]
+  devise :token_authenticatable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:google]
   # :recoverable, :confirmable, :lockable, :timeoutable, :database_authenticatable
-  # attr_accessor :password, :password_confirmation
+
+  validates :email, presence: true
 
   def authorized?
     !!AuthorizedEmail.where(email: email).first
