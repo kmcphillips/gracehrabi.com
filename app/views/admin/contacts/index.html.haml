@@ -46,6 +46,6 @@
         = form_for [:admin, contact] do |f|
           = f.hidden_field :disabled, value: !contact.disabled
           - if contact.enabled
-            = f.submit "Remove", confirm: "Are you sure you want to remove this email from the mailing list?"
+            = f.submit "Remove", data: {confirm: "Are you sure you want to remove this email from the mailing list?"}
           - else
             = f.submit "Reenable"
