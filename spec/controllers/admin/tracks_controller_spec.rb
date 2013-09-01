@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::TracksController do
   let(:track){ FactoryGirl.create(:track) }
-  let(:track_attributes){ {} }
+  let(:track_attributes){ {'title' => 'title'} }
 
   before(:each) do
     login_as_user
@@ -10,9 +10,9 @@ describe Admin::TracksController do
 
   describe "GET index" do
     it "assigns all tracks as @tracks" do
-      Track.stub(:order) { [track] }
+      track
       get :index
-      assigns(:tracks).should eq([track])
+      assigns(:tracks).size.should eq(1)
     end
   end
 

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Admin::ImagesController do
+  let(:image){ FactoryGirl.create(:image) }
+
   before(:each) do
     login_as_user
     @gallery = Gallery.create! :name => "Publicity", :path => "publicity", :image => "gallery1.png", :sort_order => 0
@@ -15,38 +17,37 @@ describe Admin::ImagesController do
       }
   end
 
-  def mock_image(stubs={})
-    @mock_image ||= mock_model(Image, stubs).as_null_object
-  end
-
   describe "POST create" do
 
     describe "with valid params" do
       it "redirects to the created post" do
-        Image.stub(:new) { mock_image(:save => true, :gallery => @gallery) }
-        post :create, :image => {}
-        response.should redirect_to(admin_gallery_path(@gallery))
+        image.stub(:save => true, :gallery => @gallery)
+        Image.stub(:new) { image }
+        post :create, :image => @valid_attributes
+        response.should redirect_to(admin_gallery_path(@gallery, anchor: 'form'))
       end
     end
 
     describe "with invalid params" do
       it "redirects and errors" do
-        Image.stub(:new) { mock_image(:save => false, :gallery => @gallery) }
-        post :create, :image => {}
-        response.should redirect_to(admin_gallery_path(@gallery))
+        image.stub(:save => false, :gallery => @gallery)
+        Image.stub(:new) { image }
+        post :create, :image => @valid_attributes
+        response.should redirect_to(admin_gallery_path(@gallery, anchor: 'form'))
       end
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested image" do
-      Image.should_receive(:find).with("37") { mock_image }
-      mock_image.should_receive(:destroy)
+      Image.should_receive(:find).with("37") { image }
+      image.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
     it "redirects to the image list" do
-      Image.stub(:find) { mock_image(:gallery => "pie") }
+      image.stub(:gallery => "pie")
+      Image.stub(:find) { image }
       delete :destroy, :id => "1"
       response.should redirect_to(admin_gallery_path("pie"))
     end
