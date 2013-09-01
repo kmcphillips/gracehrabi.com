@@ -1,19 +1,18 @@
 require 'spec_helper'
 
 describe Admin::MediasController do
+  let(:media){ FactoryGirl.create(:media) }
+  let(:media_attributes){ {'file' => ''} }
+
   before(:each) do
     login_as_user
   end
 
-  def mock_media(stubs={})
-    @mock_media ||= mock_model(Media, stubs)
-  end
-
   describe "GET edit" do
     it "assigns the requested media as @kit" do
-      Media.stub(:find_by_label!).with("37") { mock_media }
-      get :edit, :id => "37"
-      assigns(:kit).should be(mock_media)
+      Media.stub(:find_by_label!).with("37") { media }
+      get :edit, id: "37"
+      assigns(:kit).should be(media)
     end
   end
 
@@ -21,34 +20,38 @@ describe Admin::MediasController do
 
     describe "with valid params" do
       it "updates the requested media" do
-        Media.should_receive(:find_by_label!).with("37") { mock_media }
-        mock_media.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :media => {'these' => 'params'}
+        Media.should_receive(:find_by_label!).with("37") { media }
+        media.should_receive(:update_attributes)
+        put :update, id: "37", media: media_attributes
       end
 
       it "assigns the requested media as @media" do
-        Media.stub(:find_by_label!) { mock_media(:update_attributes => true, :label => "press_kit") }
-        put :update, :id => "1"
-        assigns(:kit).should be(mock_media)
+        media.stub(update_attributes: true, label: "press_kit")
+        Media.stub(:find_by_label!) { media }
+        put :update, id: "1", media: media_attributes
+        assigns(:kit).should be(media)
       end
 
       it "redirects to the media" do
-        Media.stub(:find_by_label!) { mock_media(:update_attributes => true, :label => "press_kit") }
-        put :update, :id => "1"
+        media.stub(update_attributes: true, label: "press_kit")
+        Media.stub(:find_by_label!) { media }
+        put :update, id: "1", media: media_attributes
         response.should redirect_to(admin_blocks_path)
       end
     end
 
     describe "with invalid params" do
       it "assigns the media as @media" do
-        Media.stub(:find_by_label!) { mock_media(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:kit).should be(mock_media)
+        media.stub(update_attributes: false)
+        Media.stub(:find_by_label!) { media }
+        put :update, id: "1", media: media_attributes
+        assigns(:kit).should be(media)
       end
 
       it "re-renders the 'edit' template" do
-        Media.stub(:find_by_label!) { mock_media(:update_attributes => false) }
-        put :update, :id => "1"
+        media.stub(update_attributes: false)
+        Media.stub(:find_by_label!) { media }
+        put :update, id: "1", media: media_attributes
         response.should render_template("edit")
       end
     end
