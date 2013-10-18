@@ -2,7 +2,7 @@ class BlocksController < ApplicationController
   before_action :load_block  
 
   def home
-    @events = Event.upcoming.limit(5)
+    @events = Event.current_and_upcoming.limit(5)
     @posts = Post.recent
     @images = Image.random_sample
   end

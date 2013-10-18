@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   scope :upcoming, -> { t = Time.now; where("events.starts_at > ?", t.end_of_day).order("starts_at ASC") }
   scope :current,  -> { t = Time.now; where("events.starts_at BETWEEN ? AND ?", t.beginning_of_day, t.end_of_day).order("starts_at DESC") }
   scope :past,     -> { t = Time.now; where("events.starts_at < ?", t.beginning_of_day).order("starts_at DESC") }
+  scope :current_and_upcoming, -> { t = Time.now; where("events.starts_at > ?", t.beginning_of_day).order("starts_at ASC") }
   scope :publicized, -> { where(publicized: true) }
   scope :for_mailing_list, ->(distance=2.weeks) {
     t = Time.now.beginning_of_day
