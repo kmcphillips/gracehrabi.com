@@ -49,6 +49,7 @@ GracehrabiCom::Application.configure do
   
   config.eager_load = true
   config.assets.js_compressor = :uglifier
+  config.assets.digest = true
   
   config.action_mailer.default_url_options = { :host => 'gracehrabi.com' }
 end
