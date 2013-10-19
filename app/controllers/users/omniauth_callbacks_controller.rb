@@ -9,6 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_session_path
     elsif @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: "Google"
+      remember_me(@user)
       sign_in_and_redirect @user, event: :authentication
     else
       flash[:error] = "There was an error creating your user."
