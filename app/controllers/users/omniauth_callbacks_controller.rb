@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  include Devise::Controllers::Rememberable
   skip_before_action :verify_authenticity_token, only: [:google]
 
   def google
