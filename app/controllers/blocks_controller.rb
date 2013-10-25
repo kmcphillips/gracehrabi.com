@@ -1,4 +1,4 @@
-class BlocksController < PjaxController
+class BlocksController < ApplicationController
   before_action :load_block
 
   def home
