@@ -183,6 +183,8 @@ GEM
       mime-types
     polyamorous (0.6.4)
       activerecord (>= 3.0)
+    pjax_rails (0.3.4)
+      jquery-rails
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -311,6 +313,7 @@ DEPENDENCIES
   mysql2
   omniauth-openid
   paperclip
+  pjax_rails
   pry
   pry-rails
   quiet_assets
