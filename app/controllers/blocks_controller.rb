@@ -1,4 +1,4 @@
-class BlocksController < ApplicationController
+class BlocksController < PjaxController
   before_action :load_block
 
   def home
@@ -15,7 +15,6 @@ class BlocksController < ApplicationController
 
   def bio
     @kit = Media.find_by_label!("press_kit")
-    render layout: false if pjax_request?
   end
 
   def gallery
