@@ -4,6 +4,9 @@
 //= require jquery.prettyPhoto
 //= require jquery.swfobject
 //= require jquery.timepicker
+//= require jquery.pjax
+//= require frontend
 //= require admin
 //= require admin_images
 //= require lightboxes
+//= require_self
