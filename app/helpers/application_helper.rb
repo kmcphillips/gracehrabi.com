@@ -160,5 +160,10 @@ module ApplicationHelper
     "/admin/galleries/#{gallery_id}#{ opts[:anchor].present? ? "##{ opts[:anchor] }" : ""}"
   end
 
-end
+  def pjax_link_to(name = nil, options = nil, html_options = nil, &block)
+    html_options ||= {}
+    html_options['data-pjax-link'] = true
+    link_to name, options, html_options
+  end
 
+end
