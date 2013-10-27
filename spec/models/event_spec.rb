@@ -13,8 +13,8 @@ describe Event do
       Time.stub(:now => t)
 
       @upcoming = Event.create! @valid_attributes.merge(:starts_at => t + 3.days)
-      @current = Event.create! @valid_attributes.merge(:starts_at => t - 1.hour)
-      @past = Event.create! @valid_attributes.merge(:starts_at => t - 1.day)
+      @current = Event.create! @valid_attributes.merge(:starts_at => t + 1.hour)
+      @past = Event.create! @valid_attributes.merge(:starts_at => t - 2.days)
     end
 
     describe "scopes" do
@@ -27,7 +27,7 @@ describe Event do
       end
 
       it "should find the past events" do
-        Event.past == [@past]
+        Event.past.should == [@past]
       end
       
       it "should find the events for the mailing list" do
