@@ -311,8 +311,8 @@ ul.past li.multi_line {
 /*** Blocks ***/
 
 .bio_image {
-	float: right;
-	margin: 0 0 20px 20px;
+    float: right;
+    margin: 0 0 20px 20px;
 }
 
 .gallery_header {
@@ -345,21 +345,21 @@ ul.links {
 }
 
 ul.links li {
-	border-left: 5px solid #4b3733;
-	padding: 0 0 0 2px;
-	margin: 12px 0 ;
-	list-style: none;
+    border-left: 5px solid #4b3733;
+    padding: 0 0 0 2px;
+    margin: 12px 0 ;
+    list-style: none;
 }
 
 ul.links li p.link {
-	font-size: 1.4em;
-	padding-bottom: 6px;
-	margin-left: 0;
+    font-size: 1.4em;
+    padding-bottom: 6px;
+    margin-left: 0;
 }
 
 ul.links li p {
-	padding: 5px;
-	margin-left: 10px;
+    padding: 5px;
+    margin-left: 10px;
 }
 
 
@@ -379,23 +379,23 @@ a img.thumb_tight {
 }
 
 #image_sortable {
-	list-style-type: none;
-	margin: 0;
-	padding: 0
+    list-style-type: none;
+    margin: 0;
+    padding: 0
 }
 
 #image_sortable li {
-	float: left;
-	text-align: right;
-	height: 120px;
-	width: 120px;
-	border: 8px solid #7D7B56;
-	padding: 0px;
-	margin: 12px 5px;
+    float: left;
+    text-align: right;
+    height: 120px;
+    width: 120px;
+    border: 8px solid #7D7B56;
+    padding: 0px;
+    margin: 12px 5px;
 }
 
 #image_sortable li .delete {
-	padding: 101px 3px 0 0;
+    padding: 101px 3px 0 0;
 }
 
 
@@ -434,7 +434,7 @@ a img.thumb_tight {
 }
 
 .no_border {
-	border: none;
+    border: none;
 }
 
 a.action-image img {
@@ -631,19 +631,17 @@ label {
 /*** Fonts ***/
 
 @font-face {
-	font-family: 'LatinModernMonoProp10Regular';
-	src: url('../fonts/lmmonoprop10-regular-webfont.eot');
-	src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'LatinModernMonoProp10Regular';
+    src: url('/assets/lmmonoprop10-regular-webfont.eot');
+    src: local('☺'), url('/assets/lmmonoprop10-regular-webfont.woff') format('woff'), url('/assets/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('/assets/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-	font-family: 'MonospaceTypewriterRegular';
-	src: url('../fonts/MonospaceTypewriter-webfont.eot');
-	src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'MonospaceTypewriterRegular';
+    src: url('/assets/MonospaceTypewriter-webfont.eot');
+    src: local('☺'), url('/assets/MonospaceTypewriter-webfont.woff') format('woff'), url('/assets/MonospaceTypewriter-webfont.ttf') format('truetype'), url('/assets/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
-
-
