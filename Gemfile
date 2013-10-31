@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'quiet_assets'
 gem 'devise'
 gem 'omniauth-openid'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'letter_opener'
