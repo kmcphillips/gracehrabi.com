@@ -6,6 +6,10 @@ ActiveAdmin.register Post do
 
   controller do
     defaults finder: :find_by_permalink
+
+    def permitted_params
+      params.permit(post: [:title, :body, :image])
+    end
   end
 
   index format: :blog, download_links: false do
@@ -34,6 +38,16 @@ ActiveAdmin.register Post do
         auto_link(simple_format(post.body)).html_safe
       end
     end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :image
+      f.input :body
+    end
+    
+    f.buttons
   end
 
 end
