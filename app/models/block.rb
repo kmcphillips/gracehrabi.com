@@ -5,5 +5,9 @@ class Block < ActiveRecord::Base
   # attr_protected :label, :path
   
   include AttachedImage
-  
+
+  def display_name
+    label.humanize
+  end
+
 end

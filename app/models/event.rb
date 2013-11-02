@@ -57,5 +57,9 @@ class Event < ActiveRecord::Base
     2880
   end
 
+  def display_name
+    title
+  end
+
 end
 
