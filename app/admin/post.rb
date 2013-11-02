@@ -50,7 +50,7 @@ ActiveAdmin.register Post do
       f.template.render partial: 'admin2/attached_image', locals: {f: f}
     end
     
-    f.buttons
+    f.actions
   end
 
 end
