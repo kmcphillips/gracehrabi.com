@@ -13,7 +13,6 @@ ActiveAdmin.register Post do
   end
 
   index format: :blog, download_links: false do
-    selectable_column
     column :title do |post|
       link_to post.title, admin2_post_path(post)
     end

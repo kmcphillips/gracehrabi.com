@@ -2,7 +2,6 @@ ActiveAdmin.register Block, as: "Section" do
   menu label: "Sections", priority: 3
 
   config.filters = false
-  config.batch_actions = false
   config.paginate = false
 
   actions :index, :edit, :update

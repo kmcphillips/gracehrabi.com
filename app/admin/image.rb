@@ -2,7 +2,6 @@ ActiveAdmin.register Image do
   menu label: "Images", priority: 4
 
   config.filters = false
-  config.batch_actions = false
   config.paginate = false
 
   controller do

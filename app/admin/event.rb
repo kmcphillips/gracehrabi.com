@@ -14,7 +14,6 @@ ActiveAdmin.register Event, as: "Show" do
   end
 
   index format: :blog, download_links: false do
-    selectable_column
     column :title do |event|
       link_to event.title, admin2_show_path(event)
     end
@@ -28,7 +27,10 @@ ActiveAdmin.register Event, as: "Show" do
     column :publicized do |event|
       boolean_image event.publicized
     end
-    default_actions
+    actions do |event|
+      render partial: "/admin/events/manitoba_music", object: event
+      nil
+    end
   end
 
   show do |event|
