@@ -1,4 +1,4 @@
-ActiveAdmin.register Block, as: "Section" do
+ActiveAdmin.register Block, as: "Sections" do
   menu label: "Sections", priority: 3
 
   config.filters = false
