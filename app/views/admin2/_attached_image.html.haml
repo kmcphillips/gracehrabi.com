@@ -1,0 +1,30 @@
+%ol
+  %li.string.input
+    %label.label Image
+    .attached-image-container
+      - if f.object.image.exists?
+        = image_tag(f.object.thumb, id: :current_image)
+      - elsif f.object.previous_image_id.present?
+        = image_tag(f.object.class.find_by_id(f.object.previous_image_id).thumb, id: :current_image)
+      - else
+        %img{id: :current_image}
+
+      %br
+      = f.file_field :image, class: 'image-file-field'
+
+      %br
+      %span.bold &nbsp;&nbsp;&nbsp;OR
+      %br
+
+      = button_tag "Select a previous image", class: "select-previous-image-button"
+      = f.hidden_field "previous_image_id", id: :previous_image_id
+      #previous_image
+        - unique_previous_images(f.object).each do |prev|
+          = link_to image_tag(prev.thumb), "", data: {:'image-id' => prev.id, :'image-src' => prev.thumb}, class: 'previous-image-link'
+
+      #clear_image
+        %span.bold &nbsp;&nbsp;&nbsp;OR
+        %br
+
+        = button_tag "No image", class: "clear-image"
+        = f.hidden_field "clear_image", id: :clear_image_field

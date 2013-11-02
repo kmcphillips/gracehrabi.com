@@ -8,11 +8,12 @@ ActiveAdmin.register Post do
     defaults finder: :find_by_permalink
 
     def permitted_params
-      params.permit(post: [:title, :body, :image])
+      params.permit(post: [:title, :body, :image, :clear_image, :previous_image_id])
     end
   end
 
   index format: :blog, download_links: false do
+    selectable_column
     column :title do |post|
       link_to post.title, admin2_post_path(post)
     end
@@ -43,8 +44,10 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs do
       f.input :title
-      f.input :image
       f.input :body
+    end
+    f.inputs do
+      f.template.render partial: 'admin2/attached_image', locals: {f: f}
     end
     
     f.buttons
