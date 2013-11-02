@@ -9,3 +9,4 @@ config/mail.yml
 /db/structure.sql
 /public/attachments
 /.sass-cache
+/notes

@@ -1,5 +1,5 @@
 ActiveAdmin.register Block, as: "Section" do
-  menu label: "Sections", priority: 2
+  menu label: "Sections", priority: 3
 
   config.filters = false
   config.batch_actions = false
@@ -15,7 +15,7 @@ ActiveAdmin.register Block, as: "Section" do
 
   index format: :blog, download_links: false do
     column :label do |block|
-      block.label.humanize
+      link_to block.label.humanize, edit_admin2_section_path(block)
     end
     # column :body do |post|
     #   truncate post.body, length: 300, omission: '...'
