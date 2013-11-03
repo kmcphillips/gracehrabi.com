@@ -3,6 +3,7 @@ ActiveAdmin.register Block, as: "Sections" do
 
   config.filters = false
   config.paginate = false
+  config.batch_actions = false
 
   actions :index, :edit, :update
 

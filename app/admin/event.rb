@@ -2,6 +2,7 @@ ActiveAdmin.register Event, as: "Show" do
   menu label: "Shows", priority: 2
 
   config.sort_order = "starts_at_desc"
+  config.batch_actions = false
 
   filter :title
   filter :starts_at

@@ -1,6 +1,8 @@
 ActiveAdmin.register Post do
   menu label: "News Posts", priority: 1
 
+  config.batch_actions = false
+
   filter :title
   filter :created_at
 

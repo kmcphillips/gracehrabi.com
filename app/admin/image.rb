@@ -3,6 +3,7 @@ ActiveAdmin.register Image do
 
   config.filters = false
   config.paginate = false
+  config.batch_actions = false
 
   controller do
     def permitted_params
