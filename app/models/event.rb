@@ -61,5 +61,9 @@ class Event < ActiveRecord::Base
     title
   end
 
+  def new_facebook
+    Facebook::Event.new(self)
+  end
+
 end
 

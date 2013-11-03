@@ -1,7 +1,9 @@
 class Facebook::Event
 
-  def initialize()
+  attr_reader :event
 
+  def initialize(event)
+    @event = event
   end
 
 end

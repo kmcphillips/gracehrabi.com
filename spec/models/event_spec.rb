@@ -90,5 +90,18 @@ describe Event do
     end
   end
 
+  describe "#display_name" do
+    it "should be the title" do
+      expect(@event.display_name).to eq(@event.title)
+    end
+  end
+
+  describe "#new_facebook" do
+    subject{ @event.new_facebook }
+
+    it{ should be_an_instance_of(Facebook::Event) }
+    its(:event){ should eq(@event) }
+  end
+
 end
 
