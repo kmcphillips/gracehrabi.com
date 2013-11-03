@@ -10,7 +10,7 @@ ActiveAdmin.register Event, as: "Show" do
 
   controller do
     def permitted_params
-      params.permit(event: [:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id])
+      params.permit(show: [:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id])
     end
 
     private
@@ -90,11 +90,11 @@ ActiveAdmin.register Event, as: "Show" do
   end
 
   action_item only: :show do
-    link_to "Publish to Facebook", facebook_admin2_show_path(resource), data: {confirm: publish_to_facebook_confirm(resource)}, method: :post
+    link_to "Publish to Facebook", "", data: {"publish-facebook-event" => resource.id, "confirm" => publish_to_facebook_confirm(resource)}
   end
 
   member_action :facebook, method: :post do
-    facebook = resource.new_facebook
+    facebook = resource.new_facebook(params[:access_token])
 
     if facebook.save
       flash[:notice] = "Event successfully published to Facebook."

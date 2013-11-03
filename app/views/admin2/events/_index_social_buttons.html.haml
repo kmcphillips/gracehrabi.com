@@ -15,5 +15,4 @@
   = hidden_field_tag "data[ManitobaMusicArtist][ManitobaMusicArtist][0]", event.manitoba_music_id
   = hidden_field_tag "data[ManitobaMusicPromoter][ManitobaMusicPromoter][ManitobaMusicPromote]", event.manitoba_music_id
 
-= form_tag facebook_admin2_show_path(event), style: "display: inline !important" do
-  = image_submit_tag "icons/facebook.png", data: {confirm: publish_to_facebook_confirm(event)}
+%a{"data-publish-facebook-event" => event.id, "data-confirm" => publish_to_facebook_confirm(event), href: ''}= image_submit_tag "icons/facebook.png"

@@ -1,5 +1,6 @@
 #= require active_admin/base
 #= require admin_images
+#= require facebook
 
 $ ->
   $("#image_sortable").sortable update: ->
