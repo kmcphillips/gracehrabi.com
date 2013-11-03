@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103025626) do
+ActiveRecord::Schema.define(version: 20131103035251) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -122,6 +122,15 @@ ActiveRecord::Schema.define(version: 20131103025626) do
   end
 
   add_index "links", ["sort_order"], name: "index_links_on_sort_order", using: :btree
+
+  create_table "lyrics", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lyrics", ["title"], name: "index_lyrics_on_title", using: :btree
 
   create_table "medias", force: true do |t|
     t.string   "label"
