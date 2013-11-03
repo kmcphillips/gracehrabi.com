@@ -37,6 +37,12 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-rails'
+  gem 'guard'
+  gem 'spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
 end
 
 group :production do
