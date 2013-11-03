@@ -7,6 +7,8 @@ describe Event do
     @event = Event.new @valid_attributes
   end
 
+  let(:event){ @event }
+
   describe "with real events" do
     before(:each) do
       t = Time.now
@@ -92,15 +94,26 @@ describe Event do
 
   describe "#display_name" do
     it "should be the title" do
-      expect(@event.display_name).to eq(@event.title)
+      expect(event.display_name).to eq(event.title)
     end
   end
 
   describe "#new_facebook" do
-    subject{ @event.new_facebook }
+    subject{ event.new_facebook }
 
     it{ should be_an_instance_of(Facebook::Event) }
-    its(:event){ should eq(@event) }
+    its(:event){ should eq(event) }
+  end
+
+  describe "#published_to_facebook?" do
+    it "should be false without a date" do
+      expect(event.published_to_facebook?).to be_false
+    end
+
+    it "should be true with a date" do
+      event.published_to_facebook_at = Time.now
+      expect(event.published_to_facebook?).to be_true
+    end
   end
 
 end

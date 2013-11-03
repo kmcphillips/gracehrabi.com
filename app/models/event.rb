@@ -65,5 +65,9 @@ class Event < ActiveRecord::Base
     Facebook::Event.new(self)
   end
 
+  def published_to_facebook?
+    !!published_to_facebook_at
+  end
+
 end
 
