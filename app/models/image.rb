@@ -36,7 +36,7 @@ class Image < ActiveRecord::Base
   protected
 
   def set_sort_order
-    scope = gallery ? gallery.images : Image.scoped
+    scope = gallery ? gallery.images : Image.all
     self.sort_order = (scope.order("sort_order DESC").limit(1).first.try(:sort_order) || -1) + 1
   end
 end
