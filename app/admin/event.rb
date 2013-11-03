@@ -10,7 +10,7 @@ ActiveAdmin.register Event, as: "Show" do
 
   controller do
     def permitted_params
-      params.permit(show: [:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id])
+      params.permit(show: [:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id, :location])
     end
 
     private
@@ -62,6 +62,7 @@ ActiveAdmin.register Event, as: "Show" do
           "Never"
         end
       end
+      row :location
       row :price do
         number_to_currency(event.price) if event.price
       end
@@ -79,6 +80,7 @@ ActiveAdmin.register Event, as: "Show" do
       f.input :title
       f.input :description
       f.input :starts_at, as: :datetime_picker
+      f.input :location, hint: "Used only for Facebook to plot the event on a map."
       f.input :price
       f.input :publicized
     end

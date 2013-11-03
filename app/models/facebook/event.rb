@@ -29,7 +29,7 @@ class Facebook::Event < Facebook::Base
     params = {
       name: event.title,
       description: event.description,
-      location: "TODO: Location",
+      location: event.location,
       start_time: event.starts_at
     }
 

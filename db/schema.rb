@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103035251) do
+ActiveRecord::Schema.define(version: 20131103152749) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20131103035251) do
     t.boolean  "publicized",               default: true
     t.float    "price",                    default: 0.0
     t.datetime "published_to_facebook_at"
+    t.string   "location"
   end
 
   add_index "events", ["publicized"], name: "index_events_on_publicized", using: :btree
