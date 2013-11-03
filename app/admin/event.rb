@@ -90,7 +90,7 @@ ActiveAdmin.register Event, as: "Show" do
   end
 
   action_item only: :show do
-    link_to "Publish to Facebook", facebook_admin2_show_path(resource), confirm: publish_to_facebook_confirm(resource), method: :post
+    link_to "Publish to Facebook", facebook_admin2_show_path(resource), data: {confirm: publish_to_facebook_confirm(resource)}, method: :post
   end
 
   member_action :facebook, method: :post do

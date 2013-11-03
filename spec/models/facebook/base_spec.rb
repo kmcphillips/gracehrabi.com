@@ -2,10 +2,11 @@ require "spec_helper"
 
 describe Facebook::Base do
   let(:base){ Facebook::Base.new }
-  let(:config){ {"user_access_token" => user_access_token, "page_id" => page_id} }
+  let(:config){ {"user_access_token" => user_access_token, "page_id" => page_id, "page_url" => page_url} }
   let(:user_access_token){ 'token' }
   let(:page_id){ 12345 }
   let(:page_token){ 'page_token' }
+  let(:page_url){ 'http://page.url' }
 
   before(:each) do
     allow(Rails.configuration).to receive(:facebook_config).and_return(config)
@@ -54,6 +55,12 @@ describe Facebook::Base do
       expect(base).to receive(:user_graph).and_return(user_graph)
       expect(user_graph).to receive(:get_page_access_token).with(page_id).and_return(page_token)
       expect(base.send(:page_token)).to eq(page_token)
+    end
+  end
+
+  describe "#page_url" do
+    it "should pull the URL from the options" do
+      expect(base.page_url).to eq(page_url)
     end
   end
 

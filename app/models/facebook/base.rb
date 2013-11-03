@@ -11,6 +11,10 @@ class Facebook::Base
     @page_graph ||= Koala::Facebook::API.new(page_token)
   end
 
+  def page_url
+    config["page_url"]
+  end
+
   protected
 
   def page_token

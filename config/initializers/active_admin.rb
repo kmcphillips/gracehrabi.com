@@ -194,6 +194,12 @@ ActiveAdmin.setup do |config|
   #   end
 
 
+    config.namespace :admin2 do |admin|
+      admin.build_menu do |menu|
+        menu.add label: "Facebook Page", url: Facebook::Base.new.page_url, priority: 10, html_options: {target: "_blank"}
+      end
+    end
+
   # == Download Links
   #
   # You can disable download links on resource listing pages,
