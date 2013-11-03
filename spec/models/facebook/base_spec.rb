@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Facebook::Base do
-  let(:base){ Facebook::Base.new }
+  let(:base){ Facebook::Base.new(user_access_token) }
   let(:config){ {"user_access_token" => user_access_token, "page_id" => page_id, "page_url" => page_url} }
   let(:user_access_token){ 'token' }
   let(:page_id){ 12345 }

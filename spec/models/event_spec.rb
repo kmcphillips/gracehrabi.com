@@ -99,10 +99,12 @@ describe Event do
   end
 
   describe "#new_facebook" do
-    subject{ event.new_facebook }
+    let(:token){ "the_token" }
+    subject{ event.new_facebook(token) }
 
     it{ should be_an_instance_of(Facebook::Event) }
     its(:event){ should eq(event) }
+    its(:user_access_token){ should eq(token) }
   end
 
   describe "#published_to_facebook?" do

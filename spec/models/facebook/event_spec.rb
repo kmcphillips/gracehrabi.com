@@ -5,6 +5,8 @@ describe Facebook::Event do
   let(:fb_event){ event.new_facebook }
 
   describe "#save" do
-    
+    it "should be tested" do
+      pending
+    end
   end
 end
