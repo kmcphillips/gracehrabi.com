@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Lyric do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:lyric){ FactoryGirl.create(:lyric) }
 end
