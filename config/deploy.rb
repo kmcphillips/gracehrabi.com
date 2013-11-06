@@ -13,11 +13,6 @@ set :keep_releases, 5
 
 default_run_options[:pty] = true
 
-role :web, "198.211.110.159"
-role :app, "198.211.110.159"
-role :db,  "198.211.110.159", :primary => true
-
-
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
