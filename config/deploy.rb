@@ -34,7 +34,7 @@ after "deploy:finalize_update", "symlink_shared_files"
 task :symlink_shared_files do
   run "ln -s #{shared_path}/attachments #{release_path}/public/attachments"
 
-  %w{database.yml mail.yml}.each do |config|
+  %w{database.yml mail.yml facebook.yml}.each do |config|
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
   end
 end

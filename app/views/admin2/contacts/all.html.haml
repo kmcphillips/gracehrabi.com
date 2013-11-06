@@ -1,0 +1,15 @@
+%form
+  %fieldset.inputs
+    %ol
+      %li.string.input
+        %label.label Emails
+        = text_area_tag :emails, @emails.join(", "), readonly: true, rows: 10
+        %p.inline-hints
+          List has
+          = @emails.size
+          email addresses and was last updated on
+          = @date ? @date.to_s(:event_with_time) : "never"
+
+  %fieldset.actions
+    %ol
+      %li.cancel= link_to "Cancel", admin2_contacts_path

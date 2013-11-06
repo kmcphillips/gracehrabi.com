@@ -22,6 +22,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'quiet_assets'
 gem 'devise'
 gem 'omniauth-openid'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'koala'
 
 group :development do
   gem 'letter_opener'
@@ -36,6 +38,12 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-rails'
+  gem 'guard'
+  gem 'spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
 end
 
 group :production do

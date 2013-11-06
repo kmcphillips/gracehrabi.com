@@ -57,5 +57,17 @@ class Event < ActiveRecord::Base
     2880
   end
 
+  def display_name
+    title
+  end
+
+  def new_facebook(user_access_token)
+    Facebook::Event.new(user_access_token, self)
+  end
+
+  def published_to_facebook?
+    !!published_to_facebook_at
+  end
+
 end
 

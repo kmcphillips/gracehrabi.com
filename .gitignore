@@ -5,7 +5,9 @@ tmp/**/*
 tmp/*
 config/database.yml
 config/mail.yml
+config/facebook.yml
 .idea
 /db/structure.sql
 /public/attachments
 /.sass-cache
+/notes

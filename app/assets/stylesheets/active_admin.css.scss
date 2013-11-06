@@ -1,0 +1,23 @@
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+@import "jquery.ui.dialog";
+
+.attached-image-container {
+  float: left;
+}
+
+#image_sortable {
+  list-style-type: none;
+  margin: 0;
+}
+
+#image_sortable li {
+  float: left;
+  text-align: right;
+  margin: 30px;
+}
+
+#image_sortable li .delete {
+  padding: 101px 101px 0 0;
+}

@@ -7,14 +7,16 @@ describe Event do
     @event = Event.new @valid_attributes
   end
 
+  let(:event){ @event }
+
   describe "with real events" do
     before(:each) do
       t = Time.now
       Time.stub(:now => t)
 
       @upcoming = Event.create! @valid_attributes.merge(:starts_at => t + 3.days)
-      @current = Event.create! @valid_attributes.merge(:starts_at => t - 1.hour)
-      @past = Event.create! @valid_attributes.merge(:starts_at => t - 1.day)
+      @current = Event.create! @valid_attributes.merge(:starts_at => t + 1.hour)
+      @past = Event.create! @valid_attributes.merge(:starts_at => t - 2.days)
     end
 
     describe "scopes" do
@@ -27,7 +29,7 @@ describe Event do
       end
 
       it "should find the past events" do
-        Event.past == [@past]
+        Event.past.should == [@past]
       end
       
       it "should find the events for the mailing list" do
@@ -87,6 +89,32 @@ describe Event do
 
     after(:each) do
       Event.destroy_all
+    end
+  end
+
+  describe "#display_name" do
+    it "should be the title" do
+      expect(event.display_name).to eq(event.title)
+    end
+  end
+
+  describe "#new_facebook" do
+    let(:token){ "the_token" }
+    subject{ event.new_facebook(token) }
+
+    it{ should be_an_instance_of(Facebook::Event) }
+    its(:event){ should eq(event) }
+    its(:user_access_token){ should eq(token) }
+  end
+
+  describe "#published_to_facebook?" do
+    it "should be false without a date" do
+      expect(event.published_to_facebook?).to be_false
+    end
+
+    it "should be true with a date" do
+      event.published_to_facebook_at = Time.now
+      expect(event.published_to_facebook?).to be_true
     end
   end
 

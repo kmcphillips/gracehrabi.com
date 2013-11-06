@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901204413) do
+ActiveRecord::Schema.define(version: 20131103152749) do
+
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "authorized_emails", force: true do |t|
     t.string   "email"
@@ -60,8 +75,10 @@ ActiveRecord::Schema.define(version: 20130901204413) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_fingerprint"
-    t.boolean  "publicized",         default: true
-    t.float    "price",              default: 0.0
+    t.boolean  "publicized",               default: true
+    t.float    "price",                    default: 0.0
+    t.datetime "published_to_facebook_at"
+    t.string   "location"
   end
 
   add_index "events", ["publicized"], name: "index_events_on_publicized", using: :btree
@@ -106,6 +123,15 @@ ActiveRecord::Schema.define(version: 20130901204413) do
   end
 
   add_index "links", ["sort_order"], name: "index_links_on_sort_order", using: :btree
+
+  create_table "lyrics", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lyrics", ["title"], name: "index_lyrics_on_title", using: :btree
 
   create_table "medias", force: true do |t|
     t.string   "label"

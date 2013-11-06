@@ -13,7 +13,6 @@ class Image < ActiveRecord::Base
   validates_attachment_size :file, in: 1..7.megabytes
   validates_attachment_content_type :file, content_type: ["image/jpg", "image/jpeg", "image/pjpeg", "image/png", "image/tiff", "image/x-png", "image/gif"]
   validates :sort_order, uniqueness: {scope: :gallery_id}, presence: true
-  validates :gallery, presence: true
 
   before_validation :set_sort_order, on: :create
 
@@ -30,10 +29,15 @@ class Image < ActiveRecord::Base
     end
   end
 
+  def display_name
+    label.presence || "Unnamed image"
+  end
+
   protected
 
   def set_sort_order
-    self.sort_order = (gallery.images.order("sort_order DESC").limit(1).first.try(:sort_order) || -1) + 1 if gallery
+    scope = gallery ? gallery.images : Image.all
+    self.sort_order = (scope.order("sort_order DESC").limit(1).first.try(:sort_order) || -1) + 1
   end
 end
 

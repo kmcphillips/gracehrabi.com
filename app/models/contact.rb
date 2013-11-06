@@ -11,6 +11,7 @@ class Contact < ActiveRecord::Base
   def enabled
     !disabled
   end
+  alias_method :enabled?, :enabled
   
   def disable
     update_attribute(:disabled, true)
