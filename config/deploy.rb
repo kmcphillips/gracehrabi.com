@@ -6,7 +6,6 @@ require "whenever/capistrano"
 
 set :application, "Grace Hrabi"
 set :repository,  "git://github.com/kmcphillips/gracehrabi.com.git"
-set :deploy_to, "/home/kevin/gracehrabi.com"
 set :user, "kevin"
 set :use_sudo, false
 set :scm, "git"
