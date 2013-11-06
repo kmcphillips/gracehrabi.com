@@ -1,6 +1,10 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
+set :stages, %w(production staging)
+set :default_stage, "production"
+require 'capistrano/ext/multistage'
+
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
 
@@ -10,6 +14,7 @@ set :user, "kevin"
 set :use_sudo, false
 set :scm, "git"
 set :keep_releases, 5
+set :rails_env, 'production'
 
 default_run_options[:pty] = true
 
