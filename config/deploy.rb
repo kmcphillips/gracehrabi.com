@@ -5,9 +5,6 @@ set :stages, %w(production staging)
 set :default_stage, "production"
 require 'capistrano/ext/multistage'
 
-set :whenever_command, "bundle exec whenever"
-require "whenever/capistrano"
-
 set :application, "Grace Hrabi"
 set :repository,  "git://github.com/kmcphillips/gracehrabi.com.git"
 set :user, "kevin"

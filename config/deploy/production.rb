@@ -1,3 +1,6 @@
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 set :deploy_to, "/home/kevin/gracehrabi.com"
 
 role :web, "198.211.110.159"
