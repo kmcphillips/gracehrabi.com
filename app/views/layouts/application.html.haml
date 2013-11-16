@@ -25,8 +25,10 @@
 
       #header
         = link_to image_tag("header.jpg", :alt => SITE_NAME), "/"
-        - if Rails.env.development?
-          #development_notice Development Server
+        - unless Rails.env.production?
+          #development_notice
+            = Rails.env.humanize
+            Server
       #nav
         = render :partial => '/nav'
         = render :partial => '/admin/nav' if user_signed_in?
