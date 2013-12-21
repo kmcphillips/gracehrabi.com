@@ -10,13 +10,14 @@ describe Event do
   let(:event){ @event }
 
   describe "with real events" do
-    before(:each) do
-      t = Time.now
-      Time.stub(:now => t)
+    let(:time){ Time.now }
 
-      @upcoming = Event.create! @valid_attributes.merge(:starts_at => t + 3.days)
-      @current = Event.create! @valid_attributes.merge(:starts_at => t + 1.hour)
-      @past = Event.create! @valid_attributes.merge(:starts_at => t - 2.days)
+    before(:each) do
+      Timecop.freeze time
+
+      @upcoming = Event.create! @valid_attributes.merge(:starts_at => time + 3.days)
+      @current = Event.create! @valid_attributes.merge(:starts_at => time + 1.hour)
+      @past = Event.create! @valid_attributes.merge(:starts_at => time - 2.days)
     end
 
     describe "scopes" do
@@ -33,8 +34,8 @@ describe Event do
       end
       
       it "should find the events for the mailing list" do
-        Event.create! @valid_attributes.merge(publicized: false, starts_at: Time.now + 2.days)
-        Event.create! @valid_attributes.merge(starts_at: Time.now + 15.days)
+        Event.create! @valid_attributes.merge(publicized: false, starts_at: time + 2.days)
+        Event.create! @valid_attributes.merge(starts_at: time + 15.days)
         Event.for_mailing_list.should eq([@current, @upcoming])
         Event.for_mailing_list(1.day).should eq([@current])
       end
@@ -89,6 +90,7 @@ describe Event do
 
     after(:each) do
       Event.destroy_all
+      Timecop.return
     end
   end
 

@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-mocks'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'timecop'
   gem 'pry'
   gem 'pry-rails'
   gem 'guard'
