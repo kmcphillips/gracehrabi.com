@@ -1,5 +1,7 @@
 # Grace Hrabi
 
+[![Build Status](https://travis-ci.org/kmcphillips/gracehrabi.com.png)](https://travis-ci.org/kmcphillips/gracehrabi.com)
+
 [Kevin McPhillips](mailto:github@kevinmcphillips.ca)
 
 [http://gracehrabi.com](http://gracehrabi.com)
