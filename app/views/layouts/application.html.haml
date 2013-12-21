@@ -24,7 +24,7 @@
       .box_full &nbsp;
 
       #header
-        = pjax_link_to image_tag("header.jpg", :alt => SITE_NAME), "/"
+        = link_to image_tag("header.jpg", :alt => SITE_NAME), "/"
         - unless Rails.env.production?
           #development_notice
             = Rails.env.humanize
