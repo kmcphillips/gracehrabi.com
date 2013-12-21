@@ -10,7 +10,7 @@ describe Admin::EventsController do
 
   describe "GET index" do
     it "assigns all events as @events" do
-      Event.stub(:paginate) { [event] }
+      Event.stub(:page) { [event] }
       get :index
       assigns(:events).should eq([event])
     end

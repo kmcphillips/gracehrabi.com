@@ -88,11 +88,9 @@ module ApplicationHelper
         end.join(" ")
       end
 
-      if collection.paginate?
-        src << content_tag(:tr) do
-          content_tag(:th, colspan: column_titles.size) do
-            will_paginate(collection, previous_label: "<- Newer", next_label: "Older ->")
-          end
+      src << content_tag(:tr) do
+        content_tag(:th, colspan: column_titles.size) do
+          paginate(collection)
         end
       end
 
@@ -131,10 +129,6 @@ module ApplicationHelper
         end
       end
     end.compact
-  end
-
-  def pagination_params(opts={})
-    {page: params[:page] || 1, per_page: (admin? ? PAGINATION_PER_PAGE_ADMIN : PAGINATION_PER_PAGE)}.merge(opts)
   end
 
   def row_class

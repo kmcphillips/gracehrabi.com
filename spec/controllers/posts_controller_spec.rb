@@ -5,7 +5,7 @@ describe PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      Post.stub(:paginate) { [post] }
+      Post.stub(:page) { [post] }
       get :index
       assigns(:posts).should eq([post])
     end

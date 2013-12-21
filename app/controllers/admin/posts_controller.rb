@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.order("created_at DESC").paginate(pagination_params)
+    @posts = Post.order("created_at DESC").page(params[:page])
   end
 
   def new

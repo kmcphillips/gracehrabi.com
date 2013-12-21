@@ -16,7 +16,7 @@ describe Admin::ContactsController do
       emails = double
       date = double
       Contact.should_receive(:sorted).and_return(contacts)
-      contacts.should_receive(:paginate).and_return(contacts)
+      contacts.should_receive(:page).and_return(contacts)
       Contact.should_receive(:emails).and_return(emails)
       Contact.should_receive(:last_updated_at).and_return(date)
       get :index

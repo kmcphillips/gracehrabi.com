@@ -8,7 +8,7 @@ class Admin::ContactsController < ApplicationController
     
     @contacts = Contact.sorted
     @contacts = @contacts.search(params[:search]) if params[:search].present?
-    @contacts = @contacts.paginate(pagination_params)
+    @contacts = @contacts.page(params[:page])
   end
   
   def create

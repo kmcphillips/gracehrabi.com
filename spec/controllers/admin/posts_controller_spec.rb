@@ -10,7 +10,7 @@ describe Admin::PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      Post.stub(:paginate) { [the_post] }
+      Post.stub(:page) { [the_post] }
       get :index
       assigns(:posts).should eq([the_post])
     end
