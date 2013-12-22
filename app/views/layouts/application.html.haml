@@ -33,7 +33,6 @@
             = Digest::SHA1.hexdigest Time.now.to_i.to_s
       #nav
         = render :partial => '/nav'
-        = render :partial => '/admin/nav' if user_signed_in?
       #content
         .minheight
         .main

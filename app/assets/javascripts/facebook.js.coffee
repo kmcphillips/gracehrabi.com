@@ -48,7 +48,7 @@ window.fbEventPublishConfirm = (uid, accessToken) ->
   if window.fbEventId
     console.log "[Facebook] Submitting form for event ##{ window.fbEventId }"
     $('#fb-event-form').remove()
-    $('body').prepend("<form action='/admin2/shows/#{ window.fbEventId }/facebook' method='post' id='fb-event-form'><input type='hidden' name='authenticity_token' value='#{ $('meta[name="csrf-token"]').prop('content') }'></input><input type='hidden' name='uid' value='#{ uid }'></input><input type='hidden' name='access_token' value='#{ accessToken }'></input></form>")
+    $('body').prepend("<form action='/admin/shows/#{ window.fbEventId }/facebook' method='post' id='fb-event-form'><input type='hidden' name='authenticity_token' value='#{ $('meta[name="csrf-token"]').prop('content') }'></input><input type='hidden' name='uid' value='#{ uid }'></input><input type='hidden' name='access_token' value='#{ accessToken }'></input></form>")
     $('#fb-event-form').submit()
   else
     console.log "[Facebook] Event id is not set"

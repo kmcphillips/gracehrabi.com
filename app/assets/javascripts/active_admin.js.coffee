@@ -5,7 +5,7 @@
 $ ->
   $("#image_sortable").sortable update: ->
     $.ajax
-      url: "/admin2/images/sort"
+      url: "/admin/images/sort"
       type: "post"
       data: $("#image_sortable").sortable("serialize")
       error: ->

@@ -34,7 +34,7 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-  config.default_namespace = :admin2
+  config.default_namespace = :admin
 
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -194,7 +194,7 @@ ActiveAdmin.setup do |config|
   #   end
 
 
-    config.namespace :admin2 do |admin|
+    config.namespace :admin do |admin|
       admin.build_menu do |menu|
         menu.add label: "Facebook Page", url: Facebook::Base.new.page_url, priority: 10, html_options: {target: "_blank"}
       end

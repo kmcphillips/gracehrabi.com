@@ -24,30 +24,4 @@ GracehrabiCom::Application.routes.draw do
 
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"
 
-  namespace :admin do
-    root to: "posts#index"
-
-    resources :blocks, except: [:destroy, :create, :new, :show]
-    resources :medias, only: [:edit, :update]
-    resources :events, except: [:show]
-    resources :links, except: [:show] do
-      collection do
-        post 'sort'
-      end
-    end
-    resources :posts, except: [:show]
-    resources :tracks, except: [:show] do
-      collection do
-        post 'sort'
-      end
-    end
-    resources :galleries, only: [:index, :show]
-    resources :images, only: [:create, :destroy, :update] do
-      collection do
-        post 'sort'
-      end
-    end
-    resources :contacts, only: [:index, :update, :create]
-    resources :authorized_emails, only: [:index, :create, :destroy]
-  end
 end

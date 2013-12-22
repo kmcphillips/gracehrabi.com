@@ -28,7 +28,7 @@ ActiveAdmin.register Event, as: "Show" do
 
   index format: :blog, download_links: false do
     column :title do |event|
-      link_to event.title, admin2_show_path(event)
+      link_to event.title, admin_show_path(event)
     end
     column "Start date", :starts_at
     column :in do |event|
@@ -41,7 +41,7 @@ ActiveAdmin.register Event, as: "Show" do
       "#{ distance_of_time_in_words_to_now(event.published_to_facebook_at) } ago" if event.published_to_facebook?
     end
     actions do |event|
-      render partial: "admin2/events/index_social_buttons", object: event
+      render partial: "admin/events/index_social_buttons", object: event
       nil
     end
   end
@@ -85,7 +85,7 @@ ActiveAdmin.register Event, as: "Show" do
       f.input :publicized
     end
     f.inputs do
-      f.template.render partial: 'admin2/attached_image', locals: {f: f}
+      f.template.render partial: 'admin/attached_image', locals: {f: f}
     end
     
     f.actions
@@ -104,7 +104,7 @@ ActiveAdmin.register Event, as: "Show" do
       flash[:error] = facebook.errors.full_messages.to_sentence
     end
 
-    redirect_to admin2_show_path(resource)
+    redirect_to admin_show_path(resource)
   end
 
 end
