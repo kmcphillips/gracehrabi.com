@@ -8,3 +8,7 @@ before_script:
 script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec
+notifications:
+  email:
+    on_success: change
+    on_failure: change
