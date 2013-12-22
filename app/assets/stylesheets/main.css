@@ -1,0 +1,302 @@
+/* font-family: 'Abril Fatface', cursive; */
+/* font-family: 'Nixie One', cursive; */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin:0;
+}
+  
+body {
+  background:#111;
+  font-size:16px;
+  line-height: 1.25em;
+  font-family: 'Nixie One', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  background: url(images/grace.jpg) no-repeat 50% 100% #000;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.clear{
+  clear: both;
+}
+.float_lft{
+  float:left;
+}
+h1 {
+  color:#fff;
+  font-weight: normal;
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+  font-weight:400;
+  
+  
+}
+.header {
+  background:rgba(33,138,137,0.91);
+  width: 100%;
+  display: inline-block;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+.header h1{
+  float: left;
+  margin: 5px 20px;
+  line-height: 1.5em;
+  font-size: 2em;
+  font-weight:400;
+  text-transform:uppercase;
+  color: rgba(232,221,203,1);
+}
+
+.header .nav{
+   list-style:none;
+   float:left;
+  z-index:9999;
+  margin: 0 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.25em;
+  font-weight:400;
+}
+
+.header .socialmedia {
+   list-style:none;
+  float: right;
+  z-index:9999;
+  margin: 10px 20px;
+  font-size: 1.75em;
+  line-height: 1.5em;
+}
+
+.header .socialmedia li i{
+  color: rgba(255,255,255,0.9);
+  padding: 0 5px;
+}
+
+.header .socialmedia li i:hover{
+  color: rgba(255,255,255,1);
+  text-shadow: -1px -1px 5px rgba(0,0,0,0.5);
+}
+
+.header .nav li, .header .socialmedia li{
+    display:inline;
+}
+
+
+.header .nav a{
+    display:inline-block;
+  color: #fff;
+  margin: 15px 15px 15px 0;
+  text-transform:uppercase;
+  text-decoration:none;
+  letter-spacing:1px;
+  line-height: 1.5em;
+}
+.nav a:hover{
+  text-shadow: -1px -1px 5px rgba(0,0,0,0.5);
+}
+h2 {
+  color: #fff;
+  font-weight: 100;
+  letter-spacing:1px;
+  padding: 10px 0;
+  text-transform:uppercase;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h3 {
+  color:#fff;
+  display: block;
+  font-weight: normal;
+}
+
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+  
+
+.content {
+  clear: left;
+  padding: 20px 0;
+  margin: 0 20px;
+  width: 50%;
+  display: inline-block;
+}
+.sidebar {
+  float: right;
+  padding: 20px 0;
+  margin: 0 20px;
+  width: 40%;
+}
+.sidebar .date{
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  color: rgba(232,221,203,1);
+}
+.sidebar a{
+  padding: 5px;
+  background-color: rgba(33,138,137,0.85);
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  border-radius: 2px;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+.sidebar a:hover{
+  background-color: rgba(33,138,137,1);
+  text-shadow: -1px -1px 5px rgba(0,0,0,0.5);
+}
+.content, .sidebar {
+  font-size: 0.83333em;
+}
+
+.content p, .sidebar p{
+  margin: 10px 0;
+}
+
+ul {
+   list-style: none;
+   margin: 0;
+}  
+
+  
+hr {
+  border: none;
+  background: rgba(255,255,255,0.50);
+  height: 1px;
+  margin: 10px 0;
+}
+.col-1 {
+  width:47.5%;
+  float:left;
+}
+
+.col-2
+{
+  width:47.5%;
+  float:left;
+}
+
+.footer { 
+  padding: 10px 20px;
+  z-index: 9999px;
+  position: fixed;
+  bottom: 0px;
+  background:rgba(255,255,255,0.8);
+  color: rgba(0,0,0,1.00);
+  font-family: 'Quicksand', sans-serif;
+  
+}
+.footer i{
+  padding: 0 5px 0 0;
+  color: rgba(33,138,137,1);
+}
+.footer .backtotop {
+  display: none;
+}
+
+.footer a{
+  color: #000;
+  }
+.footer a:hover{
+  color: #333;
+}
+      
+@media screen and (max-width: 640px) {
+
+  body{
+    background: url(images/grace_sm.jpg) fixed no-repeat 30% 0 #000;
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  } 
+  
+  .content, .sidebar {
+    width: auto;
+    float: left;
+    clear: both;
+    padding: 5px 20px;
+    margin: 0;
+    background:rgba(0,0,0,0.5);
+  }
+  .sidebar {
+    margin-bottom: 70px;
+  }
+  .header {
+    padding-bottom: 10px;
+    background: none;
+  }
+  
+  .header h1{ 
+    float: none;
+    font-size: 2.35em;
+    white-space:nowrap;
+  }
+    
+  .header .nav, .header .socialmedia {
+    float: left;
+    clear: both;
+  } 
+  .header .nav a:hover{
+  color:rgba(255,255,255,0.9);
+}
+  .header .nav li{
+    display:block;
+    padding:0;
+    font-size: 1.5em;
+  } 
+  .header .socialmedia li i{
+    background-color: rgba(33,138,137,0.85);
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+    text-align:center;
+    vertical-align: middle;
+    border-radius: 3px;
+    color: #fff;
+  } 
+  
+  .col-1, .col-2
+  {
+    float:none;
+    margin:0;
+    padding-bottom: 20px;
+  }
+  .footer {
+    width: 100%;
+    font-size: 0.8333em;
+    background:rgba(255,255,255,0.95);
+  }
+  
+  .footer .phone {
+    float: left;
+  }
+  .footer .backtotop {
+    float: left;
+    display:block;
+    text-transform:uppercase;
+    padding: 0 10px;
+    margin-left: 10px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.1em;
+    font-size: 0.9em;
+    border-left: dotted 1px #000;
+  }
+  .footer .backtotop i{
+    font-size: 2em;
+  }
+}

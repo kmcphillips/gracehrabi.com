@@ -4,3 +4,11 @@
 
   = image_tag "bio.png", :class => "bio_image", :alt => SITE_NAME
   = simple_format @block.body
+
+  = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
+
+  = link_to "Site", "http://github.com/kmcphillips/gracehrabi.com"
+  by
+  = link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca', target: '_blank'
+  and
+  = link_to 'Lisa Rae Swan', 'http://lisaraeswan.com/', target: '_blank'

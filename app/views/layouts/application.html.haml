@@ -32,19 +32,38 @@
         %br
         = Digest::SHA1.hexdigest Time.now.to_i.to_s
 
-    #nav= render :partial => '/nav'
-    #content
+    .container
+      .header
+        %a{name: 'top'}
+        %h1= link_to 'Grace Hrabi', root_path
+
+        %ul.nav
+          %li= link_to "News", news_path
+          %li= link_to "Shows", events_path
+          %li= link_to "Gallery", gallery_path
+          %li= link_to "Links", links_path
+          %li= link_to "Bio", bio_path
+          %li= link_to "Contact", contact_path
+          %li= link_to "Mailing List", mailing_list_index_path
+        %ul.socialmedia
+          %li= link_to fa_icon('facebook'), "https://www.facebook.com/GraceHrabiMusic", title: "Grace Hrabi on Facebook"
+          %li= link_to fa_icon('twitter'), "https://twitter.com/GraceHrabi", title: "Grace Hrabi on Twitter"
+          %li= link_to fa_icon('rss'), "/rss.xml", title: "RSS"
+
+    .content
       = render :partial => "shared/flashes"
       #pjax-body= yield
 
-    #footer
-      = link_to image_tag("icons/rss.png", :alt => "RSS"), "/rss.xml"
-      = link_to "RSS", "/rss.xml"
-      &copy;
-      = Time.now.year
-      = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
-      = link_to "Site", "http://github.com/kmcphillips/gracehrabi.com"
-      by
-      = link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca', target: '_blank'
-      and
-      = link_to 'Lisa Rae Swan', 'http://lisaraeswan.com/', target: '_blank'
+    .sidebar
+      TODO: sidebar
+
+    .footer
+      .phone 
+        = fa_icon 'phone'
+        (204) 223-9876
+        %br
+        = obfuscated_mail_to(SITE_EMAIL, fa_icon('envelope'))
+        = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
+      .backtotop
+        = link_to fa_icon('long-arrow-up'), '#top'
+        = link_to 'Back to Top', '#top'
