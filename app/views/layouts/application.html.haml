@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     = javascript_include_tag 'application'
+    = javascript_include_tag 'http://stratus.sc/stratus.js'
     = yield :js
 
     = csrf_meta_tag
@@ -58,7 +59,7 @@
       TODO: sidebar
 
     .footer
-      .phone 
+      .phone
         = fa_icon 'phone'
         (204) 223-9876
         %br

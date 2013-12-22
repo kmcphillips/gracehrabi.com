@@ -132,6 +132,7 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
+    jquery-migrate-rails (1.2.1)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   guard-spork
   haml
   haml-rails
+  jquery-migrate-rails
   jquery-rails
   jquery-ui-rails
   kaminari

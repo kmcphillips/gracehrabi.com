@@ -23,6 +23,7 @@ gem 'sass'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-migrate-rails'
 gem 'pjax_rails'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 4.0.0.rc1'
