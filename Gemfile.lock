@@ -97,6 +97,8 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
@@ -300,6 +302,7 @@ DEPENDENCIES
   devise
   factory_girl
   factory_girl_rails
+  font-awesome-rails
   guard
   guard-rspec
   guard-spork

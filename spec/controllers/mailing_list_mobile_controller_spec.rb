@@ -10,11 +10,6 @@ describe MailingListMobileController do
       response.should render_template(:index)
       assigns(:title).should_not be_blank
     end
-    
-    it "should render the mobile layout" do
-      get :index
-      response.should render_template('layouts/mobile')
-    end
   end
   
   describe "POST create" do

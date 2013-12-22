@@ -1,10 +1,18 @@
 module MailerCommon
+  extend ActiveSupport::Concern
+
+  included do
+  end
+
+  module ClassMethods
+
+    def from_email
+      '"GraceHrabi.com" <robot@gracehrabi.com>'
+    end
+
+  end
 
   protected
-
-  def admin_email
-    ADMIN_EMAIL
-  end
 
   def site_email
     SITE_EMAIL

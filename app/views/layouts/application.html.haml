@@ -2,16 +2,21 @@
 %html
   %head
     %title= page_title
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
     = auto_discovery_link_tag(:rss, '/rss.xml')
 
     = stylesheet_link_tag 'application'
+    <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     = javascript_include_tag 'application'
-
     = yield :js
-
-    %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "/favicon.ico"}
 
     = csrf_meta_tag
     %meta{:name => "keywords", :content => META[:keywords] || ""}
@@ -20,38 +25,26 @@
     = render :partial => "shared/analytics"
 
   %body
-    #wrapper
-      .box_full &nbsp;
+    - unless Rails.env.production?
+      #development_notice
+        = Rails.env.humanize
+        Server
+        %br
+        = Digest::SHA1.hexdigest Time.now.to_i.to_s
 
-      #header
-        = link_to image_tag("header.jpg", :alt => SITE_NAME), "/"
-        - unless Rails.env.production?
-          #development_notice
-            = Rails.env.humanize
-            Server
-            %br
-            = Digest::SHA1.hexdigest Time.now.to_i.to_s
-      #nav
-        = render :partial => '/nav'
-      #content
-        .minheight
-        .main
-          = render :partial => "shared/flashes"
-          #pjax-body= yield
-        .minheight_clear
-      #footer
-        = image_tag "footer.jpg", :alt => SITE_NAME
+    #nav= render :partial => '/nav'
+    #content
+      = render :partial => "shared/flashes"
+      #pjax-body= yield
 
-      .box_full.credits
-        .left_float
-          = link_to image_tag("icons/rss.png", :alt => "RSS"), "/rss.xml"
-          = link_to "RSS", "/rss.xml"
-          &nbsp;&nbsp;
-          = link_to "Site source", "http://github.com/kmcphillips/gracehrabi.com"
-        .right_float
-          &copy; #{Time.now.year}
-          = obfuscated_mail_to SITE_EMAIL, "Grace Hrabi"
-          and
-          = obfuscated_mail_to ADMIN_EMAIL, "Kevin McPhillips"
-
-        .clear
+    #footer
+      = link_to image_tag("icons/rss.png", :alt => "RSS"), "/rss.xml"
+      = link_to "RSS", "/rss.xml"
+      &copy;
+      = Time.now.year
+      = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
+      = link_to "Site", "http://github.com/kmcphillips/gracehrabi.com"
+      by
+      = link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca', target: '_blank'
+      and
+      = link_to 'Lisa Rae Swan', 'http://lisaraeswan.com/', target: '_blank'

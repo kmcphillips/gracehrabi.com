@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
-  default from: ROBOT_EMAIL
-
   include MailerCommon
+
+  default from: from_email
 
   def contact_request(opts)
     subject = "Contact request: #{subject}"

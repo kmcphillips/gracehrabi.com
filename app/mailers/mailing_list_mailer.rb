@@ -1,7 +1,7 @@
 class MailingListMailer < ActionMailer::Base
-  default from: ROBOT_EMAIL
-
   include MailerCommon
+
+  default from: from_email
 
   def upcoming_events(contact, events)
     @events = events
