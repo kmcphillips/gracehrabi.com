@@ -21,7 +21,7 @@
   
   .center
     - @images.each do |image|
-      = link_to image_tag(image.thumb, class: "thumb_tight", alt: image.label), galleries_path
+      = link_to image_tag(image.thumb, class: "thumb_tight", alt: image.label), gallery_path
 
   .center
     %a{onclick: "window.launchVideo()"}= image_tag "video_preview1.png"

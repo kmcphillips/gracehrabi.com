@@ -145,10 +145,6 @@ module ApplicationHelper
     "/"
   end
 
-  def track_path(track)
-    "/player/#{track.id}"
-  end
-
   def admin_gallery_path(gallery_id, opts={})
     gallery_id = gallery_id.path if gallery_id.is_a?(Gallery)
     "/admin/galleries/#{gallery_id}#{ opts[:anchor].present? ? "##{ opts[:anchor] }" : ""}"

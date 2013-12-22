@@ -4,6 +4,5 @@ FactoryGirl.define do
     active true
     sort_order 1
     file File.open(File.join(Rails.root, 'spec', 'data', 'test.jpg'))
-    association :gallery, factory: :gallery
   end
 end

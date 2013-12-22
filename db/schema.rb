@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103152749) do
+ActiveRecord::Schema.define(version: 20131222025244) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -84,17 +84,6 @@ ActiveRecord::Schema.define(version: 20131103152749) do
   add_index "events", ["publicized"], name: "index_events_on_publicized", using: :btree
   add_index "events", ["starts_at"], name: "index_events_on_starts_at", using: :btree
 
-  create_table "galleries", force: true do |t|
-    t.string   "name"
-    t.string   "path"
-    t.string   "image"
-    t.integer  "sort_order"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "galleries", ["sort_order"], name: "index_galleries_on_sort_order", using: :btree
-
   create_table "images", force: true do |t|
     t.string   "label"
     t.string   "file_file_name"
@@ -106,11 +95,9 @@ ActiveRecord::Schema.define(version: 20131103152749) do
     t.datetime "updated_at"
     t.boolean  "active",            default: true
     t.integer  "sort_order"
-    t.integer  "gallery_id"
   end
 
   add_index "images", ["active"], name: "index_images_on_active", using: :btree
-  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
   add_index "images", ["sort_order"], name: "index_images_on_sort_order", using: :btree
 
   create_table "links", force: true do |t|
@@ -133,16 +120,6 @@ ActiveRecord::Schema.define(version: 20131103152749) do
 
   add_index "lyrics", ["title"], name: "index_lyrics_on_title", using: :btree
 
-  create_table "medias", force: true do |t|
-    t.string   "label"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -155,22 +132,6 @@ ActiveRecord::Schema.define(version: 20131103152749) do
     t.datetime "image_updated_at"
     t.string   "image_fingerprint"
   end
-
-  create_table "tracks", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "sort_order"
-    t.boolean  "active",           default: true
-    t.string   "mp3_file_name"
-    t.string   "mp3_content_type"
-    t.integer  "mp3_file_size"
-    t.datetime "mp3_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tracks", ["active"], name: "index_tracks_on_active", using: :btree
-  add_index "tracks", ["sort_order"], name: "index_tracks_on_sort_order", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                default: "", null: false

@@ -3,10 +3,7 @@ require 'spec_helper'
 describe Image do
 
   before(:each) do
-    @gallery = Gallery.create! :name => "Publicity", :path => "publicity", :image => "gallery1.png", :sort_order => 0
-
     @valid_attributes = {
-      :gallery => @gallery, 
       :file_file_name => "test.jpg", 
       :file_content_type => "image/jpg", 
       :file_file_size => "12345", 
@@ -42,7 +39,6 @@ describe Image do
     
     after(:each) do
       Image.destroy_all
-      Gallery.destroy_all
     end
   end
   

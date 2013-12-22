@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe BlocksController do
   let(:block){ FactoryGirl.create(:block) }
-  let(:media){ FactoryGirl.create(:media) }
 
   describe "GET contact" do
     it "assigns the requested block as @block" do
@@ -15,10 +14,8 @@ describe BlocksController do
   describe "GET bio" do
     it "assigns the requested block as @block" do
       Block.stub(:find_by_label).with("bio") { block }
-      Media.stub(:find_by_label! => media)
       get "bio"
       assigns(:block).should be(block)
-      assigns(:kit).should be(media)
     end
   end
 

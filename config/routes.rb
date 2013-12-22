@@ -10,15 +10,11 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show'
   get 'rss.:format', to: 'posts#rss'
 
-  ['contact', 'links', 'bio'].each do |block|
+  ['contact', 'links', 'bio', 'gallery'].each do |block|
     get block, to: "blocks##{block}"
   end
 
-  # media player
-  get 'player/:id', to: 'tracks#show'
-
   resources :events, only: [:index, :show]
-  resources :galleries, only: [:index, :show]
   resources :mailing_list, only: [:index, :create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 
