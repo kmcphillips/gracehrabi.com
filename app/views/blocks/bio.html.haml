@@ -2,7 +2,6 @@
   %h1 About Grace
   %h3 &nbsp;
 
-  = image_tag "bio.png", :class => "bio_image", :alt => SITE_NAME
   = simple_format @block.body
 
   = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
