@@ -1,0 +1,9 @@
+.phone
+  = fa_icon 'phone'
+  (204) 223-9876
+  %br
+  = obfuscated_mail_to(SITE_EMAIL, fa_icon('envelope'))
+  = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
+.backtotop
+  = link_to fa_icon('long-arrow-up'), '#top'
+  = link_to 'Back to Top', '#top'

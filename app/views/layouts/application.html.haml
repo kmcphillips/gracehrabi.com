@@ -20,10 +20,10 @@
     = yield :js
 
     = csrf_meta_tag
-    %meta{:name => "keywords", :content => META[:keywords] || ""}
-    %meta{:name => "description", :content => META[:description] || ""}
+    %meta{name: 'keywords', content: META[:keywords] || ""}
+    %meta{name: 'description', content: META[:description] || ""}
 
-    = render :partial => "shared/analytics"
+    = render partial: "shared/analytics"
 
   %body
     - unless Rails.env.production?
@@ -31,40 +31,12 @@
         = Rails.env.humanize
         Server
         %br
-        = Digest::SHA1.hexdigest Time.now.to_i.to_s
+        = Digest::SHA1.hexdigest(Time.now.to_i.to_s)[0..15]
 
     .container
-      .header
-        %a{name: 'top'}
-        %h1= link_to 'Grace Hrabi', root_path
-
-        %ul.nav
-          %li= link_to "News", news_path
-          %li= link_to "Shows", events_path
-          %li= link_to "Gallery", gallery_path
-          %li= link_to "Links", links_path
-          %li= link_to "Bio", bio_path
-          %li= link_to "Contact", contact_path
-          %li= link_to "Mailing List", mailing_list_index_path
-        %ul.socialmedia
-          %li= link_to fa_icon('facebook'), "https://www.facebook.com/GraceHrabiMusic", title: "Grace Hrabi on Facebook"
-          %li= link_to fa_icon('twitter'), "https://twitter.com/GraceHrabi", title: "Grace Hrabi on Twitter"
-          %li= link_to fa_icon('rss'), "/rss.xml", title: "RSS"
-
+      .header= render partial: 'layouts/header'
     .content
-      = render :partial => "shared/flashes"
+      = render partial: 'shared/flashes'
       #pjax-body= yield
-
-    .sidebar
-      TODO: sidebar
-
-    .footer
-      .phone
-        = fa_icon 'phone'
-        (204) 223-9876
-        %br
-        = obfuscated_mail_to(SITE_EMAIL, fa_icon('envelope'))
-        = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
-      .backtotop
-        = link_to fa_icon('long-arrow-up'), '#top'
-        = link_to 'Back to Top', '#top'
+    .sidebar= render partial: 'layouts/sidebar'
+    .footer= render partial: 'layouts/footer'

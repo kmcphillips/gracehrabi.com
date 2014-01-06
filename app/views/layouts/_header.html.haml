@@ -1,0 +1,15 @@
+%a{name: 'top'}
+%h1= link_to 'Grace Hrabi', root_path
+
+%ul.nav
+  %li= link_to "News", news_path
+  %li= link_to "Shows", events_path
+  %li= link_to "Gallery", gallery_path
+  %li= link_to "Links", links_path
+  %li= link_to "Bio", bio_path
+  %li= link_to "Contact", contact_path
+  %li= link_to "Mailing List", mailing_list_index_path
+%ul.socialmedia
+  %li= link_to fa_icon('facebook'), "https://www.facebook.com/GraceHrabiMusic", title: "Grace Hrabi on Facebook"
+  %li= link_to fa_icon('twitter'), "https://twitter.com/GraceHrabi", title: "Grace Hrabi on Twitter"
+  %li= link_to fa_icon('rss'), "/rss.xml", title: "RSS"
