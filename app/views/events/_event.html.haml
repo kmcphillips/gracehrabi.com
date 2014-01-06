@@ -1,5 +1,5 @@
 .post
-  %h1= link_to event.title, event_path(event)
+  %h1= pjax_link_to event.title, event_path(event)
   %h3
     - if event.upcoming?
       On
@@ -10,7 +10,7 @@
     - else
       Today at
       = event.starts_at.to_formatted_s(:event_with_time)
-      
+
   .body
     = image_for event
     = auto_link(simple_format(event.description)).html_safe

@@ -7,7 +7,7 @@
         %li.multi_line
           %span.bold= event.starts_at.to_formatted_s(:news_without_time)
           %br
-          = link_to event.title, event_path(event)
+          = pjax_link_to event.title, event_path(event)
 
     %p
-      = link_to "View all shows", events_path
+      = pjax_link_to "View all shows", events_path

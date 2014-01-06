@@ -7,7 +7,7 @@
         %li.multi_line
           %span.bold= post.created_at.to_formatted_s(:news_without_time)
           %br
-          = link_to post.title, post_path(post)
+          = pjax_link_to post.title, post_path(post)
 
     %p
-      = link_to "View more", posts_path
+      = pjax_link_to "View more", posts_path
