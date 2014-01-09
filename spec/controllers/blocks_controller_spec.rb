@@ -3,29 +3,11 @@ require 'spec_helper'
 describe BlocksController do
   let(:block){ FactoryGirl.create(:block) }
 
-  describe "GET contact" do
-    it "assigns the requested block as @block" do
-      Block.stub(:find_by_label).with("contact") { block }
-      get "contact"
-      assigns(:block).should be(block)
-    end
-  end
-
   describe "GET bio" do
     it "assigns the requested block as @block" do
       Block.stub(:find_by_label).with("bio") { block }
       get "bio"
       assigns(:block).should be(block)
-    end
-  end
-
-  describe "GET links" do
-    it "assigns the requested block as @block" do
-      Block.stub(:find_by_label).with("links")
-      Link.should_receive(:in_order).and_return(["links"])
-      get "links"
-      assigns(:block).should be(nil)
-      assigns(:links).should == ["links"]
     end
   end
   

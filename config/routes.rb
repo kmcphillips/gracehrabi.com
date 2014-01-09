@@ -10,12 +10,12 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show'
   get 'rss.:format', to: 'posts#rss'
 
-  ['contact', 'links', 'bio', 'gallery'].each do |block|
-    get block, to: "blocks##{block}"
+  [:bio, :gallery].each do |block|
+    get block.to_s, to: "blocks##{block}"
   end
 
   resources :events, only: [:index, :show]
-  resources :mailing_list, only: [:index, :create, :show, :destroy]
+  resources :mailing_list, only: [:create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"

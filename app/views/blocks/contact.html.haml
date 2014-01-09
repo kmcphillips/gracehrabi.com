@@ -1,9 +1,0 @@
-.post
-  %h1 Contact Information
-  %h3 &nbsp;
-
-  = auto_link(simple_format(@block.body)).html_safe
-  %br
-  %p
-    Email: 
-    = obfuscated_mail_to SITE_EMAIL

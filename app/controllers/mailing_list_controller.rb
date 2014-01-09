@@ -1,9 +1,5 @@
 class MailingListController < ApplicationController
 
-  def index
-    @title = "Mailing list sign up"
-  end
-
   def create
     @contact = Contact.build_from_email(params[:email])
     
