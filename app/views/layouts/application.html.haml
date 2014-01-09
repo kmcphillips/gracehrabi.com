@@ -35,8 +35,8 @@
 
     .container
       .header= render partial: 'layouts/header'
-    .content
-      = render partial: 'shared/flashes'
-      #pjax-body= yield
-    .sidebar= render partial: 'layouts/sidebar'
-    .footer= render partial: 'layouts/footer'
+      .content
+        = render partial: 'shared/flashes'
+        #pjax-body= yield
+      .sidebar= render partial: 'layouts/sidebar'
+      .footer= render partial: 'layouts/footer'
