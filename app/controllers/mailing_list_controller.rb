@@ -5,9 +5,10 @@ class MailingListController < ApplicationController
     
     if @contact.save
       flash[:notice] = "You have been signed up! Thank you!"
-      redirect_to root_path
+      redirect_to :back
     else
-      render :index
+      flash[:error] = "There was an error adding you to the mailing list. #{ @contact.errors.full_messages.to_sentence }"
+      redirect_to :back
     end
   end
   

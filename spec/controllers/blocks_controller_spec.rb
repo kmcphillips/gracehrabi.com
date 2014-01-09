@@ -16,22 +16,6 @@ describe BlocksController do
       get :home
       response.should render_template(:home)
     end
-    
-    it "should get the objects for the different portlets" do
-      events = [double]
-      posts = [double]
-      images = [double]
-      Image.should_receive(:random_sample).and_return(images)
-      Event.should_receive(:current_and_upcoming).and_return(events)
-      events.should_receive(:limit).with(5).and_return(events)
-      Post.should_receive(:recent).and_return(posts)
-      
-      get :home
-      
-      assigns(:events).should eq(events)
-      assigns(:posts).should eq(posts)
-      assigns(:images).should eq(images)
-    end
   end
 
 end
