@@ -10,6 +10,6 @@
         %ul.past
           - events.each do |event|
             %li
-              %span.bold= event.starts_at.to_formatted_s(:news_without_time)
+              %span.bold= pjax_link_to event.starts_at.to_formatted_s(:news_without_time), event_path(event)
               = " : "
               = pjax_link_to event.title, event_path(event)

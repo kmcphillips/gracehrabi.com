@@ -14,7 +14,11 @@ GracehrabiCom::Application.routes.draw do
     get block.to_s, to: "blocks##{block}"
   end
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    collection do
+      get :archive
+    end
+  end
   resources :mailing_list, only: [:create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 

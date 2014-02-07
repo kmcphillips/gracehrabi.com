@@ -13,4 +13,8 @@
     - @upcoming.each do |event|
       = render :partial => "event", object: event
 
-  = render :partial => "past"
+  - if @upcoming.blank? && @current.blank?
+    %h2 No upcoming shows
+
+  %p
+    = pjax_link_to "Show archive", archive_events_path
