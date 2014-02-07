@@ -1,5 +1,5 @@
 class Testimonial < ActiveRecord::Base
   validates :body, presence: true
 
-  scope :active, -> { where({}) } # TODO
+  scope :active, -> { where(active: true) }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109045308) do
+ActiveRecord::Schema.define(version: 20140207012032) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -138,7 +138,10 @@ ActiveRecord::Schema.define(version: 20140109045308) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",     default: true
   end
+
+  add_index "testimonials", ["active"], name: "index_testimonials_on_active", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                default: "", null: false
