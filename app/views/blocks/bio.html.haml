@@ -1,23 +1,26 @@
-.post
-  %h1 About Grace
-  %h3 &nbsp;
+= sidebar_sections :events, :news
 
-  = simple_format @block.body
+.content
+  .post
+    %h1 About Grace
+    %h3 &nbsp;
 
-  = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
+    = simple_format @block.body
 
-  = link_to "Site", "http://github.com/kmcphillips/gracehrabi.com"
-  by
-  = link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca'
-  and
-  = link_to 'Lisa Rae Swan', 'http://lisaraeswan.com/'
+    = obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi")
 
-.post
-  %h1 Collaborators
-  %h3 &nbsp;
+    = link_to "Site", "http://github.com/kmcphillips/gracehrabi.com"
+    by
+    = link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca'
+    and
+    = link_to 'Lisa Rae Swan', 'http://lisaraeswan.com/'
 
-  %ul.links
-    - @links.each do |link|
-      %li
-        %p.link= link_to link.display, link.url
-        = simple_format(link.description) unless link.description.blank?
+  .post
+    %h1 Collaborators
+    %h3 &nbsp;
+
+    %ul.links
+      - @links.each do |link|
+        %li
+          %p.link= link_to link.display, link.url
+          = simple_format(link.description) unless link.description.blank?

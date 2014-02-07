@@ -1,1 +1,4 @@
-= render :partial => "post", :object => @post
+= sidebar_sections :events, :gallery
+
+.content
+  = render :partial => "post", :object => @post

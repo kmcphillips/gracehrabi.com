@@ -1,4 +1,7 @@
-- @posts.each do |post|
-  = render :partial => "post", :object => post
+= sidebar_sections :events, :gallery
 
-.post_pagination= paginate(@posts)
+.content
+  - @posts.each do |post|
+    = render :partial => "post", :object => post
+
+  .post_pagination= paginate(@posts)

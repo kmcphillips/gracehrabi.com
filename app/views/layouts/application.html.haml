@@ -35,9 +35,6 @@
 
     .container
       .header= render partial: 'layouts/header'
-      .content  
-        = render partial: 'shared/flashes'
-        #pjax-body= yield
-      - if content_for?(:sidebar)
-        .sidebar= yield(:sidebar)
+      = # render partial: 'shared/flashes'  # Removed for now
+      #pjax-body= yield
       .footer= render partial: 'layouts/footer'

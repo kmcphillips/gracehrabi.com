@@ -1,4 +1,7 @@
-= render :partial => "event", :object => @event
+= sidebar_sections :gallery, :news
 
-%p
-  = pjax_link_to "Back to all shows", events_path
+.content
+  = render :partial => "event", :object => @event
+
+  %p
+    = pjax_link_to "Back to all shows", events_path

@@ -1,13 +1,16 @@
-.post= render partial: "calendar", object: @calendar
+= sidebar_sections :gallery, :news
 
-- if @current.any?
-  %h2.event Happening Today
-  - @current.each do |event|
-    = render :partial => "event", object: event
+.content
+  .post= render partial: "calendar", object: @calendar
 
-- if @upcoming.any?
-  %h2.event Upcoming Shows
-  - @upcoming.each do |event|
-    = render :partial => "event", object: event
+  - if @current.any?
+    %h2.event Happening Today
+    - @current.each do |event|
+      = render :partial => "event", object: event
 
-= render :partial => "past"
+  - if @upcoming.any?
+    %h2.event Upcoming Shows
+    - @upcoming.each do |event|
+      = render :partial => "event", object: event
+
+  = render :partial => "past"
