@@ -1,0 +1,6 @@
+%h2 Gallery
+
+- @sidebar_images.each_slice(3) do |images|
+  %div
+    - images.each do |image|
+      %img

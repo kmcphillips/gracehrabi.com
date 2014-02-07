@@ -4,18 +4,20 @@ module SidebarHelper
     html = []
 
     sections.each do |section|
-      html << case section.to_sym
+      case section.to_sym
       when :events
-        # TODO
+        @sidebar_events = Event.current_and_upcoming.limit(5)
       when :news
-        # TODO
+        @sidebar_posts = Post.recent
       when :gallery
-        # TODO
+        @sidebar_images = Image.random_sample
       when :testimonials
-        # TODO
+        @sidebar_testimonials = Testimonial.active
       else
         raise SectionError, "Unknown section #{ section }"
       end
+
+      html << render(partial: "/shared/sidebar/#{ section }")
     end
 
     content_for(:sidebar){ html.join('').html_safe }

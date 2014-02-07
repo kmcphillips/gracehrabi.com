@@ -1,0 +1,9 @@
+%h2 Testimonials
+
+- @sidebar_testimonials.each do |testy|
+  %div
+    %p= testy.body
+    - if testy.name.present?
+      %p
+        &mdash;
+        = testy.name

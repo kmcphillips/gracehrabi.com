@@ -1,0 +1,10 @@
+%h2 News
+
+- @sidebar_posts.each do |post|
+  %div
+    = thumbnail_link_for post, post_path(post)
+    %h5= pjax_link_to post.created_at.to_s(:news_without_time), post_path(post)
+    %h4= pjax_link_to post.title, post_path(post)
+
+%div
+  = pjax_link_to "All News", posts_path

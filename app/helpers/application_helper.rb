@@ -112,6 +112,12 @@ module ApplicationHelper
     end
   end
 
+  def thumbnail_link_for(obj, path)
+    if obj.respond_to?(:image) && obj.image.exists?
+      content_tag(:div, link_to(image_tag(obj.thumb, class: "", alt: ""), path, class: "", title: ""), class: "")
+    end
+  end
+
   def admin?
     params[:controller] =~ /^admin\//
   end

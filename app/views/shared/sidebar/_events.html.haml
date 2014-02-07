@@ -1,0 +1,10 @@
+%h2 News
+
+- @sidebar_events.each do |event|
+  %div
+    = thumbnail_link_for event, event_path(event)
+    %h5= pjax_link_to event.starts_at.to_formatted_s(:event_with_time), event_path(event)
+    %h4= pjax_link_to event.title, event_path(event)
+
+%div
+  = pjax_link_to "All Events", events_path
