@@ -7,4 +7,4 @@
     %h4= pjax_link_to event.title, event_path(event)
 
 %div
-  = pjax_link_to "All Events", events_path
+  = pjax_link_to "#{ fa_icon('rss') } More Shows".html_safe, events_path, class: 'button'
