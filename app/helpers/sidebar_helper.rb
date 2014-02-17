@@ -20,7 +20,7 @@ module SidebarHelper
       html << render(partial: "/shared/sidebar/#{ section }")
     end
 
-    content_tag(:div, html.join('').html_safe, class: 'sidebar')
+    content_tag(:div, html.join(content_tag(:hr)).html_safe, class: 'sidebar')
   end
 
   class SectionError < StandardError ; end
