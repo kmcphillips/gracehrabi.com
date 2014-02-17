@@ -7,7 +7,7 @@ class BlocksController < ApplicationController
   def about
   end
 
-  def bio
+  def about
     @links = Link.in_order
   end
 

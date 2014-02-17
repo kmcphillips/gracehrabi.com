@@ -6,7 +6,7 @@ begin
     Block.destroy_all
     puts "Creating Blocks"
 
-    {"contact" => "/contact", "bio" => "/bio"}.each_pair do |k, v|
+    {"contact" => "/contact", "about" => "/about"}.each_pair do |k, v|
       b = Block.new :body => ""
       b.label = k
       b.path = v
