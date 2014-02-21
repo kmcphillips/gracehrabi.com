@@ -12,6 +12,7 @@ class BlocksController < ApplicationController
   end
 
   def gallery
+    @images = Image.all_active.in_order
   end
 
   protected

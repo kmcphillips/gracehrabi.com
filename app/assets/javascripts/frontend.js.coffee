@@ -13,3 +13,16 @@ $ ->
     user: true
     stats: false
     volume: 80
+
+  window.onReadyAndPjax()
+  $(document).on 'pjax:end', window.onReadyAndPjax
+
+
+window.onReadyAndPjax = ->
+  console.log "called setup"
+  $("[data-fancybox-gallery]").fancybox
+    helpers:
+      title:
+        type: 'outside'
+      overlay:
+        speedOut: 0
