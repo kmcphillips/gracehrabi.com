@@ -20,7 +20,11 @@ $ ->
 
 window.onReadyAndPjax = ->
   console.log "called setup"
-  $("[data-fancybox-gallery]").fancybox
+  $(".fancybox").fancybox
+    nextEasing: 'easeInOutQuart'
+    prevEasing: 'easeInOutQuart'
+    nextSpeed: 150
+    prevSpeed: 150
     helpers:
       title:
         type: 'outside'
