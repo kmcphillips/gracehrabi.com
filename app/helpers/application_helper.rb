@@ -106,9 +106,9 @@ module ApplicationHelper
     render partial: "/shared/flash_error_messages", object: object if object
   end
 
-  def image_for(obj)
+  def image_for(obj, title='')
     if obj.respond_to?(:image) && obj.image.exists?
-      content_tag(:div, link_to(image_tag(obj.inline, class: "inline_image", alt: ""), obj.full, rel: "inlinePrettyPhoto[gallery]", class: "inline_image", title: ""), class: "image")
+      link_to(image_tag(obj.inline, class: "", alt: title), obj.full, class: "fancybox", title: title)
     end
   end
 

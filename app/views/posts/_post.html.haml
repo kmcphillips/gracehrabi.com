@@ -3,6 +3,6 @@
   %h3= (post.created_at || Time.now).to_s(:news_without_time)
 
   .body
-    = image_for post
+    = image_for post, post.title
     = auto_link(simple_format(post.body)).html_safe
     .clear_left

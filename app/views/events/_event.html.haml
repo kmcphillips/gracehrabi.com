@@ -12,6 +12,6 @@
       = event.starts_at.to_formatted_s(:event_with_time)
 
   .body
-    = image_for event
+    = image_for event, event.title
     = auto_link(simple_format(event.description)).html_safe
     .clear_left
