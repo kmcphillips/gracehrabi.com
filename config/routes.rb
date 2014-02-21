@@ -20,6 +20,7 @@ GracehrabiCom::Application.routes.draw do
       get :archive
     end
   end
+  get 'events/calendar/:year/:month', to: 'events#index'
   resources :mailing_list, only: [:create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 
