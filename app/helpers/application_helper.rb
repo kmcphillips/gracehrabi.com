@@ -137,25 +137,6 @@ module ApplicationHelper
     end.compact
   end
 
-  def row_class
-    cycle("odd", "even")
-  end
-
-
-  ## Overridden paths
-  def post_path(post)
-    "/news/#{post.permalink}"
-  end
-
-  def posts_path
-    "/"
-  end
-
-  def admin_gallery_path(gallery_id, opts={})
-    gallery_id = gallery_id.path if gallery_id.is_a?(Gallery)
-    "/admin/galleries/#{gallery_id}#{ opts[:anchor].present? ? "##{ opts[:anchor] }" : ""}"
-  end
-
   def pjax_link_to(name = nil, options = nil, html_options = nil, &block)
     html_options ||= {}
     html_options['data-pjax-link'] = true

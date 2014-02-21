@@ -6,8 +6,8 @@ GracehrabiCom::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  get 'news', to: 'posts#index'
-  get 'news/:id', to: 'posts#show'
+  get 'news', to: 'posts#index', as: :news_index
+  get 'news/:id', to: 'posts#show', as: :news
   get 'rss.:format', to: 'posts#rss'
 
   [:about, :gallery].each do |block|
