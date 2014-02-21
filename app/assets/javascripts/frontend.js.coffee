@@ -19,7 +19,6 @@ $ ->
 
 
 window.onReadyAndPjax = ->
-  console.log "called setup"
   $(".fancybox").fancybox
     nextEasing: 'easeInOutQuart'
     prevEasing: 'easeInOutQuart'
@@ -32,3 +31,11 @@ window.onReadyAndPjax = ->
         speedOut: 0
         css:
           background: 'rgba(238,238,238,0.25)'
+
+  $(".calendar-event-icon").qtip
+    position:
+      my: 'top center'
+    style:
+      classes: 'qtip-light qtip-shadow'
+    hide:
+      event: 'unfocus click mouseleave'

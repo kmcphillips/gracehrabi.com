@@ -12,10 +12,8 @@
     %tr
       - row.each do |cell|
         %td{class: cell.css_class }
+          %span.date= cell.date
           - if cell.events.any?
+            %br
             - cell.events.each_with_index do |event, index|
-              - if index != 0
-                %br
-              = pjax_link_to truncate(event.title, length: (cell.events.size > 1 ? 16 : 34), omission: "..."), event_path(event)
-          - else
-            %span.date= cell.date
+              = pjax_link_to fa_icon('star'), event_path(event), class: 'calendar-event-icon', title: "#{ event.title } / #{ event.starts_at.to_s(:time) }"

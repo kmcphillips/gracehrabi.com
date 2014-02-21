@@ -137,6 +137,8 @@ GEM
     jquery-easing-rails (0.0.1)
       railties (>= 3.1.0)
     jquery-migrate-rails (1.2.1)
+    jquery-qtip2-rails (0.5.0)
+      railties (>= 3.1.0)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -317,6 +319,7 @@ DEPENDENCIES
   haml-rails
   jquery-easing-rails
   jquery-migrate-rails
+  jquery-qtip2-rails
   jquery-rails
   jquery-ui-rails
   kaminari
