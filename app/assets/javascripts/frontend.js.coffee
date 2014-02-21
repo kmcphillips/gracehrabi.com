@@ -27,6 +27,8 @@ window.onReadyAndPjax = ->
     prevSpeed: 150
     helpers:
       title:
-        type: 'outside'
+        type: 'inside'
       overlay:
         speedOut: 0
+        css:
+          background: 'rgba(238,238,238,0.25)'
