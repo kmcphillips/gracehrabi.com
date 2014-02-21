@@ -17,7 +17,7 @@ class Image < ActiveRecord::Base
   scope :all_inactive, -> { where(active: false) }
   scope :in_order, -> { order("sort_order ASC") }
   scope :most_recently_updated, -> { order("updated_at DESC").limit(1) }
-  scope :random_sample, -> { where(active: true).order("RAND()").limit(9) }
+  scope :random_sample, -> { where(active: true).order("RAND()").limit(15) }
 
   AttachedImage::SIZES.each_key do |key|
     define_method key do
