@@ -1,6 +1,11 @@
 $ ->
   $(document).pjax('a[data-pjax-link]', '#pjax-body')
+  $(document).on 'pjax:end', window.onReadyAndPjax
+  window.onReadyAndPjax()
+  window.initAudioPlayer()
 
+
+window.initAudioPlayer = ->
   $.stratus
     auto_play: false
     download: false
@@ -13,10 +18,6 @@ $ ->
     user: true
     stats: false
     volume: 80
-
-  window.onReadyAndPjax()
-  $(document).on 'pjax:end', window.onReadyAndPjax
-
 
 window.onReadyAndPjax = ->
   $(".fancybox").fancybox
@@ -39,3 +40,5 @@ window.onReadyAndPjax = ->
       classes: 'qtip-light qtip-shadow'
     hide:
       event: 'unfocus click mouseleave'
+
+  $("div.header a").click -> $(@).blur()
