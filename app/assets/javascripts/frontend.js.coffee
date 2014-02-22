@@ -12,7 +12,7 @@ window.initAudioPlayer = ->
     links: 'http://soundcloud.com/grace-hrabi'
     random: false
     align: 'bottom'
-    animate: 'slide'
+    animate: 'fade'
     buying: true
     color: 'F60' # SVG
     user: true
