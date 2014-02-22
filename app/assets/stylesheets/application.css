@@ -19,3 +19,12 @@
 a.calendar-event-icon {
   font-size: 1.8em;
 }
+
+.audio-under {
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: rgb(245,245,245);
+  height: 30px;
+}
