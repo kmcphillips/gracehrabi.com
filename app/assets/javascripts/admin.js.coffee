@@ -55,7 +55,9 @@ window.convert_datetime_select = (id) ->
             text = "PM 12"
           else
             text = "PM " + (i - 12)
-          $(select).append "<option value='" + i + "' " + ((if selected is i then "selected='selected'" else "")) + ">" + text + "</option>"
+
+          isSelected = (selected == "00#{ i }".slice(-2))
+          $(select).append "<option value='" + i + "' " + ((if isSelected then "selected='selected'" else "")) + ">" + text + "</option>"
           i++
       when 4 # minute
         $(select).find("option").each ->
