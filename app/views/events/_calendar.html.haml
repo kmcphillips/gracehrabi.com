@@ -15,5 +15,6 @@
           %span.date= cell.date
           - if cell.events.any?
             %br
-            - cell.events.each_with_index do |event, index|
-              = pjax_link_to fa_icon('star'), event_path(event), class: 'calendar-event-icon', title: "#{ event.title } / #{ event.starts_at.to_s(:time) }"
+            .events
+              - cell.events.each_with_index do |event, index|
+                = pjax_link_to fa_icon('star'), event_path(event), class: 'calendar-event-icon', title: "#{ event.title } / #{ event.starts_at.to_s(:time) }"

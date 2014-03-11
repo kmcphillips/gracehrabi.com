@@ -316,8 +316,12 @@ table.calendar tr td.next{
 }
 table.calendar tr td{ 
   padding: 5px;
-  vertical-align: top;    
-  border: 1px solid rgba(255,255,255,0.2);    
+  vertical-align: top;
+  border: 1px solid rgba(255,255,255,0.2);
+  height: 50px;
+}
+table.calendar tr td div.events{ 
+  text-align: center;
 }
 table.calendar tr td a{ 
   color: rgba(232,221,203,1); 
