@@ -14,7 +14,13 @@ class MailingListController < ApplicationController
   
   def show
     @contact = Contact.find_by_token(params[:id])
-    @title = "Unsubscribe"
+
+    if @contact
+      @title = "Unsubscribe"
+    else
+      flash[:error] = "Could not find email to unsubscribe."
+      redirect_to root_path
+    end
   end
   
   def destroy

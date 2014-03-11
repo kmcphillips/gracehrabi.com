@@ -1,11 +1,13 @@
-.post
-  %h1 
-    Unsubscribe
-    = @contact.email
-  %h3 &nbsp;
+.content
+  .post
+    %h1 
+      Unsubscribe
+      = @contact.email
+    %h3 &nbsp;
 
-  %p
-    Are you sure you want to unsubscribe from the mailing list?
+    .body
+      %p
+        Are you sure you want to unsubscribe from the mailing list?
 
-  %br
-  = button_to "Unsubscribe", mailing_list_path(@contact.token), method: :delete
+      %br
+      = button_to "Unsubscribe", mailing_list_path(@contact.token), method: :delete
