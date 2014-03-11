@@ -2,22 +2,7 @@ $ ->
   $(document).pjax('a[data-pjax-link]', '#pjax-body')
   $(document).on 'pjax:end', window.onReadyAndPjax
   window.onReadyAndPjax()
-  window.initAudioPlayer()
 
-
-window.initAudioPlayer = ->
-  $.stratus
-    auto_play: false
-    download: false
-    links: 'http://soundcloud.com/grace-hrabi'
-    random: false
-    align: 'bottom'
-    animate: 'fade'
-    buying: true
-    color: 'F60' # SVG
-    user: true
-    stats: false
-    volume: 80
 
 window.onReadyAndPjax = ->
   $(".fancybox").fancybox

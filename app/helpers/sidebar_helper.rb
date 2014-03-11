@@ -13,6 +13,8 @@ module SidebarHelper
         @sidebar_images = Image.random_sample
       when :testimonials
         @sidebar_testimonials = Testimonial.active
+      when :audio_player
+        # Nothing
       else
         raise SectionError, "Unknown section #{ section }"
       end

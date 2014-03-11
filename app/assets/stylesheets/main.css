@@ -227,7 +227,7 @@ hr {
   z-index: 9999px;
   position: fixed;
   width: 920px;
-  bottom: 30px;
+  bottom: 0px;
   background: rgba(30,30,30,0.90);
   color: #fff;
   font-family: 'Quicksand', sans-serif;
