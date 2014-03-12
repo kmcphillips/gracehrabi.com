@@ -12,7 +12,7 @@ module SidebarHelper
       when :gallery
         @sidebar_images = Image.random_sample
       when :testimonials
-        @sidebar_testimonials = Testimonial.active
+        @sidebar_testimonial = Testimonial.random
       when :audio_player
         # Nothing
       else

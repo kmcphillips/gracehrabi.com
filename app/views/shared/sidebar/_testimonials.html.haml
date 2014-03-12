@@ -1,11 +1,11 @@
 
-- @sidebar_testimonials.each do |testy|
+- if @sidebar_testimonial
   .testimonial
     %p
       &#8220;
-      = testy.body
+      = @sidebar_testimonial.body
       &#8221;
-      - if testy.name.present?
+      - if @sidebar_testimonial.name.present?
         %p.source
           &mdash;
-          = testy.name
+          = @sidebar_testimonial.name
