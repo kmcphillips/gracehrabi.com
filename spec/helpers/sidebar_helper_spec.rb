@@ -33,10 +33,10 @@ describe SidebarHelper do
     end
 
     it "should render :testimonials" do
-      expect(Testimonial).to receive(:active).and_return(results)
+      expect(Testimonial).to receive(:random).and_return(results)
       expect(helper).to receive(:render).with(partial: '/shared/sidebar/testimonials')
       helper.sidebar_sections(:testimonials)
-      expect(helper.instance_variable_get('@sidebar_testimonials')).to eq(results)
+      expect(helper.instance_variable_get('@sidebar_testimonial')).to eq(results)
     end
 
     it "should render multiple" do
