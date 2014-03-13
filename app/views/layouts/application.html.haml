@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     = javascript_include_tag 'application'
-    = javascript_include_tag 'http://stratus.sc/stratus.js'
     = yield :js
 
     = csrf_meta_tag
@@ -26,6 +25,7 @@
     = render partial: "shared/analytics"
 
   %body
+    #spinner Loading
     - unless Rails.env.production?
       #development_notice
         = Rails.env.humanize

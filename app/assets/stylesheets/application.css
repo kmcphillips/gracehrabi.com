@@ -16,6 +16,19 @@
   font-weight: bold;
 }
 
+#spinner {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  padding: 8px;
+  margin: 8px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  display: none;
+  z-index: 999;
+}
+
 a.calendar-event-icon {
   font-size: 1.8em;
 }

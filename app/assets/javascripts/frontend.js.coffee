@@ -1,8 +1,13 @@
 $ ->
-  $(document).pjax('a[data-pjax-link]', '#pjax-body')
+  $(document).pjax('a[data-pjax-link]', '#pjax-body', {timeout: 5000})
   $(document).on 'pjax:end', window.onReadyAndPjax
   window.onReadyAndPjax()
 
+  $(document).on 'pjax:send', ->
+    $('#spinner').show()
+
+  $(document).on 'pjax:complete', ->
+    $('#spinner').hide()
 
 window.onReadyAndPjax = ->
   $(".fancybox").fancybox
