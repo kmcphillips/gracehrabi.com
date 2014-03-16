@@ -15,6 +15,9 @@ class BlocksController < ApplicationController
     @images = Image.all_active.in_order
   end
 
+  def music
+  end
+
   protected
 
   def load_block
