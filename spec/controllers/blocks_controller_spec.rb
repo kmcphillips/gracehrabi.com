@@ -18,6 +18,13 @@ describe BlocksController do
       expect(response).to render_template(:home)
     end
   end
+  
+  describe "GET music" do
+    it "should render the template" do
+      get :music
+      expect(response).to render_template(:music)
+    end
+  end
 
   describe "GET gallery" do
     it "should should get the gallery" do

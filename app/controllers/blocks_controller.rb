@@ -5,9 +5,6 @@ class BlocksController < ApplicationController
   end
 
   def about
-  end
-
-  def about
     @links = Link.in_order
   end
 
