@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.0.4'
 gem 'mysql2'
 
 gem 'capistrano'
@@ -29,7 +29,7 @@ gem 'jquery-easing-rails'
 gem 'jquery-qtip2-rails'
 gem 'pjax_rails'
 gem 'font-awesome-rails'
-gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'quiet_assets'
