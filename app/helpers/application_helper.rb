@@ -88,9 +88,11 @@ module ApplicationHelper
         end.join(" ")
       end
 
-      src << content_tag(:tr) do
-        content_tag(:th, colspan: column_titles.size) do
-          paginate(collection)
+      if collection.respond_to?(:total_pages) && collection.total_pages > 1
+        src << content_tag(:tr) do
+          content_tag(:th, colspan: column_titles.size) do
+            paginate(collection)
+          end
         end
       end
 
