@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.order("created_at DESC").page(params[:page])
+    @posts = Post.order("created_at DESC").per_page_kaminari(params[:page])
   end
 
   def new

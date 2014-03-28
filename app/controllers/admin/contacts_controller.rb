@@ -8,7 +8,7 @@ class Admin::ContactsController < ApplicationController
     
     @contacts = Contact.sorted
     @contacts = @contacts.search(params[:search]) if params[:search].present?
-    @contacts = @contacts.page(params[:page])
+    @contacts = @contacts.per_page_kaminari(params[:page])
   end
   
   def create

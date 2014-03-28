@@ -2,7 +2,7 @@ class Admin::EventsController < ApplicationController
   before_action :authenticate_user!, :set_objects
 
   def index
-    @events = Event.order("starts_at DESC").page(params[:page])
+    @events = Event.order("starts_at DESC").per_page_kaminari(params[:page])
   end
 
   def new

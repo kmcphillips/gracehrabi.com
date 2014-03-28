@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.order("created_at DESC").page(params[:page])
+    @posts = Post.order("created_at DESC").per_page_kaminari(params[:page])
     @title = "News"
   end
 
