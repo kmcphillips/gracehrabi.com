@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   end
 
   def archive
-    @past = Event.past.order("starts_at DESC")
+    @past = Event.past.sorted
   end
 
 end

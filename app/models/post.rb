@@ -6,7 +6,8 @@ class Post < ActiveRecord::Base
 
   include AttachedImage
 
-  scope :recent, -> { order("created_at DESC").limit(3) }
+  scope :recent, -> { sorted.limit(3) }
+  scope :sorted, -> { order("created_at DESC") }
 
   def sort_by
     created_at

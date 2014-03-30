@@ -22,7 +22,7 @@ describe EventsController do
 
   describe "GET archive" do
     it "assigns all past events as @past" do
-      Event.stub(past: double(:past, order: "past"))
+      Event.stub(past: double(:past, sorted: "past"))
       get :archive
       assigns(:past).should eq("past")
     end

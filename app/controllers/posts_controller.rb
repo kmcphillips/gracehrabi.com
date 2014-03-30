@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.order("created_at DESC").page(params[:page])
+    @posts = Post.sorted.page(params[:page])
     @title = "News"
   end
 
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def rss
-    @items = (Post.order("created_at DESC") + Event.order("starts_at DESC")).sort{|x,y| x.sort_by <=> y.sort_by}
+    @items = (Post.sorted + Event.sorted).sort{|x,y| x.sort_by <=> y.sort_by}
     
     respond_to do |wants|
       wants.xml do

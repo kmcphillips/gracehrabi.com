@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
     publicized.where("events.starts_at BETWEEN ? AND ?", t, t + distance).order("starts_at ASC")
   }
   scope :on_date, ->(date) { where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
+  scope :sorted, -> { order("created_at DESC") }
 
   def sort_by; starts_at; end
 
