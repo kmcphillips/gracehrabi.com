@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  respond_to :xml, only: [:rss]
+
   def index
     @posts = Post.sorted.page(params[:page])
     @title = "News"
@@ -12,11 +14,6 @@ class PostsController < ApplicationController
 
   def rss
     @items = (Post.sorted + Event.sorted).sort{|x,y| x.sort_by <=> y.sort_by}
-    
-    respond_to do |wants|
-      wants.xml do
-        render :layout => false
-      end
-    end
+    respond_with @items
   end
 end
