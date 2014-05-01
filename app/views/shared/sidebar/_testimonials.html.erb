@@ -1,0 +1,15 @@
+<% if @sidebar_testimonial %>
+  <div class="testimonial">
+    <p>
+      &#8220;
+      <%= @sidebar_testimonial.body %>
+      &#8221;
+      <% if @sidebar_testimonial.name.present? %>
+        <p class="source">
+          —
+          <%= @sidebar_testimonial.name %>
+        </p>
+      <% end %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<%= sidebar_sections :audio_player %>
+
+<div class="content">
+  <div class="post">
+    <h1>Music</h1>
+    <h3>&nbsp;</h3>
+    <img src="http://placehold.it/120x120"/>
+    <p>
+      Album cover.
+      <br/>
+      <%= link_to "Link to order now from the store", "http://shop.gracehrabi.com" %>
+      <br/>
+      Description of the album.
+      <ol>
+        <% 10.times do |i| %>
+          <li>
+            <%= "Track #{ i }" %>
+          </li>
+        <% end %>
+      </ol>
+      <br/>
+    </p>
+  </div>
+</div>

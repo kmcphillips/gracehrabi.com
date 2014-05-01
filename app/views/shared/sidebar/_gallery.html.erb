@@ -1,0 +1,14 @@
+<h2>Gallery</h2>
+
+<% @sidebar_images.in_groups_of(5) do |group| %>
+  <div class="gallery-row-sidebar">
+    <% group.each do |image| %>
+      <% if image %>
+        <%= link_to image_tag(image.thumb, alt: image.label), image.full, title: image.label, class: 'fancybox image-thumb-sidebar', data: {:'fancybox-group' => 'gallery-sidebar'} %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<div>
+  <%= pjax_link_to "#{ fa_icon('camera-retro') } Image Gallery".html_safe, gallery_path, class: 'button' %>
+</div>

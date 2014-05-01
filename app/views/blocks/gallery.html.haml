@@ -1,8 +1,0 @@
-= sidebar_sections :audio_player, :events, :news
-
-.content
-  - @images.in_groups_of(3) do |group|
-    .gallery-row
-      - group.each do |image|
-        - if image
-          = link_to image_tag(image.thumb, alt: image.label), image.full, title: image.label, class: 'fancybox image-thumb', data: {:'fancybox-group' => 'gallery'}
