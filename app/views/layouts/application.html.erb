@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="keywords" content="<%= META[:keywords] %>">
     <meta name="description" content="<%= META[:description] %>">
+    <%= render partial: 'shared/facebook_meta' %>
     <%= javascript_include_tag 'application' %>
     <%= yield :js %>
     <%= csrf_meta_tag %>
