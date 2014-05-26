@@ -122,7 +122,7 @@ module ApplicationHelper
 
   def meta_from_settings
     Settings.meta.map do |name, content|
-      content_tag(:meta, content, name: name)
+      content_tag(:meta, nil, name: name, content: content)
     end.join("\n").html_safe
   end
 
