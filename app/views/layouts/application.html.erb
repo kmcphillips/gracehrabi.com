@@ -13,8 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="<%= META[:keywords] %>">
-    <meta name="description" content="<%= META[:description] %>">
+    <%= meta_from_settings %>
     <%= render partial: 'shared/facebook_meta' %>
     <%= javascript_include_tag 'application' %>
     <%= yield :js %>
@@ -83,8 +82,8 @@
           <%= fa_icon 'phone' %>
           (613) 897-9876
           <br/>
-          <%= obfuscated_mail_to(SITE_EMAIL, fa_icon('envelope')) %>
-          <%= obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi") %>
+          <%= obfuscated_mail_to(Settings.site_email, fa_icon('envelope')) %>
+          <%= obfuscated_mail_to(Settings.site_email, "Grace Hrabi") %>
         </div>
         <div class="newsletter">
           Bleep blorp something about newsletter

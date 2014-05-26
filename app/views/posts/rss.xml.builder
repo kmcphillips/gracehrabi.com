@@ -1,8 +1,8 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title PAGE_TITLE
-    xml.description PAGE_SUB_TITLE
+    xml.title Settings.page_title
+    xml.description Settings.page_sub_title
     xml.link "http://gracehrabi.com"
 
     for item in @items

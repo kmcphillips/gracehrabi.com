@@ -15,6 +15,6 @@ module MailerCommon
   protected
 
   def site_email
-    SITE_EMAIL
+    Settings.site_email
   end
 end

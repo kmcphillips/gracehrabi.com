@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def page_title
-    prefix = PAGE_TITLE
+    prefix = "Grace Hrabi"
     prefix = "#{prefix} - Admin" if params[:controller] =~ /^admin\//
 
     if @title
@@ -118,6 +118,12 @@ module ApplicationHelper
     if obj.respond_to?(:image) && obj.image.exists?
       content_tag(:div, link_to(image_tag(obj.thumb, class: "", alt: ""), path, class: "", title: ""), class: "")
     end
+  end
+
+  def meta_from_settings
+    Settings.meta.map do |name, content|
+      content_tag(:meta, content, name: name)
+    end.join("\n").html_safe
   end
 
   def admin?

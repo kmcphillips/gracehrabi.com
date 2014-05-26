@@ -5,7 +5,7 @@
     <h1>About Grace</h1>
     <h3>&nbsp;</h3>
     <%= simple_format @block.body %>
-    <%= obfuscated_mail_to(SITE_EMAIL, "Grace Hrabi") %>
+    <%= obfuscated_mail_to(Settings.site_email, "Grace Hrabi") %>
     <%= link_to "Site", "http://github.com/kmcphillips/gracehrabi.com" %>
     by
     <%= link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca' %>
