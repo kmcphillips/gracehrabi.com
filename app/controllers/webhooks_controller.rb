@@ -2,9 +2,10 @@ class WebhooksController < ApplicationController
   protect_from_forgery except: :create
 
   def create
-    @webhook = Webhook.new body: webhook_data
-
-    Rails.logger.error("Failed to save webhook! #{ @webhook.errors.full_messages }") unless @webhook.save
+    if webhook_data
+      @webhook = Webhook.new body: webhook_data
+      Rails.logger.error("Failed to save webhook! #{ @webhook.errors.full_messages }") unless @webhook.save
+    end
 
     head(:ok)
   end
@@ -24,6 +25,7 @@ class WebhooksController < ApplicationController
         Rails.logger.error("Failed to parse and validate webhook!")
         Rails.logger.error("  params: #{ params }")
         Rails.logger.error("  request_data: #{ request_data }")
+        Rails.logger.error("  HTTP_X_SHOPIFY_HMAC_SHA256: #{ request.env["HTTP_X_SHOPIFY_HMAC_SHA256"] }")
 
         nil
       end
