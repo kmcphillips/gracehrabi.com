@@ -1,6 +1,9 @@
 class EventCalendar
   attr_reader :date
 
+  EARLIEST_DATE = Date.parse("2008-08-01")
+  LATEST_DATE = Date.today + 3.years
+
   def initialize(month=nil, year=nil)
     month = Date.today.month if month.blank?
     year = Date.today.year if year.blank?
@@ -17,11 +20,11 @@ class EventCalendar
   end
   
   def next_date
-    @date + 1.month
+    @date + 1.month if @date < LATEST_DATE
   end
   
   def previous_date
-    @date - 1.month
+    @date - 1.month if @date > EARLIEST_DATE
   end
 
   def weekdays

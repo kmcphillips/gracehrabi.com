@@ -2,6 +2,8 @@ require "spec_helper"
 
 describe EventCalendar do
   let(:calendar){ EventCalendar.new("4", 2013) }
+  let(:early_calendar){ EventCalendar.new("4", 2008) }
+  let(:late_calendar){ EventCalendar.new("4", 2019) }
   
   describe "#month" do
     it "should lookup by name" do
@@ -19,11 +21,21 @@ describe EventCalendar do
     it "should return a date object for the next month" do
       calendar.next_date.should eq(Date.new(2013, 5, 1))
     end
+
+    it "should return nil for a very far date" do
+      expect(late_calendar.next_date).to be_nil
+      expect(late_calendar.previous_date).to_not be_nil
+    end
   end
   
   describe "#previous_date" do
     it "should return a date object for the previous month" do
       calendar.previous_date.should eq(Date.new(2013, 3, 1))
+    end
+
+    it "should return nil for a very old date" do
+      expect(early_calendar.previous_date).to be_nil
+      expect(early_calendar.next_date).to_not be_nil
     end
   end
   

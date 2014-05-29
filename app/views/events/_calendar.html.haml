@@ -1,10 +1,14 @@
 %table.calendar
   %tr
-    %td.previous{colspan: 2}= link_to "< Back", events_path(month: calendar.previous_date.month, year: calendar.previous_date.year)
+    %td.previous{colspan: 2}
+      - if calendar.previous_date
+        = link_to "< Back", events_path(month: calendar.previous_date.month, year: calendar.previous_date.year)
     %td.month{colspan: 3}
       = calendar.month
       = calendar.year
-    %td.next{colspan: 2}= link_to "Next >", events_path(month: calendar.next_date.month, year: calendar.next_date.year)
+    %td.next{colspan: 2}
+      - if calendar.next_date
+        = link_to "Next >", events_path(month: calendar.next_date.month, year: calendar.next_date.year)
   %tr
     - calendar.weekdays.each do |day|
       %th= day
