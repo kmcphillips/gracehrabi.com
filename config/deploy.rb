@@ -33,4 +33,6 @@ task :symlink_shared_files do
   %w{database.yml mail.yml facebook.yml}.each do |config|
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
   end
+
+  run "ln -s #{shared_path}/settings.yml #{release_path}/config/settings/#{stage}.yml"
 end

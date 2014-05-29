@@ -26,4 +26,6 @@ GracehrabiCom::Application.routes.draw do
 
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"
 
+  resources :webhooks, only: [:create]
+
 end
