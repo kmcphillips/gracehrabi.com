@@ -25,6 +25,7 @@ gem 'omniauth-openid'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'koala'
 gem 'pjax_rails'
+gem 'affairs_of_state'
 
 group :development do
   gem 'letter_opener'

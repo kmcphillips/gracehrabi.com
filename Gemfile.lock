@@ -46,6 +46,8 @@ GEM
     acts_as_permalink (0.4.0)
       rails (>= 3.0)
     addressable (2.3.5)
+    affairs_of_state (0.1.1)
+      activerecord (> 3.0)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (4.0.2)
@@ -294,6 +296,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts_as_permalink
+  affairs_of_state
   capistrano
   coffee-rails (~> 4.0.0)
   devise
