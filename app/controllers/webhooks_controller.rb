@@ -1,4 +1,6 @@
 class WebhooksController < ApplicationController
+  protect_from_forgery except: :create
+
   def create
     @webhook = Webhook.new body: webhook_data
 
