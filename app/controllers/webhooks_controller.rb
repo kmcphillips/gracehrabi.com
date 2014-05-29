@@ -13,7 +13,7 @@ class WebhooksController < ApplicationController
     @webhook_data ||= begin
       request.body.rewind
       request_data = request.body.read
-      digest  = OpenSSL::Digest::Digest.new('sha256')
+      digest  = OpenSSL::Digest.new('sha256')
       calculated_hmac = Base64.encode64(OpenSSL::HMAC.digest(digest, Settings.shopify.shared_secret, request_data)).strip
 
       if calculated_hmac == request.env["HTTP_X_SHOPIFY_HMAC_SHA256"]
