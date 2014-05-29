@@ -191,10 +191,12 @@ ActiveRecord::Schema.define(version: 20140528170603) do
 
   create_table "webhooks", force: true do |t|
     t.text     "body"
+    t.string   "status",     default: "new"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "webhooks", ["created_at"], name: "index_webhooks_on_created_at", using: :btree
+  add_index "webhooks", ["status"], name: "index_webhooks_on_status", using: :btree
 
 end
