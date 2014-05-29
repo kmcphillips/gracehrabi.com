@@ -26,6 +26,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'koala'
 gem 'pjax_rails'
 gem 'rails_config'
+gem 'shopify_api'
 gem 'affairs_of_state'
 
 group :development do
