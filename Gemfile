@@ -28,6 +28,7 @@ gem 'pjax_rails'
 gem 'rails_config'
 gem 'shopify_api'
 gem 'affairs_of_state'
+gem 'awesome_print'
 
 group :development do
   gem 'letter_opener'
