@@ -4,7 +4,14 @@ class WebhooksController < ApplicationController
   def create
     if webhook_data
       @webhook = Webhook.new body: webhook_data
-      Rails.logger.error("Failed to save webhook! #{ @webhook.errors.full_messages }") unless @webhook.save
+
+      unless @webhook.save
+        Rails.logger.error("Failed to save webhook! #{ @webhook.errors.full_messages }") 
+        AdminMailer.application_error("Failed to save webhook! #{ @webhook.errors.full_messages }",
+          params: params,
+          request_data: request_data
+        )
+      end
     end
 
     head(:ok)
@@ -26,6 +33,13 @@ class WebhooksController < ApplicationController
         Rails.logger.error("  params: #{ params }")
         Rails.logger.error("  request_data: #{ request_data }")
         Rails.logger.error("  HTTP_X_SHOPIFY_HMAC_SHA256: #{ request.env["HTTP_X_SHOPIFY_HMAC_SHA256"] }")
+
+        AdminMailer.application_error("Failed to parse and validate webhook",
+          params: params,
+          request_data: request_data,
+          shopify_hmac: request.env["HTTP_X_SHOPIFY_HMAC_SHA256"],
+          expected_hmac: calculated_hmac
+        )
 
         nil
       end
