@@ -29,7 +29,7 @@ gem 'rails_config'
 gem 'shopify_api'
 gem 'affairs_of_state'
 gem 'awesome_print'
-gem 'resque', '~> 2.0.0.pre.1', github: 'resque/resque'
+gem 'resque'
 gem 'capistrano-resque', '~> 0.1.0', require: false
 
 group :development do
@@ -41,7 +41,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-mocks'
-  gem 'resque_spec', github: 'leshill/resque_spec', branch: 'resque_2'
+  gem 'resque_spec'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'timecop'
