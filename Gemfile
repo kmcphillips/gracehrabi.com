@@ -28,7 +28,6 @@ gem 'pjax_rails'
 gem 'rails_config'
 gem 'shopify_api'
 gem 'affairs_of_state'
-gem 'awesome_print'
 gem 'resque'
 gem 'capistrano-resque', '~> 0.1.0', require: false
 
