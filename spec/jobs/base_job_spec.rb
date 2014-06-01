@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe BaseJob do
   class TestJob < BaseJob
-    # @queue = :default
     def initialize(arg1, arg2)
       @arg1 = arg1
       @arg2 = arg2
