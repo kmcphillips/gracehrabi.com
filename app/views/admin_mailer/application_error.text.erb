@@ -1,10 +1,6 @@
-Error:
-<%= @message %>
-
 Timestamp:
-<%= Time.now %>
+At <%= Time.now %>: <%= @message %>
 
-Details:
 {
 <% @details.each do |key, value| %>
   <%= key %> => <%= value %>

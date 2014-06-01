@@ -13,7 +13,7 @@ class AdminMailer < ActionMailer::Base
     @message = message
     @details = details
 
-    mail(to: admin_email, subject: "GraceHrabi.com error")
+    mail(to: admin_email, subject: "Application error for: gracehrabi.com")
   end
 
 end
