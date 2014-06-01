@@ -17,6 +17,16 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/leshill/resque_spec.git
+  revision: 0397a0c16bbc04ee19761cdf9fdb637d68a2b56f
+  branch: resque_2
+  specs:
+    resque_spec (0.14.4)
+      rspec-core (>= 2.5.0)
+      rspec-expectations (>= 2.5.0)
+      rspec-mocks (>= 2.5.0)
+
+GIT
   remote: git://github.com/resque/resque.git
   revision: 592da7d0f2d269d1fa5985055f70b3defe2a9179
   specs:
@@ -361,6 +371,7 @@ DEPENDENCIES
   rails (= 4.0.5)
   rails_config
   resque (~> 2.0.0.pre.1)!
+  resque_spec!
   rinku
   rmagick
   rspec

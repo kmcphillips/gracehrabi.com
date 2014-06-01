@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-mocks'
+  gem 'resque_spec', github: 'leshill/resque_spec', branch: 'resque_2'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'timecop'
