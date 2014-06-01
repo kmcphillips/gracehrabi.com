@@ -1,7 +1,7 @@
 class ApplicationErrorJob < BaseJob
   class << self
 
-    def process(message, details={})
+    def perform(message, details={})
       AdminMailer.application_error(message, details).deliver
     end
 

@@ -6,10 +6,10 @@ describe ApplicationErrorJob do
   end
 
   describe "class method" do
-    describe "#process" do
+    describe "#perform" do
       it "should send the mailer" do
         expect{
-          ApplicationErrorJob.process("message", key: "value")
+          ApplicationErrorJob.perform("message", key: "value")
         }.to change{ ActionMailer::Base.deliveries.count }.by(1)
       end
     end
