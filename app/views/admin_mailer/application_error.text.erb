@@ -5,4 +5,8 @@ Timestamp:
 <%= Time.now %>
 
 Details:
-<%= pp @details %>
+{
+<% @details.each do |key, value| %>
+  <%= key %> => <%= value %>
+<% end %>
+}
