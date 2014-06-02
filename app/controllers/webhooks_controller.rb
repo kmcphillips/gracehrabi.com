@@ -3,7 +3,10 @@ class WebhooksController < ApplicationController
 
   def create
     begin
-      @webhook = Webhook.create! body: webhook_data if webhook_data
+      if webhook_data
+        webhook = Webhook.create!(body: webhook_data)
+        WebhookJob.enqueue(webhook.id) if webhook
+      end
     rescue => e
       ApplicationErrorJob.enqueue("Error processing webhook",
         params: params,
