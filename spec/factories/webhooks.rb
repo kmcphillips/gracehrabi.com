@@ -1,4 +1,4 @@
-require 'support/webhook_loader'
+require Rails.root.join("spec/support/webhook_loader")
 
 FactoryGirl.define do
   factory :webhook do
