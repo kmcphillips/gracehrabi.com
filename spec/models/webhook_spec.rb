@@ -22,12 +22,26 @@ describe Webhook do
   end
 
   describe "#parse" do
+    let(:download){ FactoryGirl.create(:download) }
+
+    before do
+      download
+    end
+
     it "should send a message and set the error state on failure" do
       pending
     end
 
     it "should parse and create the webhook" do
-      pending
+      expect(webhook.parse).to be_true
+      purchase = webhook.purchases.first
+      
+      expect(webhook.purchases.count).to eq(1)
+      expect(purchase.download).to eq(download)
+      expect(purchase.email).to eq("test@example.com")
+      expect(purchase.name).to eq("Mister Customer")
+      expect(purchase.address).to eq("Mister Shipping\n123 Fake Street Suite 100\nOttawa, Ontario\nA1A1A1")
+      expect(purchase.token).to be_present
     end
   end
 end
