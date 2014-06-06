@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604182107) do
+ActiveRecord::Schema.define(version: 20140604185139) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140604182107) do
     t.string   "filename"
     t.string   "path"
     t.integer  "shopify_product_id"
-    t.boolean  "allow_anonymous"
+    t.boolean  "allow_anonymous",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -218,9 +218,10 @@ ActiveRecord::Schema.define(version: 20140604182107) do
 
   create_table "webhooks", force: true do |t|
     t.text     "body"
-    t.string   "status",     default: "new"
+    t.string   "status",     default: "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "topic"
   end
 
   add_index "webhooks", ["created_at"], name: "index_webhooks_on_created_at", using: :btree

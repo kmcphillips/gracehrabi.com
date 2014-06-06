@@ -1,6 +1,8 @@
 class Webhook < ActiveRecord::Base
   has_many :purchases
 
+  affairs_of_state :pending, :processing, :success, :failure
+
   validates :body, presence: true
 
   def as_hash
