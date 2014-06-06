@@ -6,11 +6,11 @@ class Webhook < ActiveRecord::Base
   validates :body, presence: true
 
   def parse
-    if pending?
+    if pending? && persisted?
       processing!
 
       begin
-        raise "pending"
+        process_order_creation
 
         success!
       rescue => e
@@ -18,6 +18,8 @@ class Webhook < ActiveRecord::Base
         failure!
       end
     end
+
+    success?
   end
 
   def as_hash
@@ -30,6 +32,41 @@ class Webhook < ActiveRecord::Base
   end
 
   private
+
+  def process_order_creation
+    as_hash["line_items"].each do |line_item|
+      if download = Download.find_by(shopify_product_id: line_item["product_id"])
+        purchase = download.purchases.build(
+          webhook: self,
+          email: customer_email,
+          name: customer_name,
+          address: customer_address
+        )
+
+        purchase.save!
+      end
+    end
+  end
+
+  def customer_email
+    as_hash["customer"]["email"]
+  end
+
+  def customer_address
+    address = as_hash["shipping_address"]
+    [
+      "#{ address["first_name"] } #{ address["last_name"] }",
+      address["address1"],
+      address["address2"],
+      "#{ address["city"] }, #{ address["province"] }",
+      address["country_name"],
+      address["zip"]
+    ].reject(&:blank?).join("\n")
+  end
+
+  def customer_name
+    [as_hash["customer"]["first_name"], as_hash["customer"]["last_name"]].join(" ")
+  end
 
   def log_webhook_error(message, error, extras={})
     ApplicationErrorJob.enqueue(message, {
