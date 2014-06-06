@@ -33,6 +33,7 @@ describe Webhook do
     end
 
     it "should parse and create the webhook" do
+      expect(PurchaseCreateNotificationJob).to receive(:enqueue)
       expect(webhook.parse).to be_true
       purchase = webhook.purchases.first
       

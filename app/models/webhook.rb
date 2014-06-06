@@ -44,6 +44,8 @@ class Webhook < ActiveRecord::Base
         )
 
         purchase.save!
+
+        PurchaseCreateNotificationJob.enqueue(purchase.id)
       end
     end
   end
