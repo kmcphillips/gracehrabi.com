@@ -20,4 +20,14 @@ describe Webhook do
       expect(webhook.as_hash).to be_nil
     end
   end
+
+  describe "#parse" do
+    it "should send a message and set the error state on failure" do
+      pending
+    end
+
+    it "should parse and create the webhook" do
+      pending
+    end
+  end
 end
