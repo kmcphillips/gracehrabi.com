@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604185139) do
+ActiveRecord::Schema.define(version: 20140608134922) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20140604185139) do
     t.boolean  "allow_anonymous",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "image_path"
   end
 
   add_index "downloads", ["filename"], name: "index_downloads_on_filename", using: :btree
