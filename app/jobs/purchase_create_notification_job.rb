@@ -3,9 +3,7 @@ class PurchaseCreateNotificationJob < BaseJob
 
     def perform(purchase_id)
       begin
-        purchase = Purchase.find(purchase_id)
-
-        raise "Not yet implemented processing for: #{ webhook }"
+        PurchaseMailer.created(Purchase.find(purchase_id)).deliver
       rescue => e
         ApplicationErrorJob.enqueue("Could not send purchase create notification: #{ e }",
           purchase_id: purchase_id,

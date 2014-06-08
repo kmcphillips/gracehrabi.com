@@ -5,6 +5,7 @@ class Purchase < ActiveRecord::Base
   validates :webhook_id, presence: true
   validates :download_id, presence: true
   validates :token, presence: true
+  validates :email, presence: true
 
   before_validation :set_token
 
