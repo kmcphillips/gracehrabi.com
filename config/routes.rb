@@ -10,7 +10,7 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show'
   get 'rss.:format', to: 'posts#rss'
 
-  ['contact', 'links', 'bio'].each do |block|
+  ['contact', 'links', 'bio', 'listen'].each do |block|
     get block, to: "blocks##{block}"
   end
 

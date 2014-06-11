@@ -24,6 +24,9 @@ class BlocksController < ApplicationController
     @links = Link.in_order
   end
 
+  def listen
+  end
+
   protected
 
   def load_block
