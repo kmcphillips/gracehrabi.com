@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class EventsController < FrontEndController
 
   def index
     @upcoming = Event.upcoming

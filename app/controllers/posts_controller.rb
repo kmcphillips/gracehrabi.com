@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < FrontEndController
 
   respond_to :xml, only: [:rss]
 

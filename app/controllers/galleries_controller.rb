@@ -1,4 +1,4 @@
-class GalleriesController < ApplicationController
+class GalleriesController < FrontEndController
 
   def index
     @galleries = Gallery.sorted

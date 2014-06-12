@@ -1,4 +1,4 @@
-class DownloadsController < ApplicationController
+class DownloadsController < FrontEndController
   def download
     purchase = Purchase.find_by_token(params[:token])
 

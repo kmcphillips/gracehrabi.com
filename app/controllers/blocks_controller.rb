@@ -1,4 +1,4 @@
-class BlocksController < ApplicationController
+class BlocksController < FrontEndController
   before_action :load_block
 
   def home
