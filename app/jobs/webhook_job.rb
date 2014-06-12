@@ -3,9 +3,7 @@ class WebhookJob < BaseJob
 
     def perform(webhook_id)
       begin
-        webhook = Webhook.find(webhook_id)
-
-        raise "Not yet implemented processing for: #{ webhook }"
+        Webhook.find(webhook_id).parse
       rescue => e
         ApplicationErrorJob.enqueue("Webhook could not be processed: #{ e }",
           webhook_id: webhook_id,

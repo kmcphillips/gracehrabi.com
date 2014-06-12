@@ -12,11 +12,14 @@ describe WebhookJob do
       it "should raise when the webhook is not found" do
         expect(Webhook.all).to be_blank
         expect(ApplicationErrorJob).to receive(:enqueue)
-        WebhookJob.perform(1)
+        WebhookJob.perform(0)
       end
 
       it "should process the webhook" do
-        pending "not implemented yet"
+        expect(Webhook).to receive(:find).with(webhook.id).and_return(webhook)
+        expect(webhook).to receive(:parse)
+        expect(ApplicationErrorJob).to receive(:enqueue).never
+        WebhookJob.perform(webhook.id)
       end
     end
   end
