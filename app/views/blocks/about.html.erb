@@ -1,21 +1,15 @@
-<%= sidebar_sections :audio_player, :events, :news %>
-
-<div class="content">
+<%= pjax_layout do %>
   <div class="post">
     <h1>About Grace</h1>
     <h3>&nbsp;</h3>
     <%= simple_format @block.body %>
-    <%= obfuscated_mail_to(Settings.site_email, "Grace Hrabi") %>
-    <%= link_to "Site", "http://github.com/kmcphillips/gracehrabi.com" %>
-    by
-    <%= link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca' %>
-    and
-    <%= link_to 'Lisa Rae Swan', 'http://lisaraeswan.com/' %>
+    <p>
+      <%= obfuscated_mail_to(Settings.site_email) %>
+    </p>
   </div>
 
   <div class="post">
     <h1>Collaborators</h1>
-    <h3>&nbsp;</h3>
     <ul class="links">
       <% @links.each do |link| %>
         <li>
@@ -27,4 +21,13 @@
       <% end %>
     </ul>
   </div>
-</div>
+
+  <div class="post">
+    <h1>Credits</h1>
+    <%= link_to "Website", "http://github.com/kmcphillips/gracehrabi.com" %>
+    by
+    <%= link_to 'Kevin McPhillips', 'http://kevinmcphillips.ca' %>
+    and
+    <%= link_to 'Denise Spiessens', 'https://twitter.com/speezyD' %>
+  </div>
+<% end %>
