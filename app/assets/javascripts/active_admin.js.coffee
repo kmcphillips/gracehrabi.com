@@ -12,3 +12,6 @@ $ ->
         alert "There was an error sorting images. Contact administrator."
   $("#image_sortable").disableSelection()
 
+  $(".click-to-show-label").on 'click', ->
+    $(this).hide()
+    $(this).closest('.click-to-show').find('.click-to-show-content').show()

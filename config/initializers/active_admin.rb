@@ -196,7 +196,7 @@ ActiveAdmin.setup do |config|
 
     config.namespace :admin do |admin|
       admin.build_menu do |menu|
-        menu.add label: "Facebook Page", url: Facebook::Base.new.page_url, priority: 10, html_options: {target: "_blank"}
+        # menu.add label: "Facebook Page", url: Facebook::Base.new.page_url, priority: 10, html_options: {target: "_blank"}
       end
     end
 
