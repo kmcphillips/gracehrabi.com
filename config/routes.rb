@@ -14,7 +14,7 @@ GracehrabiCom::Application.routes.draw do
     get block, to: "blocks##{block}"
   end
 
-  get 'download/:token/:filename', to: 'downloads#download', format: false, as: 'download'
+  get 'download/:token/*filename', to: 'downloads#download', format: false, as: 'download'
 
   # media player
   get 'player/:id', to: 'tracks#show'
