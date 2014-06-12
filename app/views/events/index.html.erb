@@ -1,25 +1,25 @@
-<%= sidebar_sections :audio_player, :gallery, :news %>
-
-<div class="content">
+<%= pjax_layout do %>
   <div class="post">
     <%= render partial: "calendar", object: @calendar %>
   </div>
+
   <% if @current.any? %>
     <h2 class="event">Happening Today</h2>
     <% @current.each do |event| %>
-      <%= render :partial => "event", object: event %>
+      <%= render partial: "event", object: event %>
     <% end %>
   <% end %>
   <% if @upcoming.any? %>
     <h2 class="event">Upcoming Shows</h2>
     <% @upcoming.each do |event| %>
-      <%= render :partial => "event", object: event %>
+      <%= render partial: "event", object: event %>
     <% end %>
   <% end %>
   <% if @upcoming.blank? && @current.blank? %>
     <h2>No upcoming shows</h2>
   <% end %>
+
   <p>
     <%= pjax_link_to "Show archive", archive_events_path %>
   </p>
-</div>
+<% end %>

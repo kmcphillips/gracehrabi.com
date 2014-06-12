@@ -2,7 +2,7 @@
   <tr>
     <td class="previous" colspan="2">
       <% if calendar.previous_date %>
-        <%= pjax_link_to "&#9756;".html_safe, "/events/calendar/#{ calendar.previous_date.year }/#{ calendar.previous_date.month }" %>
+        <%= pjax_link_to "< Previous".html_safe, "/events/calendar/#{ calendar.previous_date.year }/#{ calendar.previous_date.month }" %>
       <% end %>
     </td>
     <td class="month" colspan="3">
@@ -11,7 +11,7 @@
     </td>
     <td class="next" colspan="2">
       <% if calendar.next_date %>
-        <%= pjax_link_to "&#9758;".html_safe, "/events/calendar/#{ calendar.next_date.year }/#{ calendar.next_date.month }" %>
+        <%= pjax_link_to "Next >".html_safe, "/events/calendar/#{ calendar.next_date.year }/#{ calendar.next_date.month }" %>
       <% end %>
     </td>
   </tr>

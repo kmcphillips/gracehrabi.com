@@ -5,6 +5,7 @@
  *= require jquery.qtip.css
  *= require normalize
  *= require main
+ *= require calendar
 */
 
 #development_notice {
