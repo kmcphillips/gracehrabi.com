@@ -176,6 +176,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
+    modernizr-rails (2.7.1)
     mono_logger (1.1.0)
     multi_json (1.10.1)
     multipart-post (1.2.0)
@@ -372,6 +373,7 @@ DEPENDENCIES
   kaminari
   koala
   letter_opener
+  modernizr-rails
   mysql2
   omniauth-openid
   paperclip

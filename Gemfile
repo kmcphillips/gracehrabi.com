@@ -5,6 +5,7 @@ gem 'mysql2'
 
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'capistrano-resque', '~> 0.1.0', require: false
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
@@ -16,11 +17,15 @@ gem 'rmagick'
 gem 'rinku', require: 'rails_rinku'
 gem 'acts_as_permalink'
 gem 'whenever', require: false
+gem 'quiet_assets'
+gem 'rails_config'
+gem 'shopify_api'
+gem 'affairs_of_state'
+gem 'resque'
 
 gem 'haml'
 gem 'haml-rails'
 gem 'sass'
-
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-migrate-rails'
@@ -32,12 +37,7 @@ gem 'font-awesome-rails'
 gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'quiet_assets'
-gem 'rails_config'
-gem 'shopify_api'
-gem 'affairs_of_state'
-gem 'resque'
-gem 'capistrano-resque', '~> 0.1.0', require: false
+gem 'modernizr-rails'
 
 group :development do
   gem 'letter_opener'
