@@ -41,3 +41,15 @@ nav.pagination {
   font-size: 1em;
   padding: 30px;
 }
+
+.left_float {
+  float: left;
+}
+
+.right_float {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}

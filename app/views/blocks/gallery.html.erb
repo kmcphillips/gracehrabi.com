@@ -1,5 +1,6 @@
 <%= pjax_layout do %>
-  <% @images.in_groups_of(6) do |group| %>
+<h1>Image Gallery</h1>
+  <% @images.in_groups_of(5) do |group| %>
     <div class="gallery-row">
       <% group.each do |image| %>
         <% if image %>

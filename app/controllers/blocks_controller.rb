@@ -12,12 +12,6 @@ class BlocksController < FrontEndController
     @images = Image.all_active.in_order
   end
 
-  def music
-  end
-
-  def listen
-  end
-
   protected
 
   def load_block

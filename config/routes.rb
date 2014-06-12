@@ -10,10 +10,13 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show', as: :news
   get 'rss.:format', to: 'posts#rss'
 
-  [:about, :gallery, :music, :listen].each do |block|
+  [:about, :gallery].each do |block|
     get block.to_s, to: "blocks##{block}"
   end
   get 'bio' => redirect('about')
+
+  get 'music' => 'lyrics#index', as: :music
+  get 'lyrics/:id' => 'lyrics#show', as: :lyric
 
   get 'download/:token/*filename', to: 'downloads#download', format: false, as: 'download'
 

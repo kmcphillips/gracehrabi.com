@@ -1,4 +1,4 @@
-<div class="post">
+<%= pjax_layout do %>
   <h1>Albums</h1>
   <h3>&nbsp;</h3>
   <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px', class: 'left_float' %>
@@ -8,6 +8,13 @@
     Release date: Monday June 14th, 2014
   </p>
   <div class="clear"></div>
-</div>
 
-<%= render partial: "blocks/home/bandcamp" %>
+  <h1>Lyrics</h1>
+  <ul>
+    <% @lyrics.each do |lyric| %>
+      <li>
+        TODO
+      </li>
+    <% end %>
+  </ul>
+<% end %>
