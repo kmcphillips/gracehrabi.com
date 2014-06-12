@@ -1,7 +1,5 @@
-<%= sidebar_sections :audio_player, :events, :news %>
-
-<div class="content">
-  <% @images.in_groups_of(3) do |group| %>
+<%= pjax_layout do %>
+  <% @images.in_groups_of(6) do |group| %>
     <div class="gallery-row">
       <% group.each do |image| %>
         <% if image %>
@@ -10,4 +8,4 @@
       <% end %>
     </div>
   <% end %>
-</div>
+<% end %>
