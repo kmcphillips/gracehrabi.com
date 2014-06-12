@@ -160,14 +160,14 @@ h3 {
 }
 
 header {
-    background: url('../img/bg-grace.jpg') no-repeat #0c1619 top center;
+    background: image-url('bg-grace.jpg') no-repeat #0c1619 top center;
     padding-top: 25px;
     height: 455px;
 }
 
 .logo {
     float: left;
-    background: url('../img/logo.png') no-repeat;
+    background: image-url('logo.png') no-repeat;
     height: 28px;
     width: 146px;
 }
@@ -210,7 +210,7 @@ nav li {
 
 .album {
     float: right;
-    background: url('../img/album-title.png') no-repeat;
+    background: image-url('album-title.png') no-repeat;
     height: 255px;
     width: 355px;
     margin-top: 95px;
@@ -349,7 +349,7 @@ nav li {
 }
 
 .deco {
-    background: url('../img/deco-bird.jpg') no-repeat bottom center;
+    background: image-url('deco-bird.jpg') no-repeat bottom center;
     padding-bottom: 40px;
     margin-bottom: 30px;
 }
