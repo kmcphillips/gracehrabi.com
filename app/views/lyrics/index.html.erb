@@ -20,7 +20,7 @@
   <ul>
     <% @lyrics.each do |lyric| %>
       <li>
-        TODO
+        <%= pjax_link_to lyric.title, lyric_path(lyric) %>
       </li>
     <% end %>
   </ul>

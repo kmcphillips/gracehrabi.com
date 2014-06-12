@@ -16,7 +16,7 @@ GracehrabiCom::Application.routes.draw do
   get 'bio' => redirect('about')
 
   get 'music' => 'lyrics#index', as: :music
-  get 'lyrics/:id' => 'lyrics#show', as: :lyric
+  resources :lyrics, only: [:show]
 
   get 'download/:token/*filename', to: 'downloads#download', format: false, as: 'download'
 

@@ -14,7 +14,7 @@ describe LyricsController do
 
   describe "GET show" do
     it "should be successful" do
-      get :show, id: lyric.id
+      get :show, id: lyric
       expect(response).to be_successful
       expect(assigns[:lyric]).to eq(lyric)
     end

@@ -4,6 +4,6 @@ class LyricsController < FrontEndController
   end
 
   def show
-    @lyric = Lyric.find(params[:id])
+    @lyric = Lyric.find_by!(permalink: params[:id])
   end
 end
