@@ -53,3 +53,8 @@ nav.pagination {
 .clear {
   clear: both;
 }
+
+div.gallery-row {
+  text-align: center;
+  padding: 3px;
+}
