@@ -1,16 +1,11 @@
-<div class="content">
-  <div class="post">
-    <h1>
-      Unsubscribe
-      <%= @contact.email %>
-    </h1>
-    <h3>&nbsp;</h3>
-    <div class="body">
-      <p>
-        Are you sure you want to unsubscribe from the mailing list?
-      </p>
-      <br/>
-      <%= button_to "Unsubscribe", mailing_list_path(@contact.token), method: :delete %>
-    </div>
-  </div>
-</div>
+<%= pjax_layout do %>
+  <h1>
+    Unsubscribe
+    <%= @contact.email %>
+  </h1>
+  <p>
+    Are you sure you want to unsubscribe from the mailing list?
+  </p>
+  <%= button_to "Unsubscribe", mailing_list_path(@contact.token), method: :delete %>
+  <p><%= pjax_link_to "< Back", root_path %></p>
+<% end %>
