@@ -151,4 +151,8 @@ module ApplicationHelper
     link_to name, options, html_options
   end
 
+  def pjax_layout(&block)
+    render layout: 'layouts/pjax_layout', &block
+  end
+
 end
