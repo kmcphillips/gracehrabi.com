@@ -10,7 +10,7 @@
       <%= calendar.year %>
     </td>
     <td class="next" colspan="2">
-      <% if calendar.next_date
+      <% if calendar.next_date %>
         <%= pjax_link_to "&#9758;".html_safe, "/events/calendar/#{ calendar.next_date.year }/#{ calendar.next_date.month }" %>
       <% end %>
     </td>
