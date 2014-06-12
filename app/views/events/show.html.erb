@@ -1,8 +1,4 @@
-<%= sidebar_sections :audio_player, :gallery, :news %>
-
-<div class="content">
-  <%= render :partial => "event", :object => @event %>
-  <p>
-    <%= pjax_link_to "Back to all shows", events_path %>
-  </p>
-</div>
+<%= pjax_layout do %>
+  <%= render partial: "event", object: @event %>
+  <p><%= pjax_link_to "< Back", :back %></p>
+<% end %>

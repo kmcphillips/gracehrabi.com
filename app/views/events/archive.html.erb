@@ -1,5 +1,3 @@
-<%= sidebar_sections :audio_player, :gallery, :news %>
-
-<div class="content">
+<%= pjax_layout do %>
   <%= render partial: 'past' %>
-</div>
+<% end %>
