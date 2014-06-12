@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      <%= page_title %>
-    </title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <%= auto_discovery_link_tag(:rss, '/rss.xml') %>
-    <%= stylesheet_link_tag 'application' %>
-    <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <%= meta_from_settings %>
-    <%= render partial: 'shared/facebook_meta' %>
-    <%= javascript_include_tag 'application' %>
-    <%= yield :js %>
-    <%= csrf_meta_tag %>
-    <%= render partial: "shared/analytics" %>
-  </head>
-  <body>
-    <div id="spinner">Loading</div>
-    <% unless Rails.env.production? %>
-      <div id="development_notice">
-        <%= Rails.env.humanize %>
-        Server
-        <br/>
-        <%= Digest::SHA1.hexdigest(Time.now.to_i.to_s)[0..15] %>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= page_title %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag :modernizr %>
+  <%= yield :js %>
+  <%= csrf_meta_tag %>
+  <%= render partial: "shared/analytics" %>
+  <%= auto_discovery_link_tag(:rss, '/rss.xml') %>
+</head>
+<body>
+<!--
+  <div id="spinner">Loading</div>
+  <% unless Rails.env.production? %>
+  <div id="development_notice">
+    <%= Rails.env.humanize %>
+    Server
+    <br/>
+    <%= Digest::SHA1.hexdigest(Time.now.to_i.to_s)[0..15] %>
+  </div>
+  <% end %>
+-->
+  <header>
+    <div class="wrapper">
+      <div class="logo">
+        <%= pjax_link_to '', root_path %>
       </div>
-    <% end %>
-
-    <div class="container">
-
-      <div class="header">
-        <a name="top"></a>
-        <h1>
-          <%= pjax_link_to 'Grace Hrabi', root_path %>
-        </h1>
-        <ul class="nav">
+      <nav>
+        <ul>
           <li>
             <%= pjax_link_to "News", news_index_path %>
           </li>
@@ -54,49 +52,48 @@
           <li>
             <%= pjax_link_to "Music", music_path %>
           </li>
-        </ul>
-        <ul class="socialmedia">
           <li>
-            <%= link_to fa_icon('music'), "https://soundcloud.com/grace-hrabi/", title: "Grace Hrabi on Soundcloud" %>
-          </li>
-          <li>
-            <%= link_to fa_icon('facebook'), "https://www.facebook.com/GraceHrabiMusic", title: "Grace Hrabi on Facebook" %>
-          </li>
-          <li>
-            <%= link_to fa_icon('twitter'), "https://twitter.com/GraceHrabi", title: "Grace Hrabi on Twitter" %>
-          </li>
-          <li>
-            <%= link_to fa_icon('rss'), "/rss.xml", title: "RSS" %>
+            <%= pjax_link_to "Listen", listen_path %>
           </li>
         </ul>
-      </div>
-
-      <%= render partial: 'shared/flashes' %>
-
-      <div id="pjax-body">
-        <%= yield %>
-      </div>
-
-      <div class="footer">
-        <div class="phone">
-          <%= fa_icon 'phone' %>
-          (613) 897-9876
-          <br/>
-          <%= obfuscated_mail_to(Settings.site_email, fa_icon('envelope')) %>
-          <%= obfuscated_mail_to(Settings.site_email, "Grace Hrabi") %>
-        </div>
-        <div class="newsletter">
-          Bleep blorp something about newsletter
-          <%= form_tag mailing_list_index_path do %>
-            <%= email_field_tag :email, nil, class: '' %>
-            <%= submit_tag "Signup", class: 'button' %>
-          <% end %>
-        </div>
-        <div class="backtotop">
-          <%= link_to fa_icon('long-arrow-up'), '#top' %>
-          <%= link_to 'Back to Top', '#top' %>
-        </div>
+      </nav>
+      <div class="album">
+        <%= link_to "Buy Now", "http://shop.gracehrabi.com", class: "button" %>
+        <%= link_to "Listen Online", "http://gracehrabi.bandcamp.com", class: "button" %>
       </div>
     </div>
-  </body>
+  </header>
+  <section class="mid-bar">
+    <div class="wrapper">
+      <div class="bandcamp-player">
+        <iframe style="border: 0; width: 460px; height: 45px; margin-top: -1px;" src="http://bandcamp.com/EmbeddedPlayer/track=2590199252/size=small/bgcol=ffffff/linkcol=e99708/transparent=true/" seamless><a href="http://gracehrabi.bandcamp.com/track/joanna">Joanna by Grace Hrabi</a></iframe>
+      </div>
+      <div class="social">
+        <ul class="fa-ul">
+          <li>
+            <%= link_to fa_icon('facebook-square'), "https://www.facebook.com/GraceHrabiMusic", title: "Grace Hrabi on Facebook" %>
+          </li>
+          <li>
+            <%= link_to fa_icon('twitter-square'), "https://twitter.com/GraceHrabi", title: "Grace Hrabi on Twitter" %>
+          </li>
+          <li>
+            <%= link_to fa_icon('rss-square'), "/rss.xml", title: "RSS" %>
+          </li>
+          <li>
+            <%= link_to fa_icon('soundcloud'), "https://soundcloud.com/grace-hrabi/", title: "Grace Hrabi on Soundcloud" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div id="pjax-body">
+    <%= yield %>
+  </div>
+  <footer>
+    <div class="wrapper">
+      <hr>
+      <p>Copyright &copy; <%= Date.today.year %> Grace Hrabi. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
 </html>
