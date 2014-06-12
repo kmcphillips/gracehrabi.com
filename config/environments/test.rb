@@ -37,3 +37,5 @@ GracehrabiCom::Application.configure do
 
   config.eager_load = false
 end
+
+Rails.application.routes.default_url_options[:host] = "localhost:3000"

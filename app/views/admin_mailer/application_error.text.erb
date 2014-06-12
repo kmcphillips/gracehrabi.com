@@ -1,0 +1,9 @@
+<%= @message %>
+
+<%= Time.now %>
+
+{
+<% @details.each do |key, value| %>
+  <%= key %> => <%= value %>
+<% end %>
+}

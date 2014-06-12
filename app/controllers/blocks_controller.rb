@@ -15,6 +15,9 @@ class BlocksController < ApplicationController
   def music
   end
 
+  def listen
+  end
+
   protected
 
   def load_block

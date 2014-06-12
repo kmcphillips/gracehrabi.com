@@ -36,6 +36,8 @@ gem 'quiet_assets'
 gem 'rails_config'
 gem 'shopify_api'
 gem 'affairs_of_state'
+gem 'resque'
+gem 'capistrano-resque', '~> 0.1.0', require: false
 
 group :development do
   gem 'letter_opener'
@@ -46,6 +48,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-mocks'
+  gem 'resque_spec'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'timecop'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528170603) do
+ActiveRecord::Schema.define(version: 20140612030046) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -63,6 +63,30 @@ ActiveRecord::Schema.define(version: 20140528170603) do
   add_index "contacts", ["disabled"], name: "index_contacts_on_disabled", using: :btree
   add_index "contacts", ["email"], name: "index_contacts_on_email", using: :btree
   add_index "contacts", ["token"], name: "index_contacts_on_token", using: :btree
+
+  create_table "download_records", force: true do |t|
+    t.integer  "download_id"
+    t.integer  "purchase_id"
+    t.string   "ip_address"
+    t.string   "useragent"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "downloads", force: true do |t|
+    t.string   "filename"
+    t.string   "path"
+    t.integer  "shopify_product_id"
+    t.boolean  "allow_anonymous",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "image_path"
+  end
+
+  add_index "downloads", ["filename"], name: "index_downloads_on_filename", using: :btree
+  add_index "downloads", ["shopify_product_id"], name: "index_downloads_on_shopify_product_id", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -133,6 +157,21 @@ ActiveRecord::Schema.define(version: 20140528170603) do
     t.string   "image_fingerprint"
   end
 
+  create_table "purchases", force: true do |t|
+    t.integer  "download_id"
+    t.integer  "webhook_id"
+    t.string   "token"
+    t.string   "email"
+    t.string   "name"
+    t.text     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "purchases", ["download_id"], name: "index_purchases_on_download_id", using: :btree
+  add_index "purchases", ["token"], name: "index_purchases_on_token", using: :btree
+  add_index "purchases", ["webhook_id"], name: "index_purchases_on_webhook_id", using: :btree
+
   create_table "testimonials", force: true do |t|
     t.text     "body"
     t.string   "name"
@@ -162,9 +201,10 @@ ActiveRecord::Schema.define(version: 20140528170603) do
 
   create_table "webhooks", force: true do |t|
     t.text     "body"
-    t.string   "status",     default: "new"
+    t.string   "status",     default: "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "topic"
   end
 
   add_index "webhooks", ["created_at"], name: "index_webhooks_on_created_at", using: :btree

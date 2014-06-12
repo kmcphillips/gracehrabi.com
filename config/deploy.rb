@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+require "capistrano-resque"
 
 set :stages, %w(production staging)
 set :default_stage, "production"
@@ -12,6 +13,7 @@ set :use_sudo, false
 set :scm, "git"
 set :keep_releases, 5
 set :rails_env, 'production'
+set :resque_environment_task, true
 
 default_run_options[:pty] = true
 
@@ -27,8 +29,11 @@ after "deploy:update", "deploy:cleanup"
 
 after "deploy:finalize_update", "symlink_shared_files"
 
+after "deploy:restart", "resque:restart"
+
 task :symlink_shared_files do
   run "ln -s #{shared_path}/attachments #{release_path}/public/attachments"
+  run "ln -s #{shared_path}/downloads #{release_path}/downloads"
 
   %w{database.yml mail.yml facebook.yml}.each do |config|
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"

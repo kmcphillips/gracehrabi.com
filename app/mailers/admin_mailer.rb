@@ -9,4 +9,11 @@ class AdminMailer < ActionMailer::Base
     mail(to: site_email, subject: subject)
   end
 
+  def application_error(message, details={})
+    @message = message
+    @details = details
+
+    mail(to: admin_email, subject: "Application error for gracehrabi.com")
+  end
+
 end

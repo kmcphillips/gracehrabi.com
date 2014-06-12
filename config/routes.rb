@@ -10,10 +10,12 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show', as: :news
   get 'rss.:format', to: 'posts#rss'
 
-  [:about, :gallery, :music].each do |block|
+  [:about, :gallery, :music, :listen].each do |block|
     get block.to_s, to: "blocks##{block}"
   end
   get 'bio' => redirect('about')
+
+  get 'download/:token/*filename', to: 'downloads#download', format: false, as: 'download'
 
   resources :events, only: [:index, :show] do
     collection do
@@ -27,5 +29,4 @@ GracehrabiCom::Application.routes.draw do
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"
 
   resources :webhooks, only: [:create]
-
 end
