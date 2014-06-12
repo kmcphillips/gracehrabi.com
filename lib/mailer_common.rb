@@ -17,4 +17,8 @@ module MailerCommon
   def site_email
     Settings.site_email
   end
+
+  def admin_email
+    Settings.admin_email
+  end
 end

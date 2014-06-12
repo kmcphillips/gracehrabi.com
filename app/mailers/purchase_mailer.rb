@@ -1,5 +1,5 @@
 class PurchaseMailer < ActionMailer::Base
-  default from: ROBOT_EMAIL = "\"GraceHrabi\" <#{ SITE_EMAIL }>"
+  default from: "\"GraceHrabi\" <#{ Settings.site_email }>"
 
   include MailerCommon
   add_template_helper(DownloadHelper)
