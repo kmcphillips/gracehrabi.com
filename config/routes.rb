@@ -26,7 +26,7 @@ GracehrabiCom::Application.routes.draw do
     end
   end
   get 'events/calendar/:year/:month', to: 'events#index'
-  resources :mailing_list, only: [:create, :show, :destroy]
+  resources :mailing_list, only: [:index, :create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"

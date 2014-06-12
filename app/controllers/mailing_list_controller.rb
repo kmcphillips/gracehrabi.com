@@ -1,5 +1,8 @@
 class MailingListController < FrontEndController
 
+  def index
+  end
+
   def create
     @contact = Contact.build_from_email(params[:email])
     

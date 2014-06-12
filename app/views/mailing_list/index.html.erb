@@ -1,0 +1,16 @@
+<%= pjax_layout do %>
+  <h2>Mailing list</h2>
+  <p>
+    Sign up for my mailing list to receive weekly updates about upcoming performances. Don't worry, you can unsubscribe at anytime.
+  </p>
+
+  <%= form_tag mailing_list_index_path, method: :post do %>
+    <div class="field">
+      <label>
+        Email Address
+        <%= text_field_tag :email, params[:email] %>
+      </label>
+      <%= submit_tag "Sign Up" %>
+    </div>
+  <% end %>
+<% end %>
