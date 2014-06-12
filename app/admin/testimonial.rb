@@ -8,7 +8,7 @@ ActiveAdmin.register Testimonial do
 
   controller do
     def permitted_params
-      params.permit(testimonial: [:name, :body, :active])
+      params.permit(testimonial: [:name, :title, :body, :active])
     end
   end
 
@@ -17,6 +17,7 @@ ActiveAdmin.register Testimonial do
       link_to truncate(testimonial.body, length: 300, omission: '...'), admin_testimonial_path(testimonial)
     end
     column :name
+    column :title
     column :active do |testimonial|
       boolean_image testimonial.active?
     end
@@ -29,6 +30,7 @@ ActiveAdmin.register Testimonial do
         simple_format(testimonial.body).html_safe
       end
       row :name
+      row :title
       row :active do
         boolean_image testimonial.active?
       end
@@ -39,6 +41,7 @@ ActiveAdmin.register Testimonial do
     f.inputs do
       f.input :body
       f.input :name
+      f.input :title
       f.input :active
     end
 
