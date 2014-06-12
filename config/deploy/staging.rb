@@ -5,3 +5,5 @@ set :branch, 'staging'
 role :web, "198.211.110.159"
 role :app, "198.211.110.159"
 role :db,  "198.211.110.159", :primary => true
+
+set :workers, {  }
