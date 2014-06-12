@@ -145,6 +145,10 @@ module ApplicationHelper
     end.compact
   end
 
+  def html_formatted_time(time)
+    content_tag(:p, time.to_s(:html_formatted).html_safe, class: 'date')
+  end
+
   def pjax_link_to(name = nil, options = nil, html_options = nil, &block)
     html_options ||= {}
     html_options['data-pjax-link'] = true

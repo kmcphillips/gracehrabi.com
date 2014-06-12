@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
   }
   scope :on_date, ->(date) { where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
   scope :sorted, -> { order("created_at DESC") }
+  scope :front_end_upcoming, -> { upcoming.limit(3) }
 
   def sort_by; starts_at; end
 
