@@ -4,7 +4,7 @@ PAGE_SUB_TITLE = "Jazz Vocalist"
 PAGE_URL = "http://gracehrabi.com"
 
 SITE_EMAIL = 'grace@gracehrabi.com'
-ADMIN_EMAIL = 'admin@kevinmcphillips.ca'
+ADMIN_EMAIL = 'admin@gracehrabi.com'
 ROBOT_EMAIL = '"GraceHrabi.com" <robot@gracehrabi.com>'
 
 META = {

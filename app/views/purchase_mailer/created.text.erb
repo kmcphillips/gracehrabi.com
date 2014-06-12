@@ -1,2 +1,7 @@
+Hello <%= @purchase.name %>,
 
-TODO <%= @purchase.inspect %>
+Here is your download link for '<%= @purchase.download.name %>':
+
+<%= purchase_url(@purchase) %>
+
+  - Grace

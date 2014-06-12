@@ -6,7 +6,7 @@ describe DownloadHelper do
 
   describe "#purchase_url" do
     it "should return the full URL for the download from the purchase" do
-      expect(helper.purchase_url(purchase)).to eq("http://test.host/download/abc1/the_album.zip")
+      expect(helper.purchase_url(purchase)).to eq("http://test.host/download/#{ purchase.token }/the_album.zip")
     end
   end
 end

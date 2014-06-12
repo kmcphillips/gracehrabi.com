@@ -11,5 +11,6 @@ class PurchaseCreateNotificationJob < BaseJob
         )
       end
     end
+
   end
 end
