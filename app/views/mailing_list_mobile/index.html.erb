@@ -1,0 +1,15 @@
+<% content_for :js do %>
+  $(function(){
+    $('#mobile-email-field').focus();
+  });
+<% end %>
+
+<%= pjax_layout(footer: false, player: false) do %>
+  <%= form_tag mailing_list_mobile_index_path, method: :post do %>
+    <h2>Mailing List Email</h2>
+  
+    <%= email_field_tag :email, params[:email], id: "mobile-email-field" %>
+  
+    <%= submit_tag "Sign Up" %>
+  <% end %>
+<% end %>
