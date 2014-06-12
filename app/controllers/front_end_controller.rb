@@ -6,4 +6,5 @@ class FrontEndController < ApplicationController
   def current_testimonial
     @current_testimonial ||= Testimonial.random
   end
+  helper_method :current_testimonial
 end

@@ -9,8 +9,10 @@
 </section>
 <section>
   <div class="quote">
-    <p>"For having such a beautiful voice you would never guess she is such a butt."</p>
-    <p class="author">Kevin McPhillips, <span class="author-title">husband</span></p>
+    <p>"<%= current_testimonial.body %>"</p>
+    <% if current_testimonial.name.present? %>
+      <p class="author"><%= current_testimonial.name %>, <span class="author-title">TODO</span></p>
+    <% end %>
   </div>
 </section>
 <section class="take-note">
