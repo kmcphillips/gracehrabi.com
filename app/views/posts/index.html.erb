@@ -1,10 +1,6 @@
-<%= sidebar_sections :audio_player, :events, :gallery %>
-
-<div class="content">
+<%= pjax_layout do %>
   <% @posts.each do |post| %>
-    <%= render :partial => "post", :object => post %>
+    <%= render partial: "post", object: post %>
   <% end %>
-  <div class="post_pagination">
-    <%= paginate(@posts) %>
-  </div>
-</div>
+  <%= paginate(@posts) %>
+<% end %>

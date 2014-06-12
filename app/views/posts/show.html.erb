@@ -1,5 +1,4 @@
-<%= sidebar_sections :events, :gallery %>
-
-<div class="content">
-  <%= render :partial => "post", :object => @post %>
-</div>
+<%= pjax_layout do %>
+  <%= render partial: "post", object: @post %>
+  <p><%= pjax_link_to "< Back", :back %></p>
+<% end %>
