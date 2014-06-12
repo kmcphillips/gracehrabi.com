@@ -6,6 +6,6 @@ class Download < ActiveRecord::Base
   validates :shopify_product_id, presence: true
 
   def full_path
-    File.join(Rails.root, path)
+    File.join(Rails.root, 'downloads', path)
   end
 end

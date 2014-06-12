@@ -33,6 +33,7 @@ after "deploy:restart", "resque:restart"
 
 task :symlink_shared_files do
   run "ln -s #{shared_path}/attachments #{release_path}/public/attachments"
+  run "ln -s #{shared_path}/downloads #{release_path}/downloads"
 
   %w{database.yml mail.yml facebook.yml}.each do |config|
     run "ln -s #{shared_path}/#{config} #{release_path}/config/#{config}"
