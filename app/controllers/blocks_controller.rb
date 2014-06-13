@@ -2,9 +2,10 @@ class BlocksController < FrontEndController
   before_action :load_block
 
   def home
+    @about = Block.find_by_label('about')
   end
 
-  def about
+  def collaborators
     @links = Link.in_order
   end
 

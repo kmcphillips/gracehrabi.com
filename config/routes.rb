@@ -10,7 +10,7 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show', as: :news
   get 'rss.:format', to: 'posts#rss'
 
-  [:about, :gallery].each do |block|
+  [:collaborators, :gallery].each do |block|
     get block.to_s, to: "blocks##{block}"
   end
   get 'bio' => redirect('about')
