@@ -1,15 +1,28 @@
 require "spec_helper"
 
 describe MailingListMailer do
-  let(:mailer){ MailingListMailer.send(:new) }
-  
+  let(:contact){ FactoryGirl.create(:contact) }
+  let(:event){ FactoryGirl.create(:event) }
+  let(:events){ [event] }
+
   describe "#upcoming_events" do
-    it "should be tested" do
-      pending
+    let(:mailer) do
+      Timecop.freeze("2014-01-02") do
+        MailingListMailer.upcoming_events(contact, events)
+      end
     end
+
+    subject{ mailer }
+
+    its(:to){ should eq([contact.email]) }
+    its(:from){ should eq(["robot@gracehrabi.com"]) }
+    its(:subject){ should eq("Grace Hrabi: shows for the week of Jan 02, 2014") }
+    its(:body){ should match(/An Event/) }
   end
   
   describe "private method" do
+    let(:mailer){ MailingListMailer.send(:new) }
+
     describe "#mailing_list" do
       it "should not return the contacts for test or development env" do
         Contact.should_not_receive(:emails)

@@ -28,7 +28,7 @@ class EventCalendar
   end
 
   def weekdays
-    Date::DAYNAMES
+    Date::ABBR_DAYNAMES
   end
   
   def table

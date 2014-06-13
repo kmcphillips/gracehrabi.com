@@ -15,7 +15,7 @@ ActiveAdmin.register Block, as: "Sections" do
 
   index format: :blog, download_links: false do
     column :label do |block|
-      link_to block.label.humanize, edit_admin2_section_path(block)
+      link_to block.label.humanize, edit_admin_section_path(block)
     end
     # column :body do |post|
     #   truncate post.body, length: 300, omission: '...'
@@ -32,7 +32,7 @@ ActiveAdmin.register Block, as: "Sections" do
       f.input :body
     end
     f.inputs do
-      f.template.render partial: 'admin2/attached_image', locals: {f: f}
+      f.template.render partial: 'admin/attached_image', locals: {f: f}
     end
     
     f.actions

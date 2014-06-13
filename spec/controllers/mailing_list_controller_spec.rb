@@ -4,19 +4,11 @@ describe MailingListController do
   let(:email){ "example@example.com" }
   let(:token){ contact.token }
   let(:contact){ FactoryGirl.create(:contact, email: email) }
-  
-  describe "GET index" do
-    it "should render the default template" do
-      get :index
-      response.should render_template(:index)
-    end
-    
-    it "should set the title" do
-      get :index
-      assigns[:title].should eq("Mailing list sign up")
-    end
+
+  before(:each) do
+    request.env["HTTP_REFERER"] = "http://test.host/"
   end
-  
+    
   describe "POST create" do
     context "success" do
       it "should create a new contact" do
@@ -32,6 +24,7 @@ describe MailingListController do
         contact = Contact.create!(email: email, disabled: true)
         post :create, email: email
         flash[:notice].should_not be_blank
+        flash[:error].should be_blank
         assigns[:contact].email.should eq(contact.email)
         assigns[:contact].disabled.should be_false
       end
@@ -45,8 +38,9 @@ describe MailingListController do
     context "failure" do
       it "should render index" do
         post :create
-        response.should render_template(:index)
+        response.should redirect_to(:back)
         flash[:notice].should be_blank
+        flash[:error].should_not be_blank
       end
     end
   end

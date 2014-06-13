@@ -1,6 +1,68 @@
 /*
  *= require_self
- *= require stylesheet
- *= require prettyPhoto
- *= require jquery.ui.all
+ *= require font-awesome
+ *= require fancybox
+ *= require jquery.qtip.css
+ *= require normalize
+ *= require main
+ *= require calendar
 */
+
+#development_notice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px;
+  margin: 8px;
+  background-color: red;
+  font-weight: bold;
+}
+
+#spinner {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  padding: 8px;
+  margin: 8px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  display: none;
+  z-index: 999;
+}
+
+a.calendar-event-icon {
+  font-size: 1.8em;
+}
+
+nav.pagination {
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  padding: 30px;
+}
+
+.left_float {
+  float: left;
+}
+
+.right_float {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+div.gallery-row {
+  text-align: center;
+  padding: 3px;
+}
+
+div.error {
+
+}
+
+div.notice {
+
+}

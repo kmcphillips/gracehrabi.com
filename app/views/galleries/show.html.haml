@@ -1,8 +1,0 @@
-.post
-  %h1= @gallery.name
-  %h3 &nbsp;
-
-  - @gallery.images.in_order.all_active.each do |image|
-    = link_to image_tag(image.thumb, :class => "thumb", :alt => image.label), image.full, :rel => "prettyPhoto[gallery]"
-
-  .gallery_back= link_to "Back to all galleries", "/galleries"

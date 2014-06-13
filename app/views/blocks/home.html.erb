@@ -1,0 +1,8 @@
+<%= pjax_layout do %>
+  <h2>Bio</h2>
+  <%= simple_format @about.body %>
+
+  <p>
+    <%= obfuscated_mail_to(Settings.site_email) %>
+  </p>
+<% end %>

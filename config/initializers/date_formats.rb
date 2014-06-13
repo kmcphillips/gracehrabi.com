@@ -5,5 +5,9 @@ Time::DATE_FORMATS[:index] = "%b %e/%Y %I:%M%p"
 Time::DATE_FORMATS[:form] = "%d/%m/%Y %I:%m %p"
 Time::DATE_FORMATS[:words] = "%b %d, %Y"
 Time::DATE_FORMATS[:hour] = "%I"
+Time::DATE_FORMATS[:time] = "%I:%M%p"
 Time::DATE_FORMATS[:meridian] = "%p"
 Time::DATE_FORMATS[:active_admin] = "%p""%B %d, %Y %H:%M"
+Time::DATE_FORMATS[:html_formatted] = lambda{ |time|
+  time.strftime("%B #{ time.day }<sup>#{ time.day.ordinal }</sup>, %Y - %I:%M%p") 
+}

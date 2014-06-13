@@ -14,7 +14,7 @@ ActiveAdmin.register Lyric do
 
   index format: :blog, download_links: false do
     column :title do |lyric|
-      link_to lyric.title, admin2_lyric_path(lyric)
+      link_to lyric.title, admin_lyric_path(lyric)
     end
     column :created_at
     default_actions

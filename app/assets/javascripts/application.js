@@ -1,12 +1,9 @@
 //= require jquery
+//= require jquery-migrate
 //= require jquery_ujs
-//= require jquery.ui.all
-//= require jquery.prettyPhoto
-//= require jquery.swfobject
-//= require jquery.timepicker
 //= require jquery.pjax
+//= require jquery.easing
+//= require jquery.qtip.js
+//= require fancybox
 //= require frontend
-//= require admin
-//= require admin_images
-//= require lightboxes
 //= require_self

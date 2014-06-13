@@ -1,0 +1,7 @@
+<%= pjax_layout do %>
+  <h2>News</h2>
+  <% @posts.each do |post| %>
+    <%= render partial: "post", object: post %>
+  <% end %>
+  <%= paginate(@posts) %>
+<% end %>

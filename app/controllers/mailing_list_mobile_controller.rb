@@ -1,6 +1,5 @@
 class MailingListMobileController < ApplicationController
-  layout "mobile"
-  
+
   def index
     @title = "Mailing List"
   end

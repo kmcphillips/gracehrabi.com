@@ -1,0 +1,44 @@
+<table cellpadding="0" cellspacing="0" class="calendar" style="width: 100%">
+  <tr>
+    <td class="previous" colspan="2">
+      <% if calendar.previous_date %>
+        <%= pjax_link_to "< Previous".html_safe, "/events/calendar/#{ calendar.previous_date.year }/#{ calendar.previous_date.month }" %>
+      <% end %>
+    </td>
+    <td class="month" colspan="3">
+      <%= calendar.month %>
+      <%= calendar.year %>
+    </td>
+    <td class="next" colspan="2">
+      <% if calendar.next_date %>
+        <%= pjax_link_to "Next >".html_safe, "/events/calendar/#{ calendar.next_date.year }/#{ calendar.next_date.month }" %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <% calendar.weekdays.each do |day| %>
+      <th>
+        <%= day %>
+      </th>
+    <% end %>
+  </tr>
+  <% calendar.table.each do |row| %>
+    <tr>
+      <% row.each do |cell| %>
+        <td class="<%= cell.css_class %>">
+          <span class="date">
+            <%= cell.date %>
+          </span>
+          <% if cell.events.any? %>
+            <br/>
+            <div class="events">
+              <% cell.events.each_with_index do |event, index| %>
+                <%= pjax_link_to fa_icon('star'), event_path(event), class: 'calendar-event-icon', title: "#{ event.title } / #{ event.starts_at.to_s(:time) }" %>
+              <% end %>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

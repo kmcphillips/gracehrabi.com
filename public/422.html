@@ -1,291 +1,55 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-  <title>Grace Hrabi - Change Rejected</title>
-  <style type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Grace Hrabi - Error</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      @font-face {
-          font-family: 'LatinModernMonoProp10Regular';
-          src: url('../fonts/lmmonoprop10-regular-webfont.eot');
-          src: local('☺'), url('../fonts/lmmonoprop10-regular-webfont.woff') format('woff'), url('../fonts/lmmonoprop10-regular-webfont.ttf') format('truetype'), url('../fonts/lmmonoprop10-regular-webfont.svg#webfont975a0g2P') format('svg');
-          font-weight: normal;
-          font-style: normal;
-      }
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
+  <link href="/assets/application.css" media="screen" rel="stylesheet" />
 
-      @font-face {
-          font-family: 'MonospaceTypewriterRegular';
-          src: url('../fonts/MonospaceTypewriter-webfont.eot');
-          src: local('☺'), url('../fonts/MonospaceTypewriter-webfont.woff') format('woff'), url('../fonts/MonospaceTypewriter-webfont.ttf') format('truetype'), url('../fonts/MonospaceTypewriter-webfont.svg#webfont6Gry4Llq') format('svg');
-          font-weight: normal;
-          font-style: normal;
-      }
+</script>
 
-
-      * {
-          margin: 0;
-          padding: 0;
-      }
-
-      html, body {
-          margin: 0;
-          padding: 0;
-      }
-
-      body {
-          background: #F4F3E5;
-          color: #F6F3CF;
-          font-family: LatinModernMonoProp10Regular, serif;
-          font-size: 14px;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-          margin: 0;
-          padding: 0;
-          font-weight: normal;
-      }
-
-      a {
-          color: #7D7B56;
-          text-decoration: none;
-      }
-
-      a:hover {
-          color: #C52115;
-          text-decoration: underline;
-      }
-
-      a:visited {
-      }
-
-      #wrapper {
-          margin: 0 auto;
-          width: 650px;
-          padding-bottom: 18px;
-      }
-
-      #header {
-          width: 650px;
-          padding: 0;
-          margin: 0;
-          height: 174px;
-      }
-
-      #header h1 {
-          float: left;
-          padding: 20px;
-          margin: 0px;
-      }
-
-      #header a img {
-        border: 0;
-      }
-
-
-      #header a:hover img {
-        border: 0;
-      }
-
-      #nav {
-          width: 650px;
-          padding: 0;
-          margin: 0;
-      }
-
-      #content {
-          width: 650px;
-          margin: 0;
-          padding: 0;
-          background: #3D1020;
-      }
-
-      #content .minheight {
-          height: 400px;
-          float: right;
-          width: 1px;
-      }
-
-      #content .minheight_clear {
-          clear: both;
-          height: 1px;
-          overflow: hidden;
-      }
-
-      #footer {
-          width: 650px;
-          margin: 0;
-          padding: 0;
-          height: 50px;
-      }
-
-      #nav .bar {
-          width: 100%;
-          margin: 0;
-          font-size: 1.25em;
-          font-family: LatinModernMonoProp10Regular, serif;
-          background: none;
-      }
-
-      #nav .bar ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          line-height: normal;
-      }
-
-      #nav .bar li {
-          float: left;
-      }
-
-      #nav .bar a {
-          color: #4B3733;
-          display: block;
-          text-decoration: none;
-          border: none;
-          padding: 11px 9px;
-      }
-
-      #nav .bar a:hover {
-          color: #C52115;
-          text-decoration: none;
-      }
-
-      .box_full {
-          background: #9E8855;
-          padding: 3px;
-          font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
-          font-size: 1.1em;
-      }
-
-      .box_full a {
-          color: #4B3733;
-      }
-
-      .box_full a:hover {
-          color: #C52115;
-      }
-
-      .box_full p {
-          float: right;
-          font-weight: bold;
-      }
-
-      a.listen_nav img {
-        padding: 0;
-        margin: 0;
-        border: 0;
-      }
-
-
-      .credits {
-        font-size: 1em;
-        font-weight: bold;
-        border: 0;
-      }
-
-      .credits a img {
-        border: 0;
-      }
-
-      /****** Content ******/
-
-      #content .main {
-          padding: 24px;
-      }
-
-      #content .preview {
-          margin: 30px 0 18px 0;
-      }
-
-      #content .preview h2 {
-          background-color: #7E7708;
-          padding: 8px;
-      }
-
-      /*** News ***/
-
-      .post {
-          padding: 8px 0 32px 0;
-      }
-
-      .post h1 {
-          padding: 0 0 1px 0;
-          border-bottom: 1px solid #7E7708;
-          font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
-          font-size: 1.3em;
-      }
-
-      .post h1 a {
-          color: #e4ebc1;
-          text-decoration: none;
-      }
-
-      .post h1 a:hover {
-          color: #D0CC91;
-          text-decoration: none;
-      }
-
-      .post h3 {
-          color: #737874;
-          font-size: 1.1em;
-          text-align: right;
-          font-family: MonospaceTypewriterRegular, verdana, helvetica, arial, sans-serif;
-      }
-
-      .clear {
-          clear: both
-      }
-
-  </style>
+  <link href="/rss.xml" rel="alternate" title="RSS" type="application/rss+xml" />
 </head>
-
 <body>
-    <div id='wrapper'>
-        <div class='box_full'>&nbsp;</div>
-        <div id='header'>
-            <a href="/"><img alt="Grace Hrabi" src="/assets/header.jpg" /></a>
-        </div>
-
-        <div id='nav'>
-            <div class='bar'>
-                <ul>
-                    <li><a href="/">Go Back</a></li>
-                </ul>
-                <div class='clear'></div>
-            </div>
-        </div>
-
-        <div id='content'>
-            <div class='minheight'></div>
-            <div class='main'>
-
-                <div class='post'>
-                <h1>Change Rejected</h1>
-                <h3>&nbsp;</h3>
-                <p>
-                    The change you were attempting to make was rejected. If the problem persists, please contact the administrator.
-                </p>
-
-                <p>
-                    <a href="/">Back to the main page</a>
-                </p>
-                </div>
-                <div class='post'>
-
-                </div>
-
-            </div>
-
-            <div class='minheight_clear'></div>
-        </div>
-
-        <div id='footer'>
-          <img alt="Grace Hrabi" src="/assets/footer.jpg" />
-        </div>
-
-        <div class='box_full credits'>
-        &nbsp;
-        </div>
+  <header>
+    <div class="wrapper">
+      <div class="logo">
+        <a data-pjax-link="true" href="/"></a>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Back</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </header>
+  <section>
+    <div class="wrapper">
+      <div class="content">
+        <h1>The change you were trying to make was rejected</h1>
+        <p>
+          Sorry, the change you were trying to make was rejected. If the problem persists, please contact the administrator.
+        </p>
+        <p>
+          <a href="/">&lt; Back</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="wrapper">
+      <hr>
+      <p>Copyright &copy; 2014 Grace Hrabi. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
-
 </html>

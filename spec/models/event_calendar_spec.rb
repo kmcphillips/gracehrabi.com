@@ -41,7 +41,7 @@ describe EventCalendar do
   
   describe "#weekdays" do
     it "should return an array of strings" do
-      calendar.weekdays.should eq(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
+      calendar.weekdays.should eq(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"])
     end
   end
   

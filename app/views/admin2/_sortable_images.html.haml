@@ -1,4 +1,0 @@
-%ul#image_sortable
-  - Image.in_order.each do |image|
-    %li{style: "background: #FFF url('#{image.thumb}') no-repeat left top;", id: "image_#{image.id}"}
-      .delete= destroy_entity_image admin2_image_path(image)
