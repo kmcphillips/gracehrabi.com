@@ -165,11 +165,13 @@ header {
     height: 455px;
 }
 
-.logo {
+#logo {
     float: left;
     background: image-url('logo.png') no-repeat;
     height: 28px;
     width: 146px;
+    display: block;
+    text-indent:-9999px;
 }
 
 nav {
@@ -208,7 +210,7 @@ nav li {
     margin-left: 35px;
 }
 
-.album {
+.callout {
     float: right;
     background: image-url('album-title.png') no-repeat;
     height: 255px;
@@ -216,7 +218,7 @@ nav li {
     margin-top: 95px;
 }
 
-.album .button {
+.callout .button {
     color: #dfe6cf;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
@@ -235,7 +237,7 @@ nav li {
     display: inline-block;
 }
 
-.album .button:hover {
+.callout .button:hover {
     opacity: 0.7;
     filter: alpha(opacity=70); /* For IE8 and earlier */
     text-decoration: none;
@@ -291,8 +293,14 @@ nav li {
     font-style: italic;
     color: #ffffff;
     padding: 90px 0 90px 0;
-    text-align: center;
     letter-spacing: 0.05em;
+    line-height: 20px;
+}
+
+.quote p {
+    max-width: 600px;
+    text-align: center;
+    margin: 1em auto;
 }
 
 .author {
