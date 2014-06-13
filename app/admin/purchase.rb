@@ -52,4 +52,14 @@ ActiveAdmin.register Purchase do
       end
     end
   end
+
+  member_action :resend, method: :post do
+    PurchaseCreateNotificationJob.enqueue(resource.id)
+    flash[:notice] = "Email resent"
+    redirect_to admin_purchase_path(resource)
+  end
+
+  action_item only: :show do
+    button_to "Resend Email", resend_admin_purchase_path(resource)
+  end
 end
