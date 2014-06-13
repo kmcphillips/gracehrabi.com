@@ -34,7 +34,7 @@ ActiveAdmin.register Download do
     attributes_table do
       row :name
       row :file do
-        link_to download.filename, "TODO"
+        link_to download.filename, file_admin_download_path(download)
       end
       row :allow_anonymous
       row :shopify_product do
@@ -48,5 +48,12 @@ ActiveAdmin.register Download do
         render partial: 'admin/download_records', object: download.download_records, locals: {show_purchase: true}
       end
     end
+  end
+
+  member_action :file do
+    send_file(resource.full_path,
+      filename: resource.filename,
+      disposition: 'attachment'
+    )
   end
 end
