@@ -125,9 +125,13 @@ a:active {
 }
 
 h1 {
-    font-size: 24px;
-    font-weight: 100;
-    color: #36a6be;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #2e2e2e;
+    margin-top: 0;
 }
 
 h2 {
@@ -146,6 +150,12 @@ h3 {
     letter-spacing: 0.2em;
     color: #2e2e2e;
     margin-top: 0;
+}
+
+.intro-text {
+    font-size: 24px;
+    font-weight: 100;
+    color: #36a6be;
 }
 
 .wrapper {
