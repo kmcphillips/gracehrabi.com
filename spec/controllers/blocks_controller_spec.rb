@@ -4,18 +4,21 @@ describe BlocksController do
   let(:block){ FactoryGirl.create(:block) }
   let(:scope){ double }
 
-  describe "GET about" do
+  describe "GET collaborators" do
     it "assigns the requested block as @block" do
-      expect(Block).to receive(:find_by_label).with("about").and_return(block)
-      get :about
-      expect(assigns(:block)).to eq(block)
+      FactoryGirl.create(:link)
+      get :collaborators
+      expect(assigns(:links)).to be_present
     end
   end
   
   describe "GET home" do
     it "should render the template" do
+      expect(Block).to receive(:find_by_label).with("about").and_return(block)
+      expect(Block).to receive(:find_by_label).with("home").and_return(nil)
       get :home
       expect(response).to render_template(:home)
+      expect(assigns(:about)).to eq(block)
     end
   end
 
