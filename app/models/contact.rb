@@ -43,6 +43,7 @@ class Contact < ActiveRecord::Base
       emails.split(/[ \t\r\n,]/).uniq.each do |email|
         contact = Contact.find_by_email(email) || Contact.new(email: email)
         contact.disabled = false
+        contact.source = "bulk"
         
         count = count + 1 if contact.save
       end
