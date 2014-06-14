@@ -8,6 +8,7 @@ ActiveAdmin.register Contact do
 
   filter :email
   filter :disabled
+  filter :source
 
   controller do
     def permitted_params
@@ -18,6 +19,7 @@ ActiveAdmin.register Contact do
   index format: :blog, download_links: false do
     column :email
     column :created_at
+    column :source
     column :enabled do |contact|
       boolean_image :enabled?
     end

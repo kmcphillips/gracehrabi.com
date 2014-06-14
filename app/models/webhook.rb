@@ -13,7 +13,9 @@ class Webhook < ActiveRecord::Base
         process_order_creation
 
         if accepts_marketing? && customer_email.present?
-          Contact.build_from_email(customer_email).save!
+          contact = Contact.build_from_email(customer_email)
+          contact.source = "shopify"
+          contact.save!
         end
 
         success!
