@@ -1,27 +1,30 @@
 <%= pjax_layout do %>
-  <h1>Albums</h1>
-  <h3>&nbsp;</h3>
-  <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px', class: 'left_float' %>
+  <h2>Albums</h2>
+  <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px; padding-bottom: 20px', class: 'left_float' %>
   <p>
-    Debut album <em>Afraid of Heights</em>
-    <br>
-    Release date: Monday June 14th, 2014
+    Debut album <em>Afraid of Heights</em>, featuring Jesse Popeski on guitar &amp; Quintin Bart on bass.
   </p>
-
-  <p>
-    Listen to Grace on
-    <%= link_to "Bandcamp", Settings.bandcamp_url %>
-    and
-    <%= link_to "Soundcloud", Settings.soundcloud_url %>
+  <p style="clear: both; text-align: center">
+    <%= link_to "Buy the CD now and receive MP3s of the album immediately", Settings.shop_url %>
+    <br>
+    <sub>or</sub>
+    <br>
+    <%= link_to "Listen to the full album on Bandcamp", Settings.bandcamp_url %>
+    <br>
+    <sub>or</sub>
+    <br>
+    <%= link_to "Hear more of Grace on Soundcloud", Settings.soundcloud_url %>
   </p>
   <div class="clear"></div>
 
-  <h1>Lyrics</h1>
-  <ul>
-    <% @lyrics.each do |lyric| %>
-      <li>
-        <%= pjax_link_to lyric.title, lyric_path(lyric) %>
-      </li>
-    <% end %>
-  </ul>
+  <% if @lyrics.any? %>
+    <h1>Lyrics</h1>
+    <ul>
+      <% @lyrics.each do |lyric| %>
+        <li>
+          <%= pjax_link_to lyric.title, lyric_path(lyric) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
