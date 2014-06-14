@@ -12,6 +12,10 @@ class Webhook < ActiveRecord::Base
       begin
         process_order_creation
 
+        if accepts_marketing? && customer_email.present?
+          Contact.build_from_email(customer_email).save!
+        end
+
         success!
       rescue => e
         log_webhook_error("Failed to process webhook", e)
@@ -29,6 +33,10 @@ class Webhook < ActiveRecord::Base
       log_webhook_error("Failed to parse JSON webhook.", e)
       nil
     end
+  end
+
+  def accepts_marketing?
+    !!as_hash['buyer_accepts_marketing']
   end
 
   private

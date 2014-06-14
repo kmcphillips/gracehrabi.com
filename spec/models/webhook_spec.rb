@@ -21,6 +21,17 @@ describe Webhook do
     end
   end
 
+  describe "#accepts_marketing?" do
+    it "should be false if the customer does not agree" do
+      expect(webhook.accepts_marketing?).to be_false
+    end
+
+    it "should be true if the customer agrees" do
+      webhook = Webhook.new(body: "{\"buyer_accepts_marketing\": true}")
+      expect(webhook.accepts_marketing?).to be_true
+    end
+  end
+
   describe "#parse" do
     let(:download){ FactoryGirl.create(:download) }
 
