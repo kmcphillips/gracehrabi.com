@@ -11,14 +11,16 @@
 <% if footer %>
   <section>
     <div class="quote">
-      <p>"<%= current_testimonial.body %>"</p>
-      <% if current_testimonial.name.present? || current_testimonial.title.present? %>
-        <p class="author">
-          <%= current_testimonial.name %><% if current_testimonial.name.present? && current_testimonial.title.present? %>,<% end %>
-          <% if current_testimonial.title.present? %>
-            <span class="author-title"><%= current_testimonial.title %></span>
-          <% end %>
-        </p>
+      <% if current_testimonial %>
+        <p>"<%= current_testimonial.body %>"</p>
+        <% if current_testimonial.name.present? || current_testimonial.title.present? %>
+          <p class="author">
+            <%= current_testimonial.name %><% if current_testimonial.name.present? && current_testimonial.title.present? %>,<% end %>
+            <% if current_testimonial.title.present? %>
+              <span class="author-title"><%= current_testimonial.title %></span>
+            <% end %>
+          </p>
+        <% end %>
       <% end %>
     </div>
   </section>
