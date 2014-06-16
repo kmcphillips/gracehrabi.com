@@ -1,6 +1,8 @@
 <%= pjax_layout do %>
   <h2>Albums</h2>
-  <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px; padding-bottom: 20px', class: 'left_float' %>
+  <%= link_to Settings.shop_url do %>
+    <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px; padding-bottom: 20px', class: 'left_float' %>
+  <% end %>
   <p>
     Debut album <em>Afraid of Heights</em>, featuring Jesse Popeski on guitar &amp; Quintin Bart on bass.
   </p>
