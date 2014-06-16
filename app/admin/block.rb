@@ -31,8 +31,10 @@ ActiveAdmin.register Block, as: "Sections" do
     f.inputs do
       f.input :body
     end
-    f.inputs do
-      f.template.render partial: 'admin/attached_image', locals: {f: f}
+    if f.object.accepts_image?
+      f.inputs do
+        f.template.render partial: 'admin/attached_image', locals: {f: f}
+      end
     end
     
     f.actions
