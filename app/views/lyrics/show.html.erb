@@ -1,0 +1,5 @@
+<%= pjax_layout do %>
+  <h1><%= @lyric.title %></h1>
+  <%= simple_format @lyric.body %>
+  <p><%= pjax_link_to "< Back", :back %></p>
+<% end %>

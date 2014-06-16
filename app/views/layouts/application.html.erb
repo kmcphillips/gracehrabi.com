@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%= page_title %></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag :modernizr %>
+  <%= javascript_include_tag 'application' %>
+  <%= yield :js %>
+  <%= csrf_meta_tag %>
+  <%= render partial: "shared/analytics" %>
+  <%= auto_discovery_link_tag(:rss, '/rss.xml') %>
+</head>
+<body>
+<!--
+  <div id="spinner">Loading</div>
+  <% unless Rails.env.production? %>
+  <div id="development_notice">
+    <%= Rails.env.humanize %>
+    Server
+    <br/>
+    <%= Digest::SHA1.hexdigest(Time.now.to_i.to_s)[0..15] %>
+  </div>
+  <% end %>
+-->
+  <header>
+    <div class="wrapper">
+      <%= pjax_link_to "Grace Hrabi", root_path, id: "logo", title: "Grace Hrabi" %>
+      <nav>
+        <ul>
+          <li>
+            <%= pjax_link_to "News", news_index_path %>
+          </li>
+          <li>
+            <%= pjax_link_to "Shows", events_path %>
+          </li>
+          <li>
+            <%= pjax_link_to "Mailing List", mailing_list_index_path %>
+          </li>
+          <li>
+            <%= pjax_link_to "Gallery", gallery_path %>
+          </li>
+          <li>
+            <%= pjax_link_to "Collaborators", collaborators_path %>
+          </li>
+          <li>
+            <%= pjax_link_to "Music", music_path %>
+          </li>
+        </ul>
+      </nav>
+      <div class="callout">
+        <%= link_to "Buy Now", Settings.shop_url, class: "button" %>
+        <%= link_to "Listen Online", Settings.bandcamp_url, class: "button" %>
+      </div>
+    </div>
+  </header>
+  <section class="mid-bar">
+    <div class="wrapper">
+      <div class="bandcamp-player">
+        <iframe style="border: 0; width: 460px; height: 45px; margin-top: -1px;" src="http://bandcamp.com/EmbeddedPlayer/track=2590199252/size=small/bgcol=ffffff/linkcol=e99708/transparent=true/" seamless><a href="http://gracehrabi.bandcamp.com/track/joanna">Joanna by Grace Hrabi</a></iframe>
+      </div>
+      <div class="social">
+        <ul class="fa-ul">
+          <li>
+            <%= link_to fa_icon('facebook-square'), Settings.facebook_url, title: "Grace Hrabi on Facebook" %>
+          </li>
+          <li>
+            <%= link_to fa_icon('twitter-square'), Settings.twitter_url, title: "Grace Hrabi on Twitter" %>
+          </li>
+          <li>
+            <%= link_to fa_icon('rss-square'), "/rss.xml", title: "RSS" %>
+          </li>
+          <li>
+            <%= link_to fa_icon('soundcloud'), Settings.soundcloud_url, title: "Grace Hrabi on Soundcloud" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div id="pjax-body">
+    <%= yield %>
+  </div>
+  <footer>
+    <div class="wrapper">
+      <hr>
+      <p>Copyright &copy; <%= Date.today.year %> Grace Hrabi. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

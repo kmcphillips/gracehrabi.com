@@ -35,7 +35,7 @@ ActiveAdmin.register Contact do
   end
 
   action_item do
-    link_to "All Email Addresses", all_admin2_contacts_path
+    link_to "All Email Addresses", all_admin_contacts_path
   end
 
   collection_action :all, method: :get do

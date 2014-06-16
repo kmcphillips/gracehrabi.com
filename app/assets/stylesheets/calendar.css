@@ -1,0 +1,61 @@
+table.calendar {
+  font-size: 0.9em;
+  border-collapse:collapse;
+}
+  
+table.calendar tr th{
+  text-transform: uppercase;
+  font-weight:normal;
+  width: 14%;
+  padding: 5px;
+  border-bottom: 1px solid rgba(232,221,203,1);
+}
+table.calendar tr td.month{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5em;
+  vertical-align: middle;
+  padding: 0 5px;
+  border: none;
+}
+table.calendar tr td.previous{
+  text-align: left;
+  vertical-align: middle;
+  font-size: 1.5em;
+  border: none;
+}
+table.calendar tr td.next{
+  text-align: right;
+  vertical-align: middle;
+  font-size: 1.5em;
+  border: none;
+}
+table.calendar tr td{
+  padding: 5px;
+  vertical-align: top;
+  border: 1px solid rgba(255,255,255,0.2);
+  height: 50px;
+}
+table.calendar tr td div.events{
+  text-align: center;
+}
+table.calendar tr td a{
+  color: rgba(232,221,203,1);
+}
+table.calendar tr td a:hover{
+  color: rgba(232,221,203,0.7);
+}
+
+table.calendar tr td span.day{
+  font-size: 1.5em;
+}
+table.calendar tr td i.fa{
+  margin: 0 !important;
+}
+
+table.calendar tr td.past_day{
+  color: rgba(255,255,255,0.2);
+}
+table.calendar tr td.current_day{
+  background-color: rgba(33,138,137,0.5);
+}

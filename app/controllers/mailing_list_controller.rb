@@ -1,7 +1,6 @@
-class MailingListController < ApplicationController
+class MailingListController < FrontEndController
 
   def index
-    @title = "Mailing list sign up"
   end
 
   def create
@@ -10,15 +9,22 @@ class MailingListController < ApplicationController
 
     if @contact.save
       flash[:notice] = "You have been signed up! Thank you!"
-      redirect_to root_path
+      redirect_to :back
     else
-      render :index
+      flash[:error] = "There was an error adding you to the mailing list. #{ @contact.errors.full_messages.to_sentence }"
+      redirect_to :back
     end
   end
   
   def show
     @contact = Contact.find_by_token(params[:id])
-    @title = "Unsubscribe"
+
+    if @contact
+      @title = "Unsubscribe"
+    else
+      flash[:error] = "Could not find email to unsubscribe."
+      redirect_to root_path
+    end
   end
   
   def destroy

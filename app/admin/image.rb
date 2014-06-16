@@ -12,7 +12,7 @@ ActiveAdmin.register Image do
   end
 
   index download_links: false do |image|
-    render partial: 'admin2/sortable_images'
+    render partial: 'admin/sortable_images'
   end
 
   show title: :label do |image|

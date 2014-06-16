@@ -1,11 +1,17 @@
 - if flash[:notice]
   .notice
-    %h2=flash[:notice]
+    = fa_icon('check')
+    %p=flash[:notice]
+    .clear
 
 - if flash[:error]
   .error
-    %h2= flash[:error]
+    = fa_icon('times')
+    %p= flash[:error]
+    .clear
 
 - if alert.present?
   .error
-    %h2= alert
+    = fa_icon('times')
+    %p= alert
+    .clear

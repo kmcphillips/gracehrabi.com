@@ -16,7 +16,7 @@ ActiveAdmin.register Post do
 
   index format: :blog, download_links: false do
     column :title do |post|
-      link_to post.title, admin2_post_path(post)
+      link_to post.title, admin_post_path(post)
     end
     # column :body do |post|
     #   truncate post.body, length: 300, omission: '...'
@@ -48,7 +48,7 @@ ActiveAdmin.register Post do
       f.input :body
     end
     f.inputs do
-      f.template.render partial: 'admin2/attached_image', locals: {f: f}
+      f.template.render partial: 'admin/attached_image', locals: {f: f}
     end
     
     f.actions

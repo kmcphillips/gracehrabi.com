@@ -8,7 +8,7 @@ class Link < ActiveRecord::Base
   scope :in_order, -> { order("sort_order ASC") }
 
   before_validation(on: :create) do
-    self.sort_order = Track.highest_sort_order + 1
+    self.sort_order = Link.highest_sort_order + 1
   end
   
   after_save :scrub_sort_order
@@ -24,11 +24,11 @@ class Link < ActiveRecord::Base
   end
   
   def self.highest_sort_order
-    Track.order("sort_order DESC").limit(1).first.try(:sort_order).to_i
+    Link.order("sort_order DESC").limit(1).first.try(:sort_order).to_i
   end
   
   def scrub_sort_order
-    Track.order("sort_order ASC").each_with_index do |track, index|
+    Link.order("sort_order ASC").each_with_index do |track, index|
       track.update_attribute(:sort_order, index + 1) unless track.sort_order == (index + 1)
     end
   end

@@ -10,7 +10,7 @@ describe Event do
   let(:event){ @event }
 
   describe "with real events" do
-    let(:time){ Time.now }
+    let(:time){ Time.parse("2014-02-02 02:00:00 -0600") }
 
     before(:each) do
       Timecop.freeze time

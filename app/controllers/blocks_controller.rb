@@ -1,30 +1,16 @@
-class BlocksController < ApplicationController
+class BlocksController < FrontEndController
   before_action :load_block
 
   def home
-    @events = Event.current_and_upcoming.limit(5)
-    @posts = Post.recent
-    @images = Image.random_sample
+    @about = Block.find_by_label('about')
   end
 
-  def about
-  end
-
-  def contact
-  end
-
-  def bio
-    @kit = Media.find_by_label!("press_kit")
-  end
-
-  def gallery
-  end
-
-  def links
+  def collaborators
     @links = Link.in_order
   end
 
-  def listen
+  def gallery
+    @images = Image.all_active.in_order
   end
 
   protected

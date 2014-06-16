@@ -6,52 +6,30 @@ GracehrabiCom::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  get 'news', to: 'posts#index'
-  get 'news/:id', to: 'posts#show'
+  get 'news', to: 'posts#index', as: :news_index
+  get 'news/:id', to: 'posts#show', as: :news
   get 'rss.:format', to: 'posts#rss'
 
-  ['contact', 'links', 'bio', 'listen'].each do |block|
-    get block, to: "blocks##{block}"
+  [:collaborators, :gallery].each do |block|
+    get block.to_s, to: "blocks##{block}"
   end
+  get 'bio' => redirect('about')
+
+  get 'music' => 'lyrics#index', as: :music
+  resources :lyrics, only: [:show]
 
   get 'download/:token/*filename', to: 'downloads#download', format: false, as: 'download'
 
-  # media player
-  get 'player/:id', to: 'tracks#show'
-
-  resources :events, only: [:index, :show]
-  resources :galleries, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    collection do
+      get :archive
+    end
+  end
+  get 'events/calendar/:year/:month', to: 'events#index'
   resources :mailing_list, only: [:index, :create, :show, :destroy]
   resources :mailing_list_mobile, only: [:index, :create]
 
   get 'unsubscribe/:id', to: 'mailing_list#show', as: "unsubscribe"
 
   resources :webhooks, only: [:create]
-
-  namespace :admin do
-    root to: "posts#index"
-
-    resources :blocks, except: [:destroy, :create, :new, :show]
-    resources :medias, only: [:edit, :update]
-    resources :events, except: [:show]
-    resources :links, except: [:show] do
-      collection do
-        post 'sort'
-      end
-    end
-    resources :posts, except: [:show]
-    resources :tracks, except: [:show] do
-      collection do
-        post 'sort'
-      end
-    end
-    resources :galleries, only: [:index, :show]
-    resources :images, only: [:create, :destroy, :update] do
-      collection do
-        post 'sort'
-      end
-    end
-    resources :contacts, only: [:index, :update, :create]
-    resources :authorized_emails, only: [:index, :create, :destroy]
-  end
 end

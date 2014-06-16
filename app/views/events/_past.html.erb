@@ -1,0 +1,24 @@
+<% unless @past.blank? %>
+  <h2 class="event">Archive</h2>
+  <% @past.group_by{|event| event.starts_at.year }.each_pair do |year, events| %>
+    <div class="post">
+      <h1>
+        <%= year %>
+      </h1>
+      <br/>
+      <div class="body">
+        <ul class="past">
+          <% events.each do |event| %>
+            <li>
+              <span class="bold">
+                <%= pjax_link_to event.starts_at.to_formatted_s(:news_without_time), event_path(event) %>
+              </span>
+              <%= " : " %>
+              <%= pjax_link_to event.title, event_path(event) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>

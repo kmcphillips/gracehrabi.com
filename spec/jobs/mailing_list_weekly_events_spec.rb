@@ -17,7 +17,7 @@ describe MailingListWeeklyEventsJob do
     end
   end
 
-  describe "#process" do
+  describe "#perform" do
     let(:contact2){ FactoryGirl.create(:contact) }
     let(:mailer){ double }
     let(:mailer2){ double }
@@ -25,7 +25,7 @@ describe MailingListWeeklyEventsJob do
     it "should do nothing if there are not any events found" do
       Event.stub(:for_mailing_list).and_return([])
       MailingListMailer.should_not_receive(:upcoming_events)
-      job.process
+      job.perform
     end
 
     it "should deliver to each contact" do
@@ -35,7 +35,7 @@ describe MailingListWeeklyEventsJob do
       mailer.should_receive(:deliver)
       mailer2.should_receive(:deliver)
 
-      job.process
+      job.perform
     end
 
     it "should catch delivery errors" do
@@ -43,7 +43,7 @@ describe MailingListWeeklyEventsJob do
       MailingListMailer.should_receive(:upcoming_events).with(contact, events).and_return(mailer)
       mailer.should_receive(:deliver).and_raise("butts")
 
-      job.process
+      job.perform
     end
   end
 

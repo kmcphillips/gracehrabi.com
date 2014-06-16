@@ -1,0 +1,18 @@
+<h2>Shows</h2>
+<div>
+  <% @sidebar_events.each do |event| %>
+    <%= thumbnail_link_for event, event_path(event) %>
+    <h5>
+      <%= pjax_link_to event.starts_at.to_formatted_s(:event_with_time), event_path(event) %>
+    </h5>
+    <h4>
+      <%= pjax_link_to event.title, event_path(event) %>
+    </h4>
+  <% end %>
+  <% if @sidebar_events.blank? %>
+    <p>More coming soon</p>
+  <% end %>
+</div>
+<div>
+  <%= pjax_link_to "#{ fa_icon('calendar') } More Shows".html_safe, events_path, class: 'button' %>
+</div>

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def page_title
-    prefix = PAGE_TITLE
+    prefix = "Grace Hrabi"
     prefix = "#{prefix} - Admin" if params[:controller] =~ /^admin\//
 
     if @title
@@ -108,10 +108,22 @@ module ApplicationHelper
     render partial: "/shared/flash_error_messages", object: object if object
   end
 
-  def image_for(obj)
+  def image_for(obj, title='')
     if obj.respond_to?(:image) && obj.image.exists?
-      content_tag(:div, link_to(image_tag(obj.inline, class: "inline_image", alt: ""), obj.full, rel: "inlinePrettyPhoto[gallery]", class: "inline_image", title: ""), class: "image")
+      link_to(image_tag(obj.inline, class: "", alt: title), obj.full, class: "fancybox", title: title)
     end
+  end
+
+  def thumbnail_link_for(obj, path)
+    if obj.respond_to?(:image) && obj.image.exists?
+      content_tag(:div, link_to(image_tag(obj.thumb, class: "", alt: ""), path, class: "", title: ""), class: "")
+    end
+  end
+
+  def meta_from_settings
+    Settings.meta.map do |name, content|
+      content_tag(:meta, nil, name: name, content: content)
+    end.join("\n").html_safe
   end
 
   def admin?
@@ -133,33 +145,19 @@ module ApplicationHelper
     end.compact
   end
 
-  def row_class
-    cycle("odd", "even")
-  end
-
-
-  ## Overridden paths
-  def post_path(post)
-    "/news/#{post.permalink}"
-  end
-
-  def posts_path
-    "/"
-  end
-
-  def track_path(track)
-    "/player/#{track.id}"
-  end
-
-  def admin_gallery_path(gallery_id, opts={})
-    gallery_id = gallery_id.path if gallery_id.is_a?(Gallery)
-    "/admin/galleries/#{gallery_id}#{ opts[:anchor].present? ? "##{ opts[:anchor] }" : ""}"
+  def html_formatted_time(time)
+    content_tag(:p, time.to_s(:html_formatted).html_safe, class: 'date')
   end
 
   def pjax_link_to(name = nil, options = nil, html_options = nil, &block)
     html_options ||= {}
     html_options['data-pjax-link'] = true
     link_to name, options, html_options
+  end
+
+  def pjax_layout(options={}, &block)
+    options = {footer: true}.merge(options)
+    render layout: 'layouts/pjax_layout', locals: {footer: options[:footer]}, &block
   end
 
 end

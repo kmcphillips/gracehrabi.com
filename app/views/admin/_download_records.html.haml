@@ -1,0 +1,14 @@
+%table
+  %tr
+    - if show_purchase
+      %th Purchased by
+    %th Date
+    %th IP Address
+    %th Useragent
+  - download_records.each do |record|
+    %tr
+      - if show_purchase
+        %td= link_to record.purchase.name, admin_purchase_path(record.purchase)
+      %td= record.created_at.to_s(:index)
+      %td= record.ip_address
+      %td= record.useragent

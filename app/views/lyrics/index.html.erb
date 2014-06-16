@@ -1,0 +1,30 @@
+<%= pjax_layout do %>
+  <h2>Albums</h2>
+  <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px; padding-bottom: 20px', class: 'left_float' %>
+  <p>
+    Debut album <em>Afraid of Heights</em>, featuring Jesse Popeski on guitar &amp; Quintin Bart on bass.
+  </p>
+  <p style="clear: both; text-align: center">
+    <%= link_to "Buy the CD now and receive MP3s of the album immediately", Settings.shop_url %>
+    <br>
+    <sub>or</sub>
+    <br>
+    <%= link_to "Listen to the full album on Bandcamp", Settings.bandcamp_url %>
+    <br>
+    <sub>or</sub>
+    <br>
+    <%= link_to "Hear more of Grace on Soundcloud", Settings.soundcloud_url %>
+  </p>
+  <div class="clear"></div>
+
+  <% if @lyrics.any? %>
+    <h1>Lyrics</h1>
+    <ul>
+      <% @lyrics.each do |lyric| %>
+        <li>
+          <%= pjax_link_to lyric.title, lyric_path(lyric) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
