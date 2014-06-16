@@ -9,7 +9,7 @@ ActiveAdmin.register Block, as: "Sections" do
 
   controller do
     def permitted_params
-      params.permit(block: [:body, :image, :clear_image, :previous_image_id])
+      params.permit(sections: [:body, :image, :clear_image, :previous_image_id])
     end
   end
 
@@ -26,7 +26,7 @@ ActiveAdmin.register Block, as: "Sections" do
     end
     default_actions
   end
-
+binding.pry
   form do |f|
     f.inputs do
       f.input :body
