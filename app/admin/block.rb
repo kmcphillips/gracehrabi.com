@@ -26,7 +26,7 @@ ActiveAdmin.register Block, as: "Sections" do
     end
     default_actions
   end
-binding.pry
+
   form do |f|
     f.inputs do
       f.input :body
