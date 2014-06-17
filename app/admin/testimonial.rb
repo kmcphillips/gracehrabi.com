@@ -1,5 +1,5 @@
 ActiveAdmin.register Testimonial do
-  menu priority: 7
+  menu priority: 7, parent: "Content"
 
   config.batch_actions = false
 

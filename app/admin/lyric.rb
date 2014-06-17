@@ -1,5 +1,5 @@
 ActiveAdmin.register Lyric do
-  menu priority: 6
+  menu priority: 6, parent: "Content"
 
   config.batch_actions = false
 

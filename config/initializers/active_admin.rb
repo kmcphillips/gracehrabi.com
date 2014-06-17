@@ -199,6 +199,8 @@ ActiveAdmin.setup do |config|
         # menu.add label: "Facebook Page", url: Facebook::Base.new.page_url, priority: 10, html_options: {target: "_blank"}
         menu.add label: "Shopify Store", url: Settings.shopify_admin_url, priority: 9, parent: "Sales", html_options: {target: "_blank"}
         menu.add label: "Bandcamp", url: Settings.bandcamp_url, priority: 11, parent: "Sales", html_options: {target: "_blank"}
+        menu.add label: "About", url: "/admin/sections/2/edit", priority: 1, parent: "Content"
+        menu.add label: "Contact", url: "/admin/sections/1/edit", priority: 2, parent: "Content"
       end
     end
 

@@ -1,5 +1,5 @@
 ActiveAdmin.register Image do
-  menu label: "Images", priority: 4
+  menu label: "Images", priority: 4, parent: "Content"
 
   config.filters = false
   config.paginate = false

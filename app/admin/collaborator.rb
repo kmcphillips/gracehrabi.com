@@ -1,5 +1,5 @@
 ActiveAdmin.register Link, as: "Collaborators" do
-  menu priority: 5
+  menu priority: 5, parent: "Content"
 
   config.batch_actions = false
 

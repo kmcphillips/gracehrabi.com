@@ -1,5 +1,5 @@
 ActiveAdmin.register Block, as: "Sections" do
-  menu label: "Sections", priority: 3
+  menu label: "Sections", priority: 3, parent: "Content"
 
   config.filters = false
   config.paginate = false
