@@ -2,7 +2,7 @@
   <h1>
     <%= pjax_link_to event.title, event_path(event) %>
   </h1>
-  <h3>
+  <p class="date">
     <% if event.upcoming? %>
       On
       <%= event.starts_at.to_formatted_s(:event_with_time) %>
@@ -13,7 +13,7 @@
       Today at
       <%= event.starts_at.to_formatted_s(:event_with_time) %>
     <% end %>
-  </h3>
+  </p>
   <div class="body">
     <%= image_for event, event.title %>
     <%= auto_link(simple_format(event.description)).html_safe %>

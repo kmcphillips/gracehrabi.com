@@ -125,11 +125,9 @@ a:active {
 }
 
 h1 {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 24px;
+    font-weight: 100;
     color: #2e2e2e;
     margin-top: 0;
 }
@@ -140,6 +138,12 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     text-align: center;
+}
+
+.content h2 { text-align: left; }
+.post h1 {
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 h3 {
@@ -394,7 +398,7 @@ nav.pagination span {
 
 .shows {
     float: left;
-    width: 400px;
+    width: 480px;
     padding-left: 80px;
     box-sizing: border-box;
     border-left: 1px solid #dbdcca;
@@ -405,6 +409,10 @@ nav.pagination span {
     font-size: 14px;
     font-style: italic;
     margin: 3px 0 20px 0;
+}
+
+.post .date {
+    margin-top: 0;
 }
 
 .deco {

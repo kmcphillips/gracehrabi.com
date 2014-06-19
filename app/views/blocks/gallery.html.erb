@@ -1,12 +1,14 @@
 <%= pjax_layout do %>
   <h2>Image Gallery</h2>
-  <% @images.in_groups_of(5) do |group| %>
-    <div class="gallery-row">
-      <% group.each do |image| %>
-        <% if image %>
-          <%= link_to image_tag(image.thumb, alt: image.label), image.full, title: image.label, class: 'fancybox image-thumb', data: {:'fancybox-group' => 'gallery'} %>
+  <div class="gallery">
+    <% @images.in_groups_of(5) do |group| %>
+      <div class="gallery-row">
+        <% group.each do |image| %>
+          <% if image %>
+            <%= link_to image_tag(image.thumb, alt: image.label), image.full, title: image.label, class: 'fancybox image-thumb', data: {:'fancybox-group' => 'gallery'} %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>

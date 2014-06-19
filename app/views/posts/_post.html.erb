@@ -2,9 +2,9 @@
   <h1>
     <%= pjax_link_to post.title, news_path(post) %>
   </h1>
-  <h3>
+  <p class="date">
     <%= (post.created_at || Time.now).to_s(:news_without_time) %>
-  </h3>
+  </p>
   <div class="body">
     <%= image_for post, post.title %>
     <%= auto_link(simple_format(post.body)).html_safe %>
