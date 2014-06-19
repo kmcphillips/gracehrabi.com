@@ -257,6 +257,30 @@ nav li {
     text-decoration: none;
 }
 
+.button {
+    color: #F38045;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid #F38045;
+    font-size: 11px;
+    padding: 0 10px;
+    letter-spacing: 0.1em;
+    display: inline-block;
+}
+
+.button:hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+    text-decoration: none;
+}
+
+.button:active { color: #F38045; }
+
 div.notice, div.error {
     font-size: 18px;
     font-weight: 400;
@@ -433,6 +457,11 @@ footer {
 footer hr {
     border-top: 1px solid #dbdcca;
     padding-bottom: 30px;
+}
+
+ul.collaborators {
+    padding-left: 0;
+    list-style: none;
 }
 
 /* ==========================================================================

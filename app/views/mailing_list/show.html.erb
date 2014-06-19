@@ -7,5 +7,5 @@
     Are you sure you want to unsubscribe from the mailing list?
   </p>
   <%= button_to "Unsubscribe", mailing_list_path(@contact.token), method: :delete %>
-  <p><%= pjax_link_to "< Back", root_path %></p>
+  <p><%= pjax_link_to "Back", root_path, class: "button" %></p>
 <% end %>

@@ -1,4 +1,4 @@
 <%= pjax_layout do %>
   <%= render partial: "post", object: @post %>
-  <p><%= pjax_link_to "< Back", :back %></p>
+  <p><%= pjax_link_to "Back", :back, class: "button" %></p>
 <% end %>
