@@ -4,7 +4,7 @@ ActiveAdmin.register Purchase do
   config.sort_order = "created_at_desc"
   config.batch_actions = false
 
-  actions :all, except: [:edit, :new, :destroy]
+  actions :all, except: [:edit, :destroy]
 
   filter :name
   filter :created_at
@@ -13,7 +13,7 @@ ActiveAdmin.register Purchase do
 
   controller do
     def permitted_params
-      params.permit(purchase: [])
+      params.permit(purchase: [:download_id, :email])
     end
   end
 
@@ -48,9 +48,22 @@ ActiveAdmin.register Purchase do
         render partial: 'admin/download_records', object: purchase.download_records, locals: {show_purchase: false}
       end
       row :webhook do
-        click_to_show simple_format(purchase.webhook.as_hash.to_s)
+        if purchase.webhook
+          click_to_show simple_format(purchase.webhook.as_hash.to_s)
+        else
+          "None"
+        end
       end
     end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :email
+      f.input :download_id, as: :select, collection: Download.all.map{|d| [d.name, d.id] }, selected: Download.first.id
+    end
+
+    f.actions
   end
 
   member_action :resend, method: :post do

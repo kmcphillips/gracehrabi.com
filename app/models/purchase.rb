@@ -4,7 +4,6 @@ class Purchase < ActiveRecord::Base
 
   has_many :download_records
 
-  validates :webhook_id, presence: true
   validates :download_id, presence: true
   validates :token, presence: true
   validates :email, presence: true
