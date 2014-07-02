@@ -15,6 +15,14 @@ ActiveAdmin.register Purchase do
     def permitted_params
       params.permit(purchase: [:download_id, :email])
     end
+
+    def action_methods
+      if params[:action] == "index"
+        super - ['new', :new]
+      else
+        super
+      end
+    end
   end
 
   index format: :blog, download_links: false do
