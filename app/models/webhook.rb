@@ -82,7 +82,8 @@ class Webhook < ActiveRecord::Base
 
   def log_webhook_error(message, error, extras={})
     ApplicationErrorJob.enqueue(message, {
-        error: error,
+        error: error.inspect,
+        backtrace: error.backtrace.join("\n"),
         body: body,
         webhook_id: id,
         status: status,
