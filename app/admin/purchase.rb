@@ -30,6 +30,10 @@ ActiveAdmin.register Purchase do
     default_actions
   end
 
+  action_item only: :index do
+    link_to "Send new download link email", new_admin_purchase_path
+  end
+
   show do |purchase|
     attributes_table do
       row :download do
