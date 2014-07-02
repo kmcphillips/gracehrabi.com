@@ -10,6 +10,8 @@ class Purchase < ActiveRecord::Base
 
   before_validation :set_token
 
+  after_create :send_email
+
   delegate :shopify_product_id, :filename, to: :download
 
   def record_download(request)
@@ -32,6 +34,10 @@ class Purchase < ActiveRecord::Base
   end
 
   private
+
+  def send_email
+    PurchaseCreateNotificationJob.enqueue(id)
+  end
 
   def set_token
     self.token = SecureRandom.hex(8) if self.token.blank?

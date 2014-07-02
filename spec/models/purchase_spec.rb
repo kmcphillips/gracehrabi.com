@@ -47,4 +47,13 @@ describe Purchase do
     its(:shopify_product_id){ should eq(download.shopify_product_id) }
     its(:filename){ should eq(download.filename) }
   end
+
+  describe "callback" do
+    let(:purchase){ FactoryGirl.build(:purchase, webhook: nil, token: nil) }
+
+    it "should enqueue an email job after creation" do
+      expect(PurchaseCreateNotificationJob).to receive(:enqueue)
+      purchase.save!
+    end
+  end
 end

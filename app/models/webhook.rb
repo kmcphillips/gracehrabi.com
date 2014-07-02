@@ -53,9 +53,7 @@ class Webhook < ActiveRecord::Base
           address: customer_address
         )
 
-        purchase.save!
-
-        PurchaseCreateNotificationJob.enqueue(purchase.id)
+        purchase.save! # also sends the email
       end
     end
   end
