@@ -10,7 +10,7 @@ class Webhook < ActiveRecord::Base
       processing!
 
       begin
-        process_order_creation
+        process_order_creation if customer_email
 
         if accepts_marketing? && customer_email.present?
           contact = Contact.build_from_email(customer_email)
@@ -66,6 +66,8 @@ class Webhook < ActiveRecord::Base
 
   def customer_address
     address = as_hash["shipping_address"]
+    return "" unless address
+
     [
       "#{ address["first_name"] } #{ address["last_name"] }",
       address["address1"],
