@@ -1,5 +1,7 @@
 - event = index_social_buttons
 
+= link_to "Duplicate", new_admin_show_path(source_id: event.id)
+
 = form_tag "https://www.manitobamusic.com/members/edit-events/add,event", target: "_blank", style: "display: inline !important" do
   = image_submit_tag "icons/manitoba_music.png"
   = hidden_field_tag "data[Event][body]", event.export_body

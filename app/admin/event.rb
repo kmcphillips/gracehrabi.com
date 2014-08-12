@@ -24,6 +24,14 @@ ActiveAdmin.register Event, as: "Show" do
       end
     end
 
+    def build_new_resource
+      if source_event = Event.find_by_id(params[:source_id])
+        source_event.dup
+      else
+        super
+      end
+    end
+
   end
 
   index format: :blog, download_links: false do
@@ -53,7 +61,7 @@ ActiveAdmin.register Event, as: "Show" do
         distance_of_time_in_words_to_now(event.starts_at) unless event.starts_at < Time.now
       end
       row :publicized do
-        boolean_image event.publicized  
+        boolean_image event.publicized
       end
       row :published_to_facebook do
         if event.published_to_facebook?
@@ -87,12 +95,13 @@ ActiveAdmin.register Event, as: "Show" do
     f.inputs do
       f.template.render partial: 'admin/attached_image', locals: {f: f}
     end
-    
+
     f.actions
   end
 
   action_item only: :show do
-    link_to "Publish to Facebook", "", data: {"publish-facebook-event" => resource.id, "confirm" => publish_to_facebook_confirm(resource)}
+    link_to("Publish to Facebook", "", data: {"publish-facebook-event" => resource.id, "confirm" => publish_to_facebook_confirm(resource)}) +
+    link_to("Duplicate", new_admin_show_path(source_id: resource.id))
   end
 
   member_action :facebook, method: :post do
