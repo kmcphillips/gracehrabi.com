@@ -1,8 +1,12 @@
+#= require webshims/polyfiller
 #= require active_admin/base
 #= require admin_images
 #= require facebook
 
 $ ->
+  $.webshims.setOptions('basePath', '/assets/webshims/shims/')
+  $.webshims.polyfill()
+
   $("#image_sortable").sortable update: ->
     $.ajax
       url: "/admin/images/sort"
