@@ -50,8 +50,12 @@ ActiveAdmin.register Post do
     f.inputs do
       f.template.render partial: 'admin/attached_image', locals: {f: f}
     end
-    
+
     f.actions
+  end
+
+  action_item only: :show do
+    link_to("New Post", new_admin_post_path)
   end
 
 end

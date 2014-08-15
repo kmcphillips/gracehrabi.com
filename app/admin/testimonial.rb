@@ -48,4 +48,7 @@ ActiveAdmin.register Testimonial do
     f.actions
   end
 
+  action_item only: :show do
+    link_to("New Testimonial", new_admin_testimonial_path)
+  end
 end

@@ -101,7 +101,8 @@ ActiveAdmin.register Event, as: "Show" do
 
   action_item only: :show do
     link_to("Publish to Facebook", "", data: {"publish-facebook-event" => resource.id, "confirm" => publish_to_facebook_confirm(resource)}) +
-    link_to("Duplicate", new_admin_show_path(source_id: resource.id))
+    link_to("Duplicate", new_admin_show_path(source_id: resource.id)) +
+    link_to("New Show", new_admin_show_path)
   end
 
   member_action :facebook, method: :post do

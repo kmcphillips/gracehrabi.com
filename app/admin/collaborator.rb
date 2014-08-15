@@ -50,4 +50,7 @@ ActiveAdmin.register Link, as: "Collaborators" do
     f.actions
   end
 
+  action_item only: :show do
+    link_to("New Collaborator", new_admin_link_path)
+  end
 end
