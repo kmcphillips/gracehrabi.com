@@ -7,7 +7,7 @@ describe DownloadsController do
   describe "GET download" do
     it "should return the file by name" do
       expect(DownloadRecord.all).to be_blank
-      expect(controller).to receive(:send_file).and_return{ controller.render nothing: true }
+      expect(controller).to receive(:send_file){ controller.render nothing: true }
       get :download, filename: download.filename, token: purchase.token
       expect(response).to be_success
       expect(DownloadRecord.all.count).to eq(1)
