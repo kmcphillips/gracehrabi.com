@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 4.2.0.beta1'
 gem 'spring'
+gem 'responders'
 gem 'mysql2'
 
 gem 'capistrano'

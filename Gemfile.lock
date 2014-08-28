@@ -410,6 +410,7 @@ DEPENDENCIES
   quiet_assets
   rails (~> 4.2.0.beta1)
   rails_config
+  responders
   resque
   resque_spec
   rinku
