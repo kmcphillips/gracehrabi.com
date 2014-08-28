@@ -9,7 +9,7 @@ ActiveAdmin.register Block, as: "Sections" do
 
   controller do
     def permitted_params
-      params.permit(sections: [:body, :image, :clear_image, :previous_image_id])
+      params.permit(block: [:body, :image, :clear_image, :previous_image_id])
     end
   end
 
@@ -24,7 +24,7 @@ ActiveAdmin.register Block, as: "Sections" do
     column :age do |post|
       "#{ distance_of_time_in_words_to_now(post.updated_at) } ago"
     end
-    default_actions
+    actions
   end
 
   form do |f|
@@ -36,7 +36,7 @@ ActiveAdmin.register Block, as: "Sections" do
         f.template.render partial: 'admin/attached_image', locals: {f: f}
       end
     end
-    
+
     f.actions
   end
 

@@ -27,7 +27,7 @@ ActiveAdmin.register Download do
     column :total_sales do |download|
       download.purchases.count
     end
-    default_actions
+    actions
   end
 
   show do |download|
@@ -36,7 +36,9 @@ ActiveAdmin.register Download do
       row :file do
         link_to download.filename, file_admin_download_path(download)
       end
-      row :allow_anonymous
+      row :allow_anonymous do
+        boolean_image download.allow_anonymous
+      end
       row :shopify_product do
         link_to "View product on Shopify", "https://gracehrabi.myshopify.com/admin/products/#{ download.shopify_product_id }"
       end

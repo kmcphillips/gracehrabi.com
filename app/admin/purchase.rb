@@ -35,7 +35,7 @@ ActiveAdmin.register Purchase do
       purchase.download_records.count
     end
     column :created_at
-    default_actions
+    actions
   end
 
   action_item only: :index do

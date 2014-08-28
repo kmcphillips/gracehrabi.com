@@ -1,7 +1,9 @@
+/*
+ *= require jquery-ui/dialog
+ */
+
 @import "active_admin/mixins";
 @import "active_admin/base";
-
-@import "jquery.ui.dialog";
 
 .attached-image-container {
   float: left;

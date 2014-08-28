@@ -17,7 +17,7 @@ ActiveAdmin.register AuthorizedEmail do
   index format: :blog, download_links: false do
     column :email
     column :created_at
-    default_actions
+    actions
   end
 
   form do |f|

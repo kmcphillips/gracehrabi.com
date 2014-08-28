@@ -21,7 +21,7 @@ ActiveAdmin.register Testimonial do
     column :active do |testimonial|
       boolean_image testimonial.active?
     end
-    default_actions
+    actions
   end
 
   show do |testimonial|

@@ -21,9 +21,9 @@ ActiveAdmin.register Contact do
     column :created_at
     column :source
     column :enabled do |contact|
-      boolean_image :enabled?
+      boolean_image contact.enabled?
     end
-    default_actions
+    actions
   end
 
   form do |f|

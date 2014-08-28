@@ -10,7 +10,7 @@ ActiveAdmin.register Event, as: "Show" do
 
   controller do
     def permitted_params
-      params.permit(show: [:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id, :location])
+      params.permit(event: [:title, :description, :publicized, :starts_at, :price, :image, :clear_image, :previous_image_id, :location])
     end
 
     private

@@ -8,7 +8,7 @@ ActiveAdmin.register Link, as: "Collaborators" do
 
   controller do
     def permitted_params
-      params.permit(collaborators: [:title, :url, :description])
+      params.permit(link: [:title, :url, :description])
     end
   end
 
@@ -23,7 +23,7 @@ ActiveAdmin.register Link, as: "Collaborators" do
       truncate link.description, length: 80, omission: '...'
     end
     column :sort_order
-    default_actions
+    actions
   end
 
   show do |link|
@@ -51,6 +51,6 @@ ActiveAdmin.register Link, as: "Collaborators" do
   end
 
   action_item only: :show do
-    link_to("New Collaborator", new_admin_link_path)
+    link_to("New Collaborator", new_admin_collaborator_path)
   end
 end

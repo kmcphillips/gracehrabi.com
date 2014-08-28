@@ -25,7 +25,7 @@ ActiveAdmin.register Post do
     column :age do |post|
       "#{ distance_of_time_in_words_to_now(post.created_at) } ago"
     end
-    default_actions
+    actions
   end
 
   show do |post|

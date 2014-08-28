@@ -10,6 +10,10 @@ ActiveAdmin.register Lyric do
     def permitted_params
       params.permit(lyric: [:title, :body])
     end
+
+    def resource
+      Lyric.find_by_permalink(params[:id])
+    end
   end
 
   index format: :blog, download_links: false do
@@ -17,7 +21,7 @@ ActiveAdmin.register Lyric do
       link_to lyric.title, admin_lyric_path(lyric)
     end
     column :created_at
-    default_actions
+    actions
   end
 
   show do |lyric|
