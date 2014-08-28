@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(version: 20140614215153) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_fingerprint"
-    t.boolean  "publicized",               default: true
-    t.float    "price",                    default: 0.0
+    t.boolean  "publicized",                          default: true
+    t.float    "price",                    limit: 24, default: 0.0
     t.datetime "published_to_facebook_at"
     t.string   "location"
   end
