@@ -17,10 +17,14 @@ describe FrontEndController do
         5.times{ FactoryGirl.create(:event) }
       end
 
-      subject{ controller.send(:upcoming_events) }
+      it "should generate a short list of events" do
+        events = controller.send(:upcoming_events)
 
-      its(:length){ should eq(3) }
-      its(:first){ should be_an_instance_of(Event) }
+        expect(events.length).to eq(3)
+        events.each do |event|
+          expect(event).to be_an_instance_of(Event)
+        end
+      end
     end
 
     describe "#recent_posts" do
@@ -28,10 +32,14 @@ describe FrontEndController do
         5.times{ FactoryGirl.create(:post) }
       end
 
-      subject{ controller.send(:recent_posts) }
+      it "should generate a short list of posts" do
+        posts = controller.send(:recent_posts)
 
-      its(:length){ should eq(3) }
-      its(:first){ should be_an_instance_of(Post) }
+        expect(posts.length).to eq(3)
+        posts.each do |post|
+          expect(post).to be_an_instance_of(Post)
+        end
+      end
     end
   end
 end

@@ -12,14 +12,14 @@ describe MailingListMailer do
       end
     end
 
-    subject{ mailer }
-
-    its(:to){ should eq([contact.email]) }
-    its(:from){ should eq(["robot@gracehrabi.com"]) }
-    its(:subject){ should eq("Grace Hrabi: shows for the week of Jan 02, 2014") }
-    its(:body){ should match(/An Event/) }
+    it "should have a correctly formatted mailer" do
+      expect(mailer.to).to eq([contact.email])
+      expect(mailer.from).to eq(["robot@gracehrabi.com"])
+      expect(mailer.subject).to eq("Grace Hrabi: shows for the week of Jan 02, 2014")
+      expect(mailer.body).to match(/An Event/)
+    end
   end
-  
+
   describe "private method" do
     let(:mailer){ MailingListMailer.send(:new) }
 
@@ -28,7 +28,7 @@ describe MailingListMailer do
         Contact.should_not_receive(:emails)
         mailer.send(:mailing_list).should eq([])
       end
-      
+
       it "should get the contacts for prod" do
         emails = double
         Contact.should_receive(:emails).and_return(emails)

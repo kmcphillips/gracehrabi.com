@@ -63,13 +63,13 @@ describe ApplicationHelper do
   end
 
   describe "meta_from_settings" do
-    subject{ helper.meta_from_settings }
-
-    its(:size){ should > 0 }
+    it "should size should be non zero" do
+      expect(helper.meta_from_settings.size).to be > 0
+    end
 
     it "should contain the expected keys" do
       Settings.meta.each do |name, content|
-        expect(subject).to include(" name=\"#{name}\"")
+        expect(helper.meta_from_settings).to include(" name=\"#{name}\"")
       end
     end
   end

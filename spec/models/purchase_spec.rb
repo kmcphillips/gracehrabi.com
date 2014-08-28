@@ -42,10 +42,13 @@ describe Purchase do
   end
 
   describe "delegate" do
-    subject{ purchase }
+    it "should set the expected id" do
+      expect(purchase.shopify_product_id).to eq(download.shopify_product_id)
+    end
 
-    its(:shopify_product_id){ should eq(download.shopify_product_id) }
-    its(:filename){ should eq(download.filename) }
+    it "should filename should match the download" do
+      expect(purchase.filename).to eq(download.filename)
+    end
   end
 
   describe "callback" do
