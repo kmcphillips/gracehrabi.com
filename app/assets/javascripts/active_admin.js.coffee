@@ -4,8 +4,11 @@
 #= require facebook
 
 $ ->
-  $.webshims.setOptions('basePath', '/assets/webshims/shims/')
-  $.webshims.polyfill()
+  setTimeout ->
+    console.log("Setting up webshims.polyfill")
+    $.webshims.setOptions('basePath', '/assets/webshims/shims/')
+    $.webshims.polyfill()
+  , 2000
 
   $("#image_sortable").sortable update: ->
     $.ajax
