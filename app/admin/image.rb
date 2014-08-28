@@ -43,4 +43,7 @@ ActiveAdmin.register Image do
     render nothing: true
   end
 
+  action_item only: :show do
+    link_to("New Image", new_admin_image_path)
+  end
 end
