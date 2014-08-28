@@ -40,7 +40,9 @@ describe Webhook do
     end
 
     it "should send a message and set the error state on failure" do
-      pending
+      webhook = FactoryGirl.create(:webhook, body: 'invalid json')
+      expect(webhook.parse).to be_false
+      expect(webhook.failure?).to be_true
     end
 
     it "should parse and create the webhook" do

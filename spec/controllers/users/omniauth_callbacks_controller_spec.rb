@@ -5,7 +5,7 @@ describe Users::OmniauthCallbacksController do
 
   describe "#google" do
     it "should be tested" do
-      pending
+      skip
     end
   end
 

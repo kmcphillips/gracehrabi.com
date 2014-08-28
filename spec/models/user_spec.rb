@@ -18,7 +18,7 @@ describe User do
 
     describe "#find_for_open_id" do
       it "should be tested" do
-        pending
+        skip
       end
     end
 
