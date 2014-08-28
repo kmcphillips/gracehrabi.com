@@ -53,12 +53,12 @@ describe ApplicationHelper do
   describe "admin?" do
     it "should know if it is not admin" do
       controller.stub(params: {controller: "posts"})
-      helper.admin?.should be_false
+      helper.admin?.should be_falsey
     end
 
     it "should know if it is admin" do
       controller.stub(params: {controller: "admin/posts"})
-      helper.admin?.should be_true
+      helper.admin?.should be_truthy
     end
   end
 

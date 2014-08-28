@@ -23,12 +23,12 @@ describe Webhook do
 
   describe "#accepts_marketing?" do
     it "should be false if the customer does not agree" do
-      expect(webhook.accepts_marketing?).to be_false
+      expect(webhook.accepts_marketing?).to be_falsey
     end
 
     it "should be true if the customer agrees" do
       webhook = Webhook.new(body: "{\"buyer_accepts_marketing\": true}")
-      expect(webhook.accepts_marketing?).to be_true
+      expect(webhook.accepts_marketing?).to be_truthy
     end
   end
 
@@ -41,13 +41,13 @@ describe Webhook do
 
     it "should send a message and set the error state on failure" do
       webhook = FactoryGirl.create(:webhook, body: 'invalid json')
-      expect(webhook.parse).to be_false
-      expect(webhook.failure?).to be_true
+      expect(webhook.parse).to be_falsey
+      expect(webhook.failure?).to be_truthy
     end
 
     it "should parse and create the webhook" do
       expect(PurchaseCreateNotificationJob).to receive(:enqueue)
-      expect(webhook.parse).to be_true
+      expect(webhook.parse).to be_truthy
       purchase = webhook.purchases.first
 
       expect(webhook.purchases.count).to eq(1)
@@ -62,7 +62,7 @@ describe Webhook do
       let(:webhook){ FactoryGirl.create(:webhook, :mobile) }
 
       it "should parse and create the webhook for mobile" do
-        expect(webhook.parse).to be_true
+        expect(webhook.parse).to be_truthy
         expect(webhook.purchases.count).to eq(0)
       end
     end

@@ -8,11 +8,11 @@ describe Link do
   describe "validations" do
     it "should fail with an invalid url" do
       @link.url = "pie"
-      @link.valid?.should be_false
+      @link.valid?.should be_falsey
     end
 
     it "should be ok with a valid url" do
-      @link.valid?.should be_true
+      @link.valid?.should be_truthy
     end
   end
 

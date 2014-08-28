@@ -32,7 +32,7 @@ describe Event do
       it "should find the past events" do
         Event.past.should == [@past]
       end
-      
+
       it "should find the events for the mailing list" do
         Event.create! @valid_attributes.merge(publicized: false, starts_at: time + 2.days)
         Event.create! @valid_attributes.merge(starts_at: time + 15.days)
@@ -57,34 +57,34 @@ describe Event do
 
     describe "current?" do
       it "should know the current event" do
-        @current.current?.should be_true
+        @current.current?.should be_truthy
       end
 
       it "should know the others are not current" do
-        @past.current?.should be_false
-        @upcoming.current?.should be_false
+        @past.current?.should be_falsey
+        @upcoming.current?.should be_falsey
       end
     end
 
     describe "upcoming?" do
       it "should know the upcoming event" do
-        @upcoming.upcoming?.should be_true
+        @upcoming.upcoming?.should be_truthy
       end
 
       it "should know the others are not upcoming" do
-        @past.upcoming?.should be_false
-        @current.upcoming?.should be_false
+        @past.upcoming?.should be_falsey
+        @current.upcoming?.should be_falsey
       end
     end
 
     describe "past?" do
       it "should know the past event" do
-        @past.past?.should be_true
+        @past.past?.should be_truthy
       end
 
       it "should know the others are not past" do
-        @upcoming.past?.should be_false
-        @current.past?.should be_false
+        @upcoming.past?.should be_falsey
+        @current.past?.should be_falsey
       end
     end
 
@@ -111,12 +111,12 @@ describe Event do
 
   describe "#published_to_facebook?" do
     it "should be false without a date" do
-      expect(event.published_to_facebook?).to be_false
+      expect(event.published_to_facebook?).to be_falsey
     end
 
     it "should be true with a date" do
       event.published_to_facebook_at = Time.now
-      expect(event.published_to_facebook?).to be_true
+      expect(event.published_to_facebook?).to be_truthy
     end
   end
 
