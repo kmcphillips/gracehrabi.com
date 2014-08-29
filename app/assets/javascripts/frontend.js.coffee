@@ -4,10 +4,10 @@ $ ->
   window.onReadyAndPjax()
 
   $(document).on 'pjax:send', ->
-    $('#spinner').show()
+    NProgress.start()
 
   $(document).on 'pjax:complete', ->
-    $('#spinner').hide()
+    NProgress.done()
 
 window.onReadyAndPjax = ->
   $(".fancybox").fancybox

@@ -6,6 +6,7 @@
  *= require normalize
  *= require main
  *= require calendar
+ *= require nprogress
 */
 
 #development_notice {
