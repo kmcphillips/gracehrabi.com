@@ -39,6 +39,7 @@ gem 'pjax_rails'
 gem 'font-awesome-rails'
 gem 'webshims-rails'
 gem 'modernizr-rails'
+gem 'nprogress-rails'
 
 group :development do
   gem 'letter_opener'
