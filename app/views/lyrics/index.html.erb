@@ -1,23 +1,22 @@
 <%= pjax_layout do %>
   <h2>Albums</h2>
-  <%= link_to Settings.shop_url do %>
-    <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px; padding-right: 20px; padding-bottom: 20px', class: 'left_float' %>
-  <% end %>
-  <p>
-    Debut album <em>Afraid of Heights</em>, featuring Jesse Popeski on guitar &amp; Quintin Bart on bass.
-  </p>
-  <p style="clear: both; text-align: center">
-    <%= link_to "Buy the CD now and receive MP3s of the album immediately", Settings.shop_url %>
-    <br>
-    <sub>or</sub>
-    <br>
-    <%= link_to "Listen to the full album on Bandcamp", Settings.bandcamp_url %>
-    <br>
-    <sub>or</sub>
-    <br>
-    <%= link_to "Hear more of Grace on Soundcloud", Settings.soundcloud_url %>
-  </p>
-  <div class="clear"></div>
+  <div class="album">
+    <div class="album-image">
+      <%= link_to Settings.shop_url do %>
+        <%= image_tag 'grace_hrabi_afraid_of_heights_cover.jpg', style: 'height: 300px;' %>
+      <% end %>
+    </div>
+    <div class="album-right">
+      <p>
+        Debut album <em>Afraid of Heights</em>, featuring Jesse Popeski on guitar &amp; Quintin Bart on bass.
+      </p>
+      <ul>
+        <li><%= link_to "Buy the CD now and receive MP3s of the album immediately", Settings.shop_url %></li>
+        <li><%= link_to "Listen to the full album on Bandcamp", Settings.bandcamp_url %></li>
+        <li><%= link_to "Hear more of Grace on Soundcloud", Settings.soundcloud_url %></li>
+      </ul>
+    </div>
+  </div>
 
   <% if @lyrics.any? %>
     <h1>Lyrics</h1>
