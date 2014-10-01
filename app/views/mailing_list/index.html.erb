@@ -6,11 +6,9 @@
 
   <%= form_tag mailing_list_index_path, method: :post do %>
     <div class="field">
-      <label>
-        Email Address
-        <%= text_field_tag :email, params[:email] %>
-      </label>
-      <%= submit_tag "Sign Up" %>
+      <label>Email Address</label>
+      <%= text_field_tag :email, params[:email] %>
+      <%= submit_tag "Sign Up", class: "button" %>
     </div>
   <% end %>
 <% end %>
