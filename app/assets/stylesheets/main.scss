@@ -512,7 +512,7 @@ ul.collaborators {
     color: #cccccc;
 }
 
-input[type=text] {
+input[type=text], input[type=email]{
     border-radius: 7px;
     font-family: 'Roboto', Arial, sans-serif;
     border: 1px solid #cccccc;
