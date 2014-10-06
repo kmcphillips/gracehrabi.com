@@ -15,18 +15,17 @@ class MailingListController < FrontEndController
       redirect_to :back
     end
   end
-  
+
   def show
     @contact = Contact.find_by_token(params[:id])
 
     if @contact
       @title = "Unsubscribe"
     else
-      flash[:error] = "Could not find email to unsubscribe."
-      redirect_to root_path
+      redirect_to "http://gracehrabi.us8.list-manage.com/unsubscribe?u=d1b41ff21448dd7fdff80820e&id=2d098428cf"
     end
   end
-  
+
   def destroy
     @contact = Contact.find_by_token_and_disabled!(params[:id], false)
     @contact.disable
