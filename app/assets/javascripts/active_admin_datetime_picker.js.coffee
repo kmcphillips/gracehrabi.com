@@ -24,7 +24,7 @@ $ ->
           select.hide()
 
         when 3 # hour
-          selected = select.val()
+          selected = parseInt(select.val())
           select.children().remove()
 
           for i in [0..23]
@@ -36,19 +36,22 @@ $ ->
               text = "PM 12"
             else
               text = "PM " + (i - 12)
-            select.append "<option value='" + i + "' " + ((if selected is i then "selected='selected'" else "")) + ">" + text + "</option>"
+
+            option = "<option value='#{ i }' #{ if selected == i then " selected='selected'" else "" }>#{ text }</option>"
+            select.append(option)
 
           select.detach().appendTo(container)
 
         when 4 # minute
           select.find("option").each ->
-            $(this).remove() if $(this).val() isnt "00" and $(this).val() isnt "15" and $(this).val() isnt "30" and $(this).val() isnt "45"
+            value = $(this).val()
+            $(this).remove() if value isnt "00" and value isnt "15" and value isnt "30" and value isnt "45"
 
           select.detach().appendTo(container)
 
     $(this).find("ol.fragments-group").hide()
 
-    container.prepend("<input type='text' size='10' class='datetime_picker' value='" + year + "/" + month + "/" + day + "' />")
+    container.prepend("<input type='text' size='10' class='datetime_picker' value='#{ year }/#{  month }/#{ day }' />")
     container.find("input[type=text]").datepicker
       changeMonth: true
       dateFormat: "yy/mm/dd"
