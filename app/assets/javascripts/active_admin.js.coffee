@@ -1,6 +1,7 @@
 #= require webshims/polyfiller
 #= require active_admin/base
 #= require admin_images
+#= require active_admin_datetime_picker
 #= require facebook
 
 $ ->

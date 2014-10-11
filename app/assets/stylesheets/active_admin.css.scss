@@ -1,9 +1,11 @@
-/*
- *= require jquery-ui/dialog
- */
-
 @import "active_admin/mixins";
 @import "active_admin/base";
+
+// Conflicts with the existing datepicker styles
+// @import "jquery-ui/core";
+// @import "jquery-ui/theme";
+// @import "jquery-ui/dialog";
+// @import "jquery-ui/datepicker";
 
 .attached-image-container {
   float: left;
