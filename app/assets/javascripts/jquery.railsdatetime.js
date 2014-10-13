@@ -20,78 +20,43 @@
 
   $.extend(Plugin.prototype, {
     init: function(){
-      var year = 0,
-      month = 0,
-      day = 0;
+      var datetimepicker = this.datetimepicker(this.element, this.settings);
 
-      // Setup the element which will hold the new select
-      var container = $(this.settings.containerHtml);
-      $(this.element).append(container);
+      datetimepicker.selectYear.hide();
+      datetimepicker.selectMonth.hide();
+      datetimepicker.selectDay.hide();
 
-      // Pull out the five dropdowns
-      // TODO: Assert
-      var selects = $(this.element).find('select');
+      // Format the hours
+      if(this.settings.ampm){
+        var selected = parseInt(datetimepicker.selectHour.val(), 10);
 
-      selects.each(function(index, node){
-        var select = $(node);
+        datetimepicker.selectHour.children().remove();
 
-        switch(index){
-          // Year
-          case 0:
-            year = select.val();
-            select.hide();
-            break;
+        for (var i = 0; i <= 23; i++){
+          var text;
 
-          // Month
-          case 1:
-            month = select.val();
-            select.hide();
-            break;
+          if (i === 0) {
+            text = "AM 12";
+          } else if (i < 12) {
+            text = "AM " + i;
+          } else if (i === 12) {
+            text = "PM 12";
+          } else {
+            text = "PM " + (i - 12);
+          }
+          var option = "<option value='" + i + "' " + (selected === i ? " selected='selected'" : "") + ">" + text + "</option>";
 
-          // Day
-          case 2:
-            day = select.val();
-            select.hide();
-            break;
+          datetimepicker.selectHour.append(option);
+        }
+      }
 
-          // Hour
-          case 3:
-            var selected = parseInt(select.val());
+      // Format the minutes
+      datetimepicker.selectMinute.find("option").each(function() {
+        var value = $(this).val();
 
-            select.children().remove();
-
-            for (var i = 0; i <= 23; i++){
-              var text;
-
-              if (i === 0) {
-                text = "AM 12";
-              } else if (i < 12) {
-                text = "AM " + i;
-              } else if (i === 12) {
-                text = "PM 12";
-              } else {
-                text = "PM " + (i - 12);
-              }
-              var option = "<option value='" + i + "' " + (selected === i ? " selected='selected'" : "") + ">" + text + "</option>";
-              select.append(option);
-            }
-
-            select.detach().appendTo(container);
-            break;
-
-          // Minute
-          case 4:
-            select.find("option").each(function() {
-              var value = $(this).val();
-
-              // TODO: this.options.minutes
-              if (value !== "00" && value !== "15" && value !== "30" && value !== "45") {
-                $(this).remove();
-              }
-            });
-
-            select.detach().appendTo(container);
-            break;
+        // TODO: this.options.minutes
+        if (value !== "00" && value !== "15" && value !== "30" && value !== "45") {
+          $(this).remove();
         }
       });
 
@@ -99,28 +64,51 @@
       if(this.settings.afterInit)
         this.settings.afterInit.call(this.element);
 
-      // Add the datepicker
-      var datepicker = $(this.settings.inputHtml);
-      datepicker.attr('value', "" + year + "/" + month + "/" + day);
+      // TODO: Assert jQuery-ui is present
 
-      container.prepend(datepicker);
-
-      // Assumes jQuery-ui is present
-      // TODO: Assert
-      datepicker.datepicker({
+      // Setup the date picker text input
+      datetimepicker.datepicker.datepicker({
         changeMonth: true,
         dateFormat: "yy/mm/dd",
         onClose: function(text) {
           var tokens = text.split("/");
 
-          for(var index = 0; index < tokens.length && index < 3; index++){
-            var value = tokens[index].replace(/^[0]/g, "");
-            var select = selects[index];
+          // TODO: Assert length 3
 
-            $(select).val(value);
-          }
+          datetimepicker.selectYear.val(tokens[0].replace(/^[0]/g, ""));
+          datetimepicker.selectMonth.val(tokens[1].replace(/^[0]/g, ""));
+          datetimepicker.selectDay.val(tokens[2].replace(/^[0]/g, ""));
         }
       });
+    },
+    datetimepicker: function(element, settings) {
+      var picker = {
+        container: $(settings.containerHtml),
+        datepicker: $(settings.inputHtml),
+        selects: $(element).find('select')
+      };
+
+      // TODO: Assert number of selects
+
+      picker.selectYear = $(picker.selects[0])
+      picker.selectMonth = $(picker.selects[1])
+      picker.selectDay = $(picker.selects[2])
+      picker.selectHour = $(picker.selects[3])
+      picker.selectMinute = $(picker.selects[4])
+
+      picker.datepicker.attr('value', "" + picker.selectYear.val() + "/" + picker.selectMonth.val() + "/" + picker.selectDay.val());
+
+      $(element).append(picker.container);
+      picker.container.prepend(picker.datepicker);
+
+      picker.selectYear.hide();
+      picker.selectMonth.hide();
+      picker.selectDay.hide();
+
+      picker.selectHour.detach().appendTo(picker.container);
+      picker.selectMinute.detach().appendTo(picker.container);
+
+      return picker;
     }
   });
 
