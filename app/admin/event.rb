@@ -87,7 +87,7 @@ ActiveAdmin.register Event, as: "Show" do
     f.inputs do
       f.input :title
       f.input :description
-      f.input :starts_at, as: :datetime_picker
+      f.input :starts_at
       f.input :location, hint: "Used only for Facebook to plot the event on a map."
       f.input :price
       f.input :publicized
