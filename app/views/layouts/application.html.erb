@@ -91,6 +91,15 @@
   <footer>
     <div class="wrapper">
       <hr>
+      <div>
+        <h3>Join the mailing list</h3>
+        <%= form_tag mailing_list_index_path, method: :post do %>
+          <div class="field">
+            <%= text_field_tag :email, params[:email] %>
+            <%= submit_tag "Sign Up", class: "button" %>
+          </div>
+        <% end %>
+      </div>
       <p>Copyright &copy; <%= Date.today.year %> Grace Hrabi. All rights reserved.</p>
     </div>
   </footer>
