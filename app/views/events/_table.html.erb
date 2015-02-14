@@ -1,0 +1,18 @@
+<table class="events">
+  <% events.each do |event| %>
+    <tr>
+      <td nowrap>
+        <em><%= event.starts_at.to_formatted_s(:event_condensed) %></em>
+      </td>
+      <td nowrap>
+        Ottawa, ON
+      </td>
+      <td>
+        <%= pjax_link_to event.title, event_path(event) %>
+      </td>
+      <td>
+        <%= pjax_link_to fa_icon('info-circle'), event_path(event) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

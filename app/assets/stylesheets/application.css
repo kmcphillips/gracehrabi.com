@@ -69,7 +69,19 @@ div.error {
 div.notice {
 
 }
-
+table.events {
+  width: 100%;
+}
+table.events td {
+  vertical-align: top;
+  border-top: 1px solid #dbdcca;
+  padding: 10px 5px;
+  font-size: 0.8em;
+}
+table.events em {
+  font-weight: bold;
+  font-style: normal;
+}
 #slidebox{
     width: 300px;
     height: 80px;

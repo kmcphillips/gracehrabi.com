@@ -1,21 +1,15 @@
 <%= pjax_layout do %>
   <% if @current.any? %>
     <h2 class="event">Happening Today</h2>
-    <% @current.each do |event| %>
-      <%= render partial: "event", object: event %>
-    <% end %>
+    <%= render "table", events: @current %>
   <% end %>
   <% if @upcoming.any? %>
     <h2 class="event">Upcoming Shows</h2>
-    <% @upcoming.each do |event| %>
-      <%= render partial: "event", object: event %>
-    <% end %>
+    <%= render "table", events: @upcoming %>
   <% end %>
   <% if @upcoming.blank? && @current.blank? %>
     <h2>No upcoming shows</h2>
   <% end %>
-
-  <h2 class="event">Archive</h2>
   <p>
     <%= pjax_link_to "View archive of past events", archive_events_path %>
   </p>
