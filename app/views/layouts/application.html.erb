@@ -16,7 +16,7 @@
   <%= javascript_include_tag 'application' %>
   <%= yield :js %>
   <%= csrf_meta_tag %>
-  <%= render partial: "shared/analytics" %>
+  <%= render partial: "shared/analytics" if Rails.env.production? %>
   <%= auto_discovery_link_tag(:rss, '/rss.xml') %>
 </head>
 <body>
