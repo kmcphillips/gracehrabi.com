@@ -481,7 +481,7 @@ footer {
     background: #eeefdb;
 }
 
-footer input[type=text] {
+footer input[type=text], footer input[type=email] {
     padding: 6px 10px;
     background: transparent;
     font-family: 'Roboto Slab', Georgia, serif;

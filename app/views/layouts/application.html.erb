@@ -128,12 +128,19 @@
       <hr>
       <div>
         <h3>Join the mailing list</h3>
-        <%= form_tag mailing_list_index_path, method: :post do %>
+        <form action="//gracehrabi.us8.list-manage.com/subscribe/post?u=d1b41ff21448dd7fdff80820e&amp;id=2d098428cf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
           <div class="field">
-            <%= text_field_tag :email, params[:email] %>
-            <%= submit_tag "Sign Up", class: "button" %>
+            <input type="email" value="" name="EMAIL">
+            <input type="submit" value="Subscribe" name="subscribe" class="button">
           </div>
-        <% end %>
+          <div id="mce-responses" class="clear">
+            <div id="mce-error-response" style="display:none"></div>
+            <div id="mce-success-response" style="display:none"></div>
+          </div>
+          <div style="position: absolute; left: -5000px;">
+            <input type="text" name="b_d1b41ff21448dd7fdff80820e_2d098428cf" tabindex="-1" value="">
+          </div>
+        </form>
       </div>
       <p>Copyright &copy; <%= Date.today.year %> Grace Hrabi. All rights reserved.</p>
     </div>
