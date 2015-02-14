@@ -122,5 +122,11 @@ describe Event do
     end
   end
 
+  context "class methods" do
+    describe "#locations" do
+      it "should return a static list for now of location strings" do
+        expect(Event.locations).to eq(["Ottawa, ON", "Winnipeg, MB"])
+      end
+    end
+  end
 end
-

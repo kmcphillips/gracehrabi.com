@@ -28,7 +28,9 @@ ActiveAdmin.register Event, as: "Show" do
       if source_event = Event.find_by_id(params[:source_id])
         source_event.dup
       else
-        super
+        new_event = super
+        new_event.location = Event.locations.first unless new_event.location
+        new_event
       end
     end
 
@@ -38,6 +40,7 @@ ActiveAdmin.register Event, as: "Show" do
     column :title do |event|
       link_to event.title, admin_show_path(event)
     end
+    column :location
     column "Start date", :starts_at
     column :in do |event|
       distance_of_time_in_words_to_now(event.starts_at) unless event.starts_at < Time.now
@@ -88,9 +91,11 @@ ActiveAdmin.register Event, as: "Show" do
       f.input :title
       f.input :description
       f.input :starts_at
-      f.input :location, hint: "Used only for Facebook to plot the event on a map."
       f.input :price
       f.input :publicized
+    end
+    f.inputs do
+      f.template.render partial: 'admin/events/location', locals: {f: f}
     end
     f.inputs do
       f.template.render partial: 'admin/attached_image', locals: {f: f}

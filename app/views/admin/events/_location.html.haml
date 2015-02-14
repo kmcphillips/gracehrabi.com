@@ -1,0 +1,7 @@
+%ol
+  %li.string.input
+    %label.label Location
+    = f.text_field :location, id: "location-field"
+    %div{style: "padding-left: 20%; padding-top: 10px"}
+      - Event.locations.each_with_index do |location, index|
+        = link_to location, "#", onclick: "$('#location-field').val('#{ j location }'); return false;"

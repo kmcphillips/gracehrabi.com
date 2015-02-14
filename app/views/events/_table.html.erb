@@ -5,7 +5,7 @@
         <em><%= event.starts_at.to_formatted_s(:event_condensed) %></em>
       </td>
       <td nowrap>
-        Ottawa, ON
+        <%= event.location %>
       </td>
       <td>
         <%= pjax_link_to event.title, event_path(event) %>

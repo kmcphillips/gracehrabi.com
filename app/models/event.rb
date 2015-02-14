@@ -71,5 +71,14 @@ class Event < ActiveRecord::Base
     !!published_to_facebook_at
   end
 
+  class << self
+    def locations
+      [
+        "Ottawa, ON",
+        "Winnipeg, MB"
+      ]
+    end
+  end
+
 end
 
