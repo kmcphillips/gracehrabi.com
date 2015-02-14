@@ -7,17 +7,7 @@
       </h1>
       <br/>
       <div class="body">
-        <ul class="past">
-          <% events.each do |event| %>
-            <li>
-              <span class="bold">
-                <%= pjax_link_to event.starts_at.to_formatted_s(:news_without_time), event_path(event) %>
-              </span>
-              <%= " : " %>
-              <%= pjax_link_to event.title, event_path(event) %>
-            </li>
-          <% end %>
-        </ul>
+        <%= render 'table', events: events %>
       </div>
     </div>
   <% end %>
