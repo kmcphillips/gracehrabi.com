@@ -4,6 +4,7 @@
 //= require jquery.pjax
 //= require jquery.easing
 //= require jquery.qtip.js
+//= require jquery.cookie
 //= require nprogress
 //= require fancybox
 //= require frontend
