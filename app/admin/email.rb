@@ -1,5 +1,5 @@
 ActiveAdmin.register Contact do
-  menu label: "Mailing List", priority: 4
+  menu label: "Legacy Mailing List", priority: 5, parent: "Sales"
 
   config.batch_actions = false
   config.per_page = 50
