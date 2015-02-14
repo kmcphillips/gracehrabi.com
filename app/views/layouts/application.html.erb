@@ -16,7 +16,7 @@
   <%= javascript_include_tag 'application' %>
   <%= yield :js %>
   <%= csrf_meta_tag %>
-  <%= render partial: "shared/analytics" if Rails.env.production? %>
+  <%= render partial: "shared/analytics" %>
   <%= auto_discovery_link_tag(:rss, '/rss.xml') %>
 
   <link rel="shortcut icon" href="/favicon.ico">
