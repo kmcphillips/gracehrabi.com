@@ -4,7 +4,7 @@ gem 'rails', '~> 4.1'
 gem 'mysql2'
 
 gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'rvm-capistrano', require: false
 gem 'capistrano-resque', '~> 0.1.0', require: false
 
 gem 'activeadmin', github: 'activeadmin'
