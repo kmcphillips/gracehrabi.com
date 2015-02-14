@@ -20,17 +20,6 @@
   <%= auto_discovery_link_tag(:rss, '/rss.xml') %>
 </head>
 <body>
-<!--
-  <div id="spinner">Loading</div>
-  <% unless Rails.env.production? %>
-  <div id="development_notice">
-    <%= Rails.env.humanize %>
-    Server
-    <br/>
-    <%= Digest::SHA1.hexdigest(Time.now.to_i.to_s)[0..15] %>
-  </div>
-  <% end %>
--->
   <header>
     <div class="wrapper">
       <%= pjax_link_to "Grace Hrabi", root_path, id: "logo", title: "Grace Hrabi" %>
