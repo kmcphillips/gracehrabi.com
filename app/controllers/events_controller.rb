@@ -3,7 +3,6 @@ class EventsController < FrontEndController
   def index
     @upcoming = Event.upcoming
     @current = Event.current
-    @calendar = EventCalendar.new(params[:month], params[:year])
   end
 
   def show

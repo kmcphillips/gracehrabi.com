@@ -1,8 +1,4 @@
 <%= pjax_layout do %>
-  <div class="post">
-    <%= render partial: "calendar", object: @calendar %>
-  </div>
-
   <% if @current.any? %>
     <h2 class="event">Happening Today</h2>
     <% @current.each do |event| %>
