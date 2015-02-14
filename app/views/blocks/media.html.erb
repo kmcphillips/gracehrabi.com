@@ -21,16 +21,19 @@
     <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Afraid_of_Heights.jpg" %> -
     Afraid of Heights album art (.jpg)
     <br>
-    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo1.jpg" %> -
-    Promo Photo 1 (.jpg)
-    <br>
-    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo2.jpg" %> -
-    Promo Photo 2 (.jpg)
-    <br>
-    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo3.jpg" %> -
-    Promo Photo 3 (.jpg)
-    <br>
-    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo4.jpg" %> -
-    Promo Photo 4 (.jpg)
+    <% (1..4).each do |index| %>
+      <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo#{ index }.jpg" %> -
+      Promo Photo <%= index %> (.jpg)
+      <br>
+    <% end %>
   </p>
+
+  <div class="gallery">
+    <div class="gallery-row">
+      <%= link_to image_tag("/electronic_press_kit/Grace_Hrabi_Afraid_of_Heights_thumb.jpg"), "/electronic_press_kit/Grace_Hrabi_Afraid_of_Heights.jpg", class: 'image-thumb' %>
+      <% (1..4).each do |index| %>
+        <%= link_to image_tag("/electronic_press_kit/Grace_Hrabi_Promo_Photo#{ index }_thumb.jpg"), "/electronic_press_kit/Grace_Hrabi_Promo_Photo#{ index }.jpg", class: 'image-thumb' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
