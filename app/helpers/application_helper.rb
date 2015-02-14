@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module ApplicationHelper
 
   def page_title
