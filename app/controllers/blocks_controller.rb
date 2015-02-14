@@ -14,6 +14,10 @@ class BlocksController < FrontEndController
     @images = Image.all_active.in_order
   end
 
+  def media
+    @title = "Electronic Press Kit"
+  end
+
   protected
 
   def load_block

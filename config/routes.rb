@@ -10,10 +10,13 @@ GracehrabiCom::Application.routes.draw do
   get 'news/:id', to: 'posts#show', as: :news
   get 'rss.:format', to: 'posts#rss'
 
-  [:collaborators, :gallery].each do |block|
+  [:collaborators, :gallery, :media].each do |block|
     get block.to_s, to: "blocks##{block}"
   end
   get 'bio' => redirect('about')
+  ['epk', 'press', 'press_kit'].each do |link|
+    get link => redirect('media')
+  end
 
   get 'music' => 'lyrics#index', as: :music
   resources :lyrics, only: [:show]

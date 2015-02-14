@@ -101,7 +101,14 @@ module ApplicationHelper
   end
 
   def truncate_for_index(str, length = 120)
-    truncate(str, length: length, omission: " (more..)")
+    truncate(str, length: length, omission: " (more…)")
+  end
+
+  def link_to_download_with_icon(link, opts={})
+    [
+      link_to(fa_icon('download'), link, opts),
+      link_to("Download", link, opts)
+    ].join.html_safe
   end
 
   def error_messages(object)
