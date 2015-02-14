@@ -3,6 +3,7 @@ class BlocksController < FrontEndController
 
   def home
     @about = Block.find_by_label('about')
+    @title = ""
   end
 
   def collaborators
