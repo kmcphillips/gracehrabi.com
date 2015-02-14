@@ -34,6 +34,13 @@ ActiveAdmin.register Event, as: "Show" do
       end
     end
 
+    helper_method :location_fill_hint
+    def location_fill_hint
+      Event.locations.map do |location|
+        view_context.link_to(location, "#", onclick: "$('#event_location').val('#{ view_context.j(location) }'); return false;").html_safe
+      end.join(" / ").html_safe
+    end
+
   end
 
   index format: :blog, download_links: false do
@@ -91,11 +98,9 @@ ActiveAdmin.register Event, as: "Show" do
       f.input :title
       f.input :description
       f.input :starts_at
+      f.input :location, hint: location_fill_hint, id: "location-field"
       f.input :price
       f.input :publicized
-    end
-    f.inputs do
-      f.template.render partial: 'admin/events/location', locals: {f: f}
     end
     f.inputs do
       f.template.render partial: 'admin/attached_image', locals: {f: f}
