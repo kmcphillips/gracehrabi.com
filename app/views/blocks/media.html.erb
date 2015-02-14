@@ -1,6 +1,36 @@
 <%= pjax_layout do %>
   <h2>Electronic Press Kit</h2>
 
-  <ul>
-  </ul>
+  <p>
+    <%= link_to(fa_icon('download'), "/electronic_press_kit/Grace_Hrabi_Electronic_Press_Kit.zip") %>
+    <%= link_to("Download All", "/electronic_press_kit/Grace_Hrabi_Electronic_Press_Kit.zip") %>
+    <br>
+    Full electronic press kit (.zip) includes all the following resources:
+  </p>
+
+  <p>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Bios.pdf" %> -
+    Biography (.pdf)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_One_Sheet.pdf" %> -
+    One Sheet (.pdf)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Press_Quotes.pdf" %> -
+    Press Quotes (.pdf)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Afraid_of_Heights.jpg" %> -
+    Afraid of Heights album art (.jpg)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo1.jpg" %> -
+    Promo Photo 1 (.jpg)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo2.jpg" %> -
+    Promo Photo 2 (.jpg)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo3.jpg" %> -
+    Promo Photo 3 (.jpg)
+    <br>
+    <%= link_to_download_with_icon "/electronic_press_kit/Grace_Hrabi_Promo_Photo4.jpg" %> -
+    Promo Photo 4 (.jpg)
+  </p>
 <% end %>
