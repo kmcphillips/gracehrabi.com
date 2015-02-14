@@ -6,10 +6,6 @@ class BlocksController < FrontEndController
     @title = ""
   end
 
-  def collaborators
-    @links = Link.in_order
-  end
-
   def gallery
     @images = Image.all_active.in_order
   end
