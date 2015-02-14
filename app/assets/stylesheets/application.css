@@ -69,3 +69,33 @@ div.error {
 div.notice {
 
 }
+
+#slidebox{
+    width: 300px;
+    height: 80px;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 3px solid #f38043;
+    position: fixed;
+    bottom: 0px;
+    right: -330px;
+    -moz-box-shadow: -2px 0px 5px #aaa;
+    -webkit-box-shadow: -2px 0px 5px #aaa;
+    box-shadow: -2px 0px 5px #aaa;
+}
+#slidebox a.close{
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    cursor: pointer;
+    top: 18px;
+    right: 18px;
+}
+.twitter-follow-button {
+  float: left;
+  padding: 8px 10px 8px 50px;
+}
+.fb-like {
+  float: left;
+  padding: 3px 10px 8px 10px;
+}

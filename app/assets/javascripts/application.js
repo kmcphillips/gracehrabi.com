@@ -8,4 +8,5 @@
 //= require nprogress
 //= require fancybox
 //= require frontend
+//= require slidebox
 //= require_self
