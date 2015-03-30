@@ -145,5 +145,11 @@
       <p>Copyright &copy; <%= Date.today.year %> Grace Hrabi. All rights reserved.</p>
     </div>
   </footer>
+  <div id="searchlight_modal">
+    <%= link_to Settings.searchlight_url, target: "_blank", onclick: "window.dismissCBCSearchlight()" do %>
+      <%= image_tag "searchlight2015.jpg", alt: "Vote on CBC Searchlight" %>
+      <h3>Vote for Grace on CBC Radio Searchlight</h3>
+    <% end %>
+  </div>
 </body>
 </html>

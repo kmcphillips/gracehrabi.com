@@ -111,3 +111,18 @@ table.events em {
   float: left;
   padding: 3px 10px 8px 10px;
 }
+
+#searchlight_modal {
+  display: none;
+}
+#searchlight_modal img {
+  max-width: 600px;
+}
+#searchlight_modal h3 {
+  text-align: center;
+  margin: 16px 0;
+  padding: 0;
+  text-transform: none;
+  font-size: 1.3em;
+  max-width: 600px;
+}
