@@ -28,7 +28,8 @@ window.onReadyAndPjax = ->
   $("div.header a").click -> $(@).blur()
 
 window.showCBCSearchlight = ->
-  cookieName = 'cbc_searchlight_2015_round1'
+  cookieName = window.cookieCBCSearchlight || "cbc_searchlight_2015_round1_default"
+
   unless $.cookie(cookieName)
     $.cookie(cookieName, 'shown', {expires: 1})
     $.fancybox.open($("#searchlight_modal"))
