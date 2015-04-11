@@ -16,3 +16,5 @@ facebook_url: https://www.facebook.com/GraceHrabiMusic
 shopify_admin_url: https://gracehrabi.myshopify.com/admin
 shop_url: http://shop.gracehrabi.com
 searchlight_url: http://music.cbc.ca/#!/artists/Grace-Hrabi
+
+secret_token: 268e54b5a70a7994ffecef6fa0f9175c856976ffcb295944d1ca12dd7166f223913a37443af743c065c69d571ae1f5f0a1c6a0f33a224253165c0126a11f53a4
