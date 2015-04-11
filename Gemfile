@@ -9,7 +9,7 @@ gem 'capistrano-resque', '~> 0.1.0', require: false
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
-gem 'omniauth-openid'
+gem 'omniauth-google-oauth2'
 gem 'koala'
 gem 'kaminari'
 gem 'paperclip'
