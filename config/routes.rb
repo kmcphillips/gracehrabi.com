@@ -35,6 +35,6 @@ GracehrabiCom::Application.routes.draw do
 
   resources :webhooks, only: [:create]
 
-  get 'searchlight' => redirect(Settings.searchlight_url)
-  get 'cbc' => redirect(Settings.searchlight_url)
+  get 'searchlight' => redirect("/")
+  get 'cbc' => redirect("/")
 end

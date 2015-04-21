@@ -9,8 +9,6 @@ $ ->
   $(document).on 'pjax:complete', ->
     NProgress.done()
 
-  setTimeout(showCBCSearchlight, 1000)
-
 window.onReadyAndPjax = ->
   $(".fancybox").fancybox
     nextEasing: 'easeInOutQuart'
@@ -26,13 +24,3 @@ window.onReadyAndPjax = ->
           background: 'rgba(238,238,238,0.25)'
 
   $("div.header a").click -> $(@).blur()
-
-window.showCBCSearchlight = ->
-  cookieName = window.cookieCBCSearchlight || "cbc_searchlight_2015_round1_default"
-
-  unless $.cookie(cookieName)
-    $.cookie(cookieName, 'shown', {expires: 1})
-    $.fancybox.open($("#searchlight_modal"))
-
-window.dismissCBCSearchlight = ->
-  $.fancybox.close($("#searchlight_modal"))
