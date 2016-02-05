@@ -2,12 +2,14 @@
 
 [![Build Status](https://travis-ci.org/kmcphillips/gracehrabi.com.png)](https://travis-ci.org/kmcphillips/gracehrabi.com)
 
+###
+
+*This project has been archived and is no longer running*
+
 
 ## About
 
-Personal home page for [Grace Hrabi](http://gracehrabi.com). It is written with Rails 4, haml, and jQuery. It provides a full CMS back end using Active Admin, including RMagick image upload, transformation, and thumbnailing.
-
-[http://gracehrabi.com](http://gracehrabi.com)
+Personal home page for Grace Hrabi. It is written with Rails 4, haml, and jQuery. It provides a full CMS back end using Active Admin, including RMagick image upload, transformation, and thumbnailing.
 
 
 ## Quick Setup
